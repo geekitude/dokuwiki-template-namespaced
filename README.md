@@ -23,12 +23,10 @@ donationurl   : https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_butto
 
 An experimental modern and mobile-first DokuWiki template with many namespace related features
 
-It is based on Dokuwiki's starter template.
+It is based on Dokuwiki's default template.
 
     See template.info.txt for template details
     See LICENSE for license info
-
-It's been a long journey since my first DokuWiki template. I then tried to port different WordPress themes (but got stuck at some point between my tastes and the will to respect original author's view) and also tried brand new ones based on heavy frameworks (to finally hate the fact that I was only using a very small portion of their code).
 
 ## Credits
 
