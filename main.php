@@ -30,11 +30,11 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
             <?php include('header.php') ?>
 
-            <div class="wrapper group">
+            <main class="wrapper group">
 
                 <?php if($showSidebar): ?>
                     <!-- ********** ASIDE ********** -->
-                    <div id="dokuwiki__aside">
+                    <aside id="dokuwiki__aside">
                         <div class="pad aside include group">
                             <h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
                             <div class="content">
@@ -46,11 +46,11 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                                 </div>
                             </div>
                         </div>
-                    </div><!-- /aside -->
+                    </aside><!-- /aside -->
                 <?php endif; ?>
 
                 <!-- ********** CONTENT ********** -->
-                <div id="dokuwiki__content">
+                <article id="dokuwiki__content">
                     <div class="pad group">
                         <?php html_msgarea() ?>
 
@@ -69,20 +69,20 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
                         <?php tpl_flush() ?>
                     </div>
-                </div><!-- /content -->
+                </article><!-- /content -->
 
                 <hr class="a11y" />
 
                 <!-- PAGE ACTIONS -->
-                <div id="dokuwiki__pagetools">
+                <nav id="dokuwiki__pagetools">
                     <h3 class="a11y"><?php echo $lang['page_tools']; ?></h3>
                     <div class="tools">
                         <ul>
                             <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
                         </ul>
                     </div>
-                </div>
-            </div><!-- /wrapper -->
+                </nav>
+            </main><!-- /wrapper -->
 
             <?php include('footer.php') ?>
         </div>
