@@ -21,7 +21,7 @@ donationurl   : https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_butto
 ----
 -->
 
-An experimental modern and mobile-first DokuWiki template with many namespace related features
+An experimental polymorphic DokuWiki template based on flexbox with many namespace related features
 
 It is based on Dokuwiki's default template.
 

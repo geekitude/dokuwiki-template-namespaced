@@ -3,5 +3,5 @@ author   Simon DELAGE
 email    sdelage@gmail.com
 date     2020-05-29
 name     Namespaced Template
-desc     An experimental template with many namespace related features
+desc     An experimental polymorphic DokuWiki template based on flexbox with many namespace related features
 url      http://www.dokuwiki.org/template:namespaced
