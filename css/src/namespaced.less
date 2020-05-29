@@ -10,6 +10,8 @@
 * CONTENT
 * Micro-reset
 * Flexbox
+* GLOBAL
+* HEADER
 */
 
 /* Micro-reset */
@@ -60,14 +62,18 @@ body {
     align-content: stretch;
 }
 
+.flex.row {
+    flex-direction: row;
+}
 .flex.row-reverse {
     flex-direction: row-reverse;
 }
 .flex.column {
     flex-direction: column;
 }
-.flex.row {
-    flex-direction: row;
+
+.flex.nowrap {
+    flex-wrap: nowrap;
 }
 
 .flex.justify-evenly {
@@ -94,4 +100,22 @@ body {
 }
 .flex.align-end {
     align-items: flex-end;
+}
+
+.flex .grow1 {
+    flex-grow: 1;
+}
+.flex .grow2 {
+    flex-grow: 2;
+}
+.flex .grow4 {
+    flex-grow: 4;
+}
+
+/* GLOBAL */
+
+/* HEADER */
+
+#namespaced__site-logo {
+    margin-right: 2rem;
 }

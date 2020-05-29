@@ -11,15 +11,16 @@ if (!defined('DOKU_INC')) die();
 <header id="dokuwiki__header">
     <div class="pad group">
 
-        <?php tpl_includeFile('header.html') ?>
-
-        <div class="flex" style="background-color:red;">
-            <div class="headings" style="background-color:green;">
                 <ul class="a11y skip">
                     <li><a href="#dokuwiki__content"><?php echo $lang['skip_to_content']; ?></a></li>
                 </ul>
 
-                <h1>
+        <?php tpl_includeFile('header.html') ?>
+
+        <div class="flex" style="background-color:red;">
+            <div class="headings flex grow1" style="background-color:green;">
+
+                <div style="background-color:gold;">
                     <?php
                         // get logo either out of the template images folder or data/media folder
                         $logoSize = array();
@@ -28,17 +29,33 @@ if (!defined('DOKU_INC')) die();
                         // display logo and wiki title in a link to the home page
                         tpl_link(
                             wl(),
-                            '<img src="'.$logo.'" '.$logoSize[3].' alt="" /> <span>'.$conf['title'].'</span>',
+                            '<img id="namespaced__site-logo" src="'.$logo.'" '.$logoSize[3].' alt="" />',
                             'accesskey="h" title="[H]"'
                         );
                     ?>
-                </h1>
-                <?php if ($conf['tagline']): ?>
-                    <p class="claim"><?php echo $conf['tagline']; ?></p>
-                <?php endif ?>
+                </div>
+                <div id="namespaced__site-branding" class="flex column" style="background-color:chocolate;">
+                    <h1 id="namespaced__site-title">
+                        <?php
+                            // get logo either out of the template images folder or data/media folder
+                            $logoSize = array();
+                            $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/logo.png'), false, $logoSize);
+
+                            // display logo and wiki title in a link to the home page
+                            tpl_link(
+                                wl(),
+                                '<span>'.$conf['title'].'</span>',
+                                'accesskey="h" title="[H]"'
+                            );
+                        ?>
+                    </h1>
+                    <?php if ($conf['tagline']): ?>
+                        <p id="namespaced__stire-description" class="claim"><?php echo $conf['tagline']; ?></p>
+                    <?php endif ?>
+                </div>
             </div>
 
-            <div class="tools" style="background-color:blue;">
+            <div class="tools grow4" style="background-color:blue;">
                 <!-- USER TOOLS -->
                 <?php if ($conf['useacl']): ?>
                     <div id="dokuwiki__usertools">
