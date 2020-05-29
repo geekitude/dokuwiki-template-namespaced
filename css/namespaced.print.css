@@ -1,0 +1,34 @@
+/**
+ * Dokuwiki Namespaced template
+ * 
+ * @link    https://www.dokuwiki.org/template:colormag
+ * @author  Simon DELAGE <sdelage@gmail.com>
+ * @license GPL 3 (https://www.gnu.org/licenses/gpl-3.0.html)
+ *
+ * This file contains template's printing CSS rules.
+*/
+
+/* paper page */
+@page { 
+    size: auto;
+}
+
+/* general */
+body,
+#colormag__page {
+    background-image: unset !important;
+    background-color: #fff !important;
+}
+/** { background: transparent !important; color: black !important; fill: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */*/
+* { background-color: #fff !important; background: #fff !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; }
+*:not(#colormage__pageheader) { box-shadow:none !important; }
+#colormag__page { margin: 0 !important; }
+h1,
+h2,
+h3,
+h4,
+h5,
+caption,
+legend {
+    clear: both;
+}
