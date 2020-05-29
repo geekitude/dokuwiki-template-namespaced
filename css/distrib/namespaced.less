@@ -8,8 +8,92 @@
 
 /**
 * CONTENT
+* Micro-reset
+* Flexbox
 */
 
+/* Micro-reset */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    outline: 0;
+    vertical-align: baseline;
+}
+
+html[dir], [dir] body, [dir] div, [dir] span, [dir] applet, [dir] object, [dir] iframe, [dir] h1, [dir] h2, [dir] h3, [dir] h4, [dir] h5, [dir] h6, [dir] p, [dir] blockquote, [dir] pre, [dir] a, [dir] abbr, [dir] acronym, [dir] address, [dir] big, [dir] cite, [dir] code, [dir] del, [dir] dfn, [dir] em, [dir] font, [dir] ins, [dir] kbd, [dir] q, [dir] s, [dir] samp, [dir] small, [dir] strike, [dir] strong, [dir] sub, [dir] sup, [dir] tt, [dir] var, [dir] dl, [dir] dt, [dir] dd, [dir] ol, [dir] ul, [dir] li, [dir] fieldset, [dir] form, [dir] label, [dir] legend, [dir] table, [dir] caption, [dir] tbody, [dir] tfoot, [dir] thead, [dir] tr, [dir] th, [dir] td {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    overflow-y: scroll;
+    /* Keeps page centred in all browsers regardless of content height */
+    -webkit-text-size-adjust: 100%;
+    /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
+    -ms-text-size-adjust: 100%;
+    /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+    font-size: .625em; /* fallback IE8+ */
+    font-size: calc(1em * .625); /* IE9-IE11 math fixing. See http://bit.ly/1g4X0bX */
+    /* set 1rem (base font-size) to be equivalent to 10p */
+}
+
 body {
-    color: tan;
+    font-size: 1.6em;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Flexbox */
+
+.flex {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: stretch;
+}
+
+.flex.row-reverse {
+    flex-direction: row-reverse;
+}
+.flex.column {
+    flex-direction: column;
+}
+.flex.row {
+    flex-direction: row;
+}
+
+.flex.justify-evenly {
+    justify-content: space-evenly;
+}
+.flex.justify-start {
+    justify-content: start;
+}
+.flex.justify-center {
+    justify-content: center;
+}
+.flex.justify-end {
+    justify-content: end;
+}
+
+.flex.align-stretch {
+    align-items: stretch;
+}
+.flex.align-start {
+    align-items: flex-start;
+}
+.flex.align-center {
+    align-items: center;
+}
+.flex.align-end {
+    align-items: flex-end;
 }
