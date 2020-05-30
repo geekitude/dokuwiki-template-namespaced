@@ -24,14 +24,17 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     <?php tpl_includeFile('meta.html') ?>
 </head>
 
-<body>
+<body id="dokuwiki__top">
     <a class="skip center a11y" href="#dokuwiki__content"><?php echo $lang['skip_to_content']; ?></a>
-    <div id="dokuwiki__site">
-        <div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
+    <div id="dokuwiki__site" class="site <?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
 
-            <?php include('header.php') ?>
+        <?php include('header.php') ?>
 
-            <main class="wrapper flex nowrap align-stretch">
+        <main class="flex nowrap align-stretch">
+
+            <aside></aside>
+
+            <div class="flex nowrap align-stretch">
 
                 <?php if($showSidebar): ?>
                     <!-- ********** ASIDE ********** -->
@@ -73,7 +76,9 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                 </article><!-- /content -->
 
                 <hr class="a11y" />
+            </div><!-- /wrapper -->
 
+            <aside>
                 <!-- PAGE ACTIONS -->
                 <nav id="dokuwiki__pagetools">
                     <h3 class="a11y"><?php echo $lang['page_tools']; ?></h3>
@@ -83,10 +88,12 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                         </ul>
                     </div>
                 </nav>
-            </main><!-- /wrapper -->
+            </aside>
 
-            <?php include('footer.php') ?>
-        </div>
+        </main>
+
+        <?php include('footer.php') ?>
+
     </div><!-- /site -->
 
     <div id="namespaced__housekeeper" class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>

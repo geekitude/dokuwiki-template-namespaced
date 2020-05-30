@@ -20,7 +20,7 @@
 /* Pagetools constants */
 
     @ico-width: 30px;
-    @ico-margin: 5px;
+    @ico-margin: 10px;
 
 /* Move tpl_indexerWebBug() out of the way */
 
@@ -202,6 +202,11 @@ a.skip:active {
 
 /* MAIN
 -------------------------------------------------------------- */
+
+main > aside {
+    min-width: @ico-margin + @ico-width + @ico-margin;
+    max-width: @ico-margin + @ico-width + @ico-margin;
+}
 
 /* RESPONSIVENESS
 -------------------------------------------------------------- */
