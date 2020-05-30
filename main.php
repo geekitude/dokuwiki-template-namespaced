@@ -55,6 +55,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
                 <!-- ********** CONTENT ********** -->
                 <article id="dokuwiki__content">
+
                     <div class="pad">
                         <?php html_msgarea() ?>
 
@@ -63,9 +64,11 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                         <div class="page">
                             <?php tpl_flush() ?>
                             <?php tpl_includeFile('pageheader.html') ?>
+                            <hr class="a11y" />
                             <!-- wikipage start -->
                             <?php tpl_content() ?>
                             <!-- wikipage stop -->
+                            <hr class="a11y" />
                             <?php tpl_includeFile('pagefooter.html') ?>
                         </div>
 
@@ -73,9 +76,9 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
                         <?php tpl_flush() ?>
                     </div>
+
                 </article><!-- /content -->
 
-                <hr class="a11y" />
             </div><!-- /wrapper -->
 
             <aside>
