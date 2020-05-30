@@ -7,17 +7,30 @@
 */
 
 /**
-* CONTENT
-* Micro-reset
+* Pagetools constants
 * Move tpl_indexerWebBug() out of the way
-* Generic classes
-* Flexbox
-* SKIP
+* MICRO-RESET
+* GENERIC CLASSES
+* FLEXBOX
+* Skip
 * HEADER
 * RESPONSIVENESS
 */
 
-/* Micro-reset */
+/* Pagetools constants */
+
+    @ico-width: 30px;
+    @ico-margin: 5px;
+
+/* Move tpl_indexerWebBug() out of the way */
+
+#namespaced__housekeeper {
+    position: fixed;
+    top: 0;
+}
+
+/* MICRO-RESET
+-------------------------------------------------------------- */
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -58,14 +71,9 @@ body {
 ul, ol {
     list-style-position: inside;
 }
-/* Move tpl_indexerWebBug() out of the way */
 
-#namespaced__housekeeper {
-    position: fixed;
-    top: 0;
-}
-
-/* Generic classes */
+/* GENERIC CLASSES
+-------------------------------------------------------------- */
 
 .navbar ul {
     list-style: none;
@@ -87,7 +95,8 @@ ul, ol {
     text-align: end;
 }
 
-/* Flexbox */
+/* FLEXBOX
+-------------------------------------------------------------- */
 
 .flex {
     display: flex;
@@ -147,7 +156,8 @@ ul, ol {
     flex-grow: 4;
 }
 
-/* SKIP */
+/* SKIP
+-------------------------------------------------------------- */
 
 .skip {
     width: 100% !important;
@@ -163,7 +173,8 @@ a.skip:active {
    left: 0;
 }
 
-/* HEADER */
+/* HEADER
+-------------------------------------------------------------- */
 
 #namespaced__site-logo {
     margin-right: 2rem;
@@ -173,7 +184,11 @@ a.skip:active {
     width: 100%;
 }
 
-/* RESPONSIVENESS */
+/* MAIN
+-------------------------------------------------------------- */
+
+/* RESPONSIVENESS
+-------------------------------------------------------------- */
 
 @media screen and (max-width: @ini_site_width + 60px) {
     #dokuwiki__site {
