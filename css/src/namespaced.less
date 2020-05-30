@@ -9,9 +9,11 @@
 /**
 * CONTENT
 * Micro-reset
+* Move tpl_indexerWebBug() out of the way
 * Flexbox
 * GLOBAL
 * HEADER
+* RESPONSIVENESS
 */
 
 /* Micro-reset */
@@ -50,6 +52,13 @@ body {
 * {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+/* Move tpl_indexerWebBug() out of the way */
+
+#namespaced__housekeeper {
+    position: fixed;
+    top: 0;
 }
 
 /* Flexbox */
@@ -118,4 +127,39 @@ body {
 
 #namespaced__site-logo {
     margin-right: 2rem;
+}
+
+/* RESPONSIVENESS */
+
+@media screen and (max-width: @ini_site_width + 60px) {
+    #dokuwiki__site {
+        background-color: lightyellow;
+    }
+}
+
+@media screen and (max-width: @ini_site_width) {
+    #dokuwiki__site {
+        background-color: bisque;
+    }
+}
+
+@media screen and (max-width: @ini_site_width - ((@ini_site_width - @ini_tablet_width) / 2)) {
+}
+
+@media screen and (max-width: @ini_tablet_width) {
+    #dokuwiki__site {
+        background-color: burlywood;
+    }
+}
+
+@media screen and (max-width: @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2)) {
+    #dokuwiki__site {
+        background-color: darkgoldenrod;
+    }
+}
+
+@media screen and (max-width: @ini_phone_width) {
+    #dokuwiki__site {
+        background-color: chocolate;
+    }
 }
