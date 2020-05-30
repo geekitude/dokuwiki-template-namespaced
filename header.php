@@ -11,16 +11,12 @@ if (!defined('DOKU_INC')) die();
 <header id="dokuwiki__header">
     <div class="pad group">
 
-                <ul class="a11y skip">
-                    <li><a href="#dokuwiki__content"><?php echo $lang['skip_to_content']; ?></a></li>
-                </ul>
-
         <?php tpl_includeFile('header.html') ?>
 
-        <div class="flex" style="background-color:red;">
-            <div id="namespaced__site-branding" class="headings flex justify-start grow1" style="background-color:green;">
+        <div class="flex">
+            <div id="namespaced__site-branding" class="headings flex justify-start grow1">
 
-                <div id="namespaced__site-branding-logo" style="background-color:gold;">
+                <div id="namespaced__site-branding-logo">
                     <?php
                         // get logo either out of the template images folder or data/media folder
                         $logoSize = array();
@@ -34,7 +30,7 @@ if (!defined('DOKU_INC')) die();
                         );
                     ?>
                 </div>
-                <div id="namespaced__site-branding-text" class="flex column" style="background-color:chocolate;">
+                <div id="namespaced__site-branding-text" class="flex column">
                     <h1 id="namespaced__site-title">
                         <?php
                             // get logo either out of the template images folder or data/media folder
@@ -55,11 +51,36 @@ if (!defined('DOKU_INC')) die();
                 </div>
             </div>
 
-            <div id="namespaced__header-tools" class="tools flex column align-end grow4" style="background-color:blue;">
+            <div id="namespaced__header-tools" class="tools flex column align-end grow4">
+
+                <!-- SITE TOOLS -->
+                <aside id="dokuwiki__sitetools">
+                    <h3 class="a11y"><?php echo $lang['site_tools']; ?></h3>
+                    <?php tpl_searchform(); ?>
+                    <div class="mobileTools">
+                        <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
+                    </div>
+                    <ul>
+                        <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', false); ?>
+                    </ul>
+                </aside>
+
+            </div>
+        </div>
+
+        <nav id="namespaced__site-nav">
+            <nav id="namespaced__site-navbar" class="flex navbar">
+                <div id="namespaced_ns-content">
+                    <h6 class="a11y"><?php echo tpl_getLang('ns-content'); ?></h6>
+                    <ul>
+                        <!-- NAMESPACE CONTENT -->
+                        <li>test</li>
+                    </ul>
+                </div>
                 <!-- USER TOOLS -->
                 <?php if ($conf['useacl']): ?>
                     <div id="dokuwiki__usertools">
-                        <h3 class="a11y"><?php echo $lang['user_tools']; ?></h3>
+                        <h6 class="a11y"><?php echo $lang['user_tools']; ?></h6>
                         <ul>
                             <?php
                                 if (!empty($_SERVER['REMOTE_USER'])) {
@@ -72,33 +93,25 @@ if (!defined('DOKU_INC')) die();
                         </ul>
                     </div>
                 <?php endif ?>
-
-                <!-- SITE TOOLS -->
-                <div id="dokuwiki__sitetools">
-                    <h3 class="a11y"><?php echo $lang['site_tools']; ?></h3>
-                    <?php tpl_searchform(); ?>
-                    <div class="mobileTools">
-                        <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
-                    </div>
-                    <ul>
-                        <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', false); ?>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- BREADCRUMBS -->
-        <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
-            <nav class="breadcrumbs">
-                <?php if($conf['youarehere']): ?>
-                    <div class="youarehere"><?php tpl_youarehere() ?></div>
-                <?php endif ?>
-                <?php if($conf['breadcrumbs']): ?>
-                    <div class="trace"><?php tpl_breadcrumbs() ?></div>
-                <?php endif ?>
             </nav>
-        <?php endif ?>
+            <!-- BREADCRUMBS -->
+            <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
+                <nav class="breadcrumbs flex navbar">
+                    <?php if($conf['youarehere']): ?>
+                        <div class="youarehere"><?php tpl_youarehere() ?></div>
+                    <?php endif ?>
+                    <?php if($conf['breadcrumbs']): ?>
+                        <div class="trace"><?php tpl_breadcrumbs() ?></div>
+                    <?php endif ?>
+                </nav>
+            <?php endif ?>
+            <!-- TRANSLATIONS -->
+            <?php if(true): ?>
+                <aside class="navbar center">
+                    <span style="background-color:gold;">*Translations*</span>
+                </aside>
+            <?php endif ?>
+        <nav>
 
 
 

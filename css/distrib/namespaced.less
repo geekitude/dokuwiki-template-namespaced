@@ -10,6 +10,7 @@
 * CONTENT
 * Micro-reset
 * Move tpl_indexerWebBug() out of the way
+* Generic classes
 * Flexbox
 * GLOBAL
 * HEADER
@@ -56,11 +57,36 @@ body {
     box-sizing: border-box;
 }
 
+ul, ol {
+    list-style-position: inside;
+}
 /* Move tpl_indexerWebBug() out of the way */
 
 #namespaced__housekeeper {
     position: fixed;
     top: 0;
+}
+
+/* Generic classes */
+
+.navbar ul {
+    list-style: none;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+[dir] .start {
+    text-align: start;
+}
+
+[dir] .center {
+    text-align: center;
+}
+
+[dir] .end {
+    text-align: end;
 }
 
 /* Flexbox */

@@ -21,7 +21,7 @@ donationurl   : https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_butto
 ----
 -->
 
-An experimental polymorphic DokuWiki template based on flexbox with many namespace related features
+An experimental polymorphic and responsive DokuWiki template based on flexbox with many namespace related features
 
 It is based on Dokuwiki's default template.
 
@@ -45,4 +45,5 @@ It is based on Dokuwiki's default template.
 * SVG icons come from [Material Design Icons](https://materialdesignicons.com)
 * [Dummy avatar](https://imgbin.com/png/r454K96z) is free for non commercial use
 * Extracting color from image comes from a comment on [this page](https://stackoverflow.com/questions/10290259/detect-main-colors-in-an-image-with-php)
+* Font used for sample UI images (banner, widebanner and sidebar.png) is: [Reckoner by Alex Dale](https://www.behance.net/alexiandale).
 * Special thanks to Giuseppe Di Terlizzi, author of [Bootstrap3](https://www.dokuwiki.org/template:bootstrap3) DokuWiki template who nicely acepted that I copy some of his code to build admin dropdown menu.
