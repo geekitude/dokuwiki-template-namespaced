@@ -1,11 +1,13 @@
 <?php
 /**
- * DokuWiki Default Template 2012
+ * Dokuwiki Namespaced template
  *
- * @link     http://dokuwiki.org/template
- * @author   Anika Henke <anika@selfthinker.org>
- * @author   Clarence Lee <clarencedglee@gmail.com>
- * @license  GPL 2 (http://www.gnu.org/licenses/gpl.html)
+ * @link    https://www.dokuwiki.org/template:namespaced
+ * @author  Simon DELAGE <sdelage@gmail.com>
+ * @license GPL 3 (https://www.gnu.org/licenses/gpl-3.0.html)
+ *
+ * An experimental polymorphic and responsive DokuWiki template based on flexbox with many namespace related features
+ * Based on DokuWiki default template by Anika Henke <anika@selfthinker.org> and Clarence Lee <clarencedglee@gmail.com>
  */
 
 if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template header, included in the main and detail files
+ * Namespaced header, included in the main and detail files
  */
 
 // must be run from within DokuWiki
