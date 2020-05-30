@@ -135,6 +135,10 @@ body {
     margin-left: 2rem;
 }
 
+#namespaced__site-description {
+    width: 100%;
+}
+
 /* RESPONSIVENESS */
 
 @media screen and (max-width: @ini_site_width + 60px) {
@@ -155,6 +159,12 @@ body {
 @media screen and (max-width: @ini_tablet_width) {
     [dir] #dokuwiki__site {
         background-color: burlywood;
+    }
+    #namespaced__site-branding {
+        justify-content: space-between;
+    }
+    #namespaced__header-tools {
+        align-items: center;
     }
 }
 

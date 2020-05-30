@@ -18,9 +18,9 @@ if (!defined('DOKU_INC')) die();
         <?php tpl_includeFile('header.html') ?>
 
         <div class="flex" style="background-color:red;">
-            <div class="headings flex grow1" style="background-color:green;">
+            <div id="namespaced__site-branding" class="headings flex justify-start grow1" style="background-color:green;">
 
-                <div style="background-color:gold;">
+                <div id="namespaced__site-branding-logo" style="background-color:gold;">
                     <?php
                         // get logo either out of the template images folder or data/media folder
                         $logoSize = array();
@@ -34,7 +34,7 @@ if (!defined('DOKU_INC')) die();
                         );
                     ?>
                 </div>
-                <div id="namespaced__site-branding" class="flex column" style="background-color:chocolate;">
+                <div id="namespaced__site-branding-text" class="flex column" style="background-color:chocolate;">
                     <h1 id="namespaced__site-title">
                         <?php
                             // get logo either out of the template images folder or data/media folder
@@ -50,12 +50,12 @@ if (!defined('DOKU_INC')) die();
                         ?>
                     </h1>
                     <?php if ($conf['tagline']): ?>
-                        <p id="namespaced__stire-description" class="claim"><?php echo $conf['tagline']; ?></p>
+                        <p id="namespaced__site-description" class="claim"><?php echo $conf['tagline']; ?></p>
                     <?php endif ?>
                 </div>
             </div>
 
-            <div class="tools grow4" style="background-color:blue;">
+            <div id="namespaced__header-tools" class="tools flex column align-end grow4" style="background-color:blue;">
                 <!-- USER TOOLS -->
                 <?php if ($conf['useacl']): ?>
                     <div id="dokuwiki__usertools">
