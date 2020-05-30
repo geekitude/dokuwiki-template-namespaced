@@ -12,7 +12,7 @@
 * Move tpl_indexerWebBug() out of the way
 * Generic classes
 * Flexbox
-* GLOBAL
+* SKIP
 * HEADER
 * RESPONSIVENESS
 */
@@ -147,7 +147,21 @@ ul, ol {
     flex-grow: 4;
 }
 
-/* GLOBAL */
+/* SKIP */
+
+.skip {
+    width: 100% !important;
+    font-size: 4rem;
+    display: block;
+    padding: 1rem 0;
+}
+
+a.skip:focus,
+a.skip:active {
+   position: initial !important;
+   height: initial !important;
+   left: 0;
+}
 
 /* HEADER */
 

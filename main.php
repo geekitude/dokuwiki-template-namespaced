@@ -25,9 +25,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 </head>
 
 <body>
-                <ul class="a11y skip">
-                    <li><a href="#dokuwiki__content"><?php echo $lang['skip_to_content']; ?></a></li>
-                </ul>
+    <a class="skip center a11y" href="#dokuwiki__content"><?php echo $lang['skip_to_content']; ?></a>
     <div id="dokuwiki__site">
         <div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
 
