@@ -55,7 +55,7 @@ if (!defined('DOKU_INC')) die();
 
                 <!-- SITE TOOLS -->
                 <aside id="dokuwiki__sitetools">
-                    <h3 class="a11y"><?php echo $lang['site_tools']; ?></h3>
+                    <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['site_tools']; ?></h6>
                     <?php tpl_searchform(); ?>
                     <div class="mobileTools">
                         <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
@@ -71,7 +71,7 @@ if (!defined('DOKU_INC')) die();
         <nav id="namespaced__site-nav">
             <nav id="namespaced__site-navbar" class="flex navbar">
                 <div id="namespaced_ns-content">
-                    <h6 class="a11y"><?php echo tpl_getLang('ns-content'); ?></h6>
+                    <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo tpl_getLang('ns-content'); ?></h6>
                     <ul>
                         <!-- NAMESPACE CONTENT -->
                         <li>test</li>
@@ -80,7 +80,7 @@ if (!defined('DOKU_INC')) die();
                 <!-- USER TOOLS -->
                 <?php if ($conf['useacl']): ?>
                     <div id="dokuwiki__usertools">
-                        <h6 class="a11y"><?php echo $lang['user_tools']; ?></h6>
+                        <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['user_tools']; ?></h6>
                         <ul>
                             <?php
                                 if (!empty($_SERVER['REMOTE_USER'])) {
@@ -113,8 +113,6 @@ if (!defined('DOKU_INC')) die();
             <?php endif ?>
         <nav>
 
-
-
-        <hr class="a11y" />
+        <hr class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>" />
     </div>
 </header><!-- /header -->

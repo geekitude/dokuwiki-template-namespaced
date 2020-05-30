@@ -27,7 +27,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 </head>
 
 <body id="dokuwiki__top">
-    <a class="skip center a11y" href="#dokuwiki__content"><?php echo $lang['skip_to_content']; ?></a>
+    <a class="skip center<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>" href="#dokuwiki__content"><?php echo $lang['skip_to_content']; ?></a>
     <div id="dokuwiki__site" class="site <?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
 
         <?php include('header.php') ?>
@@ -42,7 +42,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                     <!-- ********** ASIDE ********** -->
                     <aside id="dokuwiki__aside">
                         <div class="pad aside include">
-                            <h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
+                            <h6 class="toggle"><?php echo $lang['sidebar'] ?></h6>
                             <div class="content">
                                 <div class="">
                                     <?php tpl_flush() ?>
@@ -66,11 +66,11 @@ $showSidebar = $hasSidebar && ($ACT=='show');
                         <div class="page">
                             <?php tpl_flush() ?>
                             <?php tpl_includeFile('pageheader.html') ?>
-                            <hr class="a11y" />
+                            <hr class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>" />
                             <!-- wikipage start -->
                             <?php tpl_content() ?>
                             <!-- wikipage stop -->
-                            <hr class="a11y" />
+                            <hr class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>" />
                             <?php tpl_includeFile('pagefooter.html') ?>
                         </div>
 
@@ -86,7 +86,7 @@ $showSidebar = $hasSidebar && ($ACT=='show');
             <aside>
                 <!-- PAGE ACTIONS -->
                 <nav id="dokuwiki__pagetools">
-                    <h3 class="a11y"><?php echo $lang['page_tools']; ?></h3>
+                    <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['page_tools']; ?></h6>
                     <div class="tools">
                         <ul>
                             <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
