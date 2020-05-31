@@ -82,6 +82,13 @@ hr {
     width: 80%;
 }
 
+pre {
+    overflow: auto;
+    padding: 1rem;
+    border-width: 1px;
+    border-style: solid;
+}
+
 /* GENERIC CLASSES
 -------------------------------------------------------------- */
 
@@ -103,6 +110,14 @@ hr {
 
 .end {
     text-align: end;
+}
+
+/* Debug */
+
+.dbg,
+.include-hook-sample {
+    background-color: gold;
+    color: #000;
 }
 
 /* FLEXBOX
@@ -197,7 +212,7 @@ a.skip:active {
 /* MAIN
 -------------------------------------------------------------- */
 
-main > aside {
+main aside.tools {
     min-width: @ico-margin + @ico-width + @ico-margin;
     max-width: @ico-margin + @ico-width + @ico-margin;
 }
