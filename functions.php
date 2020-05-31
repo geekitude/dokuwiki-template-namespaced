@@ -105,7 +105,7 @@ function namespaced_inherit($target, $type = "media", $origin, $useacl = false, 
     if ($type == "media") {
         $base = DOKU_CONF.'../'.$conf['savedir'].'/media/';
     } else {
-        $base = DOKU_CONF.'tpl/colormag/';
+        $base = DOKU_CONF.'tpl/namespaced/';
     }
 //dbg($base);
     do {
@@ -139,7 +139,7 @@ function namespaced_inherit($target, $type = "media", $origin, $useacl = false, 
         //$result['src'] = tpl_incdir().'debug/'.$target.'.png';
         $src = tpl_incdir().'debug/'.$target.'.png';
         $result['src'] = $src;
-        $result['src'] = '/lib/tpl/colormag/debug/'.$target.'.png';
+        $result['src'] = '/lib/tpl/namespaced/debug/'.$target.'.png';
         $result['ns'] = null;
     } elseif (isset($glob[0])) {
         $src = $glob[0];
@@ -192,7 +192,8 @@ function namespaced_widgets($area = null){
             } elseif ($data['type'] == "include") {
                 tpl_includeFile($widget);
             } else {
-                tpl_include_page($data['target'], true, false, true);
+                //tpl_include_page($data['target'], true, false, true);
+                print p_wiki_xhtml($data['target'], '', false);
             }
         print '</aside>';
     }
