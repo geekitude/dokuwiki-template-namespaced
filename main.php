@@ -43,8 +43,7 @@ namespaced_init();
             <div class="flex nowrap align-stretch">
 
                 <?php //if($showSidebar): ?>
-                <?php if(@count($namespaced['widgets']['side'] > 0)): ?>
-                    
+                <?php if(@count($namespaced['widgets']['side']) > 0): ?>
                     <!-- ********** ASIDE ********** -->
                     <div id="dokuwiki__aside">
                         <div class="pad aside include">
