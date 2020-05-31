@@ -11,6 +11,7 @@
  */
 
 if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
+@require_once(dirname(__FILE__).'/functions.php'); /* include hook for template functions */
 
 $hasSidebar = page_findnearest($conf['sidebar']);
 $showSidebar = $hasSidebar && ($ACT=='show');
