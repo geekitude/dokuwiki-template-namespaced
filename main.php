@@ -13,8 +13,11 @@
 if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 @require_once(dirname(__FILE__).'/functions.php'); /* include hook for template functions */
 
-$hasSidebar = page_findnearest($conf['sidebar']);
-$showSidebar = $hasSidebar && ($ACT=='show');
+global $namespaced;
+// Reset $colormag to make sure we don't inherit any value from previous page
+$namespaced = array();
+namespaced_init();
+
 ?><!DOCTYPE html>
 <html lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>" class="no-js">
 <head>
@@ -35,25 +38,26 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
         <main class="flex nowrap align-stretch">
 
-            <aside></aside>
+            <aside class="tools"></aside>
 
             <div class="flex nowrap align-stretch">
 
-                <?php if($showSidebar): ?>
+                <?php //if($showSidebar): ?>
+                <?php if(@count($namespaced['widgets']['side'] > 0)): ?>
+                    
                     <!-- ********** ASIDE ********** -->
-                    <aside id="dokuwiki__aside">
+                    <div id="dokuwiki__aside">
                         <div class="pad aside include">
                             <h6 class="toggle"><?php echo $lang['sidebar'] ?></h6>
                             <div class="content">
-                                <div class="">
-                                    <?php tpl_flush() ?>
-                                    <?php tpl_includeFile('sidebarheader.html') ?>
-                                    <?php tpl_include_page($conf['sidebar'], true, true) ?>
-                                    <?php tpl_includeFile('sidebarfooter.html') ?>
-                                </div>
+                                <?php tpl_flush() ?>
+                                <?php tpl_includeFile('sidebarheader.html') ?>
+                                <?php //tpl_include_page($conf['sidebar'], true, true) ?>
+                                <?php namespaced_widgets('side') ?>
+                                <?php tpl_includeFile('sidebarfooter.html') ?>
                             </div>
                         </div>
-                    </aside><!-- /aside -->
+                    </div><!-- /aside -->
                 <?php endif; ?>
 
                 <!-- ********** CONTENT ********** -->
@@ -84,11 +88,11 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
             </div><!-- /wrapper -->
 
-            <aside>
+            <aside class="tools">
                 <!-- PAGE ACTIONS -->
                 <nav id="dokuwiki__pagetools">
                     <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['page_tools']; ?></h6>
-                    <div class="tools">
+                    <div>
                         <ul>
                             <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
                         </ul>

@@ -71,7 +71,7 @@ if (!defined('DOKU_INC')) die();
         <nav id="namespaced__site-nav">
             <nav id="namespaced__site-navbar" class="flex navbar">
                 <div id="namespaced_ns-content">
-                    <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo tpl_getLang('ns-content'); ?></h6>
+                    <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo tpl_getLang('ns_content'); ?></h6>
                     <ul>
                         <!-- NAMESPACE CONTENT -->
                         <li>test</li>
