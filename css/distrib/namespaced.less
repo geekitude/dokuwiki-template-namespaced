@@ -219,15 +219,15 @@ a.skip:active {
 /* HEADER
 -------------------------------------------------------------- */
 
-[dir=ltr] #namespaced__site-logo {
+[dir=ltr] #namespaced__site_logo {
     margin-right: 2rem;
 }
 
-[dir=rtl] #namespaced__site-logo {
+[dir=rtl] #namespaced__site_logo {
     margin-left: 2rem;
 }
 
-#namespaced__site-description {
+#namespaced__site_description {
     width: 100%;
 }
 
@@ -248,13 +248,13 @@ article {
 -------------------------------------------------------------- */
 
 @media screen and (max-width: @ini_site_width + 60px) {
-    [dir] #dokuwiki__site {
+    [dir] #namespaced__site {
         background-color: lightyellow;
     }
 }
 
 @media screen and (max-width: @ini_site_width) {
-    [dir] #dokuwiki__site {
+    [dir] #namespaced__site {
         background-color: bisque;
     }
 }
@@ -263,25 +263,25 @@ article {
 }
 
 @media screen and (max-width: @ini_tablet_width) {
-    [dir] #dokuwiki__site {
+    [dir] #namespaced__site {
         background-color: burlywood;
     }
-    #namespaced__site-branding {
+    #namespaced__site_branding {
         justify-content: space-between;
     }
-    #namespaced__header-tools {
+    #namespaced__header_tools {
         align-items: center;
     }
 }
 
 @media screen and (max-width: @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2)) {
-    [dir] #dokuwiki__site {
+    [dir] #namespaced__site {
         background-color: darkgoldenrod;
     }
 }
 
 @media screen and (max-width: @ini_phone_width) {
-    [dir] #dokuwiki__site {
+    [dir] #namespaced__site {
         background-color: chocolate;
     }
 }

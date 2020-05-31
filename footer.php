@@ -8,7 +8,7 @@ if (!defined('DOKU_INC')) die();
 ?>
 
 <!-- ********** FOOTER ********** -->
-<footer id="dokuwiki__footer">
+<footer id="namespaced__footer">
     <div class="pad">
         <div>
             <?php tpl_license(''); // license text ?>

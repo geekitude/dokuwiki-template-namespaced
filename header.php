@@ -8,15 +8,15 @@ if (!defined('DOKU_INC')) die();
 ?>
 
 <!-- ********** HEADER ********** -->
-<header id="dokuwiki__header">
+<header id="namespaced__header">
     <div class="pad group">
 
         <?php tpl_includeFile('header.html') ?>
 
         <div class="flex">
-            <div id="namespaced__site-branding" class="headings flex justify-start grow1">
+            <div id="namespaced__site_branding" class="headings flex justify-start grow1">
 
-                <div id="namespaced__site-branding-logo">
+                <div id="namespaced__site_branding_logo">
                     <?php
                         // get logo either out of the template images folder or data/media folder
                         $logoSize = array();
@@ -25,13 +25,13 @@ if (!defined('DOKU_INC')) die();
                         // display logo and wiki title in a link to the home page
                         tpl_link(
                             wl(),
-                            '<img id="namespaced__site-logo" src="'.$logo.'" '.$logoSize[3].' alt="" />',
+                            '<img id="namespaced__site_logo" src="'.$logo.'" '.$logoSize[3].' alt="" />',
                             'accesskey="h" title="[H]"'
                         );
                     ?>
                 </div>
-                <div id="namespaced__site-branding-text" class="flex column">
-                    <h1 id="namespaced__site-title">
+                <div id="namespaced__site_branding_text" class="flex column">
+                    <h1 id="namespaced__site_title">
                         <?php
                             // get logo either out of the template images folder or data/media folder
                             $logoSize = array();
@@ -46,15 +46,15 @@ if (!defined('DOKU_INC')) die();
                         ?>
                     </h1>
                     <?php if ($conf['tagline']): ?>
-                        <p id="namespaced__site-description" class="claim"><?php echo $conf['tagline']; ?></p>
+                        <p id="namespaced__site_description" class="claim"><?php echo $conf['tagline']; ?></p>
                     <?php endif ?>
                 </div>
             </div>
 
-            <div id="namespaced__header-tools" class="tools flex column align-end grow4">
+            <div id="namespaced__header_tools" class="tools flex column align-end grow4">
 
                 <!-- SITE TOOLS -->
-                <aside id="dokuwiki__sitetools">
+                <aside id="namespaced__sitetools">
                     <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['site_tools']; ?></h6>
                     <?php tpl_searchform(); ?>
                     <div class="mobileTools">
@@ -68,9 +68,9 @@ if (!defined('DOKU_INC')) die();
             </div>
         </div>
 
-        <nav id="namespaced__site-nav">
-            <nav id="namespaced__site-navbar" class="flex navbar">
-                <div id="namespaced_ns-content">
+        <nav id="namespaced__site_nav">
+            <nav id="namespaced__site_navbar" class="flex navbar">
+                <div id="namespaced_ns_content">
                     <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo tpl_getLang('ns_content'); ?></h6>
                     <ul>
                         <!-- NAMESPACE CONTENT -->
@@ -79,7 +79,7 @@ if (!defined('DOKU_INC')) die();
                 </div>
                 <!-- USER TOOLS -->
                 <?php if ($conf['useacl']): ?>
-                    <div id="dokuwiki__usertools">
+                    <div id="namespaced__usertools">
                         <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['user_tools']; ?></h6>
                         <ul>
                             <?php

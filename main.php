@@ -30,9 +30,9 @@ namespaced_init();
     <?php tpl_includeFile('meta.html') ?>
 </head>
 
-<body id="dokuwiki__top">
-    <a class="skip center<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>" href="#dokuwiki__content"><?php echo $lang['skip_to_content']; ?></a>
-    <div id="dokuwiki__site" class="site <?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
+<body id="namespaced__top">
+    <a class="skip center<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>" href="#namespaced__content"><?php echo $lang['skip_to_content']; ?></a>
+    <div id="namespaced__site" class="site <?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
 
         <?php include('header.php') ?>
 
@@ -45,7 +45,7 @@ namespaced_init();
                 <?php //if($showSidebar): ?>
                 <?php if(@count($namespaced['widgets']['side']) > 0): ?>
                     <!-- ********** ASIDE ********** -->
-                    <div id="dokuwiki__aside">
+                    <div id="namespaced__aside">
                         <div class="pad aside include">
                             <h6 class="toggle"><?php echo $lang['sidebar'] ?></h6>
                             <div class="content">
@@ -60,7 +60,7 @@ namespaced_init();
                 <?php endif; ?>
 
                 <!-- ********** CONTENT ********** -->
-                <article id="dokuwiki__content">
+                <article id="namespaced__content">
 
                     <div class="pad">
                         <?php html_msgarea() ?>
@@ -89,7 +89,7 @@ namespaced_init();
 
             <aside class="tools">
                 <!-- PAGE ACTIONS -->
-                <nav id="dokuwiki__pagetools">
+                <nav id="namespaced__pagetools">
                     <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['page_tools']; ?></h6>
                     <div>
                         <ul>
