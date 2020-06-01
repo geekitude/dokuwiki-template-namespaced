@@ -81,7 +81,23 @@ ul, ol {
 -------------------------------------------------------------- */
 
 hr {
-    width: 80%;
+    width: 90%;
+}
+
+hr.vertical {
+    width: unset;
+    height: 95%;
+    /*border-left-width: 1px;*/
+}
+
+[dir=ltr] hr.vertical {
+    margin: auto 1.5rem auto 0;
+    border-left-style: solid;
+}
+
+[dir=rtl] hr.vertical {
+    margin: auto 0 auto 1.5rem;
+    border-right-style: solid;
 }
 
 pre {
@@ -242,6 +258,14 @@ main aside.tools {
 main > .flex,
 article {
     width: 100%;
+}
+
+[dir=ltr] #namespaced__aside {
+    margin-right: 1.5rem;
+}
+
+[dir=rtl] #namespaced__aside {
+    margin-left: 1.5rem;
 }
 
 /* RESPONSIVENESS

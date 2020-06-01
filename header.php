@@ -113,6 +113,6 @@ if (!defined('DOKU_INC')) die();
             <?php endif ?>
         <nav>
 
-        <hr class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>" />
+        <hr class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>" />
     </div>
 </header><!-- /header -->
