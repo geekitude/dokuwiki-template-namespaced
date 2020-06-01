@@ -17,6 +17,8 @@
 * FLEXBOX
 * Skip
 * HEADER
+* MAIN
+* SECTION HIGHLIGHTING
 * RESPONSIVENESS
 */
 
@@ -266,6 +268,39 @@ article {
 
 [dir=rtl] #namespaced__aside {
     margin-left: 1.5rem;
+}
+
+/* SECTION HIGHLIGHTING
+----------------------------------------------- */
+
+div.secedit.editbutton_section {
+    display: block;
+}
+
+[dir] div.secedit.editbutton_section {
+    margin-top: -1.6rem;
+}
+
+[dir=ltr] div.secedit.editbutton_section {
+    float: right;
+}
+
+[dir=rtl] div.secedit.editbutton_section {
+    float: left;
+}
+
+[dir] div.secedit.editbutton_section button {
+    padding: .1rem .9rem;
+}
+
+.dokuwiki div.section_highlight { /* negative side margin = side padding + side border */
+}
+
+[dir] .dokuwiki div.section_highlight {
+    margin: 0 -1.1rem;
+    padding: 0 .5rem;
+    border-width: 0 .8rem;
+    border-style: solid;
 }
 
 /* RESPONSIVENESS

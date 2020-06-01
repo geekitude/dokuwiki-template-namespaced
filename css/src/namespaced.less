@@ -17,6 +17,8 @@
 * FLEXBOX
 * Skip
 * HEADER
+* MAIN
+* SECTION HIGHLIGHTING
 * RESPONSIVENESS
 */
 
@@ -232,6 +234,26 @@ article {
 
 #namespaced__aside {
     margin-right: 1.5rem;
+}
+
+/* SECTION HIGHLIGHTING
+----------------------------------------------- */
+
+div.secedit.editbutton_section {
+    display: block;
+    margin-top: -1.6rem;
+    float: right;
+}
+
+div.secedit.editbutton_section button {
+    padding: .1rem .9rem;
+}
+
+.dokuwiki div.section_highlight {
+    margin: 0 -1.1rem; /* negative side margin = side padding + side border */
+    padding: 0 .5rem;
+    border-width: 0 .8rem;
+    border-style: solid;
 }
 
 /* RESPONSIVENESS
