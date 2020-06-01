@@ -55,6 +55,9 @@ function namespaced_init() {
                     if (file_exists(tpl_incdir().$widget)) {
                         $target = 1;
                     }
+                } elseif (page_exists($widget)) {
+                    $type = "page";
+                    $target = $widget;
                 } else {
                     $type = "page";
                     $target = page_findnearest($widget);
@@ -171,7 +174,7 @@ function namespaced_inherit($target, $type = "media", $origin, $useacl = false, 
  */
 function namespaced_widgets($area = null){
     //if ((string) $target === '') return false;
-    global $namespaced;
+    global $namespaced, $conf;
 
     if(!$area) return false;
 //dbg($area);
@@ -193,8 +196,35 @@ function namespaced_widgets($area = null){
                 tpl_includeFile($widget);
             } else {
                 //tpl_include_page($data['target'], true, false, true);
-                print p_wiki_xhtml($data['target'], '', false);
+                //print p_wiki_xhtml($data['target'], '', false);
+                //print p_render('xhtml',p_get_instructions(io_readWikiPage($data['target'],$id,$rev)),$info,$date_at);
+                if ($widget == "sidebar") {
+                    tpl_include_page($data['target'], true, false, true);
+                } else {
+                    print p_render('xhtml',p_get_instructions(io_readWikiPage(namespaced_pagepath($data['target']),$data['target'],false)),$info);
+                }
             }
+//dbg($data);
         print '</aside>';
     }
+}
+/**
+ * Returns the full path to the page specified by ID
+ * Base on core wikiFN() without caching or revisions
+ * The filename is URL encoded to protect Unicode chars
+ *
+ * @param  $raw_id  string   id of wikipage
+ * @param  $clean   bool     flag indicating that $raw_id should be cleaned.  Only set to false
+ *                           when $id is guaranteed to have been cleaned already.
+ * @return string full path
+ */
+function namespaced_pagepath($id){
+    global $conf;
+
+    $id = cleanID($id);
+    $id = str_replace(':','/',$id);
+
+    $fn = $conf['datadir'].'/'.utf8_encodeFN($id).'.txt';
+
+    return $fn;
 }
