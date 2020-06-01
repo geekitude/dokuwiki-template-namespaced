@@ -76,7 +76,15 @@ body {
 }
 
 ul, ol {
-    list-style-position: inside;
+    list-style-position: outside;
+}
+
+[dir=ltr] ul, [dir=ltr] ol {
+    margin-left: 1em;
+}
+
+[dir=rtl] ul, [dir=rtl] ol {
+    margin-right: 1em;
 }
 
 /* HTML ITEMS
