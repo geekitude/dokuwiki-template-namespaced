@@ -24,6 +24,9 @@ function namespaced_init() {
     global $ID;
     global $namespaced;
 
+    // Enable default search untill it's proven useless
+    $namespaced['defaultsearch'] = true;
+
     // GET WIDGETS
     $widgets= array('footer','side');
     foreach ($widgets as $area) {
@@ -41,6 +44,10 @@ function namespaced_init() {
         //$namespaced['widgets'][$area] = array_filter($namespaced['widgets'][$area]);
         if (is_array($namespaced['widgets'][$area]) and (count($namespaced['widgets'][$area]) > 0)) {
             foreach ($namespaced['widgets'][$area] as $widget => $title) {
+                // Disable default search if there's a search widget
+                if ($widget == "search.html") {
+                    $namespaced['defaultsearch'] = false;
+                }
                 if (strpos($widget, ".") !== false) {
                     $propagate = 0;
                 } else {
@@ -68,8 +75,8 @@ function namespaced_init() {
                     // Localized title for "about Namespaced" widget
                     if ($title == "About Namespaced") {
                         $namespaced['widgets'][$area][$widget]['title'] = tpl_getLang("about_namespaced");
-                    // ignore title for Sidecard and Sidebar
-                    } elseif (($title != "Sidecard") and ($title != "Sidebar")) {
+                    // ignore title for Sidecard, Search and Sidebar
+                    } elseif (($title != "Sidecard") and ($title != "Search") and ($title != "Sidebar")) {
                         $namespaced['widgets'][$area][$widget]['title'] = $title;
                     }
                     $namespaced['widgets'][$area][$widget]['type'] = $type;
@@ -202,6 +209,7 @@ function namespaced_widgets($area = null){
                 if ($widget == "sidebar") {
                     tpl_include_page($data['target'], true, false, true);
                 } else {
+//dbg(io_readWikiPage(namespaced_pagepath($data['target']),$data['target'],false));
                     print p_render('xhtml',p_get_instructions(io_readWikiPage(namespaced_pagepath($data['target']),$data['target'],false)),$info);
                 }
             }

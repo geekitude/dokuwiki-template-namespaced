@@ -56,7 +56,7 @@ if (!defined('DOKU_INC')) die();
                 <!-- SITE TOOLS -->
                 <aside id="namespaced__sitetools">
                     <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['site_tools']; ?></h6>
-                    <?php tpl_searchform(); ?>
+                    <?php if ($namespaced['defaultsearch'] == true) { tpl_searchform(); } ?>
                     <div class="mobileTools">
                         <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
                     </div>

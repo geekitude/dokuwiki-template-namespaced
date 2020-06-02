@@ -1,0 +1,6 @@
+<?php
+    tpl_searchform();
+    if ((!plugin_isdisabled('cloud')) and (!plugin_isdisabled('searchstats'))) {
+        print p_render('xhtml',p_get_instructions("~~SEARCHCLOUD~~"),$info);
+    }
+?>
