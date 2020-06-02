@@ -56,7 +56,7 @@ if (!defined('DOKU_INC')) die();
                 <!-- SITE TOOLS -->
                 <aside id="namespaced__sitetools">
                     <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['site_tools']; ?></h6>
-                    <?php if ($namespaced['defaultsearch'] == true) { tpl_searchform(); } ?>
+
                     <div class="mobileTools">
                         <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
                     </div>
@@ -75,6 +75,12 @@ if (!defined('DOKU_INC')) die();
                     <ul>
                         <!-- NAMESPACE CONTENT -->
                         <li>test</li>
+                    </ul>
+                    <ul>
+                        <!-- DEFAULT SEARCH -->
+                        <li>
+                            <?php if ($namespaced['defaultsearch'] == true) { tpl_searchform(); } ?>
+                        </li>
                     </ul>
                 </div>
                 <!-- USER TOOLS -->
