@@ -14,7 +14,7 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 @require_once(dirname(__FILE__).'/namespaced.php'); /* include hook for template functions */
 
 global $namespaced;
-// Reset $colormag to make sure we don't inherit any value from previous page
+// Reset $namespaced to make sure we don't inherit any value from previous page
 $namespaced = array();
 namespaced_init();
 
@@ -27,6 +27,13 @@ namespaced_init();
     <?php tpl_metaheaders() ?>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
+    <style type="text/css">
+        <?php
+            if (isset($namespaced['theme'])) {
+                echo $namespaced['theme'];
+            }
+        ?>
+    </style>
     <?php tpl_includeFile('meta.html') ?>
 </head>
 
