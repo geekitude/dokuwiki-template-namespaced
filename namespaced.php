@@ -80,7 +80,7 @@ function namespaced_init() {
                         $locale = DOKU_CONF.'template_lang/'.$conf['template'].'/'.$conf['lang'].'/'.$title.'.txt';
 //dbg($locale);
                         if (file_exists($locale)) {
-                            $title = io_readFile(tpl_localeFN('Tags'));
+                            $title = io_readFile($locale);
                         }
                         $namespaced['widgets'][$area][$widget]['title'] = $title;
                     }
