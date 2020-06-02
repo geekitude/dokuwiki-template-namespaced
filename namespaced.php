@@ -96,7 +96,7 @@ function namespaced_init() {
         msg("This is a success [1] message with a <a href='#'>dummy link</a>", 1);
         msg("This is a notification [2] with a <a href='#'>dummy link</a>", 2);
     }
-}
+}/* /namespaced_init */
 
 /**
  * Find a media in the current namespace (determined from $ID) or any
@@ -179,7 +179,7 @@ function namespaced_inherit($target, $type = "media", $origin, $useacl = false, 
     } else {
         return false;
     }
-}
+}/* /namespaced_inherit */
 
 
 /**
@@ -224,7 +224,8 @@ function namespaced_widgets($area = null){
 //dbg($data);
         print '</aside>';
     }
-}
+}/* /namespaced_widgets */
+
 /**
  * Returns the full path to the page specified by ID
  * Base on core wikiFN() without caching or revisions
@@ -244,4 +245,4 @@ function namespaced_pagepath($id){
     $fn = $conf['datadir'].'/'.utf8_encodeFN($id).'.txt';
 
     return $fn;
-}
+}/* /namespaced_pagepath */

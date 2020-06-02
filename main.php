@@ -11,7 +11,7 @@
  */
 
 if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
-@require_once(dirname(__FILE__).'/functions.php'); /* include hook for template functions */
+@require_once(dirname(__FILE__).'/namespaced.php'); /* include hook for template functions */
 
 global $namespaced;
 // Reset $colormag to make sure we don't inherit any value from previous page
