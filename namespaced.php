@@ -21,7 +21,7 @@ if (!defined('DOKU_INC')) die();
  * Load usefull informations and plugins' helpers.
  */
 function namespaced_init() {
-    global $ID;
+    global $ID, $conf;
     global $namespaced;
 
     // Enable default search untill it's proven useless
@@ -77,6 +77,11 @@ function namespaced_init() {
                         $namespaced['widgets'][$area][$widget]['title'] = tpl_getLang("about_namespaced");
                     // ignore title for Sidecard, Search and Sidebar
                     } elseif (($title != "Sidecard") and ($title != "Search") and ($title != "Sidebar")) {
+                        $locale = DOKU_CONF.'template_lang/'.$conf['template'].'/'.$conf['lang'].'/'.$title.'.txt';
+//dbg($locale);
+                        if (file_exists($locale)) {
+                            $title = io_readFile(tpl_localeFN('Tags'));
+                        }
                         $namespaced['widgets'][$area][$widget]['title'] = $title;
                     }
                     $namespaced['widgets'][$area][$widget]['type'] = $type;
