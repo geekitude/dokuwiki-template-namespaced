@@ -32,3 +32,13 @@ caption,
 legend {
     clear: both;
 }
+
+/*--------------------------------------------------------------
+EXCLUDED
+--------------------------------------------------------------*/
+.noprint,
+#namespaced__widget_search,
+#namespaced__main.noprint-toc #dw__toc,
+div.secedit.editbutton_section {
+    display: none;
+}
