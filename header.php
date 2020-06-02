@@ -76,12 +76,6 @@ if (!defined('DOKU_INC')) die();
                         <!-- NAMESPACE CONTENT -->
                         <li>test</li>
                     </ul>
-                    <ul>
-                        <!-- DEFAULT SEARCH -->
-                        <li>
-                            <?php if ($namespaced['defaultsearch'] == true) { tpl_searchform(); } ?>
-                        </li>
-                    </ul>
                 </div>
                 <!-- USER TOOLS -->
                 <?php if ($conf['useacl']): ?>
@@ -89,6 +83,11 @@ if (!defined('DOKU_INC')) die();
                         <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['user_tools']; ?></h6>
                         <ul>
                             <?php
+                                if ($namespaced['defaultsearch'] == true) {
+                                    print '<li class="search">';
+                                        tpl_searchform();
+                                    print '</li>';
+                                }
                                 if (!empty($_SERVER['REMOTE_USER'])) {
                                     echo '<li class="user">';
                                     tpl_userinfo(); /* 'Logged in as ...' */
