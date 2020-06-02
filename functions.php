@@ -88,6 +88,14 @@ function namespaced_init() {
         }
     }
 //dbg($namespaced['widgets']);
+
+    // Adding test alerts if debug is enabled
+    if (($_GET['debug'] == 1) or ($_GET['debug'] == "alerts")) {
+        msg("This is an error [-1] alert with a <a href='#'>dummy link</a>", -1);
+        msg("This is an info [0] message with a <a href='#'>dummy link</a>", 0);
+        msg("This is a success [1] message with a <a href='#'>dummy link</a>", 1);
+        msg("This is a notification [2] with a <a href='#'>dummy link</a>", 2);
+    }
 }
 
 /**
