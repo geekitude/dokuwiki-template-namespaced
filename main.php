@@ -45,9 +45,7 @@ namespaced_init();
 
         <main class="flex nowrap align-stretch">
 
-            <aside class="tools"></aside>
-
-            <div class="flex nowrap align-stretch">
+            <div id="namespaced__main_subflex" class="flex nowrap align-stretch">
 
                 <?php //if($showSidebar): ?>
                 <?php if(@count($namespaced['widgets']['side']) > 0): ?>
@@ -95,17 +93,15 @@ namespaced_init();
 
             </div><!-- /wrapper -->
 
-            <aside class="tools">
-                <!-- PAGE ACTIONS -->
-                <nav id="namespaced__pagetools">
-                    <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['page_tools']; ?></h6>
-                    <div>
-                        <ul>
-                            <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
-                        </ul>
-                    </div>
-                </nav>
-            </aside>
+            <!-- PAGE ACTIONS -->
+            <aside id="namespaced__pagetools" class="gutter">
+                <nav class="tools<?php print (strpos(tpl_getConf('uicolorize'), 'pagetools') !== false) ? " uicolor-pagetools" : "" ?>">
+                    <ul>
+                        <li><h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>aside-title"><?php print $lang['page_tools']; ?></h6></li>
+                        <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
+                    </ul>
+                </nav><!-- /.tools -->
+            </aside><!-- /#dokuwiki__pagetools -->
 
         </main>
 

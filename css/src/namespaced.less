@@ -230,9 +230,13 @@ a.skip:active {
 /* MAIN
 -------------------------------------------------------------- */
 
-main aside.tools {
+main aside.gutter {
     min-width: @ico-margin + @ico-width + @ico-margin;
     max-width: @ico-margin + @ico-width + @ico-margin;
+}
+
+#namespaced__main_subflex {
+    margin-left: @ico-margin + @ico-width + @ico-margin;
 }
 
 main > .flex,
@@ -274,6 +278,95 @@ div.secedit.editbutton_section button {
     padding: 0 .5rem;
     border-width: 0 .8rem;
     border-style: solid;
+}
+
+/* =PAGETOOLS
+-------------------------------------------------------------- */
+
+#namespaced__pagetools .tools {
+    position: sticky;
+    top: 2rem;
+    width: (@ico-width + @ico-margin + @ico-margin);
+    min-height: (7 * (@ico-width + @ico-margin + @ico-margin)); /* 30 (= height of icons) + 10 (<a> padding) x 7 (= maximum number of possible tools of 6 + a11y title) */
+    height: auto;
+}
+
+#namespaced__pagetools ul {
+    position: absolute;
+    right: 0;
+    border: 1px solid transparent; /* add transparent border to prevent jumping when proper border is added on focus */
+    white-space: nowrap;
+    margin: 0;
+}
+
+#namespaced__pagetools ul li a {
+    text-align: end;
+}
+
+#namespaced__pagetools ul li a {
+    display: block;
+    padding: @ico-margin 0;
+}
+
+#namespaced__pagetools ul li a span {
+    display: none; /* hide label until hover */
+}
+
+#namespaced__pagetools ul li h6 {
+    visibility: hidden;
+}
+
+#namespaced__pagetools ul li a span {
+    margin: 0 @ico-margin;
+}
+
+#namespaced__pagetools ul li h6 {
+    margin: 0;
+}
+
+#namespaced__pagetools ul li h6 span {
+    width: 100%;
+}
+
+#namespaced__pagetools ul li a svg {
+    width: @ico-width;
+    height: @ico-width;
+    margin: 0 @ico-margin;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#namespaced__pagetools ul:hover {
+    border: 1px solid @ini_border;
+}
+
+#namespaced__pagetools ul:hover li a span,
+#namespaced__pagetools ul:hover li button span,
+#namespaced__pagetools ul:hover li p span {
+    display: initial;
+}
+
+#namespaced__pagetools ul:hover li h6 {
+    visibility: visible;
+}
+
+body.pagetools-flip #namespaced__main_subflex {
+    order: 2;
+    margin-left: 0;
+    margin-right: @ico-margin + @ico-width + @ico-margin;
+}
+
+body.pagetools-flip #namespaced__pagetools {
+    order: 1;
+}
+
+body.pagetools-flip #namespaced__pagetools ul {
+    left: 0;
+    right: auto;
+}
+
+body.pagetools-flip #namespaced__pagetools ul li a {
+    text-align: start;
 }
 
 /* PLUGINS
