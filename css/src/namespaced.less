@@ -75,11 +75,6 @@ body {
     box-sizing: border-box;
 }
 
-ul, ol {
-    list-style-position: outside;
-    margin-left: 1em;
-}
-
 /* HTML ITEMS
 -------------------------------------------------------------- */
 
@@ -102,13 +97,19 @@ pre {
     border-style: solid;
 }
 
-/* GENERIC CLASSES
--------------------------------------------------------------- */
+ul, ol {
+    list-style-position: outside;
+    margin-left: 1em;
+}
 
-.navbar ul,
+header ul,
 .tools ul {
     list-style: none;
+    margin: 0;
 }
+
+/* GENERIC CLASSES
+-------------------------------------------------------------- */
 
 .navbar ul li {
     display: inline;

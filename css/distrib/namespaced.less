@@ -77,18 +77,6 @@ body {
     box-sizing: border-box;
 }
 
-ul, ol {
-    list-style-position: outside;
-}
-
-[dir=ltr] ul, [dir=ltr] ol {
-    margin-left: 1em;
-}
-
-[dir=rtl] ul, [dir=rtl] ol {
-    margin-right: 1em;
-}
-
 /* HTML ITEMS
 -------------------------------------------------------------- */
 
@@ -122,13 +110,29 @@ pre {
     border-style: solid;
 }
 
-/* GENERIC CLASSES
--------------------------------------------------------------- */
+ul, ol {
+    list-style-position: outside;
+}
 
-.navbar ul,
+[dir=ltr] ul, [dir=ltr] ol {
+    margin-left: 1em;
+}
+
+[dir=rtl] ul, [dir=rtl] ol {
+    margin-right: 1em;
+}
+
+header ul,
 .tools ul {
     list-style: none;
 }
+
+[dir] header ul, [dir] .tools ul {
+    margin: 0;
+}
+
+/* GENERIC CLASSES
+-------------------------------------------------------------- */
 
 .navbar ul li {
     display: inline;
