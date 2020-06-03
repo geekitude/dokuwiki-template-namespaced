@@ -300,11 +300,10 @@ div.secedit.editbutton_section button {
 }
 
 #namespaced__pagetools ul li a {
-    text-align: end;
-}
-
-#namespaced__pagetools ul li a {
-    display: block;
+    /*text-align: end;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
     padding: @ico-margin 0;
 }
 
@@ -366,7 +365,7 @@ body.pagetools-flip #namespaced__pagetools ul {
 }
 
 body.pagetools-flip #namespaced__pagetools ul li a {
-    text-align: start;
+    flex-direction: row-reverse;
 }
 
 /* PLUGINS

@@ -382,12 +382,11 @@ div.secedit.editbutton_section {
     left: 0;
 }
 
-[dir] #namespaced__pagetools ul li a {
-    text-align: end;
-}
-
 #namespaced__pagetools ul li a {
-    display: block;
+    /*text-align: end;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 [dir] #namespaced__pagetools ul li a {
@@ -467,8 +466,8 @@ body.pagetools-flip #namespaced__pagetools {
     left: auto;
 }
 
-[dir] body.pagetools-flip #namespaced__pagetools ul li a {
-    text-align: start;
+body.pagetools-flip #namespaced__pagetools ul li a {
+    flex-direction: row-reverse;
 }
 
 /* PLUGINS
