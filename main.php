@@ -37,7 +37,7 @@ namespaced_init();
     <?php tpl_includeFile('meta.html') ?>
 </head>
 
-<body id="namespaced__top">
+<body id="dokuwiki__top">
     <a class="skip center<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>" href="#namespaced__content"><?php echo $lang['skip_to_content']; ?></a>
     <div id="namespaced__site" class="site <?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
 
