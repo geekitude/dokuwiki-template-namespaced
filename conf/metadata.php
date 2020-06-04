@@ -10,5 +10,5 @@
  */
 
 $meta['layout']             = array('multichoice','_choices' => array('box','wide','box2wide','mix'));
-$meta['flexflip']           = array('multicheckbox','_choices' => array('banner','pagenav','sidebar','pagetools','socket'));
+$meta['flexflip']           = array('multicheckbox','_choices' => array('banner','pagenav','sidepanel','pagetools','socket'));
 $meta['licensevisual']      = array('multichoice','_choices' => array('badge','button','none'));

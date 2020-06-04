@@ -362,6 +362,36 @@ body.no-sidepanel #namespaced__aside {
     margin-right: 1.5rem;
 }
 
+body.sidepanel-flip #namespaced__content {
+    order: 1;
+}
+
+body.sidepanel-flip #namespaced__main_subflex hr.vertical {
+    order: 2;
+}
+
+[dir=ltr] body.sidepanel-flip #namespaced__main_subflex hr.vertical {
+    margin: auto 0 auto 1.5rem;
+}
+
+[dir=rtl] body.sidepanel-flip #namespaced__main_subflex hr.vertical {
+    margin: auto 1.5rem auto 0;
+}
+
+body.sidepanel-flip #namespaced__aside {
+    order: 3;
+}
+
+[dir=ltr] body.sidepanel-flip #namespaced__aside {
+    margin-left: 1.5rem;
+    margin-right: 0;
+}
+
+[dir=rtl] body.sidepanel-flip #namespaced__aside {
+    margin-right: 1.5rem;
+    margin-left: 0;
+}
+
 /* =PAGETOOLS
 -------------------------------------------------------------- */
 

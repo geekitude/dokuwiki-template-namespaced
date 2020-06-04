@@ -358,9 +358,9 @@ function namespaced_bodyclasses() {
         $sidepanel = "no-sidepanel";
     } elseif ($namespaced['widgets']['side'] != null) {
         if (strpos(tpl_getConf('flexflip'), 'sidepanel') !== false) {
-            $sidepanel = "start-sidepanel";
+            $sidepanel = "sidepanel-flip";
         } else {
-            $sidepanel = "end-sidepanel";
+            $sidepanel = null;
         }
     }
 
