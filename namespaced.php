@@ -41,6 +41,7 @@ function namespaced_init() {
 //dbg($widgetsFile);
         // Read file content
         $namespaced['widgets'][$area] = confToHash($widgetsFile);
+//dbg($namespaced['widgets'][$area]);
         //$namespaced['widgets'][$area] = array_filter($namespaced['widgets'][$area]);
         if (is_array($namespaced['widgets'][$area]) and (count($namespaced['widgets'][$area]) > 0)) {
             foreach ($namespaced['widgets'][$area] as $widget => $title) {
@@ -76,7 +77,7 @@ function namespaced_init() {
                     if ($title == "About Namespaced") {
                         $namespaced['widgets'][$area][$widget]['title'] = tpl_getLang("about_namespaced");
                     // ignore title for Sidecard, Search and Sidebar
-                    } elseif (($title != "Sidecard") and ($title != "Search") and ($title != "Sidebar")) {
+                    } elseif (($title != "Sidecard") and ($title != "Search") and ($title != "Sidebar") and ($title != "User")) {
                         $locale = DOKU_CONF.'template_lang/'.$conf['template'].'/'.$conf['lang'].'/'.$title.'.txt';
 //dbg($locale);
                         if (file_exists($locale)) {
@@ -331,3 +332,95 @@ function namespaced_pagepath($id){
 
     return $fn;
 }/* /namespaced_pagepath */
+
+/**
+ * The loginform
+ * adapted from html_login() because Namespaced doesn't need autofocus on username input
+ *
+ * See original function in inc/html.php for details
+ */
+function namespaced_userwidget($context = "null") {
+    global $lang;
+    global $conf;
+    global $ID;
+    global $INPUT;
+
+    if (($conf['useacl']) && (empty($_SERVER['REMOTE_USER']))) {
+        if ($context == "widget") {
+            $tmp = explode("</h1>", p_locale_xhtml('login'));
+            $title = explode(">", $tmp[0])[1];
+            $tmp = str_replace("! ", "!<br />", $tmp[1]);
+            $tmp = str_replace(". ", ".<br />", $tmp);
+            print '<h6 class="widget-title"><span>';
+                print $title;
+            print '</span></h6>';
+            print $tmp;
+        } else {
+            print p_locale_xhtml('login');
+        }
+        //print '<div>'.NL;
+
+        $form = new Doku_Form(array('id' => 'dw__login'));
+        $form->startFieldset($lang['btn_login']);
+        $form->addHidden('id', $ID);
+        $form->addHidden('do', 'login');
+        $form->addElement(form_makeTextField('u', ((!$INPUT->bool('http_credentials')) ? $INPUT->str('u') : ''), $lang['user'], 'username', 'block'));
+        $form->addElement(form_makePasswordField('p', $lang['pass'], '', 'block'));
+        if($conf['rememberme']) {
+            $form->addElement(form_makeCheckboxField('r', '1', $lang['remember'], 'remember__me', 'simple'));
+        }
+        $form->addElement(form_makeButton('submit', '', $lang['btn_login']));
+        $form->endFieldset();
+
+        if(actionOK('register')){
+            $form->addElement('<p>'.explode("?", $lang['reghere'])[0].'? '.tpl_actionlink('register','','','',true).'.</p>');
+        }
+
+        if (actionOK('resendpwd')) {
+            $form->addElement('<p>'.explode("?", $lang['pwdforget'])[0].'? '.tpl_actionlink('resendpwd','','','',true).'.</p>');
+        }
+
+        html_form('login', $form);
+        //print '</div>'.NL;
+    } else {
+        print '<h6 class="widget-title"><span>';
+            print $lang['profile'];
+        print '</span></h6>';
+        if ($namespaced['images']['avatar']['target'] != null) {
+            if (strpos($namespaced['images']['avatar']['target'], "debug") !== false) {
+                print '<a href="/doku.php?id='.$ID.'&amp;do=media&amp;ns='.tpl_getConf('avatars').'&amp;tab_files=upload" title="'.tpl_getLang('upload_avatar').'"><img id="namespaced__user-avatar" src="'.$namespaced['images']['avatar']['target'].'" title="'.tpl_getLang('upload_avatar').'" alt="*'.tpl_getLang('upload_avatar').'*" width="64px" height="100%" /></a>';
+            } else {
+                if ($namespaced['images']['avatar']['thumbnail'] != null) {
+                    print '<a href="'.$namespaced['images']['avatar']['target'].'" data-lity data-lity-desc="'.tpl_getLang('your_avatar').'" title="'.tpl_getLang('your_avatar').'"><img id="namespaced__user-avatar" src="'.$namespaced['images']['avatar']['thumbnail'].'" title="'.tpl_getLang('your_avatar').'" alt="*'.tpl_getLang('your_avatar').'*" width="64px" height="100%" /></a>';
+                } else {
+                    print '<a href="'.$namespaced['images']['avatar']['target'].'" data-lity data-lity-desc="'.tpl_getLang('your_avatar').'" title="'.tpl_getLang('your_avatar').'"><img id="namespaced__user-avatar" src="'.$namespaced['images']['avatar']['target'].'" title="'.tpl_getLang('your_avatar').'" alt="*'.tpl_getLang('your_avatar').'*" width="64px" height="100%" /></a>';
+                }
+            }
+        }
+        print '<ul>';
+            print '<li>'.$lang['fullname'].' : <em>'.$INFO['userinfo']['name'].'</em></li>'; 
+            print '<li>'.$lang['user'].' : <em>'.$_SERVER['REMOTE_USER'].'</em></li>'; 
+            print '<li>'.$lang['email'].' : <em>'.$INFO['userinfo']['mail'].'</em></li>'; 
+        print '</ul>';
+        echo '<p class="user">';
+            // If user has public page ID but no private space ID (most likely because UserHomePage plugin is not available)
+            //if (($namespaced['user']['private'] == null) && ($namespaced['user']['public']['link'] != null)) {
+            if (($namespaced['user']['public']['id'] != null) && ($namespaced['user']['private']['id'] != null)) {
+dbg("vérifier ces liens");
+                tpl_link(wl($namespaced['user']['private']['id']),'<span>'.$namespaced['user']['private']['title'].'</span>','title="'.$namespaced['user']['private']['title'].'" class="'.$namespaced['user']['private']['classes'].'"');
+                print " - ";
+                tpl_link(wl($namespaced['user']['public']['id']),'<span>'.$namespaced['user']['public']['title'].'</span>','title="'.$namespaced['user']['public']['title'].'" class="'.$namespaced['user']['public']['classes'].'"');
+            } elseif (($namespaced['user']['public']['id'] != null) && ($namespaced['user']['private'] == null)) {
+                print '<span title="'.$namespaced['user']['public']['title'].'">'.$namespaced['user']['public']['string'].'</span>';
+            // If user has both public page ID and private space ID
+            // In any other case, use DW's default function
+            //} else {
+            //    print $lang['loggedinas'].' '.userlink(); /* 'Logged in as ...' */
+            }
+        echo '</p>';
+        echo '<p class="profile">';
+            //print '<a href="/doku.php?id='.$ID.'&amp;do=profile" rel="nofollow" title="'.$lang['btn_profile'].'"><span>'.$lang['btn_profile'].'</span>'.namespaced_glyph("profile", true).'</a>';
+            print '<a href="/doku.php?id='.$ID.'&amp;do=profile" rel="nofollow" title="'.$lang['btn_profile'].'"><span>'.$lang['btn_profile'].'</span></a>';
+        echo '</p>';
+    }
+}/* /namespaced_userwidget */

@@ -11,7 +11,22 @@ if (!defined('DOKU_INC')) die();
 <footer id="namespaced__footer">
     <div class="pad">
         <div>
-            <?php tpl_license(''); // license text ?>
+            <?php //tpl_license(''); // license text ?>
+                <?php if(@count($namespaced['widgets']['footer']) > 0): ?>
+                    <!-- ********** ASIDE ********** -->
+                    <div id="namespaced__footer_widgets_container">
+                        <div class="pad aside include">
+                            <?php tpl_flush() ?>
+                            <?php tpl_includeFile('footertop.html') ?>
+                            <?php //tpl_include_page($conf['sidebar'], true, true) ?>
+                            <div  id="namespaced__footer_widgets" class="flex nowrap justify-evenly align-start">
+                                <?php namespaced_widgets('footer') ?>
+                            </div>
+                            <?php tpl_includeFile('footerbottom.html') ?>
+                        </div>
+                    </div><!-- /aside -->
+                    <hr class="vertical<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>" />
+                <?php endif; ?>
         </div>
 
         <div class="buttons">
