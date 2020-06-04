@@ -10,4 +10,6 @@
  * Default configuration settings
  */
 
+$conf['layout']             = 'box2wide';
+$conf['flexflip']           = '';
 $conf['licensevisual']      = 'badge';
