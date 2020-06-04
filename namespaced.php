@@ -77,7 +77,8 @@ function namespaced_init() {
                     if ($title == "About Namespaced") {
                         $namespaced['widgets'][$area][$widget]['title'] = tpl_getLang("about_namespaced");
                     // ignore title for Sidecard, Search and Sidebar
-                    } elseif (($title != "Sidecard") and ($title != "Search") and ($title != "Sidebar") and ($title != "User")) {
+                    //} elseif (($title != "Sidecard") and ($title != "Search") and ($title != "Sidebar") and ($title != "User")) {
+                    } elseif ($title != null) {
                         $locale = DOKU_CONF.'template_lang/'.$conf['template'].'/'.$conf['lang'].'/'.$title.'.txt';
 //dbg($locale);
                         if (file_exists($locale)) {
