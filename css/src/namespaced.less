@@ -15,10 +15,10 @@
 * HTML ITEMS
 * GENERIC CLASSES
 * FLEXBOX
+* SECTION HIGHLIGHTING
 * SKIP
 * HEADER
 * MAIN
-* SECTION HIGHLIGHTING
 * FOOTER
 * DOKUWIKI MODES
 * PLUGINS
@@ -202,6 +202,26 @@ aside.widget {
     flex-grow: 4;
 }
 
+/* SECTION HIGHLIGHTING
+----------------------------------------------- */
+
+div.secedit.editbutton_section {
+    display: block;
+    margin-top: -1.6rem;
+    float: right;
+}
+
+div.secedit.editbutton_section button {
+    padding: .1rem .9rem;
+}
+
+.dokuwiki div.section_highlight {
+    margin: 0 -1.3rem; /* negative side margin = side padding + side border */
+    padding: 0 .5rem;
+    border-width: 0 .8rem;
+    border-style: solid;
+}
+
 /* SKIP
 -------------------------------------------------------------- */
 
@@ -261,26 +281,6 @@ article {
     float: right;
     margin-left: 1.5rem;
     margin-bottom: 1.5rem;
-}
-
-/* SECTION HIGHLIGHTING
------------------------------------------------ */
-
-div.secedit.editbutton_section {
-    display: block;
-    margin-top: -1.6rem;
-    float: right;
-}
-
-div.secedit.editbutton_section button {
-    padding: .1rem .9rem;
-}
-
-.dokuwiki div.section_highlight {
-    margin: 0 -1.3rem; /* negative side margin = side padding + side border */
-    padding: 0 .5rem;
-    border-width: 0 .8rem;
-    border-style: solid;
 }
 
 /* =PAGETOOLS
