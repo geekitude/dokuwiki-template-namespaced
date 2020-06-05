@@ -20,6 +20,7 @@
 * HEADER
 * MAIN
 * FOOTER
+* WIDGETS
 * DOKUWIKI MODES
 * PLUGINS
 * Cloud
@@ -536,13 +537,19 @@ body.pagetools-flip #namespaced__pagetools ul li a {
     max-width: 25%;
 }
 
-#namespaced__widget_namespaced img,
+/* WIDGETS
+----------------------------------------------- */
+
 #namespaced__widget_license img {
     display: block;
 }
 
-[dir] #namespaced__widget_namespaced img, [dir] #namespaced__widget_license img {
+[dir] #namespaced__widget_license img {
     margin: 0 0 .5rem 0;
+}
+
+[dir] #namespaced__widget_search form {
+    text-align: center;
 }
 
 /* DOKUWIKI MODES
