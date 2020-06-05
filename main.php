@@ -13,10 +13,11 @@
 if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 @require_once(dirname(__FILE__).'/namespaced.php'); /* include hook for template functions */
 
-global $namespaced;
+global $namespaced, $external;
 // Reset $namespaced to make sure we don't inherit any value from previous page
 $namespaced = array();
 namespaced_init();
+$external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].'"' : '';
 
 ?><!DOCTYPE html>
 <html lang="<?php echo $conf['lang'] ?>" dir="<?php echo (($_GET['dir'] <> null)) ? $_GET['dir'] : $lang['direction'] ?>" class="no-js">
