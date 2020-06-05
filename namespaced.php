@@ -386,7 +386,7 @@ function namespaced_widgets($area = null){
 //dbg($data);
 //dbg($data['target']);
         $widgetid = "namespaced__widget_".str_replace(".html", "", str_replace(":", "_", ltrim($widget, ":")));
-        print '<aside id="'.$widgetid.'"class="widget">';
+        print '<aside id="'.$widgetid.'" class="widget">';
             if (isset($data['title'])) {
                 print '<h6 class="widget-title"><span>'.$data['title'].'</span></h6>';
             }
