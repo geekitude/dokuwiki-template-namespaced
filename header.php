@@ -60,7 +60,7 @@ if (!defined('DOKU_INC')) die();
                     <div class="mobileTools">
                         <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
                     </div>
-                    <ul>
+                    <ul class="nostyle inline">
                         <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', false); ?>
                     </ul>
                 </aside>
@@ -72,7 +72,7 @@ if (!defined('DOKU_INC')) die();
             <nav id="namespaced__site_navbar" class="flex navbar">
                 <div id="namespaced_ns_content">
                     <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo tpl_getLang('ns_content'); ?></h6>
-                    <ul>
+                    <ul class="nostyle inline">
                         <!-- NAMESPACE CONTENT -->
                         <li>test</li>
                     </ul>
@@ -81,7 +81,7 @@ if (!defined('DOKU_INC')) die();
                 <?php if ($conf['useacl']): ?>
                     <div id="namespaced__usertools">
                         <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['user_tools']; ?></h6>
-                        <ul>
+                        <ul class="nostyle inline">
                             <?php
                                 if ($namespaced['defaultsearch'] == true) {
                                     print '<li class="search">';

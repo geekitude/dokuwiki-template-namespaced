@@ -124,21 +124,40 @@ ul, ol {
     margin-right: 1em;
 }
 
-header ul,
-.tools ul {
+ul.nostyle {
     list-style: none;
 }
 
-[dir] header ul, [dir] .tools ul {
+[dir] ul.nostyle {
     margin: 0;
+}
+
+ul.inline li {
+    display: inline;
+}
+
+[dir] ul.inline li {
+    margin: 0 .5rem;
+}
+
+[dir=ltr] ul.inline li:first-child {
+    margin: 0 .5rem 0 0;
+}
+
+[dir=rtl] ul.inline li:first-child {
+    margin: 0 0 0 .5rem;
+}
+
+[dir=ltr] ul.inline li:last-child {
+    margin: 0 0 0 .5rem;
+}
+
+[dir=rtl] ul.inline li:last-child {
+    margin: 0 .5rem 0 0;
 }
 
 /* GENERIC CLASSES
 -------------------------------------------------------------- */
-
-.navbar ul li {
-    display: inline;
-}
 
 [dir] .start {
     text-align: start;

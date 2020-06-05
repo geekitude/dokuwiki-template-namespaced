@@ -33,17 +33,25 @@ if (!defined('DOKU_INC')) die();
             <?php
                 $target = ($conf['target']['extern']) ? 'target="'.$conf['target']['extern'].'"' : '';
             ?>
-            <a href="https://www.dokuwiki.org/donate" title="Donate" <?php echo $target?>><img
-                src="<?php echo tpl_basedir(); ?>images/button-donate.png" width="80" height="15" alt="Donate" /></a>
-            <a href="https://php.net" title="Powered by PHP" <?php echo $target?>><img
-                src="<?php echo tpl_basedir(); ?>images/button-php.png" width="80" height="15" alt="Powered by PHP" /></a>
-            <a href="//validator.w3.org/check/referer" title="Valid HTML5" <?php echo $target?>><img
-                src="<?php echo tpl_basedir(); ?>images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
-            <a href="//jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" <?php echo $target?>><img
-                src="<?php echo tpl_basedir(); ?>images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
-            <a href="https://dokuwiki.org/" title="Driven by DokuWiki" <?php echo $target?>><img
-                src="<?php echo tpl_basedir(); ?>images/button-dw.png" width="80" height="15"
-                alt="Driven by DokuWiki" /></a>
+            <ul class="nostyle inline">
+                <li>
+                    <a href="https://dokuwiki.org/" title="Driven by DokuWiki" <?php echo $target?>><img src="<?php echo tpl_basedir(); ?>images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+                </li>
+                <li>
+                    <a href="https://translate.dokuwiki.org/" title="Localized" <?php echo $target?>><img src="<?php echo tpl_basedir(); ?>images/button-localized.png" width="80" height="15" alt="Localized" /></a>
+                </li>
+                <li>
+                    <a href="https://www.dokuwiki.org/donate" title="Donate" <?php echo $target?>><img src="<?php echo tpl_basedir(); ?>images/button-donate.png" width="80" height="15" alt="Donate" /></a>
+                </li>
+                <li>
+                    <a href="https://php.net" title="Powered by PHP" <?php echo $target?>><img src="<?php echo tpl_basedir(); ?>images/button-php.png" width="80" height="15" alt="Powered by PHP" /></a>
+                </li>
+                <li>
+                    <a href="//validator.w3.org/check/referer" title="Valid HTML5" <?php echo $target?>><img src="<?php echo tpl_basedir(); ?>images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+                </li>
+                <li>
+                    <a href="//jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" <?php echo $target?>><img src="<?php echo tpl_basedir(); ?>images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+                </li>
         </div>
     </div>
 </footer><!-- /footer -->

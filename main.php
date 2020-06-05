@@ -96,7 +96,7 @@ namespaced_init();
             <!-- PAGE ACTIONS -->
             <aside id="namespaced__pagetools" class="gutter">
                 <nav class="tools<?php print (strpos(tpl_getConf('uicolorize'), 'pagetools') !== false) ? " uicolor-pagetools" : "" ?>">
-                    <ul>
+                    <ul class="nostyle">
                         <li><h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>aside-title"><?php print $lang['page_tools']; ?></h6></li>
                         <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
                     </ul>
