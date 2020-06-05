@@ -12,4 +12,3 @@ $lang['__tablet_width__']       = 'Below screensizes of this width, the site swi
 $lang['__phone_width__']        = 'Below screensizes of this width, the site switches to phone mode';
 $lang['__theme_color__']        = 'Theme color of the web app';
 $lang['ns_content']             = 'Namespace Content';
-$lang['about_namespaced']       = 'About Namespaced';
