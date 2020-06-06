@@ -15,3 +15,9 @@ $conf['flexflip']           = '';
 
 $conf['glyphs']             = 1;
 $conf['licensevisual']      = 'badge';
+$conf['uiimagetarget']      = 'image-ns';
+
+$conf['banner']             = 'banner';
+$conf['pattern']            = 'pattern';
+$conf['sidecard']           = 'sidecard';
+$conf['widebanner']         = 'widebanner';

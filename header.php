@@ -51,20 +51,29 @@ if (!defined('DOKU_INC')) die();
                 </div>
             </div>
 
-            <div id="namespaced__header_tools" class="tools flex column align-end grow4">
+            <div class="flex column end">
+                <div id="namespaced__banner_wrap" class="flex column end<?php print (strpos(tpl_getConf('print'), 'siteheader-banner') !== false) ? '' : ' noprint' ?>">
+                    <?php
+                        tpl_includeFile("bannerheader");
+                        namespaced_ui_image('banner');
+                        tpl_includeFile("bannerfooter");
+                    ?>
+                </div>
+                <div id="namespaced__header_tools" class="tools flex column align-end grow4">
 
-                <!-- SITE TOOLS -->
-                <aside id="namespaced__sitetools">
-                    <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['site_tools']; ?></h6>
+                    <!-- SITE TOOLS -->
+                    <aside id="namespaced__sitetools">
+                        <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['site_tools']; ?></h6>
 
-                    <div class="mobileTools">
-                        <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
-                    </div>
-                    <ul class="nostyle inline">
-                        <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', tpl_getConf('glyphs')); ?>
-                    </ul>
-                </aside>
+                        <div class="mobileTools">
+                            <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
+                        </div>
+                        <ul class="nostyle inline">
+                            <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', tpl_getConf('glyphs')); ?>
+                        </ul>
+                    </aside>
 
+                </div>
             </div>
         </div>
 
@@ -120,4 +129,13 @@ if (!defined('DOKU_INC')) die();
 
         <hr class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>" />
     </div>
+
+    <?php if($ACT == "show"): ?>
+        <div id="namespaced__widebanner_wrap" class="group<?php print (strpos(tpl_getConf('print'), 'widebanner') !== false) ? '' : ' noprint' ?>">
+            <?php
+                namespaced_ui_image('widebanner');
+            ?>
+        </div><!-- #namespaced__widebanner_wrap -->
+    <?php endif; ?>
+
 </header><!-- /header -->

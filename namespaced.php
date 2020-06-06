@@ -27,6 +27,19 @@ function namespaced_init() {
     // Enable default search untill it's proven useless
     $namespaced['defaultsearch'] = true;
 
+    // UI IMAGES
+// need to search avatar at some point
+    $images= array('banner', 'pattern', 'sidecard', 'widebanner');
+    foreach ($images as $type) {
+//dbg($type);
+//dbg(tpl_getConf($type));
+//dbg($showSidebar);
+        if (tpl_getConf($type) != null) {
+            $namespaced['images'][$type] = namespaced_inherit(tpl_getConf($type), "media", $ID);
+        }
+    }
+//dbg($namespaced['images']);
+
     // GET WIDGETS
     $widgets= array('footer','side');
     foreach ($widgets as $area) {
@@ -56,7 +69,13 @@ function namespaced_init() {
                 }
                 if (substr($widget, 0, 1) === ':') {
                     $type = "media";
-                    $target = namespaced_inherit($widget, $type, $ID, true, $propagate);
+//dbg(ltrim($widget, ":"));
+                    if (isset($namespaced['images'][ltrim($widget, ":")])) {
+//dbg("bingo");
+                        $target = $namespaced['images'][ltrim($widget, ":")];
+                    } else {
+                        $target = namespaced_inherit($widget, $type, $ID, true, $propagate);
+                    }
 //dbg($media);
                 } elseif (strpos($widget, ".html") !== false) {
                     $type = "include";
@@ -523,3 +542,43 @@ dbg("vérifier ces liens");
         echo '</p>';
     }
 }/* /namespaced_userwidget */
+
+
+/**
+ * Print UI images as simple <img> or <a> elements
+ */
+function namespaced_ui_image($type) {
+    global $conf, $ID;
+    global $namespaced;
+
+    if (($namespaced['images'][$type]['src'] != null) and ($ACT != "edit") and ($ACT != "preview")) {
+        $title = null;
+        if ((tpl_getConf('uiimagetarget') == 'home') or (strpos($namespaced['images'][$type]['ns'], 'wiki') !== false)) {
+            $target = wl($conf['start']);
+            $title = tpl_getLang('wikihome');
+        } elseif (tpl_getConf('uiimagetarget') == 'image-ns') {
+            $target = wl($namespaced['images'][$type]['ns']);
+            $title = $namespaced['images'][$type]['ns'];
+        } elseif (tpl_getConf('uiimagetarget') == 'current-ns') {
+            $target = wl(getNS($ID).":".$conf['start']);
+            $title = getNS($ID).":".$conf['start'];
+        } elseif (tpl_getConf('uiimagetarget') == 'image-details') {
+            $target = "lib/exe/detail.php?id=".$ID."&".explode("php?", $namespaced['images'][$type]['src'])[1];
+            $title = explode("php?", $namespaced['images']['banner']['src'])[1];
+        } else {
+            $target = null;
+        }
+        if ($title == null) { $title = $target; }
+        if (($namespaced['images'][$type]['ns'] != null) and ($target != null)) {
+            if ($type != 'widebanner') {
+                $style = ' style="max-width:'.$namespaced['images'][$type]['size'][0].'px"';
+            }
+            tpl_link(
+                $target,
+                '<img src="'.$namespaced['images'][$type]['src'].'" title="'.$title.'" alt="*'.$type.'*" '.$namespaced['images'][$type]['size'][3].$style.'/>'
+            );
+        } else {
+            print '<img src="'.$namespaced['images'][$type]['src'].'" alt="*'.$title.'*" '.$namespaced['images'][$type]['size'][3].' class="mediacenter" />';
+        }
+    }
+}

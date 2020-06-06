@@ -9,8 +9,15 @@
  * Configuration metadata
  */
 
+/* global look */
 $meta['layout']             = array('multichoice','_choices' => array('box','wide','box2wide','mix'));
 $meta['flexflip']           = array('multicheckbox','_choices' => array('banner','pagenav','sidepanel','pagetools','socket'));
-
+/* functionnalities */
 $meta['glyphs']             = array('onoff');
 $meta['licensevisual']      = array('multichoice','_choices' => array('badge','button','none'));
+$meta['uiimagetarget']      = array('multichoice','_choices' => array('image-ns','current-ns','home','image-details','none'));
+/*file names*/
+$meta['banner']             = array('string');
+$meta['pattern']            = array('string');
+$meta['sidecard']           = array('string');
+$meta['widebanner']         = array('string');
