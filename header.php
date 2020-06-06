@@ -61,7 +61,7 @@ if (!defined('DOKU_INC')) die();
                         <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
                     </div>
                     <ul class="nostyle inline">
-                        <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', false); ?>
+                        <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', tpl_getConf('glyphs')); ?>
                     </ul>
                 </aside>
 
@@ -93,7 +93,7 @@ if (!defined('DOKU_INC')) die();
                                     tpl_userinfo(); /* 'Logged in as ...' */
                                     echo '</li>';
                                 }
-                                echo (new \dokuwiki\Menu\UserMenu())->getListItems('action ');
+                                echo (new \dokuwiki\Menu\UserMenu())->getListItems('action ', tpl_getConf('glyphs'));
                             ?>
                         </ul>
                     </div>

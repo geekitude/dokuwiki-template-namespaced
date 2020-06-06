@@ -12,4 +12,6 @@
 
 $conf['layout']             = 'box2wide';
 $conf['flexflip']           = '';
+
+$conf['glyphs']             = 1;
 $conf['licensevisual']      = 'badge';

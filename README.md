@@ -92,6 +92,8 @@ See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#setting
 
 ## Settings
 
+* **glyphs** (*enabled*) : use glyph or text only actions (sitetools, usertools and some breadcrumbs)
+
 ## About
 
 ### Widgets
