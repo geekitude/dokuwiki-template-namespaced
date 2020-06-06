@@ -77,39 +77,39 @@ if (!defined('DOKU_INC')) die();
             </div>
         </div>
 
-        <nav id="namespaced__site_navbar" class="flex navbar">
-            <div id="namespaced_ns_content">
-                <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo tpl_getLang('ns_content'); ?></h6>
-                <ul class="nostyle inline">
-                    <!-- NAMESPACE CONTENT -->
-                    <li>test</li>
-                </ul>
-            </div>
-            <!-- USER TOOLS -->
-            <?php if ($conf['useacl']): ?>
-                <div id="namespaced__usertools">
-                    <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['user_tools']; ?></h6>
-                    <ul class="nostyle inline">
-                        <?php
-                            if ($namespaced['defaultsearch'] == true) {
-                                print '<li class="search">';
-                                    tpl_searchform();
-                                print '</li>';
-                            }
-                            if (!empty($_SERVER['REMOTE_USER'])) {
-                                echo '<li class="user">';
-                                tpl_userinfo(); /* 'Logged in as ...' */
-                                echo '</li>';
-                            }
-                            echo (new \dokuwiki\Menu\UserMenu())->getListItems('action ', tpl_getConf('glyphs'));
-                        ?>
-                    </ul>
-                </div>
-            <?php endif ?>
-        </nav>
-
         <hr class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>" />
     </div>
+
+    <nav id="namespaced__site_nav" class="flex navbar">
+        <div id="namespaced_ns_content">
+            <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo tpl_getLang('ns_content'); ?></h6>
+            <ul class="nostyle inline">
+                <!-- NAMESPACE CONTENT -->
+                <li>test</li>
+            </ul>
+        </div>
+        <!-- USER TOOLS -->
+        <?php if ($conf['useacl']): ?>
+            <div id="namespaced__usertools">
+                <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['user_tools']; ?></h6>
+                <ul class="nostyle inline">
+                    <?php
+                        if ($namespaced['defaultsearch'] == true) {
+                            print '<li class="search">';
+                                tpl_searchform();
+                            print '</li>';
+                        }
+                        if (!empty($_SERVER['REMOTE_USER'])) {
+                            echo '<li class="user">';
+                            tpl_userinfo(); /* 'Logged in as ...' */
+                            echo '</li>';
+                        }
+                        echo (new \dokuwiki\Menu\UserMenu())->getListItems('action ', tpl_getConf('glyphs'));
+                    ?>
+                </ul>
+            </div>
+        <?php endif ?>
+    </nav>
 
     <?php if($ACT == "show"): ?>
         <div id="namespaced__widebanner_wrap" class="group<?php print (strpos(tpl_getConf('print'), 'widebanner') !== false) ? '' : ' noprint' ?>">
