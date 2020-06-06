@@ -77,55 +77,36 @@ if (!defined('DOKU_INC')) die();
             </div>
         </div>
 
-        <nav id="namespaced__site_nav">
-            <nav id="namespaced__site_navbar" class="flex navbar">
-                <div id="namespaced_ns_content">
-                    <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo tpl_getLang('ns_content'); ?></h6>
+        <nav id="namespaced__site_navbar" class="flex navbar">
+            <div id="namespaced_ns_content">
+                <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo tpl_getLang('ns_content'); ?></h6>
+                <ul class="nostyle inline">
+                    <!-- NAMESPACE CONTENT -->
+                    <li>test</li>
+                </ul>
+            </div>
+            <!-- USER TOOLS -->
+            <?php if ($conf['useacl']): ?>
+                <div id="namespaced__usertools">
+                    <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['user_tools']; ?></h6>
                     <ul class="nostyle inline">
-                        <!-- NAMESPACE CONTENT -->
-                        <li>test</li>
+                        <?php
+                            if ($namespaced['defaultsearch'] == true) {
+                                print '<li class="search">';
+                                    tpl_searchform();
+                                print '</li>';
+                            }
+                            if (!empty($_SERVER['REMOTE_USER'])) {
+                                echo '<li class="user">';
+                                tpl_userinfo(); /* 'Logged in as ...' */
+                                echo '</li>';
+                            }
+                            echo (new \dokuwiki\Menu\UserMenu())->getListItems('action ', tpl_getConf('glyphs'));
+                        ?>
                     </ul>
                 </div>
-                <!-- USER TOOLS -->
-                <?php if ($conf['useacl']): ?>
-                    <div id="namespaced__usertools">
-                        <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['user_tools']; ?></h6>
-                        <ul class="nostyle inline">
-                            <?php
-                                if ($namespaced['defaultsearch'] == true) {
-                                    print '<li class="search">';
-                                        tpl_searchform();
-                                    print '</li>';
-                                }
-                                if (!empty($_SERVER['REMOTE_USER'])) {
-                                    echo '<li class="user">';
-                                    tpl_userinfo(); /* 'Logged in as ...' */
-                                    echo '</li>';
-                                }
-                                echo (new \dokuwiki\Menu\UserMenu())->getListItems('action ', tpl_getConf('glyphs'));
-                            ?>
-                        </ul>
-                    </div>
-                <?php endif ?>
-            </nav>
-            <!-- BREADCRUMBS -->
-            <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
-                <nav class="breadcrumbs flex navbar">
-                    <?php if($conf['youarehere']): ?>
-                        <div class="youarehere"><?php tpl_youarehere() ?></div>
-                    <?php endif ?>
-                    <?php if($conf['breadcrumbs']): ?>
-                        <div class="trace"><?php tpl_breadcrumbs() ?></div>
-                    <?php endif ?>
-                </nav>
             <?php endif ?>
-            <!-- TRANSLATIONS -->
-            <?php if(true): ?>
-                <aside class="navbar center">
-                    <span style="background-color:gold;">*Translations*</span>
-                </aside>
-            <?php endif ?>
-        <nav>
+        </nav>
 
         <hr class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>" />
     </div>
