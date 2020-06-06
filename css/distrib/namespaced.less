@@ -176,7 +176,15 @@ ul.inline li {
     margin-bottom: 1.5rem;
 }
 
-/* Debug */
+.pad {
+    /* Main uses it's own gutters instead */
+}
+
+[dir] .pad {
+    padding: 0 @ico-margin + @ico-width + @ico-margin;
+}
+
+/* -- Debug -- */
 
 .dbg,
 .include-hook-sample {

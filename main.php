@@ -52,7 +52,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                 <?php if(@count($namespaced['widgets']['side']) > 0): ?>
                     <!-- ********** ASIDE ********** -->
                     <div id="namespaced__aside">
-                        <div class="pad aside include">
+                        <div class="aside include">
                             <h6 class="toggle"><?php echo $lang['sidebar'] ?></h6>
                             <div class="content">
                                 <?php tpl_flush() ?>
@@ -69,7 +69,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                 <!-- ********** CONTENT ********** -->
                 <article id="namespaced__content">
 
-                    <div class="pad">
+                    <div>
                         <?php html_msgarea() ?>
 
                         <div class="pageId"><span><?php echo hsc($ID) ?></span></div>
