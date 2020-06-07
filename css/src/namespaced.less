@@ -67,6 +67,8 @@ html {
     font-size: .625em; /* fallback IE8+ */
     font-size: calc(1em * .625); /* IE9-IE11 math fixing. See http://bit.ly/1g4X0bX */
     /* set 1rem (base font-size) to be equivalent to 10p */
+    scroll-behavior: smooth;
+    /* a11y friendly smooth scrolling, see ACCESSIBILITY */
 }
 
 body {
@@ -494,4 +496,14 @@ div.cloud {
     #namespaced__site {
         background-color: chocolate;
     }
+}
+
+/* MORE ACCESSIBILITY
+-------------------------------------------------------------- */
+
+/* Remove smooth scroll if desired by visitor */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
