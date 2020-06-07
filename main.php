@@ -12,6 +12,7 @@
 
 if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 @require_once(dirname(__FILE__).'/namespaced.php'); /* include hook for template functions */
+@require_once(dirname(__FILE__).'/inc/NamespacedPageTools.php'); /* include hook for template functions */
 
 global $namespaced, $external;
 // Reset $namespaced to make sure we don't inherit any value from previous page
@@ -99,7 +100,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                 <nav class="tools<?php print (strpos(tpl_getConf('uicolorize'), 'pagetools') !== false) ? " uicolor-pagetools" : "" ?>">
                     <ul class="nostyle">
                         <li><h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>aside-title"><?php print $lang['page_tools']; ?></h6></li>
-                        <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
+                        <?php echo (new \dokuwiki\Menu\NamespacedPageTools())->getListItems(); ?>
                     </ul>
                 </nav><!-- /.tools -->
             </aside><!-- /#dokuwiki__pagetools -->
