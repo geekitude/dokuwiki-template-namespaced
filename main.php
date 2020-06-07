@@ -96,7 +96,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
             </div><!-- /wrapper -->
 
             <!-- PAGE ACTIONS -->
-            <aside id="namespaced__pagetools" class="gutter">
+            <aside id="namespaced__pagetools" class="gutter flex column">
                 <nav class="tools<?php print (strpos(tpl_getConf('uicolorize'), 'pagetools') !== false) ? " uicolor-pagetools" : "" ?>">
                     <ul class="nostyle">
                         <li><h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>aside-title"><?php print $lang['page_tools']; ?></h6></li>
@@ -108,6 +108,14 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
         </main>
 
         <?php include('footer.php') ?>
+
+        <nav id="namespaced__updown">
+            <ul class="nostyle">
+                <li><h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>aside-title"><?php print $lang['page_tools']; ?></h6></li>
+                <li class="up"><a href="#dokuwiki__top" title="Back to top [t]" rel="nofollow" accesskey="t"><span>Back to top</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M15,20H9V12H4.16L12,4.16L19.84,12H15V20Z" /></svg></a></li>
+                <li class="down"><a href="#namespaced__footer" title="Go to bottom [b]" rel="nofollow" accesskey="b"><span>Go to bottom</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M9,4H15V12H19.84L12,19.84L4.16,12H9V4Z" /></svg></a></li>
+            </ul>
+        </nav><!-- /.tools -->
 
     </div><!-- /site -->
 
