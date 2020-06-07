@@ -44,26 +44,6 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
 
         <?php include('header.php') ?>
 
-        <nav id="namespaced__page_nav">
-            <!-- BREADCRUMBS -->
-            <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
-                <nav class="breadcrumbs flex navbar">
-                    <?php if($conf['youarehere']): ?>
-                        <div class="youarehere"><?php tpl_youarehere() ?></div>
-                    <?php endif ?>
-                    <?php if($conf['breadcrumbs']): ?>
-                        <div class="trace"><?php tpl_breadcrumbs() ?></div>
-                    <?php endif ?>
-                </nav>
-            <?php endif ?>
-            <!-- TRANSLATIONS -->
-            <?php if(true): ?>
-                <aside class="navbar center">
-                    <span style="background-color:gold;">*Translations*</span>
-                </aside>
-            <?php endif ?>
-        <nav>
-
         <main class="flex nowrap align-stretch">
 
             <div id="namespaced__main_subflex" class="flex nowrap align-stretch">
