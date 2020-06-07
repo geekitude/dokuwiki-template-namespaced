@@ -87,3 +87,19 @@ jQuery(function(){
         this.blur();
     });
 });
+
+//jQuery(document).ready(function() {
+//    jQuery('#namespaced__updown .up').fadeIn(0);
+//});
+
+jQuery(document).scroll(function() {
+  if (jQuery(document).scrollTop() >= 200) {
+    // user scrolled 50 pixels or more;
+    // do stuff
+    jQuery('#namespaced__updown .up').fadeIn(500);
+    jQuery('#namespaced__updown .down').fadeOut(0);
+  } else {
+    jQuery('#namespaced__updown .up').fadeOut(0);
+    jQuery('#namespaced__updown .down').fadeIn(500);
+  }
+});

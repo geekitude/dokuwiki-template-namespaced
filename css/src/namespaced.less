@@ -277,6 +277,10 @@ html.no-js #namespaced__updown ul li.down {
     display: none;
 }
 
+html.js #namespaced__updown ul li.up {
+    display: none;
+}
+
 #namespaced__updown a {
     display: inline-block;
     width: 100%;
@@ -299,6 +303,18 @@ html.no-js #namespaced__updown ul li.down {
 
 #namespaced__updown ul:hover a span {
     display: inline;
+}
+
+#namespaced__updown li:hover {
+    background-color: #fff;
+}
+
+#namespaced__updown li:hover a svg {
+    fill: gold;
+}
+
+#namespaced__updown li:hover a span {
+    color: gold;
 }
 
 /* HEADER
