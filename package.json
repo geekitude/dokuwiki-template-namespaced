@@ -31,6 +31,7 @@
     "postcss-rtl": "^1.7.3"
   },
   "dependencies": {
-    "diff": "^4.0.2"
+    "diff": "^4.0.2",
+    "websocket-extensions": "^0.1.4"
   }
 }
