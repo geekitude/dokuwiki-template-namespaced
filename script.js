@@ -93,13 +93,13 @@ jQuery(function(){
 //});
 
 jQuery(document).scroll(function() {
-  if (jQuery(document).scrollTop() >= 200) {
+  if (jQuery(document).scrollTop() >= 300) {
     // user scrolled 50 pixels or more;
     // do stuff
-    jQuery('#namespaced__updown .up').fadeIn(500);
-    jQuery('#namespaced__updown .down').fadeOut(0);
+    jQuery('#namespaced__pagetools ul li.top').fadeIn(500);
+    jQuery('#namespaced__pagetools ul li.bottom').fadeOut(0);
   } else {
-    jQuery('#namespaced__updown .up').fadeOut(0);
-    jQuery('#namespaced__updown .down').fadeIn(500);
+    jQuery('#namespaced__pagetools ul li.top').fadeOut(0);
+    jQuery('#namespaced__pagetools ul li.bottom').fadeIn(500);
   }
 });

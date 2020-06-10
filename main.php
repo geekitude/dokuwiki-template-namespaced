@@ -12,7 +12,6 @@
 
 if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 @require_once(dirname(__FILE__).'/namespaced.php'); /* include hook for template functions */
-@require_once(dirname(__FILE__).'/NamespacedPageTools.php'); /* include hook for template functions */
 
 global $namespaced, $external;
 // Reset $namespaced to make sure we don't inherit any value from previous page
@@ -100,7 +99,9 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                 <nav class="tools<?php print (strpos(tpl_getConf('uicolorize'), 'pagetools') !== false) ? " uicolor-pagetools" : "" ?>">
                     <ul class="nostyle">
                         <li><h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>aside-title"><?php print $lang['page_tools']; ?></h6></li>
-                        <?php echo (new \dokuwiki\Menu\NamespacedPageTools())->getListItems(); ?>
+                        <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
+                        <?php //echo (new \dokuwiki\Menu\NamespacedPageTools())->getListItems(); ?>
+                        <li class="bottom"><a href="#namespaced__footer" title="Go to bottom [b]" rel="nofollow" accesskey="b"><span>Go to bottom</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z" /></svg></a></li>
                     </ul>
                 </nav><!-- /.tools -->
             </aside><!-- /#dokuwiki__pagetools -->
@@ -108,14 +109,6 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
         </main>
 
         <?php include('footer.php') ?>
-
-        <nav id="namespaced__updown">
-            <ul class="nostyle">
-                <li><h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>aside-title"><?php print $lang['page_tools']; ?></h6></li>
-                <li class="up"><a href="#dokuwiki__top" title="Back to top [t]" rel="nofollow" accesskey="t"><span>Back to top</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M15,20H9V12H4.16L12,4.16L19.84,12H15V20Z" /></svg></a></li>
-                <li class="down"><a href="#namespaced__footer" title="Go to bottom [b]" rel="nofollow" accesskey="b"><span>Go to bottom</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M9,4H15V12H19.84L12,19.84L4.16,12H9V4Z" /></svg></a></li>
-            </ul>
-        </nav><!-- /.tools -->
 
     </div><!-- /site -->
 

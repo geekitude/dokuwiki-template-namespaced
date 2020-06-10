@@ -17,7 +17,6 @@
 * FLEXBOX
 * SECTION HIGHLIGHTING
 * SKIP
-* UPDOWN
 * HEADER
 * MAIN
 * FOOTER
@@ -260,52 +259,6 @@ a.skip:active {
    left: 0;
 }
 
-/* UPDOWN
--------------------------------------------------------------- */
-
-#namespaced__updown {
-    position: fixed;
-    right: calc(@ico-margin - 5);
-    bottom: @ico-margin;
-    z-index: 2;
-    background-color: gold;
-    color: white;
-    border-radius: 5px;
-}
-
-html.no-js #namespaced__updown ul li.down {
-    display: none;
-}
-
-html.js #namespaced__updown ul li.up {
-    display: none;
-}
-
-#namespaced__updown a {
-    display: flex;
-    width: 100%;
-    text-align: end;
-    text-decoration: none;
-    /*padding-top: 3.7px;*/
-}
-
-#namespaced__updown a svg {
-    width: calc(@ico-width + 10);
-    height: calc(@ico-width + 10);
-    fill: #fff;
-}
-
-#namespaced__updown a span {
-    padding-left: 1rem;
-    vertical-align: 1.5rem;
-    color: #fff;
-    display: none;
-}
-
-#namespaced__updown ul:hover a span {
-    display: initial;
-}
-
 /* HEADER
 -------------------------------------------------------------- */
 
@@ -442,6 +395,13 @@ body.sidepanel-flip #namespaced__aside {
 
 #namespaced__pagetools ul:hover li h6 {
     visibility: visible;
+}
+
+html.js #namespaced__pagetools ul li.top {
+    display: none;
+}
+html.not-js #namespaced__pagetools ul li.bottom {
+    display: none;
 }
 
 body.pagetools-flip #namespaced__main_subflex {
