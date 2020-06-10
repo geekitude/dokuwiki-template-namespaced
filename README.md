@@ -73,6 +73,7 @@ See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#setting
 * [ ] Siblings based on [Twistienav](https://www.dokuwiki.org/plugin:twistienav) plugin (a breadcrumbs like list of other pages in current namespace)
 * [ ] Social networks links (see [Social links](https://github.com/geekitude/dokuwiki-template-colormag#social-links) below)
 * [ ] Supports a cheatsheet that will be shown as a sidebar in edit and preview modes
+* [x] Added a "Go to bottom" pagetool to easily reach footer widgets or save settings button (Javascript is needed to switch between this pagetool and "Back to top")
 * [ ] Expanded debug mode to show some specific elements (sample code or images)
   * [ ] *a11y* (visual accessibility helpers)
   * [ ] *alerts*
@@ -154,3 +155,18 @@ You can add `noprint` class to avoid the content to be printed.
 See [DokuWiki's documentation](https://www.dokuwiki.org/include_hooks) for more details about include hooks.
 
 #### Include hooks
+
+### jQuery
+
+:warning: UPDATE LIST :warning:
+
+Here's the list of features that will not work on browsers without jQuery abilities :
+* Stack (and switch between) "Back to top" and "Go to bottom" pagetools
+* Newsticker
+* Context logo Lightbox effect
+* Sidebar visibility context tool
+* Sidebar and TOC auto-collapsing when reaching tablet resolution
+* ToC extraction in "mix" layout
+* Scrollspy ToC
+* Internal links will scroll a bit too far if Page header is set to stick on top of page
+* Animated scrolling
