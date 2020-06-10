@@ -101,7 +101,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                         <li><h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>aside-title"><?php print $lang['page_tools']; ?></h6></li>
                         <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
                         <?php //echo (new \dokuwiki\Menu\NamespacedPageTools())->getListItems(); ?>
-                        <li class="bottom"><a href="#namespaced__footer" title="Go to bottom [b]" rel="nofollow" accesskey="b"><span>Go to bottom</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z" /></svg></a></li>
+                        <li class="bottom"><a href="#namespaced__footer" title="<?php print tpl_getLang('go_to_bottom'); ?> [b]" rel="nofollow" accesskey="b"><span><?php print tpl_getLang('go_to_bottom') ?></span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z" /></svg></a></li>
                     </ul>
                 </nav><!-- /.tools -->
             </aside><!-- /#dokuwiki__pagetools -->
