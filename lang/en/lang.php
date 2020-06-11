@@ -12,4 +12,4 @@ $lang['__tablet_width__']       = 'Below screensizes of this width, the site swi
 $lang['__phone_width__']        = 'Below screensizes of this width, the site switches to phone mode';
 $lang['__theme_color__']        = 'Theme color of the web app';
 $lang['ns_content']             = 'Namespace Content';
-$lang['go_to_bottom']           = 'Go to bottom';
+$lang['namespaced']             = 'An experimental and highly customizable DokuWiki template based on flexbox with many namespace related features.';

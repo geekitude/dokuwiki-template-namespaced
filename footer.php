@@ -21,9 +21,9 @@ if (!defined('DOKU_INC')) die();
 
         <div  id="namespaced__footer_sole" class="flex">
             <div class="center">
-                <a href="http://www.dokuwiki.org/template:namespaced"  title="Namespaced documentation"<?php print $external ?>><img src="/lib/tpl/namespaced/images/namespaced_logo_85.png" width="85" height="16" alt="" /></a>
-                <p>An experimental and highly customizable DokuWiki template based on flexbox with many namespace related features.</p>
-                <p>Check or report <a href="https://github.com/geekitude/dokuwiki-template-namespaced/issues"  title="Namespaced issues"<?php print $external ?>>issues</a></p>
+                <h6><a href="http://www.dokuwiki.org/template:namespaced"  title="Namespaced documentation"<?php print $external ?>><img src="/lib/tpl/namespaced/images/namespaced_logo_85.png" width="85" height="16" alt="" /></a></h6>
+                <p><?php print tpl_getLang('namespaced') ?></p>
+                <p><a href="http://www.dokuwiki.org/template:namespaced"  title="Namespaced documentation"<?php print $external ?>>Documentation</a> - <a href="https://github.com/geekitude/dokuwiki-template-namespaced/issues"  title="Namespaced issues"<?php print $external ?>>Github</a></p>
             </div>
             <div class="buttons">
                 <ul class="nostyle inline">
