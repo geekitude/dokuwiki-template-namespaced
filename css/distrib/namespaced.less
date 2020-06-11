@@ -22,8 +22,10 @@
 * FOOTER
 * WIDGETS
 * DOKUWIKI MODES
+* -- Admin page
+* -- Settings
 * PLUGINS
-* Cloud
+* -- Cloud
 * RESPONSIVENESS
 */
 
@@ -586,9 +588,85 @@ body.pagetools-flip #namespaced__pagetools ul li a {
 /* DOKUWIKI MODES
 ----------------------------------------------- */
 
+/* -- Admin page  -- */
+
 .dokuwiki div.ui-admin ul li a span.icon svg {
     width: 24px;
     height: 24px;
+}
+
+/* -- Settings  -- */
+
+[dir] .dokuwiki #config__manager fieldset {
+    background-color: @ini_background;
+    border: 1px solid @ini_border;
+}
+
+[dir] .dokuwiki #config__manager fieldset legend {
+    padding: 0 2rem;
+}
+
+[dir] .dokuwiki #config__manager fieldset table {
+    margin: 1.5rem 0 .5rem 0;
+}
+
+[dir] .dokuwiki #config__manager fieldset table tr:nth-child(odd) {
+    background-color: @ini_border;
+}
+
+[dir] .dokuwiki #config__manager fieldset td {
+    padding: 1.4rem 1.6rem 1rem 1.6rem;
+}
+
+[dir] .dokuwiki #config__manager fieldset td span.outkey {
+    margin-top: -1rem;
+    background-color: inherit;
+}
+
+[dir] .dokuwiki #config__manager fieldset tr td.value div, [dir] .dokuwiki #config__manager fieldset tr td.value input, [dir] .dokuwiki #config__manager fieldset tr td.value select {
+    background-color: @ini_highlight;
+}
+
+[dir] .dokuwiki #config__manager fieldset tr.default td.value div, [dir] .dokuwiki #config__manager fieldset tr.default td.value input, [dir] .dokuwiki #config__manager fieldset tr.default td.value select {
+    background-color: @ini_background_neu;
+}
+
+.dokuwiki #config__manager fieldset td.value div.selection {
+    width: 49%;
+}
+
+[dir=ltr] .dokuwiki #config__manager fieldset td.value div.selection:nth-child(odd) {
+    margin: 0 1% 0 0;
+}
+
+[dir=rtl] .dokuwiki #config__manager fieldset td.value div.selection:nth-child(odd) {
+    margin: 0 0 0 1%;
+}
+
+[dir=ltr] .dokuwiki #config__manager fieldset td.value div.selection:nth-child(even) {
+    margin: 0 0 0 1%;
+}
+
+[dir=rtl] .dokuwiki #config__manager fieldset td.value div.selection:nth-child(even) {
+    margin: 0 1% 0 0;
+}
+
+[dir] .dokuwiki #config__manager fieldset tr.default td.value div.other {
+    padding: 0;
+    background-color: @ini_background;
+}
+
+.dokuwiki #config__manager fieldset input.edit,
+.dokuwiki #config__manager fieldset select {
+    width: 100%;
+}
+
+.dokuwiki #config__manager fieldset select {
+    max-width: 100%;
+}
+
+.dokuwiki #config__manager fieldset input.checkbox {
+    vertical-align: -1px;
 }
 
 /* PLUGINS
