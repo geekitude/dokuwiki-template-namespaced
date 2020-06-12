@@ -16,4 +16,5 @@ $lang['__tablet_width__']       = 'En dessous de cette largeur, le site passe en
 $lang['__phone_width__']        = 'En dessous de cette largeur, le site passe en mode smartphone.';
 $lang['__theme_color__']        = 'Thème de couleur de l\'application web';
 $lang['ns_content']             = 'Contenu de la catégorie';
+$lang['go_to_bottom']           = 'Bas de page';
 $lang['namespaced']             = 'Un thème DokuWiki experimental et hautement personnalisable basé sur flexbox avec de nombreuses fonctionnalités liées aux catégories.';
