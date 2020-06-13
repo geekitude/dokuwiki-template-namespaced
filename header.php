@@ -51,7 +51,7 @@ if (!defined('DOKU_INC')) die();
                 </div>
             </div>
 
-            <div class="flex column end">
+            <div class="flex column align-end">
                 <div id="namespaced__banner_wrap" class="flex column end<?php print (strpos(tpl_getConf('print'), 'siteheader-banner') !== false) ? '' : ' noprint' ?>">
                     <?php
                         tpl_includeFile("bannerheader");
