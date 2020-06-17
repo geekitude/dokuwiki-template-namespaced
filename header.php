@@ -85,7 +85,7 @@ if (!defined('DOKU_INC')) die();
             <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo tpl_getLang('ns_content'); ?></h6>
             <ul class="nostyle inline">
                 <!-- NAMESPACE CONTENT -->
-                <li>test</li>
+                <li class="dbg">*namespace menu*</li>
             </ul>
         </div>
         <!-- USER TOOLS -->
