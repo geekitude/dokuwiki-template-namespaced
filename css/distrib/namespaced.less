@@ -16,6 +16,7 @@
 * GENERIC CLASSES
 * FLEXBOX
 * SECTION HIGHLIGHTING
+* NAVBAR
 * SKIP
 * HEADER
 * MAIN
@@ -295,6 +296,165 @@ div.secedit.editbutton_section {
     padding: 0 .5rem;
     border-width: 0 .8rem;
     border-style: solid;
+}
+
+/* NAVBAR
+----------------------------------------------- */
+.navbar ul li.focus > ul {
+    display: block;
+}
+
+.navbar ul li ul,
+.navbar ul li:hover ul ul,
+.navbar ul ul li:hover ul ul,
+.navbar ul ul ul li:hover ul ul,
+.navbar ul ul ul ul li:hover ul ul,
+.navbar ul li.focus ul ul,
+.navbar ul ul li.focus ul ul,
+.navbar ul ul ul li.focus ul ul,
+.navbar ul ul ul ul li.focus ul ul {
+    z-index: 100;
+}
+
+[dir=ltr] .navbar ul li ul, [dir=ltr] .navbar ul li:hover ul ul, [dir=ltr] .navbar ul ul li:hover ul ul, [dir=ltr] .navbar ul ul ul li:hover ul ul, [dir=ltr] .navbar ul ul ul ul li:hover ul ul, [dir=ltr] .navbar ul li.focus ul ul, [dir=ltr] .navbar ul ul li.focus ul ul, [dir=ltr] .navbar ul ul ul li.focus ul ul, [dir=ltr] .navbar ul ul ul ul li.focus ul ul {
+    left: -99999px;
+}
+
+[dir=rtl] .navbar ul li ul, [dir=rtl] .navbar ul li:hover ul ul, [dir=rtl] .navbar ul ul li:hover ul ul, [dir=rtl] .navbar ul ul ul li:hover ul ul, [dir=rtl] .navbar ul ul ul ul li:hover ul ul, [dir=rtl] .navbar ul li.focus ul ul, [dir=rtl] .navbar ul ul li.focus ul ul, [dir=rtl] .navbar ul ul ul li.focus ul ul, [dir=rtl] .navbar ul ul ul ul li.focus ul ul {
+    right: -99999px;
+}
+
+[dir=ltr] .navbar ul li:hover ul, [dir=ltr] .navbar ul ul li:hover ul, [dir=ltr] .navbar ul ul ul li:hover ul, [dir=ltr] .navbar ul ul ul ul li:hover ul, [dir=ltr] .navbar ul ul ul ul ul li:hover ul, [dir=ltr] .navbar ul li.focus ul, [dir=ltr] .navbar ul ul li.focus ul, [dir=ltr] .navbar ul ul ul li.focus ul, [dir=ltr] .navbar ul ul ul ul li.focus ul, [dir=ltr] .navbar ul ul ul ul ul li.focus ul {
+    left: 100%;
+}
+
+[dir=rtl] .navbar ul li:hover ul, [dir=rtl] .navbar ul ul li:hover ul, [dir=rtl] .navbar ul ul ul li:hover ul, [dir=rtl] .navbar ul ul ul ul li:hover ul, [dir=rtl] .navbar ul ul ul ul ul li:hover ul, [dir=rtl] .navbar ul li.focus ul, [dir=rtl] .navbar ul ul li.focus ul, [dir=rtl] .navbar ul ul ul li.focus ul, [dir=rtl] .navbar ul ul ul ul li.focus ul, [dir=rtl] .navbar ul ul ul ul ul li.focus ul {
+    right: 100%;
+}
+
+/* making sure focus isn't lost when passing from main to sub menu */
+/*
+#colormag__usertools-menu .sub-menu,
+#colormag__usertools-dropdown .sub-menu {
+    right: 0;
+}
+*/
+
+[dir=ltr] .navbar .action .sub-menu {
+    right: 0
+}
+
+[dir=rtl] .navbar .action .sub-menu {
+    left: 0
+}
+
+[dir] .navbar ul li ul li {
+    float: none;
+}
+
+.navbar ul li ul {
+    position: absolute;
+    width: 200px;
+    top: 44px;
+}
+
+.navbar ul.sub-menu {
+    width: 400px;
+}
+
+[dir] .navbar ul li ul li a {
+    border-top: none;
+}
+
+.navbar ul li ul li a,
+.navbar ul li.current-menu-item ul li a,
+.navbar ul li ul li.current-menu-item a,
+.navbar ul li.current_page_ancestor ul li a,
+.navbar ul li.current-menu-ancestor ul li a,
+.navbar ul li.current_page_item ul li a {
+    font-size: 14px;
+    height: 100%;
+    display: block;
+    text-transform: none;
+}
+
+[dir] .navbar ul li ul li a, [dir] .navbar ul li.current-menu-item ul li a, [dir] .navbar ul li ul li.current-menu-item a, [dir] .navbar ul li.current_page_ancestor ul li a, [dir] .navbar ul li.current-menu-ancestor ul li a, [dir] .navbar ul li.current_page_item ul li a {
+    float: none;
+    padding: 10px 15px;
+}
+
+[dir=ltr] .navbar ul li ul li a, [dir=ltr] .navbar ul li.current-menu-item ul li a, [dir=ltr] .navbar ul li ul li.current-menu-item a, [dir=ltr] .navbar ul li.current_page_ancestor ul li a, [dir=ltr] .navbar ul li.current-menu-ancestor ul li a, [dir=ltr] .navbar ul li.current_page_item ul li a {
+    text-align: left;
+}
+
+[dir=rtl] .navbar ul li ul li a, [dir=rtl] .navbar ul li.current-menu-item ul li a, [dir=rtl] .navbar ul li ul li.current-menu-item a, [dir=rtl] .navbar ul li.current_page_ancestor ul li a, [dir=rtl] .navbar ul li.current-menu-ancestor ul li a, [dir=rtl] .navbar ul li.current_page_item ul li a {
+    text-align: right;
+}
+
+.navbar ul li ul li ul {
+    top: 0;
+}
+
+[dir=ltr] .navbar ul li ul li ul {
+    left: 200px;
+}
+
+[dir=rtl] .navbar ul li ul li ul {
+    right: 200px;
+}
+
+[dir=ltr] .navbar ul li:hover > ul, [dir=ltr] .navbar ul li.focus > ul {
+    left: auto;
+}
+
+[dir=rtl] .navbar ul li:hover > ul, [dir=rtl] .navbar ul li.focus > ul {
+    right: auto;
+}
+
+.navbar ul ul {
+    position: absolute;
+}
+
+[dir=ltr] .navbar ul ul {
+    float: left;
+    left: -99999px;
+}
+
+[dir=rtl] .navbar ul ul {
+    float: right;
+    right: -99999px;
+}
+
+[dir=ltr] .navbar ul ul li:hover > ul, [dir=ltr] .navbar ul ul li.focus > ul {
+    left: 100%;
+}
+
+[dir=rtl] .navbar ul ul li:hover > ul, [dir=rtl] .navbar ul ul li.focus > ul {
+    right: 100%;
+}
+
+.navbar ul ul ul {
+    top: 0;
+}
+
+[dir=ltr] .navbar ul ul ul {
+    left: -99999px;
+}
+
+[dir=rtl] .navbar ul ul ul {
+    right: -99999px;
+}
+
+[dir=ltr] .navbar ul ul ul li:hover > ul, [dir=ltr] .navbar ul ul ul li.focus > ul {
+    left: 100%;
+}
+
+[dir=rtl] .navbar ul ul ul li:hover > ul, [dir=rtl] .navbar ul ul ul li.focus > ul {
+    right: 100%;
+}
+
+.navbar select {
+    display: none;
 }
 
 /* SKIP

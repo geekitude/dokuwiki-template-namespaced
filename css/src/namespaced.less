@@ -16,6 +16,7 @@
 * GENERIC CLASSES
 * FLEXBOX
 * SECTION HIGHLIGHTING
+* NAVBAR
 * SKIP
 * HEADER
 * MAIN
@@ -242,6 +243,118 @@ div.secedit.editbutton_section button {
     padding: 0 .5rem;
     border-width: 0 .8rem;
     border-style: solid;
+}
+
+/* NAVBAR
+----------------------------------------------- */
+.navbar ul li.focus > ul {
+    display: block;
+}
+
+.navbar ul li ul,
+.navbar ul li:hover ul ul,
+.navbar ul ul li:hover ul ul,
+.navbar ul ul ul li:hover ul ul,
+.navbar ul ul ul ul li:hover ul ul,
+.navbar ul li.focus ul ul,
+.navbar ul ul li.focus ul ul,
+.navbar ul ul ul li.focus ul ul,
+.navbar ul ul ul ul li.focus ul ul {
+    left: -99999px;
+    z-index: 100;
+}
+
+.navbar ul li:hover ul,
+.navbar ul ul li:hover ul,
+.navbar ul ul ul li:hover ul,
+.navbar ul ul ul ul li:hover ul,
+.navbar ul ul ul ul ul li:hover ul,
+.navbar ul li.focus ul,
+.navbar ul ul li.focus ul,
+.navbar ul ul ul li.focus ul,
+.navbar ul ul ul ul li.focus ul,
+.navbar ul ul ul ul ul li.focus ul {
+    left: 100%;
+}
+
+/* making sure focus isn't lost when passing from main to sub menu */
+/*
+#colormag__usertools-menu .sub-menu,
+#colormag__usertools-dropdown .sub-menu {
+    right: 0;
+}
+*/
+
+.navbar .action .sub-menu {
+    right: 0
+}
+
+.navbar ul li ul li {
+    float: none;
+}
+
+.navbar ul li ul {
+    position: absolute;
+    width: 200px;
+    top: 44px;
+}
+
+.navbar ul.sub-menu {
+    width: 400px;
+}
+
+.navbar ul li ul li a {
+    border-top: none;
+}
+
+.navbar ul li ul li a,
+.navbar ul li.current-menu-item ul li a,
+.navbar ul li ul li.current-menu-item a,
+.navbar ul li.current_page_ancestor ul li a,
+.navbar ul li.current-menu-ancestor ul li a,
+.navbar ul li.current_page_item ul li a {
+    float: none;
+    font-size: 14px;
+    height: 100%;
+    padding: 10px 15px;
+    display: block;
+    text-align: left;
+    text-transform: none;
+}
+
+.navbar ul li ul li ul {
+    left: 200px;
+    top: 0;
+}
+
+.navbar ul li:hover > ul,
+.navbar ul li.focus > ul {
+    left: auto;
+}
+
+.navbar ul ul {
+    position: absolute;
+    float: left;
+    left: -99999px;
+}
+
+.navbar ul ul li:hover > ul,
+.navbar ul ul li.focus > ul {
+    left: 100%;
+}
+
+.navbar ul ul ul {
+    left: -99999px;
+    top: 0;
+}
+
+.navbar ul ul ul li:hover > ul,
+.navbar ul ul ul li.focus > ul {
+    left: 100%;
+}
+
+.navbar select {
+    display: none;
 }
 
 /* SKIP
