@@ -99,12 +99,13 @@ if (!defined('DOKU_INC')) die();
                                 tpl_searchform();
                             print '</li>';
                         }
-                        if (!empty($_SERVER['REMOTE_USER'])) {
-                            echo '<li class="user">';
-                            tpl_userinfo(); /* 'Logged in as ...' */
-                            echo '</li>';
-                        }
-                        echo (new \dokuwiki\Menu\UserMenu())->getListItems('action ', tpl_getConf('glyphs'));
+                        //if (!empty($_SERVER['REMOTE_USER'])) {
+                        //    echo '<li class="user">';
+                        //    tpl_userinfo(); /* 'Logged in as ...' */
+                        //    echo '</li>';
+                        //}
+                        //echo (new \dokuwiki\Menu\UserMenu())->getListItems('action ', tpl_getConf('glyphs'));
+                        namespaced_usertools();
                     ?>
                 </ul>
             </div>

@@ -458,10 +458,7 @@ function namespaced_pagepath($id){
  * See original function in inc/html.php for details
  */
 function namespaced_userwidget($context = "null") {
-    global $lang;
-    global $conf;
-    global $ID;
-    global $INPUT;
+    global $lang, $conf, $ID, $INPUT, $INFO;
 
     if (($conf['useacl']) && (empty($_SERVER['REMOTE_USER']))) {
         if ($context == "widget") {
@@ -516,6 +513,7 @@ function namespaced_userwidget($context = "null") {
             }
         }
         print '<ul>';
+//dbg($INFO['userinfo']);
             print '<li>'.$lang['fullname'].' : <em>'.$INFO['userinfo']['name'].'</em></li>'; 
             print '<li>'.$lang['user'].' : <em>'.$_SERVER['REMOTE_USER'].'</em></li>'; 
             print '<li>'.$lang['email'].' : <em>'.$INFO['userinfo']['mail'].'</em></li>'; 
@@ -581,4 +579,154 @@ function namespaced_ui_image($type) {
             print '<img src="'.$namespaced['images'][$type]['src'].'" alt="*'.$title.'*" '.$namespaced['images'][$type]['size'][3].' class="mediacenter" />';
         }
     }
-}
+}/* /namespaced_ui_image */
+
+
+function namespaced_usertools() {
+    global $ID, $ACT, $lang, $INFO;
+
+    $objects = (new \dokuwiki\Menu\UserMenu())->getItems();
+    //$objects = (new \dokuwiki\Menu\UserMenu())->getListItems('action ', tpl_getConf('glyphs'));
+    $object =  (array) $objects;
+//dbg(count($objects));
+//dbg($objects);
+    foreach ($object as $key => $value) {
+//dbg($key);
+//dbg($value);
+        $field = (array) $value;
+//        if (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y') or (tpl_getConf('headertoolsIcons') == 0)) {
+        if (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) {
+            $class = null;
+            //$icon = null;
+        } else {
+            $class = ' class="a11y"';
+            //$icon = $field["\0*\0svg"];
+        }
+        $icon = $field["\0*\0svg"];
+        if ($field["\0*\0type"] == "login") {
+            if ($ACT == "denied") {
+                print '<li class="menu-item action login"><a href="#namespaced__content" rel="nofollow" title="'.$lang['btn_login'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['btn_login'].'</span></a></li>';
+            } else {
+                print '<li class="menu-item action login"><a href="#namespaced__widget_user" rel="nofollow" title="'.$lang['btn_login'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['btn_login'].'</span></a></li>';
+            }
+        } elseif (($field["\0*\0type"] == "register") && ($ACT != "register")) {
+            print '<li class="menu-item action register"><a href="/doku.php?id='.$ID.'&amp;do=register" rel="nofollow" title="'.$lang['btn_register'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['btn_register'].'</span></a></li>';
+        } elseif ($field["\0*\0type"] == "profile") {
+            //print '<li class="action profile"><a href="/doku.php?id='.$ID.'#namespaced__widget_user" rel="nofollow" title="'.$lang['profile'].'">'.inlineSVG($field["\0*\0svg"]).'<span class="a11y">'.$lang['profile'].'</span></a></li>';
+            print '<li class="menu-item action profile"><a href="#namespaced__widget_user" rel="nofollow" title="'.$lang['profile'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['profile'].'</span></a></li>';
+
+            //PAGES PERSOS MANQUANTES
+            // Custom UserTools
+            //if ($uhp['private']['id']) {
+            //    print '<li>';
+            //        tpl_link(wl($uhp['private']['id']),$uhp['private']['string'].inlineSVG($namespaced['glyphs']['private']),' title="'.$uhp['private']['id'].'"');
+            //    print '</li>';
+            //}
+            //if ($uhp['public']['id']) {
+            //    print '<li>';
+            //        tpl_link(wl($uhp['public']['id']),$uhp['public']['string'].inlineSVG($namespaced['glyphs']['public']),' title="'.$uhp['public']['id'].'"');
+            //    print '</li>';
+            //}
+
+        } elseif (($field["\0*\0type"] == "admin") && ($_SERVER['REMOTE_USER'] != NULL) && ($INFO['isadmin'])) {
+            print '<li class="menu-item menu-item-has-children action admin">';
+                print '<a href="/doku.php?id='.$ID.'&do=admin" rel="nofollow" title="'.$lang['btn_admin'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['btn_admin'].'</span></a>';
+                print '<ul class="sub-menu">';
+                    namespaced_admindropdown();
+                print '</ul>';
+            print '</li><!-- .action.admin -->';
+        } elseif ($field["\0*\0type"] == "logout") {
+            print '<li class="menu-item action logout"><a href="/doku.php?id='.$ID.'&amp;do=logout&amp;sectok='.$field["\0*\0params"]['sectok'].'" rel="nofollow" title="'.$lang['btn_logout'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['btn_logout'].'</span></a></li>';
+        } else {
+            print '<li class="menu-item action debug '.$field["\0*\0type"].'"><a title="'.$field["\0*\0type"].'">'.inlineSVG($icon).'<span'.$class.'>'.$field["\0*\0type"].'</span></a></li>';
+//dbg($field["\0*\0type"]);
+//dbg($field["\0*\0type"]);
+//dbg($field["\0*\0svg"]);
+//dbg($lang['btn_'.$field["\0*\0type"]]);
+//dbg($field);
+        }
+    }
+}/* /namespaced_usertools */
+
+/**
+ * Adapted from tpl_admin.php file of Bootstrap3 template by Giuseppe Di Terlizzi <giuseppe.diterlizzi@gmail.com>
+ */
+function namespaced_admindropdown() {
+    global $ID, $ACT, $auth, $conf, $namespaced;
+
+    $admin_plugins = plugin_list('admin');
+    $tasks = array('usermanager', 'acl', 'extension', 'config', 'styling', 'revert', 'popularity', 'upgrade');
+    $addons = array_diff($admin_plugins, $tasks);
+    $adminmenu = array(
+        'tasks' => $tasks,
+        'addons' => $addons
+    );
+    foreach ($adminmenu['tasks'] as $task) {
+        if(($plugin = plugin_load('admin', $task, true)) === null) continue;
+//        if($plugin->forAdminOnly() && !$INFO['isadmin']) continue;
+        if($task == 'usermanager' && ! ($auth && $auth->canDo('getUsers'))) continue;
+        $label = $plugin->getMenuText($conf['lang']);
+        if (! $label) continue;
+        if ($task == "popularity") { $label = preg_replace("/\([^)]+\)/","",$label); }
+        $class = 'action '.$task;
+        if (($ACT == 'admin') and ($_GET['page'] == $task)) { $class .= ' active'; }
+        echo sprintf('<li><a href="%s" title="%s"%s>%s%s'.namespaced_glyph($namespaced['glyphs'][$task], true).'</a></li>', wl($ID, array('do' => 'admin','page' => $task)), ucfirst($task), ' class="'.$class.'"', "", $label);
+    }
+    $f = fopen(DOKU_INC.'inc/lang/'.$conf['lang'].'/adminplugins.txt', 'r');
+    $line = fgets($f);
+    fclose($f);
+    $line = preg_replace('/=/', '', $line);
+    if (count($adminmenu['addons']) > 0) {
+        echo '<li class="dropdown-header">'.$line.'<hr/></li>';
+        foreach ($adminmenu['addons'] as $task) {
+//dbg($task);
+            if(($plugin = plugin_load('admin', $task, true)) === null) continue;
+            if ($task == "move_tree") {
+                $parts = explode('<a href="%s">', $plugin->getLang('treelink'));
+                $label = substr($parts[1], 0, -5);
+            } else {
+                $label = $plugin->getMenuText($conf['lang']);
+            }
+            if($label == null) { $label = ucfirst($task); }
+            $class = 'action '.$task;
+            if (($ACT == 'admin') and ($_GET['page'] == $task)) { $class .= ' active'; }
+            echo sprintf('<li><a href="%s" title="%s"%s>%s %s'.namespaced_glyph($namespaced['glyphs'][$task], true).'</a></li>', wl($ID, array('do' => 'admin','page' => $task)), ucfirst($task), ' class="'.$class.'"', "", ucfirst($label));
+        }
+    }
+    echo '<li class="dropdown-header">'.tpl_getLang('cache').'<hr/></li>';
+    echo '<li><a href="'.wl($ID, array("do" => $_GET['do'], "page" => $_GET['page'], "purge" => "true")).'">'.tpl_getLang('purgepagecache').namespaced_glyph($namespaced['glyphs']["recycle"], true).'</a></li>';
+    echo '<li><a href="'.DOKU_URL.'lib/exe/js.php">'.tpl_getLang('purgejscache').namespaced_glyph($namespaced['glyphs']["refresh"], true).'</a></li>';
+    echo '<li><a href="'.DOKU_URL.'lib/exe/css.php">'.tpl_getLang('purgecsscache').namespaced_glyph($namespaced['glyphs']["refresh"], true).'</a></li>';
+}/* namespaced_admin */
+
+function namespaced_glyph($glyph, $return = false) {
+    global $namspaced;
+//dbg($glyph);
+//if (file_exists($glyph)) {
+//    dbg("bingo!");
+//}
+//    if (isset($colormag['socials'][$glyph])) {
+//        $maxsize = 4096;
+//    } else {
+//        $maxsize = 2048;
+//    }
+//    dbg($maxsize);
+//    if ((isset($colormag['glyphs'][$glyph])) and (file_exists($colormag['glyphs'][$glyph]))) {
+    if (file_exists($glyph)) {
+//        $result = inlineSVG($glyph, $maxsize);
+        $result = inlineSVG($glyph, 4096);
+//dbg("ici?");
+    } else {
+        $result = inlineSVG(DOKU_INC.'lib/images/menu/00-default_checkbox-blank-circle-outline.svg', 2048);
+//dbg("là");
+    }
+    if ($return) {
+//dbg("ici aussi?");
+//dbg($result);
+        return $result;
+    } else {
+//dbg("là");
+        print $result;
+        return 1;
+    }
+}/* namespaced_glyph */
