@@ -62,8 +62,8 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                                 <?php tpl_includeFile('sidebarfooter.html') ?>
                             </div>
                         </div>
+                        <hr class="vertical<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>" />
                     </div><!-- /aside -->
-                    <hr class="vertical<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>" />
                 <?php endif; ?>
 
                 <!-- ********** CONTENT ********** -->
