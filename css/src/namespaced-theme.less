@@ -9,10 +9,30 @@
 */
 
 /**
-* CONTENT
+* NAVBAR
 * PLUGINS
 * Cloud
 */
+
+/* NAVBAR
+----------------------------------------------- */
+
+#namespaced__site_nav.navbar {
+    background-color: @ini_theme_dark_color;
+    border-top: .6rem solid @ini_theme_color;
+}
+
+#namespaced__site_nav.navbar ul li a:hover {
+    background-color: @ini_theme_color;
+}
+
+#namespaced__site_nav.navbar ul li a svg {
+    fill: #fff;
+}
+
+#namespaced__site_nav.navbar ul li span {
+    color: #fff;
+}
 
 /* PLUGINS
 ----------------------------------------------- */
@@ -22,7 +42,7 @@
 @l: 10%; /* Percentage to lighten the original color. */
 @d: 15%; /* Percentage to desaturate the original color. */
 
-@c0: @ini_link_color;
+@c0: @ini_link;
 .dokuwiki div.cloud a.cloud1 { color: desaturate(lighten(@c0, 4 * @l), 4 * @d); }
 .dokuwiki div.cloud a.cloud2 { color: desaturate(lighten(@c0, 3 * @l), 3 * @d); }
 .dokuwiki div.cloud a.cloud3 { color: desaturate(lighten(@c0, 2 * @l), 2 * @d); }
