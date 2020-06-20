@@ -27,6 +27,7 @@
 * -- Settings
 * PLUGINS
 * -- Cloud
+* -- Sitemapnavi
 * RESPONSIVENESS
 */
 
@@ -247,6 +248,7 @@ div.secedit.editbutton_section button {
 
 /* NAVBAR
 ----------------------------------------------- */
+
 .navbar ul li.focus > ul {
     display: block;
 }
@@ -287,6 +289,10 @@ div.secedit.editbutton_section button {
 
 .navbar .action .sub-menu {
     right: 0
+}
+
+.navbar ul li {
+    display: inline-block;
 }
 
 .navbar ul li ul li {
@@ -355,6 +361,25 @@ div.secedit.editbutton_section button {
 
 .navbar select {
     display: none;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+}
+
+#namespaced__site_nav.navbar ul li a {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+
+#namespaced__site_nav.navbar ul li a svg {
+    width: 30px;
+    height: 30px;
+}
+
+#namespaced__site_nav.navbar ul li span {
+    padding: 6px 0;
 }
 
 /* SKIP
@@ -658,7 +683,7 @@ div.cloud {
     margin: 0;
 }
 
-/* -- SiteMapNavi  -- */
+/* -- Sitemapnavi  -- */
 
 button.plugin__sitemapnavi__dir {
     cursor: zoom-in;

@@ -80,19 +80,19 @@ if (!defined('DOKU_INC')) die();
         <hr class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>" />
     </div>
 
-    <nav id="namespaced__site_nav" class="flex navbar">
+    <nav id="namespaced__site_nav" class="flex navbar pad">
         <div id="namespaced_ns_content">
             <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo tpl_getLang('ns_content'); ?></h6>
-            <ul class="nostyle inline">
+            <ul class="nostyle">
                 <!-- NAMESPACE CONTENT -->
-                <li class="dbg">*namespace menu*</li>
+                <li class="dbg"><a id="dummy"><span>*namespace menu*</span></a></li>
             </ul>
         </div>
         <!-- USER TOOLS -->
         <?php if ($conf['useacl']): ?>
             <div id="namespaced__usertools">
                 <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['user_tools']; ?></h6>
-                <ul class="nostyle inline">
+                <ul class="nostyle">
                     <?php
                         if ($namespaced['defaultsearch'] == true) {
                             print '<li class="search">';
@@ -123,7 +123,7 @@ if (!defined('DOKU_INC')) die();
     <nav id="namespaced__page_nav">
         <!-- BREADCRUMBS -->
         <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
-            <nav class="breadcrumbs flex navbar">
+            <nav class="breadcrumbs flex navbar pad">
                 <?php if($conf['youarehere']): ?>
                     <div class="youarehere"><?php tpl_youarehere() ?></div>
                 <?php endif ?>
