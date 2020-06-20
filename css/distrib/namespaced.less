@@ -89,6 +89,10 @@ body {
 /* HTML ITEMS
 -------------------------------------------------------------- */
 
+a {
+    text-decoration: none;
+}
+
 hr {
     width: 95%;
 }
@@ -463,10 +467,6 @@ div.secedit.editbutton_section {
     display: none;
 }
 
-.navbar ul li a {
-    text-decoration: none;
-}
-
 #namespaced__site_nav.navbar ul li a {
     display: flex;
     align-items: center;
@@ -490,12 +490,15 @@ div.secedit.editbutton_section {
 
 .skip {
     width: 100% !important;
-    font-size: 4rem;
+    font-size: 3rem;
     display: block;
+    text-transform: uppercase;
+    color: #fff;
 }
 
 [dir] .skip {
     padding: 1rem 0;
+    background-color: #000;
 }
 
 a.skip:focus,
