@@ -242,7 +242,7 @@ function namespaced_inherit($target, $type = "media", $origin, $useacl = false, 
     if (($type == "media") and (($_GET['debug'] == 1) or ($_GET['debug'] == "images") or ($_GET['debug'] == $target))) {
         //$result['src'] = tpl_incdir().'debug/'.$target.'.png';
         $src = tpl_incdir().'debug/'.$target.'.png';
-        $result['src'] = $src;
+        //$result['src'] = $src;
         $result['src'] = '/lib/tpl/namespaced/debug/'.$target.'.png';
         $result['ns'] = null;
     } elseif (isset($glob[0])) {
