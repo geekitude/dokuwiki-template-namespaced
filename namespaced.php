@@ -40,6 +40,20 @@ function namespaced_init() {
     }
 //dbg($namespaced['images']);
 
+    // GLYPHS
+    // Search for default or custum default SVG glyphs
+    $namespaced['glyphs']['account-edit'] = null;
+    foreach ($namespaced['glyphs'] as $key => $value) {
+        if (is_file(DOKU_CONF."tpl/namespaced/".$key.".svg")) {
+//            $namespaced['glyphs'][$key] = file_get_contents(DOKU_CONF."tpl/namespaced/".$key.".svg");
+            $namespaced['glyphs'][$key] = DOKU_CONF."tpl/namespaced/".$key.".svg";
+        } else {
+//            $namespaced['glyphs'][$key] = file_get_contents(".".tpl_basedir()."images/glyphs/".$key.".svg");
+            $namespaced['glyphs'][$key] = ".".tpl_basedir()."images/glyphs/".$key.".svg";
+        }
+    }
+//dbg($namespaced['glyphs']);
+
     // GET WIDGETS
     $widgets= array('footer','side');
     foreach ($widgets as $area) {
@@ -635,6 +649,7 @@ function namespaced_ui_image($type) {
 
 function namespaced_usertools() {
     global $ID, $ACT, $lang, $INFO;
+    global $namespaced;
 
     $objects = (new \dokuwiki\Menu\UserMenu())->getItems();
     //$objects = (new \dokuwiki\Menu\UserMenu())->getListItems('action ', tpl_getConf('glyphs'));
@@ -664,7 +679,12 @@ function namespaced_usertools() {
             print '<li class="menu-item action register"><a href="/doku.php?id='.$ID.'&amp;do=register" rel="nofollow" title="'.$lang['btn_register'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['btn_register'].'</span></a></li>';
         } elseif ($field["\0*\0type"] == "profile") {
             //print '<li class="action profile"><a href="/doku.php?id='.$ID.'#namespaced__widget_user" rel="nofollow" title="'.$lang['profile'].'">'.inlineSVG($field["\0*\0svg"]).'<span class="a11y">'.$lang['profile'].'</span></a></li>';
-            print '<li class="menu-item action profile"><a href="#namespaced__widget_user" rel="nofollow" title="'.$lang['profile'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['profile'].'</span></a></li>';
+            if (isset($namespaced['widgets']['footer']['user.html'])) {
+                print '<li class="menu-item action profile"><a href="#namespaced__widget_user" rel="nofollow" title="'.$lang['profile'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['profile'].'</span></a></li>';
+            } else {
+                print '<li class="menu-item action profile"><a href="/doku.php?id='.$ID.'&amp;do=profile" rel="nofollow" title="'.$lang['btn_profile'].'">'.inlineSVG($namespaced['glyphs']["account-edit"]).'<span'.$class.'>'.$lang['btn_profile'].'</span></a></li>';
+            }
+//dbg($namespaced['glyphs']['account-edit']);
 
             //PAGES PERSOS MANQUANTES
             // Custom UserTools
@@ -751,7 +771,7 @@ function namespaced_admindropdown() {
 }/* namespaced_admin */
 
 function namespaced_glyph($glyph, $return = false) {
-    global $namspaced;
+    global $namespaced;
 //dbg($glyph);
 //if (file_exists($glyph)) {
 //    dbg("bingo!");
