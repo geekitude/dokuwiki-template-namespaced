@@ -43,13 +43,28 @@ function namespaced_init() {
     // GLYPHS
     // Search for default or custum default SVG glyphs
     $namespaced['glyphs']['account-edit'] = null;
+    $namespaced['glyphs']['acl'] = null;
+    $namespaced['glyphs']['config'] = null;
+    $namespaced['glyphs']['extension'] = null;
+    $namespaced['glyphs']['pagerefresh'] = null;
+    $namespaced['glyphs']['popularity'] = null;
+    $namespaced['glyphs']['recycle'] = null;
+    $namespaced['glyphs']['revert'] = null;
+    $namespaced['glyphs']['searchindex'] = null;
+    $namespaced['glyphs']['searchstats'] = null;
+    $namespaced['glyphs']['styling'] = null;
+    $namespaced['glyphs']['translation'] = null;
+    $namespaced['glyphs']['upgrade'] = null;
+    $namespaced['glyphs']['usermanager'] = null;
     foreach ($namespaced['glyphs'] as $key => $value) {
         if (is_file(DOKU_CONF."tpl/namespaced/".$key.".svg")) {
 //            $namespaced['glyphs'][$key] = file_get_contents(DOKU_CONF."tpl/namespaced/".$key.".svg");
             $namespaced['glyphs'][$key] = DOKU_CONF."tpl/namespaced/".$key.".svg";
-        } else {
+        } elseif (is_file(".".tpl_basedir()."images/glyphs/".$key.".svg")) {
 //            $namespaced['glyphs'][$key] = file_get_contents(".".tpl_basedir()."images/glyphs/".$key.".svg");
             $namespaced['glyphs'][$key] = ".".tpl_basedir()."images/glyphs/".$key.".svg";
+        } else {
+            $namespaced['glyphs'][$key] = DOKU_INC.'lib/images/menu/00-default_checkbox-blank-circle-outline.svg';
         }
     }
 //dbg($namespaced['glyphs']);
@@ -682,7 +697,7 @@ function namespaced_usertools() {
             if (isset($namespaced['widgets']['footer']['user.html'])) {
                 print '<li class="menu-item action profile"><a href="#namespaced__widget_user" rel="nofollow" title="'.$lang['profile'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['profile'].'</span></a></li>';
             } else {
-                print '<li class="menu-item action profile"><a href="/doku.php?id='.$ID.'&amp;do=profile" rel="nofollow" title="'.$lang['btn_profile'].'">'.inlineSVG($namespaced['glyphs']["account-edit"]).'<span'.$class.'>'.$lang['btn_profile'].'</span></a></li>';
+                print '<li class="menu-item action account-edit"><a href="/doku.php?id='.$ID.'&amp;do=profile" rel="nofollow" title="'.$lang['btn_profile'].'">'.inlineSVG($namespaced['glyphs']["account-edit"]).'<span'.$class.'>'.$lang['btn_profile'].'</span></a></li>';
             }
 //dbg($namespaced['glyphs']['account-edit']);
 
@@ -741,7 +756,8 @@ function namespaced_admindropdown() {
         if ($task == "popularity") { $label = preg_replace("/\([^)]+\)/","",$label); }
         $class = 'action '.$task;
         if (($ACT == 'admin') and ($_GET['page'] == $task)) { $class .= ' active'; }
-        echo sprintf('<li><a href="%s" title="%s"%s>%s%s'.namespaced_glyph($namespaced['glyphs'][$task], true).'</a></li>', wl($ID, array('do' => 'admin','page' => $task)), ucfirst($task), ' class="'.$class.'"', "", $label);
+        //echo sprintf('<li><a href="%s" title="%s"%s>%s%s'.namespaced_glyph($namespaced['glyphs'][$task], true).'</a></li>', wl($ID, array('do' => 'admin','page' => $task)), ucfirst($task), ' class="'.$class.'"', "", $label);
+        echo sprintf('<li><a href="%s" title="%s"%s>%s%s'.namespaced_glyph($task, true).'</a></li>', wl($ID, array('do' => 'admin','page' => $task)), ucfirst($task), ' class="'.$class.'"', "", $label);
     }
     $f = fopen(DOKU_INC.'inc/lang/'.$conf['lang'].'/adminplugins.txt', 'r');
     $line = fgets($f);
@@ -761,13 +777,17 @@ function namespaced_admindropdown() {
             if($label == null) { $label = ucfirst($task); }
             $class = 'action '.$task;
             if (($ACT == 'admin') and ($_GET['page'] == $task)) { $class .= ' active'; }
-            echo sprintf('<li><a href="%s" title="%s"%s>%s %s'.namespaced_glyph($namespaced['glyphs'][$task], true).'</a></li>', wl($ID, array('do' => 'admin','page' => $task)), ucfirst($task), ' class="'.$class.'"', "", ucfirst($label));
+            //echo sprintf('<li><a href="%s" title="%s"%s>%s %s'.namespaced_glyph($namespaced['glyphs'][$task], true).'</a></li>', wl($ID, array('do' => 'admin','page' => $task)), ucfirst($task), ' class="'.$class.'"', "", ucfirst($label));
+            echo sprintf('<li><a href="%s" title="%s"%s>%s %s'.namespaced_glyph($task, true).'</a></li>', wl($ID, array('do' => 'admin','page' => $task)), ucfirst($task), ' class="'.$class.'"', "", ucfirst($label));
         }
     }
     echo '<li class="dropdown-header">'.tpl_getLang('cache').'<hr/></li>';
-    echo '<li><a href="'.wl($ID, array("do" => $_GET['do'], "page" => $_GET['page'], "purge" => "true")).'">'.tpl_getLang('purgepagecache').namespaced_glyph($namespaced['glyphs']["recycle"], true).'</a></li>';
-    echo '<li><a href="'.DOKU_URL.'lib/exe/js.php">'.tpl_getLang('purgejscache').namespaced_glyph($namespaced['glyphs']["refresh"], true).'</a></li>';
-    echo '<li><a href="'.DOKU_URL.'lib/exe/css.php">'.tpl_getLang('purgecsscache').namespaced_glyph($namespaced['glyphs']["refresh"], true).'</a></li>';
+    //echo '<li><a href="'.wl($ID, array("do" => $_GET['do'], "page" => $_GET['page'], "purge" => "true")).'">'.tpl_getLang('purgepagecache').namespaced_glyph($namespaced['glyphs']["recycle"], true).'</a></li>';
+    echo '<li><a href="'.wl($ID, array("do" => $_GET['do'], "page" => $_GET['page'], "purge" => "true")).'">'.tpl_getLang('purgepagecache').namespaced_glyph("pagerefresh", true).'</a></li>';
+    //echo '<li><a href="'.DOKU_URL.'lib/exe/js.php">'.tpl_getLang('purgejscache').namespaced_glyph($namespaced['glyphs']["refresh"], true).'</a></li>';
+    echo '<li><a href="'.DOKU_URL.'lib/exe/js.php">'.tpl_getLang('purgejscache').namespaced_glyph("recycle", true).'</a></li>';
+    //echo '<li><a href="'.DOKU_URL.'lib/exe/css.php">'.tpl_getLang('purgecsscache').namespaced_glyph($namespaced['glyphs']["refresh"], true).'</a></li>';
+    echo '<li><a href="'.DOKU_URL.'lib/exe/css.php">'.tpl_getLang('purgecsscache').namespaced_glyph("recycle", true).'</a></li>';
 }/* namespaced_admin */
 
 function namespaced_glyph($glyph, $return = false) {
@@ -783,12 +803,14 @@ function namespaced_glyph($glyph, $return = false) {
 //    }
 //    dbg($maxsize);
 //    if ((isset($colormag['glyphs'][$glyph])) and (file_exists($colormag['glyphs'][$glyph]))) {
-    if (file_exists($glyph)) {
+    //if (file_exists($namespaced['glyphs'][$glyph])) {
+    if (isset($namespaced['glyphs'][$glyph])) {
 //        $result = inlineSVG($glyph, $maxsize);
-        $result = inlineSVG($glyph, 4096);
+        $result = inlineSVG($namespaced['glyphs'][$glyph], 4096);
 //dbg("ici?");
     } else {
-        $result = inlineSVG(DOKU_INC.'lib/images/menu/00-default_checkbox-blank-circle-outline.svg', 2048);
+//dbg($glyph);
+        $result = inlineSVG(".".tpl_basedir()."images/glyphs/alert.svg", 343);
 //dbg("là");
     }
     if ($return) {
