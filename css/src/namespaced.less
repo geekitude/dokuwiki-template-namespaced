@@ -103,11 +103,23 @@ hr.vertical {
     border-left-style: solid;
 }
 
+input:focus {
+    background-color: @ini_highlight;
+}
+
 pre {
     overflow: auto;
     padding: 1rem;
     border-width: 1px;
     border-style: solid;
+}
+
+svg {
+    fill: @ini_text;
+}
+
+svg:hover {
+    fill: @ini_text_neu;
 }
 
 ul, ol {
@@ -135,10 +147,6 @@ ul.inline li:last-child {
 
 ul.inline li:first-child:last-child {
     margin: 0;
-}
-
-input:focus {
-    background-color: @ini_highlight;
 }
 
 /* GENERIC CLASSES
@@ -297,6 +305,8 @@ div.secedit.editbutton_section button {
 
 .navbar .action .sub-menu {
     right: 0;
+    top: auto;
+    background-color: @ini_background;
 }
 
 .navbar ul li {
@@ -375,6 +385,7 @@ div.secedit.editbutton_section button {
     display: flex;
     align-items: center;
     padding: 1rem;
+    /*text-align: right;*/
 }
 
 #namespaced__site_nav.navbar ul li a svg {
@@ -386,6 +397,10 @@ div.secedit.editbutton_section button {
     padding: 6px 0;
 }
 
+#namespaced__site_nav.navbar ul li.dropdown-header {
+    text-align: center;
+}
+
 #namespaced__usertools > ul {
     display: flex;
 }
@@ -393,6 +408,19 @@ div.secedit.editbutton_section button {
 #namespaced__usertools > ul li.search {
     align-self: center;
     padding: 0 10px;
+}
+
+#namespaced__site_nav.navbar ul.sub-menu li a {
+    justify-content: flex-end;
+}
+
+#namespaced__site_nav.navbar ul.sub-menu li a svg {
+    margin-left: 5px;
+    fill: @ini_text;
+}
+
+#namespaced__site_nav.navbar ul.sub-menu li a:hover svg {
+    fill: #fff;
 }
 
 /* SKIP

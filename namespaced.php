@@ -702,7 +702,7 @@ function namespaced_usertools() {
         } elseif (($field["\0*\0type"] == "admin") && ($_SERVER['REMOTE_USER'] != NULL) && ($INFO['isadmin'])) {
             print '<li class="menu-item menu-item-has-children action admin">';
                 print '<a href="/doku.php?id='.$ID.'&do=admin" rel="nofollow" title="'.$lang['btn_admin'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['btn_admin'].'</span></a>';
-                print '<ul class="sub-menu">';
+                print '<ul class="sub-menu nostyle">';
                     namespaced_admindropdown();
                 print '</ul>';
             print '</li><!-- .action.admin -->';

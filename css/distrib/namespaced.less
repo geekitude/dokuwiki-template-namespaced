@@ -113,6 +113,10 @@ hr.vertical {
     border-right-style: solid;
 }
 
+[dir] input:focus {
+    background-color: @ini_highlight;
+}
+
 pre {
     overflow: auto;
 }
@@ -121,6 +125,14 @@ pre {
     padding: 1rem;
     border-width: 1px;
     border-style: solid;
+}
+
+svg {
+    fill: @ini_text;
+}
+
+svg:hover {
+    fill: @ini_text_neu;
 }
 
 ul, ol {
@@ -169,10 +181,6 @@ ul.inline li {
 
 [dir] ul.inline li:first-child:last-child {
     margin: 0;
-}
-
-[dir] input:focus {
-    background-color: @ini_highlight;
 }
 
 /* GENERIC CLASSES
@@ -350,6 +358,14 @@ div.secedit.editbutton_section {
 }
 */
 
+.navbar .action .sub-menu {
+    top: auto;
+}
+
+[dir] .navbar .action .sub-menu {
+    background-color: @ini_background;
+}
+
 [dir=ltr] .navbar .action .sub-menu {
     right: 0;
 }
@@ -474,6 +490,7 @@ div.secedit.editbutton_section {
 #namespaced__site_nav.navbar ul li a {
     display: flex;
     align-items: center;
+    /*text-align: right;*/
 }
 
 [dir] #namespaced__site_nav.navbar ul li a {
@@ -489,6 +506,10 @@ div.secedit.editbutton_section {
     padding: 6px 0;
 }
 
+[dir] #namespaced__site_nav.navbar ul li.dropdown-header {
+    text-align: center;
+}
+
 #namespaced__usertools > ul {
     display: flex;
 }
@@ -499,6 +520,26 @@ div.secedit.editbutton_section {
 
 [dir] #namespaced__usertools > ul li.search {
     padding: 0 10px;
+}
+
+#namespaced__site_nav.navbar ul.sub-menu li a {
+    justify-content: flex-end;
+}
+
+#namespaced__site_nav.navbar ul.sub-menu li a svg {
+    fill: @ini_text;
+}
+
+[dir=ltr] #namespaced__site_nav.navbar ul.sub-menu li a svg {
+    margin-left: 5px;
+}
+
+[dir=rtl] #namespaced__site_nav.navbar ul.sub-menu li a svg {
+    margin-right: 5px;
+}
+
+#namespaced__site_nav.navbar ul.sub-menu li a:hover svg {
+    fill: #fff;
 }
 
 /* SKIP
