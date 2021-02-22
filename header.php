@@ -81,11 +81,15 @@ if (!defined('DOKU_INC')) die();
     </div>
 
     <nav id="namespaced__site_nav" class="flex navbar pad">
-        <div id="namespaced_ns_content">
+        <div id="namespaced_ns_menu">
             <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo tpl_getLang('ns_content'); ?></h6>
             <ul class="nostyle">
+                <!-- HOME -->
+                <li class="dbg"><a><span>*wiki home*</span></a></li>
                 <!-- NAMESPACE CONTENT -->
-                <li class="dbg"><a id="dummy"><span>*namespace menu*</span></a></li>
+                <li class="dbg"><a id="dummy1"><span>*namespace menu*</span></a></li>
+                <!-- NAMESPACE CONTENT -->
+                <li class="dbg"><a id="dummy2"><span>*dummy2*</span></a></li>
             </ul>
         </div>
         <!-- USER TOOLS -->
