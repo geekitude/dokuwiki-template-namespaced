@@ -143,20 +143,34 @@ function namespaced_init() {
     // HELPER PLUGINS
     // Preparing usefull plugins' helpers
     // Translation
+//dbg("start: ".$conf['start']);
     $namespaced['translation'] = array();
-    $namespaced['translation']['untranslatedhome'] = $conf['start'];
+    $namespaced['translation']['istranslated'] = false;
+    // get default translation
+    if(empty($conf['lang_before_translation'])) {
+        $namespaced['translation']['default_lang'] = $conf['lang'];
+    } else {
+        $namespaced['translation']['default_lang'] = $conf['lang_before_translation'];
+    }
+//    $namespaced['translation']['untranslatedhome'] = $conf['start'];
+//dbg("untranslatedhome: ".$namespaced['translation']['untranslatedhome']);
     //$namespaced['translation']['parts'] = array();
     if (!plugin_isdisabled('translation')) {
         $namespaced['translation']['helper'] = plugin_load('helper','translation');
         $namespaced['translation']['parts'] = $namespaced['translation']['helper']->getTransParts($ID);
 //dbg($namespaced['translation']['parts']);
 //dbg($namespaced['translation']['parts'][1]);
-        if (strpos($conf['plugin']['translation']['translations'], $conf['lang']) !== false) {
-            $namespaced['translation']['untranslatedhome'] = $conf['lang'].":".$conf['start'];
+//dbg("translations: ".$conf['plugin']['translation']['translations']);
+//dbg($conf['lang']);
+        if (strpos($conf['plugin']['translation']['translations'], $namespaced['translation']['default_lang']) !== false) {
+            $namespaced['translation']['untranslatedhome'] = $namespaced['translation']['default_lang'].":".$conf['start'];
         }
-        if ($namespaced['translation']['parts'][0] != $conf['lang']) {
+//dbg("untranslatedhome: ".$namespaced['translation']['untranslatedhome']);
+//dbg("before: ".$namespaced['translation']['default_lang']);
+        if ($namespaced['translation']['parts'][0] != $namespaced['translation']['default_lang']) {
             $namespaced['translation']['istranslated'] = true;
         }
+//dbg("translated: ".$namespaced['translation']['istranslated']);
         //}
     }
 //dbg($namespaced['translation']['ishome']);
@@ -356,6 +370,7 @@ function namespaced_ishome($page) {
         $ishome = "untranslated";
     } elseif ($namespaced['translation']['helper']) {
         $parts = $namespaced['translation']['helper']->getTransParts($page);
+//dbg("here!");
         if (($parts[1] == $conf['start']) and (($parts[0] != "") and (strpos($conf['plugin']['translation']['translations'], $parts[0]) !== false))) {
             $ishome = "translated";
         }
