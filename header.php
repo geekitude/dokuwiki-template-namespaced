@@ -85,7 +85,18 @@ if (!defined('DOKU_INC')) die();
             <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo tpl_getLang('ns_content'); ?></h6>
             <ul class="nostyle">
                 <!-- HOME -->
-                <li class="dbg"><a><span>*wiki home*</span></a></li>
+                <?php
+                    if (!$namespaced['ishome']) {
+                        print '<li>';
+                            // display link to the home page
+                            tpl_link(
+                                wl(),
+                                namespaced_glyph('home', true).'<span class="a11y">'.tpl_getLang('wikihome').'</span>',
+                                'accesskey="h" title="'.tpl_getLang('wikihome').' [H]"'
+                            );
+                        print '</li>';
+                    }
+                ?>
                 <!-- NAMESPACE CONTENT -->
                 <li class="dbg"><a id="dummy1"><span>*namespace menu*</span></a></li>
                 <!-- NAMESPACE CONTENT -->

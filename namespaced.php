@@ -46,6 +46,7 @@ function namespaced_init() {
     $namespaced['glyphs']['acl'] = null;
     $namespaced['glyphs']['config'] = null;
     $namespaced['glyphs']['extension'] = null;
+    $namespaced['glyphs']['home'] = null;
     $namespaced['glyphs']['pagerefresh'] = null;
     $namespaced['glyphs']['popularity'] = null;
     $namespaced['glyphs']['recycle'] = null;
