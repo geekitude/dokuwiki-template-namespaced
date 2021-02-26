@@ -47,6 +47,7 @@ function namespaced_init() {
     $namespaced['glyphs']['config'] = null;
     $namespaced['glyphs']['extension'] = null;
     $namespaced['glyphs']['home'] = null;
+    $namespaced['glyphs']['nshome'] = null;
     $namespaced['glyphs']['pagerefresh'] = null;
     $namespaced['glyphs']['popularity'] = null;
     $namespaced['glyphs']['recycle'] = null;
@@ -364,16 +365,22 @@ function namespaced_ishome($page) {
 
 //dbg($namespaced['translation']['untranslatedhome']);
 //dbg($page);
+//dbg($conf['start']);
+//dbg(strpos($page, $conf['start']));
     // Default or untranslated wiki home ?
     if ($page == $conf['start']) {
         $ishome = "default";
     } elseif ($page == $namespaced['translation']['untranslatedhome']) {
         $ishome = "untranslated";
-    } elseif ($namespaced['translation']['helper']) {
-        $parts = $namespaced['translation']['helper']->getTransParts($page);
+    } elseif (strpos($page, $conf['start']) !== false) {
+//dbg("pas là?");
+        $ishome = "nshome";
+        if ($namespaced['translation']['helper']) {
+            $parts = $namespaced['translation']['helper']->getTransParts($page);
 //dbg("here!");
-        if (($parts[1] == $conf['start']) and (($parts[0] != "") and (strpos($conf['plugin']['translation']['translations'], $parts[0]) !== false))) {
-            $ishome = "translated";
+            if (($parts[1] == $conf['start']) and (($parts[0] != "") and (strpos($conf['plugin']['translation']['translations'], $parts[0]) !== false))) {
+                $ishome = "translated";
+            }
         }
     } else {
         $ishome = false;

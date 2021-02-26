@@ -86,13 +86,23 @@ if (!defined('DOKU_INC')) die();
             <ul class="nostyle">
                 <!-- HOME -->
                 <?php
-                    if (!$namespaced['ishome']) {
+                    if (!in_array($namespaced['ishome'], array("default", "untranslated", "translated"))) {
                         print '<li>';
                             // display link to the home page
                             tpl_link(
                                 wl(),
                                 namespaced_glyph('home', true).'<span class="a11y">'.tpl_getLang('wikihome').'</span>',
                                 'accesskey="h" title="'.tpl_getLang('wikihome').' [H]"'
+                            );
+                        print '</li>';
+                    }
+                    if ($namespaced['ishome'] == false) {
+                        print '<li>';
+                            // display link to namespace home page
+                            tpl_link(
+                                wl(getns($ID).':'.$conf['start']),
+                                namespaced_glyph('nshome', true).'<span class="a11y">'.tpl_getLang('nshome').'</span>',
+                                'title="'.tpl_getLang('nshome').'"'
                             );
                         print '</li>';
                     }
