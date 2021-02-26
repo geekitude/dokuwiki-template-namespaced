@@ -33,10 +33,6 @@ if (!defined('DOKU_INC')) die();
                 <div id="namespaced__site_branding_text" class="flex column">
                     <h1 id="namespaced__site_title">
                         <?php
-                            // get logo either out of the template images folder or data/media folder
-                            $logoSize = array();
-                            $logo = tpl_getMediaFile(array(':wiki:logo.png', ':logo.png', 'images/logo.png'), false, $logoSize);
-
                             // display logo and wiki title in a link to the home page
                             tpl_link(
                                 wl(),
