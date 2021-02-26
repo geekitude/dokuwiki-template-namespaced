@@ -63,9 +63,8 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                             </div>
                         </div>
                     </div><!-- /aside -->
+                    <hr class="vertical<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>" />
                 <?php endif; ?>
-
-                <hr class="vertical<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>" />
 
                 <!-- ********** CONTENT ********** -->
                 <article id="namespaced__content">
