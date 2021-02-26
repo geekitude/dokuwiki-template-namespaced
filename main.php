@@ -49,7 +49,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
             <div id="namespaced__main_subflex" class="flex nowrap align-stretch">
 
                 <?php //if($showSidebar): ?>
-                <?php if(@count($namespaced['widgets']['side']) > 0): ?>
+                <?php if(($ACT=='show') && (@count($namespaced['widgets']['side']) > 0)): ?>
                     <!-- ********** ASIDE ********** -->
                     <div id="namespaced__aside">
                         <div class="aside include">
