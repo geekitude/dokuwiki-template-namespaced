@@ -11,10 +11,10 @@
 
 /* global look */
 $meta['layout']             = array('multichoice','_choices' => array('box','wide','box2wide','mix'));
-$meta['flexflip']           = array('multicheckbox','_choices' => array('banner','pagenav','sidepanel','pagetools','socket'));
+$meta['flexflip']           = array('multicheckbox','_choices' => array('banner','pagenav','sidepanel','pagetools','socket'),'_other' => 'never');
 /* functionnalities */
 $meta['glyphs']             = array('onoff');
-$meta['navbuttons']         = array('multicheckbox','_choices' => array('wikihome','parentns','nshome'));
+$meta['navbuttons']         = array('multicheckbox','_choices' => array('wikihome','parentns','nshome'),'_other' => 'never');
 $meta['licensevisual']      = array('multichoice','_choices' => array('badge','button','none'));
 $meta['uiimagetarget']      = array('multichoice','_choices' => array('image-ns','current-ns','home','image-details','none'));
 /*file names*/
