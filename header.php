@@ -96,6 +96,17 @@ if (!defined('DOKU_INC')) die();
                             );
                         print '</li>';
                     }
+                    if (($namespaced['ishome'] == "nshome") and (getns(getns($ID)) != null)) {
+                    //if (getns(getns($ID)) != null) {
+                        print '<li>';
+                            // display link to parent namespace home page
+                            tpl_link(
+                                wl(getns(getns($ID)).':'.$conf['start']),
+                                namespaced_glyph('parentns', true).'<span class="a11y">'.tpl_getLang('parentns').'</span>',
+                                'title="'.tpl_getLang('parentns').'"'
+                            );
+                        print '</li>';
+                    }
                     if ($namespaced['ishome'] == false) {
                         print '<li>';
                             // display link to namespace home page
@@ -103,16 +114,6 @@ if (!defined('DOKU_INC')) die();
                                 wl(getns($ID).':'.$conf['start']),
                                 namespaced_glyph('nshome', true).'<span class="a11y">'.tpl_getLang('nshome').'</span>',
                                 'title="'.tpl_getLang('nshome').'"'
-                            );
-                        print '</li>';
-                    }
-                    if (($namespaced['ishome'] == "nshome") and (getns(getns($ID)) != null)) {
-                        print '<li>';
-                            // display link to parent namespace home page
-                            tpl_link(
-                                wl(getns(getns($ID)).':'.$conf['start']),
-                                namespaced_glyph('parentns', true).'<span class="a11y">'.tpl_getLang('parentns').'</span>',
-                                'title="'.tpl_getLang('parentns').'"'
                             );
                         print '</li>';
                     }
