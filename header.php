@@ -106,6 +106,16 @@ if (!defined('DOKU_INC')) die();
                             );
                         print '</li>';
                     }
+                    if (($namespaced['ishome'] == "nshome") and (getns(getns($ID)) != null)) {
+                        print '<li>';
+                            // display link to parent namespace home page
+                            tpl_link(
+                                wl(getns(getns($ID)).':'.$conf['start']),
+                                namespaced_glyph('parentns', true).'<span class="a11y">'.tpl_getLang('parentns').'</span>',
+                                'title="'.tpl_getLang('parentns').'"'
+                            );
+                        print '</li>';
+                    }
                 ?>
                 <!-- NAMESPACE CONTENT -->
                 <li class="dbg"><a id="dummy1"><span>*namespace menu*</span></a></li>

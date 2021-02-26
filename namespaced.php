@@ -49,6 +49,7 @@ function namespaced_init() {
     $namespaced['glyphs']['home'] = null;
     $namespaced['glyphs']['nshome'] = null;
     $namespaced['glyphs']['pagerefresh'] = null;
+    $namespaced['glyphs']['parentns'] = null;
     $namespaced['glyphs']['popularity'] = null;
     $namespaced['glyphs']['recycle'] = null;
     $namespaced['glyphs']['revert'] = null;
