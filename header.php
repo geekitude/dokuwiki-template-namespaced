@@ -26,7 +26,7 @@ if (!defined('DOKU_INC')) die();
                         tpl_link(
                             wl(),
                             '<img id="namespaced__site_logo" src="'.$logo.'" '.$logoSize[3].' alt="" />',
-                            'accesskey="h" title="[H]"'
+                            'accesskey="h" title="'.tpl_getLang('wikihome').' [H]"'
                         );
                     ?>
                 </div>
@@ -41,7 +41,7 @@ if (!defined('DOKU_INC')) die();
                             tpl_link(
                                 wl(),
                                 '<span>'.$conf['title'].'</span>',
-                                'accesskey="h" title="[H]"'
+                                'accesskey="h" title="'.tpl_getLang('wikihome').' [H]"'
                             );
                         ?>
                     </h1>
