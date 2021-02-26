@@ -86,7 +86,7 @@ if (!defined('DOKU_INC')) die();
             <ul class="nostyle">
                 <!-- HOME -->
                 <?php
-                    if (!in_array($namespaced['ishome'], array("default", "untranslated", "translated"))) {
+                    if ((strpos(tpl_getConf('navbuttons'), 'wikihome') !== false) and (!in_array($namespaced['ishome'], array("default", "untranslated", "translated")))) {
                         print '<li>';
                             // display link to the home page
                             tpl_link(
@@ -96,8 +96,8 @@ if (!defined('DOKU_INC')) die();
                             );
                         print '</li>';
                     }
-                    if (($namespaced['ishome'] == "nshome") and (getns(getns($ID)) != null)) {
-                    //if (getns(getns($ID)) != null) {
+                    //if ((strpos(tpl_getConf('navbuttons'), 'parentns') !== false) and (($namespaced['ishome'] == "nshome") and (getns(getns($ID)) != null))) {
+                    if ((strpos(tpl_getConf('navbuttons'), 'parentns') !== false) and (getns(getns($ID)) != null)) {
                         print '<li>';
                             // display link to parent namespace home page
                             tpl_link(
@@ -107,7 +107,7 @@ if (!defined('DOKU_INC')) die();
                             );
                         print '</li>';
                     }
-                    if ($namespaced['ishome'] == false) {
+                    if ((strpos(tpl_getConf('navbuttons'), 'nshome') !== false) and ($namespaced['ishome'] == false)) {
                         print '<li>';
                             // display link to namespace home page
                             tpl_link(

@@ -14,6 +14,7 @@ $meta['layout']             = array('multichoice','_choices' => array('box','wid
 $meta['flexflip']           = array('multicheckbox','_choices' => array('banner','pagenav','sidepanel','pagetools','socket'));
 /* functionnalities */
 $meta['glyphs']             = array('onoff');
+$meta['navbuttons']         = array('multicheckbox','_choices' => array('wikihome','parentns','nshome'));
 $meta['licensevisual']      = array('multichoice','_choices' => array('badge','button','none'));
 $meta['uiimagetarget']      = array('multichoice','_choices' => array('image-ns','current-ns','home','image-details','none'));
 /*file names*/

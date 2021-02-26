@@ -14,6 +14,7 @@ $conf['layout']             = 'box2wide';
 $conf['flexflip']           = '';
 
 $conf['glyphs']             = 1;
+$conf['navbuttons']         = 'wikihome,parentns,nshome,';
 $conf['licensevisual']      = 'badge';
 $conf['uiimagetarget']      = 'image-ns';
 
