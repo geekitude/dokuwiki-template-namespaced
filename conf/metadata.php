@@ -4,7 +4,7 @@
  *
  * @link    https://www.dokuwiki.org/template:namespaced
  * @author  Simon DELAGE <sdelage@gmail.com>
- * @license GPL 3 (https://www.gnu.org/licenses/gpl-3.0.html)
+ * @license GPL 2 (https://www.gnu.org/licenses/gpl-2.0.html)
  * 
  * Configuration metadata
  */
