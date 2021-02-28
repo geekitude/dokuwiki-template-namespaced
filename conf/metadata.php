@@ -15,6 +15,7 @@ $meta['flexflip']           = array('multicheckbox','_choices' => array('banner'
 /* functionnalities */
 $meta['glyphs']             = array('onoff');
 $meta['navbuttons']         = array('multicheckbox','_choices' => array('wikihome','parentns','nshome'),'_other' => 'never');
+$meta['combonav']           = array('onoff');
 $meta['licensevisual']      = array('multichoice','_choices' => array('badge','button','none'));
 $meta['uiimagetarget']      = array('multichoice','_choices' => array('image-ns','current-ns','home','image-details','none'));
 /*file names*/
