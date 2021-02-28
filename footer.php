@@ -19,7 +19,7 @@ if (!defined('DOKU_INC')) die();
             </div>
         <?php endif; ?>
 
-        <div  id="namespaced__footer_sole" class="flex">
+        <div  id="namespaced__footer_sole" class="flex justify-center">
             <div class="center">
                 <h6><a href="http://www.dokuwiki.org/template:namespaced"  title="Namespaced documentation"<?php print $external ?>><img src="/lib/tpl/namespaced/images/namespaced_logo_85.png" width="85" height="16" alt="" /></a></h6>
                 <p><?php print tpl_getLang('namespaced') ?></p>
