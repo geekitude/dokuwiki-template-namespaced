@@ -78,9 +78,9 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                             </div>
                             <!-- TRANSLATIONS -->
                             <?php if(true): ?>
-                                <aside class="navbar">
-                                    <span style="background-color:gold;">*Translations*</span>
-                                </aside>
+                                <nav id="namespaced__translations">
+                                    <span class="dbg">*Translations*</span>
+                                </nav>
                             <?php endif ?>
                         </div>
 
