@@ -72,7 +72,17 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                     <div>
                         <?php html_msgarea() ?>
 
-                        <div class="pageId"><span><?php echo hsc($ID) ?></span></div>
+                        <div class="flex">
+                            <div class="pageId">
+                                <span><?php echo hsc($ID) ?></span>
+                            </div>
+                            <!-- TRANSLATIONS -->
+                            <?php if(true): ?>
+                                <aside class="navbar">
+                                    <span style="background-color:gold;">*Translations*</span>
+                                </aside>
+                            <?php endif ?>
+                        </div>
 
                         <div class="page">
                             <?php tpl_flush() ?>

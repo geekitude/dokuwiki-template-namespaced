@@ -195,12 +195,6 @@ if (!defined('DOKU_INC')) die();
                 <?php endif ?>
             </nav>
         <?php endif ?>
-        <!-- TRANSLATIONS -->
-        <?php if(true): ?>
-            <aside class="navbar center">
-                <span style="background-color:gold;">*Translations*</span>
-            </aside>
-        <?php endif ?>
     <nav>
 
 </header><!-- /header -->
