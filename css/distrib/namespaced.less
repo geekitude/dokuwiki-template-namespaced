@@ -978,13 +978,24 @@ body.pagetools-flip #namespaced__pagetools ul li a {
         background-color: bisque;
     }
     #namespaced__header .pad .flex {
-        flex-direction: column !important;
+        flex-direction: column;
     }
     [dir] #namespaced__header .pad .flex {
         margin: .5rem 0;
     }
     [dir] #namespaced__header .pad .flex div {
         margin: .5rem 0;
+    }
+    [dir=ltr] #namespaced__site_logo {
+        margin-left: unset;
+        margin-right: unset;
+    }
+    [dir=rtl] #namespaced__site_logo {
+        margin-right: unset;
+        margin-left: unset;
+    }
+    [dir] #namespaced__site_branding_text, [dir] #namespaced__header_tools {
+        text-align: center;
     }
 }
 
@@ -1003,6 +1014,10 @@ body.pagetools-flip #namespaced__pagetools ul li a {
     }
     #namespaced__header_tools {
         align-items: center;
+    }
+    #namespaced__banner_wrap img {
+        max-width: 100% !important;
+        height: auto;
     }
 }
 
