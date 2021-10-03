@@ -587,11 +587,11 @@ a.skip:active {
     margin: .5rem 0;
 }
 
-[dir=ltr] #namespaced__site_logo {
+[dir=ltr] #namespaced__site_logo, [dir=ltr] #namespaced__site_title span {
     margin-right: 2rem;
 }
 
-[dir=rtl] #namespaced__site_logo {
+[dir=rtl] #namespaced__site_logo, [dir=rtl] #namespaced__site_title span {
     margin-left: 2rem;
 }
 
@@ -981,28 +981,48 @@ body.pagetools-flip #namespaced__pagetools ul li a {
     [dir] #namespaced__site {
         background-color: bisque;
     }
+/*
     #namespaced__header .pad .flex {
         flex-direction: column;
+    }
+*/
+    #namespaced__header .pad .flex {
+        justify-content: center;
     }
     [dir] #namespaced__header .pad .flex div {
         margin: .5rem 0;
     }
-    [dir=ltr] #namespaced__site_logo {
+/*
+    #namespaced__site_logo {
         margin-left: unset;
         margin-right: unset;
     }
-    [dir=rtl] #namespaced__site_logo {
-        margin-right: unset;
-        margin-left: unset;
+*/
+    #namespaced__site_logo {
+        max-width: 10rem;
+        max-height: 10rem;
     }
-    [dir] #namespaced__site_branding_text, [dir] #namespaced__header_tools {
+/*
+    #namespaced__site_branding_text,
+    #namespaced__header_tools {
         text-align: center;
     }
+*/
 }
 
 @media screen and (max-width: @ini_site_width - ((@ini_site_width - @ini_tablet_width) / 2)) {
     [dir] #namespaced__site {
         background-color: burlywood;
+    }
+    [dir=ltr] #namespaced__site_title span {
+        margin-right: unset;
+    }
+    [dir=rtl] #namespaced__site_title span {
+        margin-left: unset;
+    }
+    #namespaced__site_logo {
+        max-width: 9rem;
+        max-height: 9rem;
     }
 }
 
@@ -1015,6 +1035,10 @@ body.pagetools-flip #namespaced__pagetools ul li a {
     }
     #namespaced__site_branding {
         justify-content: space-between;
+    }
+    #namespaced__site_logo {
+        max-width: 8rem;
+        max-height: 8rem;
     }
     #namespaced__header_tools {
         align-items: center;
@@ -1032,6 +1056,10 @@ body.pagetools-flip #namespaced__pagetools ul li a {
     [dir] #namespaced__header div.pad {
         padding: 0 calc((@ico-margin + @ico-width + @ico-margin) * .6);
     }
+    #namespaced__site_logo {
+        max-width: 7rem;
+        max-height: 7rem;
+    }
 }
 
 @media screen and (max-width: @ini_phone_width) {
@@ -1040,6 +1068,10 @@ body.pagetools-flip #namespaced__pagetools ul li a {
     }
     [dir] #namespaced__header div.pad {
         padding: 0 calc((@ico-margin + @ico-width + @ico-margin) * .4);
+    }
+    #namespaced__site_logo {
+        max-width: 6rem;
+        max-height: 6rem;
     }
 }
 
