@@ -768,14 +768,24 @@ button.plugin__sitemapnavi__dir {
     #namespaced__site {
         background-color: bisque;
     }
+    #namespaced__header .pad .flex {
+        flex-direction: column !important;
+        margin: .5rem 0;
+    }
+    #namespaced__header .pad .flex div {
+        margin: .5rem 0;
+    }
 }
 
 @media screen and (max-width: @ini_site_width - ((@ini_site_width - @ini_tablet_width) / 2)) {
+    #namespaced__site {
+        background-color: burlywood;
+    }
 }
 
 @media screen and (max-width: @ini_tablet_width) {
     #namespaced__site {
-        background-color: burlywood;
+        background-color: darkgoldenrod;
     }
     #namespaced__site_branding {
         justify-content: space-between;
@@ -787,13 +797,13 @@ button.plugin__sitemapnavi__dir {
 
 @media screen and (max-width: @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2)) {
     #namespaced__site {
-        background-color: darkgoldenrod;
+        background-color: chocolate;
     }
 }
 
 @media screen and (max-width: @ini_phone_width) {
     #namespaced__site {
-        background-color: chocolate;
+        background-color: brown;
     }
 }
 

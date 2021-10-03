@@ -977,14 +977,26 @@ body.pagetools-flip #namespaced__pagetools ul li a {
     [dir] #namespaced__site {
         background-color: bisque;
     }
+    #namespaced__header .pad .flex {
+        flex-direction: column !important;
+    }
+    [dir] #namespaced__header .pad .flex {
+        margin: .5rem 0;
+    }
+    [dir] #namespaced__header .pad .flex div {
+        margin: .5rem 0;
+    }
 }
 
 @media screen and (max-width: @ini_site_width - ((@ini_site_width - @ini_tablet_width) / 2)) {
+    [dir] #namespaced__site {
+        background-color: burlywood;
+    }
 }
 
 @media screen and (max-width: @ini_tablet_width) {
     [dir] #namespaced__site {
-        background-color: burlywood;
+        background-color: darkgoldenrod;
     }
     #namespaced__site_branding {
         justify-content: space-between;
@@ -996,13 +1008,13 @@ body.pagetools-flip #namespaced__pagetools ul li a {
 
 @media screen and (max-width: @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2)) {
     [dir] #namespaced__site {
-        background-color: darkgoldenrod;
+        background-color: chocolate;
     }
 }
 
 @media screen and (max-width: @ini_phone_width) {
     [dir] #namespaced__site {
-        background-color: chocolate;
+        background-color: brown;
     }
 }
 
