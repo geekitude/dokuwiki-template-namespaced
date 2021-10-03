@@ -1009,6 +1009,9 @@ body.pagetools-flip #namespaced__pagetools ul li a {
     [dir] #namespaced__site {
         background-color: darkgoldenrod;
     }
+    [dir] #namespaced__header .pad {
+        padding: 0 calc((@ico-margin + @ico-width + @ico-margin) * .8);
+    }
     #namespaced__site_branding {
         justify-content: space-between;
     }
@@ -1025,11 +1028,17 @@ body.pagetools-flip #namespaced__pagetools ul li a {
     [dir] #namespaced__site {
         background-color: chocolate;
     }
+    [dir] #namespaced__header .pad {
+        padding: 0 calc((@ico-margin + @ico-width + @ico-margin) * .6);
+    }
 }
 
 @media screen and (max-width: @ini_phone_width) {
     [dir] #namespaced__site {
         background-color: brown;
+    }
+    [dir] #namespaced__header .pad {
+        padding: 0 calc((@ico-margin + @ico-width + @ico-margin) * .4);
     }
 }
 

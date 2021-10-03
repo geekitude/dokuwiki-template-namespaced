@@ -795,6 +795,9 @@ button.plugin__sitemapnavi__dir {
     #namespaced__site {
         background-color: darkgoldenrod;
     }
+    #namespaced__header .pad {
+        padding: 0 calc((@ico-margin + @ico-width + @ico-margin) * .8);
+    }
     #namespaced__site_branding {
         justify-content: space-between;
     }
@@ -811,11 +814,17 @@ button.plugin__sitemapnavi__dir {
     #namespaced__site {
         background-color: chocolate;
     }
+    #namespaced__header .pad {
+        padding: 0 calc((@ico-margin + @ico-width + @ico-margin) * .6);
+    }
 }
 
 @media screen and (max-width: @ini_phone_width) {
     #namespaced__site {
         background-color: brown;
+    }
+    #namespaced__header .pad {
+        padding: 0 calc((@ico-margin + @ico-width + @ico-margin) * .4);
     }
 }
 
