@@ -16,6 +16,7 @@ $conf['flexflip']           = '';
 $conf['glyphs']             = 1;
 $conf['navbuttons']         = 'parentns,nshome';
 $conf['combonav']           = 1;
+$conf['searches']           = 'autosearch';
 $conf['licensevisual']      = 'badge';
 $conf['uiimagetarget']      = 'image-ns';
 

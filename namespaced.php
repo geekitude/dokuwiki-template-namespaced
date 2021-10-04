@@ -24,7 +24,7 @@ function namespaced_init() {
     global $ID, $conf;
     global $namespaced;
 
-    // Enable default search untill it's proven useless
+    // Enable default navbar search untill it's proven useless
     $namespaced['defaultsearch'] = true;
 
     // UI IMAGES
@@ -71,6 +71,13 @@ function namespaced_init() {
         }
     }
 //dbg($namespaced['glyphs']);
+
+    // SEARCH SETTINGS
+    $namespaced['search'] = array(
+        "autosearch" => (strpos(tpl_getConf('searches'), 'autosearch') !== false), 
+        "autocomplete" => (strpos(tpl_getConf('searches'), 'autocomplete') !== false)
+    );
+//dbg($namespaced['search']);
 
     // GET WIDGETS
     $widgets= array('footer','side');

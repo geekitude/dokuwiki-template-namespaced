@@ -159,7 +159,7 @@ if (!defined('DOKU_INC')) die();
                     <?php
                         if ($namespaced['defaultsearch'] == true) {
                             print '<li class="search">';
-                                tpl_searchform();
+                                tpl_searchform($namespaced['search']['autosearch'], $namespaced['search']['autocomplete']);
                             print '</li>';
                         }
                         //if (!empty($_SERVER['REMOTE_USER'])) {
