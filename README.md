@@ -81,6 +81,7 @@ See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#setting
   * [ ] *sidecard* (sidebar header image)
   * [ ] *images* (all UI images)
   * [ ] *includes* (HTML include hooks)
+  * [x] *mediaq* (add background color and text to mark CSS media queries)
   * [ ] *pattern*
   * [ ] *replace* (HTML replace hooks)
   * [ ] *social* (load a dummy social networks list)

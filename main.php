@@ -39,6 +39,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
 </head>
 
 <body id="dokuwiki__top" class="<?php print namespaced_bodyclasses(); ?>">
+    <div id="namespaced__mediaq" class="dbg"><span>MediaQ : </span></div>
     <a class="skip center<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>" href="#namespaced__content"><?php echo $lang['skip_to_content']; ?></a>
     <div id="namespaced__site" class="site <?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
 

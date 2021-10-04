@@ -181,6 +181,20 @@ aside.widget {
     color: #000;
 }
 
+#namespaced__mediaq {
+    position: absolute;
+    display: none;
+}
+
+#namespaced__mediaq span::after {
+    content: 'wide';
+}
+
+body.debug #namespaced__mediaq,
+body.mediaq #namespaced__mediaq {
+    display: unset;
+}
+
 /* FLEXBOX
 -------------------------------------------------------------- */
 
@@ -468,6 +482,7 @@ a.skip:active {
     width: 100%;
 }
 
+/* A SUPPRIMER PLUS TARD AVEC LA DIV ELLE-MEME */
 #namespaced__sitetools .mobiletools {
     display: none;
 }
@@ -769,14 +784,22 @@ button.plugin__sitemapnavi__dir {
 -------------------------------------------------------------- */
 
 @media screen and (max-width: @ini_site_width + 60px) {
-    #namespaced__site {
+    body.debug #namespaced__site,
+    body.mediaq #namespaced__site {
         background-color: lightyellow;
+    }
+    #namespaced__mediaq span::after {
+        content: '< Site + 60px';
     }
 }
 
 @media screen and (max-width: @ini_site_width) {
-    #namespaced__site {
+    body.debug #namespaced__site,
+    body.mediaq #namespaced__site {
         background-color: bisque;
+    }
+    #namespaced__mediaq span::after {
+        content: '< Site';
     }
 /*
     #namespaced__header .pad .flex {
@@ -808,8 +831,12 @@ button.plugin__sitemapnavi__dir {
 }
 
 @media screen and (max-width: @ini_site_width - ((@ini_site_width - @ini_tablet_width) / 2)) {
-    #namespaced__site {
+    body.debug #namespaced__site,
+    body.mediaq #namespaced__site {
         background-color: burlywood;
+    }
+    #namespaced__mediaq span::after {
+        content: '> Tablet & < Site';
     }
     #namespaced__site_title span {
         margin-right: unset;
@@ -821,8 +848,12 @@ button.plugin__sitemapnavi__dir {
 }
 
 @media screen and (max-width: @ini_tablet_width) {
-    #namespaced__site {
+    body.debug #namespaced__site,
+    body.mediaq #namespaced__site {
         background-color: darkgoldenrod;
+    }
+    #namespaced__mediaq span::after {
+        content: '< Tablet';
     }
     #namespaced__header div.pad {
         padding: 0 calc((@ico-margin + @ico-width + @ico-margin) * .8);
@@ -844,8 +875,12 @@ button.plugin__sitemapnavi__dir {
 }
 
 @media screen and (max-width: @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2)) {
-    #namespaced__site {
+    body.debug #namespaced__site,
+    body.mediaq #namespaced__site {
         background-color: chocolate;
+    }
+    #namespaced__mediaq span::after {
+        content: '> Phone & < Tablet';
     }
     #namespaced__header div.pad {
         padding: 0 calc((@ico-margin + @ico-width + @ico-margin) * .6);
@@ -857,8 +892,12 @@ button.plugin__sitemapnavi__dir {
 }
 
 @media screen and (max-width: @ini_phone_width) {
-    #namespaced__site {
+    body.debug #namespaced__site,
+    body.mediaq #namespaced__site {
         background-color: brown;
+    }
+    #namespaced__mediaq span::after {
+        content: '< Phone';
     }
     #namespaced__header div.pad {
         padding: 0 calc((@ico-margin + @ico-width + @ico-margin) * .4);

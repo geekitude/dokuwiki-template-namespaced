@@ -221,6 +221,20 @@ ul.inline li {
     background-color: gold;
 }
 
+#namespaced__mediaq {
+    position: absolute;
+    display: none;
+}
+
+#namespaced__mediaq span::after {
+    content: 'wide';
+}
+
+body.debug #namespaced__mediaq,
+body.mediaq #namespaced__mediaq {
+    display: unset;
+}
+
 /* FLEXBOX
 -------------------------------------------------------------- */
 
@@ -600,6 +614,7 @@ a.skip:active {
     width: 100%;
 }
 
+/* A SUPPRIMER PLUS TARD AVEC LA DIV ELLE-MEME */
 #namespaced__sitetools .mobiletools {
     display: none;
 }
@@ -977,14 +992,20 @@ body.pagetools-flip #namespaced__pagetools ul li a {
 -------------------------------------------------------------- */
 
 @media screen and (max-width: @ini_site_width + 60px) {
-    [dir] #namespaced__site {
+    [dir] body.debug #namespaced__site, [dir] body.mediaq #namespaced__site {
         background-color: lightyellow;
+    }
+    #namespaced__mediaq span::after {
+        content: '< Site + 60px';
     }
 }
 
 @media screen and (max-width: @ini_site_width) {
-    [dir] #namespaced__site {
+    [dir] body.debug #namespaced__site, [dir] body.mediaq #namespaced__site {
         background-color: bisque;
+    }
+    #namespaced__mediaq span::after {
+        content: '< Site';
     }
 /*
     #namespaced__header .pad .flex {
@@ -1016,8 +1037,11 @@ body.pagetools-flip #namespaced__pagetools ul li a {
 }
 
 @media screen and (max-width: @ini_site_width - ((@ini_site_width - @ini_tablet_width) / 2)) {
-    [dir] #namespaced__site {
+    [dir] body.debug #namespaced__site, [dir] body.mediaq #namespaced__site {
         background-color: burlywood;
+    }
+    #namespaced__mediaq span::after {
+        content: '> Tablet & < Site';
     }
     [dir=ltr] #namespaced__site_title span {
         margin-right: unset;
@@ -1032,8 +1056,11 @@ body.pagetools-flip #namespaced__pagetools ul li a {
 }
 
 @media screen and (max-width: @ini_tablet_width) {
-    [dir] #namespaced__site {
+    [dir] body.debug #namespaced__site, [dir] body.mediaq #namespaced__site {
         background-color: darkgoldenrod;
+    }
+    #namespaced__mediaq span::after {
+        content: '< Tablet';
     }
     [dir] #namespaced__header div.pad {
         padding: 0 calc((@ico-margin + @ico-width + @ico-margin) * .8);
@@ -1055,8 +1082,11 @@ body.pagetools-flip #namespaced__pagetools ul li a {
 }
 
 @media screen and (max-width: @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2)) {
-    [dir] #namespaced__site {
+    [dir] body.debug #namespaced__site, [dir] body.mediaq #namespaced__site {
         background-color: chocolate;
+    }
+    #namespaced__mediaq span::after {
+        content: '> Phone & < Tablet';
     }
     [dir] #namespaced__header div.pad {
         padding: 0 calc((@ico-margin + @ico-width + @ico-margin) * .6);
@@ -1068,8 +1098,11 @@ body.pagetools-flip #namespaced__pagetools ul li a {
 }
 
 @media screen and (max-width: @ini_phone_width) {
-    [dir] #namespaced__site {
+    [dir] body.debug #namespaced__site, [dir] body.mediaq #namespaced__site {
         background-color: brown;
+    }
+    #namespaced__mediaq span::after {
+        content: '< Phone';
     }
     [dir] #namespaced__header div.pad {
         padding: 0 calc((@ico-margin + @ico-width + @ico-margin) * .4);
