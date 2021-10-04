@@ -107,6 +107,19 @@ input:focus {
     background-color: @ini_highlight;
 }
 
+input[type=text],
+button[type=submit] {
+  border-radius: 0;
+}
+
+input[type=text] {
+  box-sizing: border-box;
+}
+
+input[type=text]:focus {
+  outline: none;
+}
+
 pre {
     overflow: auto;
     padding: 1rem;
