@@ -53,6 +53,7 @@ function namespaced_init() {
     $namespaced['glyphs']['popularity'] = null;
     $namespaced['glyphs']['recycle'] = null;
     $namespaced['glyphs']['revert'] = null;
+    $namespaced['glyphs']['search'] = null;
     $namespaced['glyphs']['searchindex'] = null;
     $namespaced['glyphs']['searchstats'] = null;
     $namespaced['glyphs']['styling'] = null;
@@ -445,6 +446,46 @@ function namespaced_bodyclasses() {
 
     return rtrim(join(' ', array_filter($classes)));
 }/* /namespaced_bodyclasses */
+
+/**
+ * adapted from core
+ *
+ * See original function in inc/template.php for details
+ */
+function namespaced_searchform($useglyph) {
+    global $namespaced;
+    global $lang, $ACT, $QUERY;
+
+    // don't print the search form if search action has been disabled
+    if(!actionOK('search')) return false;
+    print '<form id="search-form" action="'.wl().'" accept-charset="utf-8" class="search searchform clearfix';
+//    if ($dw) { print ' dw'; }
+//    print '" method="get" role="search"><div class="no">';
+    //print '" method="get" role="search"><div class="no">';
+    print '" method="get" role="search">';
+//    print '<div class="search-wrap">';
+    print '<input type="hidden" name="do" value="search" />';
+    print '<input type="text" ';
+
+//    print '<form action="'.wl().'" accept-charset="utf-8" class="form-inline search" id="dw__search" method="get" role="search"><div class="no">';
+//    print '<input type="hidden" name="do" value="search" />';
+//    print '<input type="text" ';
+    if($ACT == 'search') print 'value="'.htmlspecialchars($QUERY).'" ';
+//    print 'placeholder="&#xF002; '.$lang['btn_search'].'" ';
+    print 'placeholder="'.$lang['btn_search'].'" ';
+    //if(!$autocomplete) print 'autocomplete="off" ';
+    if(!$namespaced['search']['autocomplete']) print 'autocomplete="off" ';
+    print 'id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" />';
+    //if (!$dw) {
+        print '<button type="submit" title="'.$lang['btn_search'].'">'.inlineSVG($namespaced['glyphs']['search']).'</button>';
+    //}
+//    print '</div>';
+//  REMOVED JSpopup class because when used, quick search result doesn't show up ("Found pages"). Original line: if ($ajax) print '<div id="qsearch__out" class="panel panel-default ajax_qsearch JSpopup"></div>';
+    if ($namespaced['search']['autosearch']) print '<div id="qsearch__out" class="panel panel-default ajax_qsearch JSpopup"></div>';
+    //print '</div></form>';
+    print '</form>';
+    return true;
+}/* /namespaced_searchform */
 
 /**
  * Print a given set of widgets.

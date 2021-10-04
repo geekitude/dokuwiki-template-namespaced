@@ -199,7 +199,7 @@ body.mediaq #namespaced__mediaq {
 -------------------------------------------------------------- */
 
 .flex {
-    display: flex;
+    display: flex !important;
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
@@ -679,6 +679,26 @@ body.pagetools-flip #namespaced__pagetools ul li a {
     text-align: center;
 }
 
+/*
+#search-form {
+    display: inline-flex;
+}
+
+#search-form button svg {
+    vertical-align: middle;
+}
+*/
+
+#qsearch__in,
+#search-form button {
+    height: 2.8rem;
+}
+
+#search-form input,
+#search-form button {
+    vertical-align: middle;
+}
+
 #qsearch__out strong,
 #qsearch__out ul {
     display: block !important;
@@ -880,6 +900,11 @@ button.plugin__sitemapnavi__dir {
         max-width: 100% !important;
         height: auto;
     }
+    /*
+    #qsearch__in {
+        max-width: 30px !important;
+    }
+    */
 }
 
 @media screen and (max-width: @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2)) {
