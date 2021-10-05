@@ -20,6 +20,7 @@
 * SKIP
 * HEADER
 * MAIN
+* PAGETOOLS
 * FOOTER
 * WIDGETS
 * DOKUWIKI MODES
@@ -29,6 +30,7 @@
 * -- Cloud
 * -- Sitemapnavi
 * RESPONSIVENESS
+* MORE ACCESSIBILITY
 */
 
 /* Pagetools constants */
@@ -234,6 +236,10 @@ ul.inline li {
     padding: 0 @ico-margin + @ico-width + @ico-margin;
 }
 
+.themed {
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
 /* -- Debug -- */
 
 .dbg,
@@ -243,10 +249,6 @@ ul.inline li {
 
 [dir] .dbg, [dir] .include-hook-sample {
     background-color: gold;
-}
-
-.themed {
-    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 }
 
 /* FLEXBOX
