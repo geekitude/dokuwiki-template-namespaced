@@ -112,9 +112,16 @@ button[type=submit] {
   border-radius: 0;
 }
 
+button[type=submit] {
+  appearance: none;
+  cursor: pointer;
+}
+
+/*
 input[type=text] {
   box-sizing: border-box;
 }
+*/
 
 input[type=text]:focus {
   outline: none;
@@ -194,18 +201,8 @@ aside.widget {
     color: #000;
 }
 
-#namespaced__mediaq {
-    position: absolute;
-    display: none;
-}
-
-#namespaced__mediaq span::after {
-    content: 'wide';
-}
-
-body.debug #namespaced__mediaq,
-body.mediaq #namespaced__mediaq {
-    display: unset;
+.themed {
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 }
 
 /* FLEXBOX
@@ -631,7 +628,7 @@ body.sidepanel-flip #namespaced__aside {
 }
 
 #namespaced__pagetools ul:hover li a span,
-#namespaced__pagetools ul:hover li button span,
+#namespaced__pagetools ul:hover li x-sizing span,
 #namespaced__pagetools ul:hover li p span {
     display: initial;
 }
@@ -667,6 +664,20 @@ body.pagetools-flip #namespaced__pagetools ul {
 
 body.pagetools-flip #namespaced__pagetools ul li a {
     flex-direction: row-reverse;
+}
+
+#namespaced__mediaq {
+    position: absolute;
+    display: none;
+}
+
+#namespaced__mediaq span::after {
+    content: 'wide';
+}
+
+body.debug #namespaced__mediaq,
+body.mediaq #namespaced__mediaq {
+    display: unset;
 }
 
 /* FOOTER

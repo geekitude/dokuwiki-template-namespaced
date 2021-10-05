@@ -477,7 +477,7 @@ function namespaced_searchform($useglyph) {
     if(!$namespaced['search']['autocomplete']) print 'autocomplete="off" ';
     print 'id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" />';
     //if (!$dw) {
-        print '<button type="submit" title="'.$lang['btn_search'].'">'.inlineSVG($namespaced['glyphs']['search']).'</button>';
+        print '<button type="submit" class="btn themed" title="'.$lang['btn_search'].'">'.inlineSVG($namespaced['glyphs']['search']).'</button>';
     //}
 //    print '</div>';
 //  REMOVED JSpopup class because when used, quick search result doesn't show up ("Found pages"). Original line: if ($ajax) print '<div id="qsearch__out" class="panel panel-default ajax_qsearch JSpopup"></div>';

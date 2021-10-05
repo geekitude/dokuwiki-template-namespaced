@@ -121,9 +121,21 @@ hr.vertical {
   border-radius: 0;
 }
 
+button[type=submit] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+[dir] button[type=submit] {
+  cursor: pointer;
+}
+
+/*
 input[type=text] {
   box-sizing: border-box;
 }
+*/
 
 input[type=text]:focus {
   outline: none;
@@ -233,18 +245,8 @@ ul.inline li {
     background-color: gold;
 }
 
-#namespaced__mediaq {
-    position: absolute;
-    display: none;
-}
-
-#namespaced__mediaq span::after {
-    content: 'wide';
-}
-
-body.debug #namespaced__mediaq,
-body.mediaq #namespaced__mediaq {
-    display: unset;
+.themed {
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 }
 
 /* FLEXBOX
@@ -824,7 +826,7 @@ body.sidepanel-flip #namespaced__aside {
 }
 
 #namespaced__pagetools ul:hover li a span,
-#namespaced__pagetools ul:hover li button span,
+#namespaced__pagetools ul:hover li x-sizing span,
 #namespaced__pagetools ul:hover li p span {
     display: initial;
 }
@@ -873,6 +875,20 @@ body.pagetools-flip #namespaced__pagetools {
 
 body.pagetools-flip #namespaced__pagetools ul li a {
     flex-direction: row-reverse;
+}
+
+#namespaced__mediaq {
+    position: absolute;
+    display: none;
+}
+
+#namespaced__mediaq span::after {
+    content: 'wide';
+}
+
+body.debug #namespaced__mediaq,
+body.mediaq #namespaced__mediaq {
+    display: unset;
 }
 
 /* FOOTER
