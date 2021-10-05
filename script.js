@@ -1,6 +1,13 @@
 /**
- *  We handle several device classes based on browser width.
+ * Dokuwiki Namespaced template java file
  *
+ * @link    https://www.dokuwiki.org/template:namespaced
+ * @author  Simon DELAGE <sdelage@gmail.com>
+ * @license GPL 2 (https://www.gnu.org/licenses/gpl-2.0.html)
+ * 
+ * Here comes java magic
+ *
+ * We handle several device classes based on browser width.
  *  - desktop:   > __tablet_width__ (as set in style.ini)
  *  - mobile:
  *    - tablet   <= __tablet_width__
