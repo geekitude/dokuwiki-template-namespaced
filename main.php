@@ -108,7 +108,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
             <!-- PAGE ACTIONS -->
             <aside id="namespaced__pagetools" class="gutter flex column">
                 <nav class="tools<?php print (strpos(tpl_getConf('uicolorize'), 'pagetools') !== false) ? " uicolor-pagetools" : "" ?>">
-                    <ul class="nostyle">
+                    <ul class="sub-menu nostyle">
                         <li><h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>aside-title"><?php print $lang['page_tools']; ?></h6></li>
                         <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
                         <?php //echo (new \dokuwiki\Menu\NamespacedPageTools())->getListItems(); ?>

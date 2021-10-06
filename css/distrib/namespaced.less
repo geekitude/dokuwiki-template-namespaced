@@ -13,7 +13,6 @@
 * Move tpl_indexerWebBug() out of the way
 * MICRO-RESET
 * HTML ITEMS
-* GENERIC CLASSES
 * FLEXBOX
 * SECTION HIGHLIGHTING
 * NAVBAR
@@ -23,6 +22,7 @@
 * PAGETOOLS
 * FOOTER
 * WIDGETS
+* GENERIC CLASSES
 * DOKUWIKI MODES
 * -- Admin page
 * -- Settings
@@ -209,48 +209,6 @@ ul.inline li {
     margin: 0;
 }
 
-/* GENERIC CLASSES
--------------------------------------------------------------- */
-
-[dir] .start {
-    text-align: start;
-}
-
-[dir] .center {
-    text-align: center;
-}
-
-[dir] .end {
-    text-align: end;
-}
-
-[dir] aside.widget {
-    margin-bottom: 1.5rem;
-}
-
-.pad {
-    /* Main uses it's own gutters instead */
-}
-
-[dir] .pad {
-    padding: 0 @ico-margin + @ico-width + @ico-margin;
-}
-
-.themed {
-    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-}
-
-/* -- Debug -- */
-
-.dbg,
-.include-hook-sample {
-    color: #000;
-}
-
-[dir] .dbg, [dir] .include-hook-sample {
-    background-color: gold;
-}
-
 /* FLEXBOX
 -------------------------------------------------------------- */
 
@@ -389,6 +347,14 @@ div.secedit.editbutton_section {
 #colormag__usertools-menu .sub-menu,
 #colormag__usertools-dropdown .sub-menu {
     right: 0;
+}
+*/
+
+/*
+.navbar .action .sub-menu {
+    right: 0;
+    top: auto;
+    background-color: @ini_background;
 }
 */
 
@@ -580,7 +546,10 @@ div.secedit.editbutton_section {
     pointer-events : none;
 }
 
+/*
 #namespaced__site_nav.navbar ul li a:hover {
+*/
+nav ul li a:hover {
     transition: box-shadow 350ms ease-in-out, color 350ms ease-in-out;
 }
 
@@ -768,12 +737,13 @@ body.sidepanel-flip #namespaced__aside {
 }
 
 #namespaced__pagetools ul {
-    position: absolute; /* add transparent border to prevent jumping when proper border is added on focus */
+    position: absolute;
+    /*border: 1px solid transparent;*/ /* add transparent border to prevent jumping when proper border is added on focus */
     white-space: nowrap;
+    line-height: 1.8;
 }
 
 [dir] #namespaced__pagetools ul {
-    border: 1px solid transparent;
     margin: 0;
 }
 
@@ -827,8 +797,8 @@ body.sidepanel-flip #namespaced__aside {
     margin: 0 @ico-margin;
 }
 
-[dir] #namespaced__pagetools ul:hover {
-    border: 1px solid @ini_border;
+#namespaced__pagetools ul:hover {
+/*    border: 1px solid @ini_border;*/
 }
 
 #namespaced__pagetools ul:hover li a span,
@@ -839,6 +809,10 @@ body.sidepanel-flip #namespaced__aside {
 
 #namespaced__pagetools ul:hover li h6 {
     visibility: visible;
+}
+
+#namespaced__pagetools ul li:hover a svg {
+    fill: #fff;
 }
 
 html.js #namespaced__pagetools ul li.top {
@@ -955,6 +929,64 @@ body.mediaq #namespaced__mediaq {
 
 #qsearch__out ul li {
     display: list-item !important;
+}
+
+/* GENERIC CLASSES
+-------------------------------------------------------------- */
+
+[dir] .start {
+    text-align: start;
+}
+
+[dir] .center {
+    text-align: center;
+}
+
+[dir] .end {
+    text-align: end;
+}
+
+[dir] aside.widget {
+    margin-bottom: 1.5rem;
+}
+
+.pad {
+    /* Main uses it's own gutters instead */
+}
+
+[dir] .pad {
+    padding: 0 @ico-margin + @ico-width + @ico-margin;
+}
+
+.sub-menu {
+    top: auto;
+}
+
+[dir] .sub-menu {
+    background-color: @ini_background;
+}
+
+[dir=ltr] .sub-menu {
+    right: 0;
+}
+
+[dir=rtl] .sub-menu {
+    left: 0;
+}
+
+.themed {
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+/* -- Debug -- */
+
+.dbg,
+.include-hook-sample {
+    color: #000;
+}
+
+[dir] .dbg, [dir] .include-hook-sample {
+    background-color: gold;
 }
 
 /* DOKUWIKI MODES
