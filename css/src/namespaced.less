@@ -13,6 +13,7 @@
 * Move tpl_indexerWebBug() out of the way
 * MICRO-RESET
 * HTML ITEMS
+* -- Headings
 * FLEXBOX
 * SECTION HIGHLIGHTING
 * NAVBAR
@@ -29,6 +30,7 @@
 * PLUGINS
 * -- Cloud
 * -- Sitemapnavi
+* -- Tagalerts
 * RESPONSIVENESS
 * MORE ACCESSIBILITY
 */
@@ -169,6 +171,82 @@ ul.inline li:last-child {
 
 ul.inline li:first-child:last-child {
     margin: 0;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+#dw__toc h3 {
+    font-weight: normal;
+    font-family: 'Lato', sans-serif;
+}
+
+/*
+h1,
+h2,
+h3,
+h4,
+h5 {
+    padding: 0 0 18px 0;
+}
+*/
+
+/*
+h6 {
+    padding: 0 0 .25rem 0;
+}
+#dw__toc h3 {
+    padding: 0 0 .5rem 0 !important;
+    margin: 0 3px;
+}
+*/
+
+h1 {
+    font-size: 3rem;
+    /*line-height: 36px;*/
+    padding-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+    /*line-height: 34px;*/
+    padding-bottom: .8rem;
+}
+
+h3 {
+    font-size: 2.6rem;
+    /*line-height: 32px;*/
+    padding-bottom: .6rem;
+}
+
+h4 {
+    font-size: 2.4rem;
+    /*line-height: 30px;*/
+    padding-bottom: .4rem;
+}
+
+h5 {
+    font-size: 2.2rem;
+    /*line-height: 28px;*/
+    padding-bottom: .2rem;
+}
+
+h6,
+#dw__toc h3 {
+    font-size: 1.9rem;
+    /*line-height: 25px;*/
+}
+
+h6 span.label,
+#dw__toc h3 {
+    border-bottom: 2px solid @ini_blue_color;
+    padding: 0 0 3px 0 !important;
+    line-height: 1.7;
+    display: unset;
 }
 
 /* FLEXBOX
@@ -598,7 +676,7 @@ body.sidepanel-flip #namespaced__aside {
 }
 
 #namespaced__pagetools ul:hover li h6 {
-    line-height: 1;
+    line-height: 1.5;
 }
 
 /*
