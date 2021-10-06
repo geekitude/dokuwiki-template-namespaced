@@ -76,9 +76,12 @@ if (!defined('DOKU_INC')) die();
         <hr class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>" />
     </div>
 
+    <div class="pad flex justify-between">
+        <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo tpl_getLang('ns_content'); ?></h6>
+        <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['user_tools']; ?></h6>
+    </div>
     <nav id="namespaced__site_nav" class="flex navbar pad">
         <div id="namespaced_ns_menu">
-            <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo tpl_getLang('ns_content'); ?></h6>
             <ul class="nostyle">
                 <!-- NAV BUTTON(S) -->
                 <?php
@@ -154,7 +157,6 @@ if (!defined('DOKU_INC')) die();
         <!-- USER TOOLS -->
         <?php if ($conf['useacl']): ?>
             <div id="namespaced__usertools">
-                <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['user_tools']; ?></h6>
                 <ul class="nostyle">
                     <?php
                         if ($namespaced['defaultsearch'] == true) {
