@@ -212,7 +212,8 @@ ul.inline li {
     margin: 0;
 }
 
-/* Headings */
+/* -- Headings  -- */
+
 h1,
 h2,
 h3,
@@ -224,25 +225,9 @@ h6,
     font-family: 'Lato', sans-serif;
 }
 
-/*
-h1,
-h2,
-h3,
-h4,
-h5 {
-    padding: 0 0 18px 0;
+[dir] h1, [dir] h2, [dir] h3, [dir] h4, [dir] h5, [dir] h6, [dir] #dw__toc h3 {
+    margin: 0;
 }
-*/
-
-/*
-h6 {
-    padding: 0 0 .25rem 0;
-}
-#dw__toc h3 {
-    padding: 0 0 .5rem 0 !important;
-    margin: 0 3px;
-}
-*/
 
 h1 {
     font-size: 3rem;
@@ -250,7 +235,7 @@ h1 {
 }
 
 [dir] h1 {
-    padding-bottom: 1rem;
+    padding: 0 0 1rem 0;
 }
 
 h2 {
@@ -258,8 +243,12 @@ h2 {
     /*line-height: 34px;*/
 }
 
-[dir] h2 {
-    padding-bottom: .8rem;
+[dir=ltr] h2 {
+    padding: 0 0 .8rem 1rem;
+}
+
+[dir=rtl] h2 {
+    padding: 0 1rem .8rem 0;
 }
 
 h3 {
@@ -267,8 +256,12 @@ h3 {
     /*line-height: 32px;*/
 }
 
-[dir] h3 {
-    padding-bottom: .6rem;
+[dir=ltr] h3 {
+    padding: 0 0 .6rem 2rem;
+}
+
+[dir=rtl] h3 {
+    padding: 0 2rem .6rem 0;
 }
 
 h4 {
@@ -276,8 +269,12 @@ h4 {
     /*line-height: 30px;*/
 }
 
-[dir] h4 {
-    padding-bottom: .4rem;
+[dir=ltr] h4 {
+    padding: 0 0 .4rem 3rem;
+}
+
+[dir=rtl] h4 {
+    padding: 0 3rem .4rem 0;
 }
 
 h5 {
@@ -285,14 +282,22 @@ h5 {
     /*line-height: 28px;*/
 }
 
-[dir] h5 {
-    padding-bottom: .2rem;
+[dir=ltr] h5 {
+    padding: 0 0 .2rem 4rem;
+}
+
+[dir=rtl] h5 {
+    padding: 0 4rem .2rem 0;
 }
 
 h6,
 #dw__toc h3 {
     font-size: 1.9rem;
     /*line-height: 25px;*/
+}
+
+[dir] h6, [dir] #dw__toc h3 {
+    padding: 0;
 }
 
 h6 span.label,
