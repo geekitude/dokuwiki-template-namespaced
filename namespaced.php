@@ -44,6 +44,7 @@ function namespaced_init() {
     // Search for default or custum default SVG glyphs
     $namespaced['glyphs']['account-edit'] = null;
     $namespaced['glyphs']['acl'] = null;
+    $namespaced['glyphs']['back-to-article'] = null;
     $namespaced['glyphs']['config'] = null;
     $namespaced['glyphs']['extension'] = null;
     $namespaced['glyphs']['home'] = null;

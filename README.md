@@ -66,7 +66,7 @@ See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#setting
 * [ ] Extracted ToC can be given [scrollspy](https://codepen.io/latifur/pen/qLKXpj) superpowers
 * [ ] Retractable sidebar
 * [ ] Stickable main navigation bar, pageheader, sidebar and docinfo
-* [ ] Dynamic navigation button (current NS home, parent NS start or "back to article")
+* [x] Dynamic navigation button(s): wikihome, parent NS start, current NS home or "back to article" (can be combined as a single button or not)
 * [ ] High number of HTML hooks (based on [this document](https://www.dokuwiki.org/include_hooks))
 * [ ] A few HTML replace hooks that let you replace some elements with more fancy HTML code
 * [ ] Sub namespaces list based on [Twistienav](https://www.dokuwiki.org/plugin:twistienav) plugin?

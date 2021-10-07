@@ -13,7 +13,7 @@ $conf['layout']             = 'box2wide';
 $conf['flexflip']           = '';
 
 $conf['glyphs']             = 1;
-$conf['navbuttons']         = 'parentns,nshome';
+$conf['navbuttons']         = 'wikihome,parentns,nshome,back-to-article';
 $conf['combonav']           = 1;
 $conf['searches']           = 'autosearch';
 $conf['licensevisual']      = 'badge';

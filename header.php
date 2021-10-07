@@ -85,8 +85,18 @@ if (!defined('DOKU_INC')) die();
             <ul class="nostyle">
                 <!-- NAV BUTTON(S) -->
                 <?php
+                    $a11y = (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' class="a11y"';
                     if (tpl_getConf('combonav')) {
-                        if ((strpos(tpl_getConf('navbuttons'), 'nshome') !== false) and ($namespaced['ishome'] == false)) {
+                        if ((strpos(tpl_getConf('navbuttons'), 'back-to-article') !== false) and ((($ACT == "recent") or ($ACT == "media") or ($ACT == "index") or ($ACT == "admin")) and (isset($_SESSION["origID"])))) {
+                            print '<li>';
+                                // display link to namespace home page
+                                tpl_link(
+                                    wl($_SESSION["origID"]),
+                                    namespaced_glyph('back-to-article', true).'<span'.$a11y.'>'.tpl_getLang('back-to-article').'</span>',
+                                    'title="'.$_SESSION["origID"].'"'
+                                );
+                            print '</li>';
+                        } elseif ((strpos(tpl_getConf('navbuttons'), 'nshome') !== false) and ($namespaced['ishome'] == false)) {
                             print '<li>';
                                 // display link to namespace home page
                                 tpl_link(
@@ -143,6 +153,16 @@ if (!defined('DOKU_INC')) die();
                                     wl(getns($ID).':'.$conf['start']),
                                     namespaced_glyph('nshome', true).'<span class="a11y">'.tpl_getLang('nshome').'</span>',
                                     'title="'.tpl_getLang('nshome').'"'
+                                );
+                            print '</li>';
+                        }
+                        if ((strpos(tpl_getConf('navbuttons'), 'back-to-article') !== false) and ((($ACT == "recent") or ($ACT == "media") or ($ACT == "index") or ($ACT == "admin")) and (isset($_SESSION["origID"])))) {
+                            print '<li>';
+                                // display link to namespace home page
+                                tpl_link(
+                                    wl($_SESSION["origID"]),
+                                    namespaced_glyph('back-to-article', true).'<span'.$a11y.'>'.tpl_getLang('back-to-article').'</span>',
+                                    'title="'.$_SESSION["origID"].'"'
                                 );
                             print '</li>';
                         }

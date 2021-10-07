@@ -9,4 +9,5 @@
  * English language file for Namespaced template config
 */
 
-$lang['combonav'] = 'Combine navigation buttons or not. Priority order will be: namespace home > parent namespace > wiki home.';
+$lang['navbuttons'] = 'Select navigation buttons shown in main navigation bar (combined or not, see setting right below).';
+$lang['combonav'] = 'Combine navigation buttons or not. Priority order will be: back to article > namespace home > parent namespace > wiki home.';

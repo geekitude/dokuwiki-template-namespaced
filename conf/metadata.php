@@ -14,7 +14,7 @@ $meta['layout']             = array('multichoice','_choices' => array('box','wid
 $meta['flexflip']           = array('multicheckbox','_choices' => array('banner','pagenav','sidepanel','pagetools','socket'),'_other' => 'never');
 /* functionnalities */
 $meta['glyphs']             = array('onoff');
-$meta['navbuttons']         = array('multicheckbox','_choices' => array('wikihome','parentns','nshome'),'_other' => 'never');
+$meta['navbuttons']         = array('multicheckbox','_choices' => array('wikihome','parentns','nshome','back-to-article'),'_other' => 'never');
 $meta['combonav']           = array('onoff');
 $meta['searches']           = array('multicheckbox','_choices' => array('autosearch','autocomplete'),'_other' => 'never');
 $meta['licensevisual']      = array('multichoice','_choices' => array('badge','button','none'));

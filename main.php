@@ -13,6 +13,18 @@
 if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 @require_once(dirname(__FILE__).'/namespaced.php'); /* include hook for template functions */
 
+session_start();
+// Store ID from HTTP_REFERER (aka origin URL) into PHP Session if it contains current wiki URL and doesn't contain `admin` or `playground` 
+if ((strpos($_SERVER["HTTP_REFERER"], DOKU_URL) !== false) and (strpos($_SERVER["HTTP_REFERER"], 'admin') === false) and (strpos($_SERVER["HTTP_REFERER"], 'playground') === false)) {
+    // get what's after "id="
+    $tmp = explode("id=", $_SERVER["HTTP_REFERER"]);
+    // get what's before potential "&"
+    $tmp = explode("&", $tmp[1]);
+    // store in PHP session
+    $_SESSION["origID"] = $tmp[0];
+}
+
+
 global $namespaced, $external;
 // Reset $namespaced to make sure we don't inherit any value from previous page
 $namespaced = array();
@@ -40,7 +52,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
 
 <body id="dokuwiki__top" class="<?php print namespaced_bodyclasses(); ?>">
     <div id="namespaced__mediaq" class="dbg"><span>MediaQ : </span></div>
-    <a class="skip center<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>" href="#namespaced__content"><?php echo $lang['skip_to_content']; ?></a>
+    <a class="skip center<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == ' a11y')) ? '' : ' a11y' ?>" href="#namespaced__content"><?php echo $lang['skip_to_content']; ?></a>
     <div id="namespaced__site" class="site <?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
 
         <?php include('header.php') ?>
