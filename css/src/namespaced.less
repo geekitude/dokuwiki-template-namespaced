@@ -222,7 +222,7 @@ h6,
 #dw__toc h3 {
     font-size: 1.9rem;
     /*line-height: 25px;*/
-    padding: 0;
+    padding: 0 0 1rem 0;
 }
 
 h6 span.label,
@@ -586,6 +586,23 @@ article {
     margin-right: 1.5rem;
 }
 
+#dw__toc {
+    min-width: @ini_toc_width;
+    max-width: @ini_toc_width;
+    width: @ini_toc_width;
+    float: right;
+    margin-left: 1.5rem;
+}
+
+#namespaced__aside,
+#dw__toc,
+#namespaced__footer_widgets aside {
+    color: @ini_text_neu;
+    background-color: @ini_background_neu;
+    padding: .8rem;
+    margin-bottom: 1.5rem;
+}
+
 /*
 body.no-sidepanel #namespaced__aside,
 body.no-sidepanel #namespaced__main_subflex hr {
@@ -594,15 +611,6 @@ body.no-sidepanel #namespaced__main_subflex hr {
 */
 body.no-sidepanel #namespaced__aside {
     display: none;
-}
-
-#dw__toc {
-    min-width: @ini_toc_width;
-    max-width: @ini_toc_width;
-    width: @ini_toc_width;
-    float: right;
-    margin-left: 1.5rem;
-    margin-bottom: 1.5rem;
 }
 
 body.sidepanel-flip #namespaced__content {
