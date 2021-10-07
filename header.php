@@ -47,7 +47,7 @@ if (!defined('DOKU_INC')) die();
                 </div>
             </div>
 
-            <div class="flex column align-end">
+            <div id="namespaced__secondary_header" class="flex column align-end">
                 <div id="namespaced__banner_wrap" class="flex column end<?php print (strpos(tpl_getConf('print'), 'siteheader-banner') !== false) ? '' : ' noprint' ?>">
                     <?php
                         tpl_includeFile("bannerheader");
@@ -68,8 +68,12 @@ if (!defined('DOKU_INC')) die();
                             <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', tpl_getConf('glyphs')); ?>
                         </ul>
                     </aside>
-
                 </div>
+                <?php if ($namespaced['defaultsearch'] == true): ?>
+                    <div id="namespaced__search" class="tools">
+                        <?php namespaced_searchform(true); ?>
+                    </div>
+                <?php endif ?>
             </div>
         </div>
 
@@ -178,18 +182,6 @@ if (!defined('DOKU_INC')) die();
             <div id="namespaced__usertools">
                 <ul class="nostyle">
                     <?php
-                        if ($namespaced['defaultsearch'] == true) {
-                            print '<li class="search">';
-                                //tpl_searchform($namespaced['search']['autosearch'], $namespaced['search']['autocomplete']);
-                                namespaced_searchform(true);
-                            print '</li>';
-                        }
-                        //if (!empty($_SERVER['REMOTE_USER'])) {
-                        //    echo '<li class="user">';
-                        //    tpl_userinfo(); /* 'Logged in as ...' */
-                        //    echo '</li>';
-                        //}
-                        //echo (new \dokuwiki\Menu\UserMenu())->getListItems('action ', tpl_getConf('glyphs'));
                         namespaced_usertools();
                     ?>
                 </ul>

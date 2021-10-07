@@ -627,13 +627,12 @@ div.secedit.editbutton_section {
     /*display: flex;*/
 }
 
+/*
 #namespaced__usertools > ul li.search {
     align-self: center;
-}
-
-[dir] #namespaced__usertools > ul li.search {
     padding: 0 10px;
 }
+*/
 
 #namespaced__site_nav.navbar ul.sub-menu li a {
     justify-content: flex-end;
@@ -699,7 +698,13 @@ a.skip:active {
 /* HEADER
 -------------------------------------------------------------- */
 
-[dir] #namespaced__header .pad .flex {
+/*
+#namespaced__header .pad .flex {
+    margin: .5rem 0;
+}
+*/
+
+[dir] #namespaced__site_branding, [dir] #namespaced__secondary_header, [dir] #namespaced__header_tools {
     margin: .5rem 0;
 }
 
@@ -1051,6 +1056,18 @@ body.mediaq #namespaced__mediaq {
 #search-form input,
 #search-form button {
     vertical-align: middle;
+}
+
+#qsearch__out {
+    width: 30rem;
+}
+
+[dir=ltr] #qsearch__out {
+    right: 5rem;
+}
+
+[dir=rtl] #qsearch__out {
+    left: 5rem;
 }
 
 #qsearch__out strong,
