@@ -40,14 +40,14 @@ function tpl_dokuwiki_mobile(){
     jQuery('html').removeClass(device_classes).addClass(device_class);
 
     // handle some layout changes based on change in device
-    var $handle = jQuery('#dokuwiki__aside h3.toggle');
+    var $handle = jQuery('#namespaced__aside h6.toggle');
     var $toc = jQuery('#dw__toc h3');
 
     if (device_class == 'desktop') {
         // reset for desktop mode
         if($handle.length) {
             $handle[0].setState(1);
-            $handle.hide();
+            //$handle.hide();
         }
         if($toc.length) {
             $toc[0].setState(1);
@@ -56,7 +56,7 @@ function tpl_dokuwiki_mobile(){
     if (device_class.match(/mobile/)){
         // toc and sidebar hiding
         if($handle.length) {
-            $handle.show();
+            //$handle.show();
             $handle[0].setState(-1);
         }
         if($toc.length) {
@@ -67,7 +67,7 @@ function tpl_dokuwiki_mobile(){
 
 jQuery(function(){
     var resizeTimer;
-    dw_page.makeToggle('#dokuwiki__aside h3.toggle','#dokuwiki__aside div.content');
+    dw_page.makeToggle('#namespaced__aside h6.toggle','#namespaced__aside div.content');
 
     tpl_dokuwiki_mobile();
     jQuery(window).on('resize',
