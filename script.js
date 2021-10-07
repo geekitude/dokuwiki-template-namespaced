@@ -100,7 +100,7 @@ jQuery(function(){
 //});
 
 jQuery(document).scroll(function() {
-  if (jQuery(document).scrollTop() >= 300) {
+  if (jQuery(document).scrollTop() >= 600) {
     // user scrolled 50 pixels or more;
     // do stuff
     jQuery('#namespaced__pagetools ul li.top').fadeIn(500);
