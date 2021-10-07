@@ -704,7 +704,11 @@ a.skip:active {
 }
 */
 
-[dir] #namespaced__site_branding, [dir] #namespaced__secondary_header, [dir] #namespaced__header_tools {
+[dir] #namespaced__site_branding, [dir] #namespaced__secondary_header {
+    margin: 1rem 0;
+}
+
+[dir] #namespaced__header_tools {
     margin: .5rem 0;
 }
 
@@ -791,6 +795,10 @@ article {
     min-width: @ini_toc_width;
     max-width: @ini_toc_width;
     width: @ini_toc_width;
+}
+
+[dir] #dw__toc {
+    margin-top: .8rem;
 }
 
 [dir=ltr] #dw__toc {
