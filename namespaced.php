@@ -27,6 +27,15 @@ function namespaced_init() {
     // Enable default navbar search untill it's proven useless
     $namespaced['defaultsearch'] = true;
 
+    // Use `a11y` class or not
+    if (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) {
+        $namespaced['a11y']['extraclass'] = '';
+        $namespaced['a11y']['standalone'] = '';
+    } else {
+        $namespaced['a11y']['extraclass'] = ' a11y';
+        $namespaced['a11y']['standalone'] = ' class="a11y"';
+    }
+
     // UI IMAGES
 // need to search avatar at some point
     $images= array('banner', 'pattern', 'sidecard', 'widebanner');

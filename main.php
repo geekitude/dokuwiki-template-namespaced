@@ -52,7 +52,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
 
 <body id="dokuwiki__top" class="<?php print namespaced_bodyclasses(); ?>">
     <div id="namespaced__mediaq" class="dbg"><span>MediaQ : </span></div>
-    <a class="skip center<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == ' a11y')) ? '' : ' a11y' ?>" href="#namespaced__content"><?php echo $lang['skip_to_content']; ?></a>
+    <a class="skip center<?php print $namespaced['a11y']['extraclass']; ?>" href="#namespaced__content"><?php echo $lang['skip_to_content']; ?></a>
     <div id="namespaced__site" class="site <?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
 
         <?php include('header.php') ?>
@@ -76,7 +76,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                             </div>
                         </div>
                     </div><!-- /aside -->
-                    <hr class="vertical<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' a11y' ?>" />
+                    <hr class="vertical<?php print $namespaced['a11y']['extraclass']; ?>" />
                 <?php endif; ?>
 
                 <!-- ********** CONTENT ********** -->
@@ -100,11 +100,11 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                         <div class="page">
                             <?php tpl_flush() ?>
                             <?php tpl_includeFile('pageheader.html') ?>
-                            <hr class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>" />
+                            <hr<?php print $namespaced['a11y']['standalone']; ?> />
                             <!-- wikipage start -->
                             <?php tpl_content() ?>
                             <!-- wikipage stop -->
-                            <hr class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>" />
+                            <hr<?php print $namespaced['a11y']['standalone']; ?> />
                             <?php tpl_includeFile('pagefooter.html') ?>
                         </div>
 
@@ -121,7 +121,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
             <aside id="namespaced__pagetools" class="gutter flex column">
                 <nav class="tools<?php print (strpos(tpl_getConf('uicolorize'), 'pagetools') !== false) ? " uicolor-pagetools" : "" ?>">
                     <ul class="sub-menu nostyle">
-                        <li><h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? "" : "a11y " ?>aside-title"><?php print $lang['page_tools']; ?></h6></li>
+                        <li><h6 class="aside-title<?php print $namespaced['a11y']['extraclass']; ?>"><?php print $lang['page_tools']; ?></h6></li>
                         <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
                         <?php //echo (new \dokuwiki\Menu\NamespacedPageTools())->getListItems(); ?>
                         <li class="bottom"><a href="#namespaced__footer" title="<?php print tpl_getLang('go_to_bottom'); ?> [b]" rel="nofollow" accesskey="b"><span><?php print tpl_getLang('go_to_bottom') ?></span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z" /></svg></a></li>

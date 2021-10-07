@@ -59,7 +59,7 @@ if (!defined('DOKU_INC')) die();
 
                     <!-- SITE TOOLS -->
                     <aside id="namespaced__sitetools">
-                        <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['site_tools']; ?></h6>
+                        <h6<?php print $namespaced['a11y']['standalone']; ?>><?php echo $lang['site_tools']; ?></h6>
 
                         <div class="mobiletools">
                             <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
@@ -73,26 +73,25 @@ if (!defined('DOKU_INC')) die();
             </div>
         </div>
 
-        <hr class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>" />
+        <hr<?php print $namespaced['a11y']['standalone']; ?> />
     </div>
 
     <div class="pad flex justify-between">
-        <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo tpl_getLang('ns_content'); ?></h6>
-        <h6 class="<?php print (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : 'a11y' ?>"><?php echo $lang['user_tools']; ?></h6>
+        <h6<?php print $namespaced['a11y']['standalone']; ?>><?php echo tpl_getLang('ns_content'); ?></h6>
+        <h6<?php print $namespaced['a11y']['standalone']; ?>><?php echo $lang['user_tools']; ?></h6>
     </div>
     <nav id="namespaced__site_nav" class="flex navbar pad">
         <div id="namespaced_ns_menu">
             <ul class="nostyle">
                 <!-- NAV BUTTON(S) -->
                 <?php
-                    $a11y = (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) ? '' : ' class="a11y"';
                     if (tpl_getConf('combonav')) {
                         if ((strpos(tpl_getConf('navbuttons'), 'back-to-article') !== false) and ((($ACT == "recent") or ($ACT == "media") or ($ACT == "index") or ($ACT == "admin")) and (isset($_SESSION["origID"])))) {
                             print '<li>';
                                 // display link to namespace home page
                                 tpl_link(
                                     wl($_SESSION["origID"]),
-                                    namespaced_glyph('back-to-article', true).'<span'.$a11y.'>'.tpl_getLang('back-to-article').'</span>',
+                                    namespaced_glyph('back-to-article', true).'<span'.$namespaced['a11y']['standalone'].'>'.tpl_getLang('back-to-article').'</span>',
                                     'title="'.$_SESSION["origID"].'"'
                                 );
                             print '</li>';
@@ -101,7 +100,7 @@ if (!defined('DOKU_INC')) die();
                                 // display link to namespace home page
                                 tpl_link(
                                     wl(getns($ID).':'.$conf['start']),
-                                    namespaced_glyph('nshome', true).'<span'.$a11y.'>'.tpl_getLang('nshome').'</span>',
+                                    namespaced_glyph('nshome', true).'<span'.$namespaced['a11y']['standalone'].'>'.tpl_getLang('nshome').'</span>',
                                     'title="'.tpl_getLang('nshome').'"'
                                 );
                             print '</li>';
@@ -110,7 +109,7 @@ if (!defined('DOKU_INC')) die();
                                 // display link to parent namespace home page
                                 tpl_link(
                                     wl(getns(getns($ID)).':'.$conf['start']),
-                                    namespaced_glyph('parentns', true).'<span'.$a11y.'>'.tpl_getLang('parentns').'</span>',
+                                    namespaced_glyph('parentns', true).'<span'.$namespaced['a11y']['standalone'].'>'.tpl_getLang('parentns').'</span>',
                                     'title="'.tpl_getLang('parentns').'"'
                                 );
                             print '</li>';
@@ -119,7 +118,7 @@ if (!defined('DOKU_INC')) die();
                                 // display link to the home page
                                 tpl_link(
                                     wl(),
-                                    namespaced_glyph('home', true).'<span'.$a11y.'>'.tpl_getLang('wikihome').'</span>',
+                                    namespaced_glyph('home', true).'<span'.$namespaced['a11y']['standalone'].'>'.tpl_getLang('wikihome').'</span>',
                                     'accesskey="h" title="'.tpl_getLang('wikihome').' [H]"'
                                 );
                             print '</li>';
@@ -130,7 +129,7 @@ if (!defined('DOKU_INC')) die();
                                 // display link to the home page
                                 tpl_link(
                                     wl(),
-                                    namespaced_glyph('home', true).'<span'.$a11y.'>'.tpl_getLang('wikihome').'</span>',
+                                    namespaced_glyph('home', true).'<span'.$namespaced['a11y']['standalone'].'>'.tpl_getLang('wikihome').'</span>',
                                     'accesskey="h" title="'.tpl_getLang('wikihome').' [H]"'
                                 );
                             print '</li>';
@@ -141,7 +140,7 @@ if (!defined('DOKU_INC')) die();
                                 // display link to parent namespace home page
                                 tpl_link(
                                     wl(getns(getns($ID)).':'.$conf['start']),
-                                    namespaced_glyph('parentns', true).'<span'.$a11y.'>'.tpl_getLang('parentns').'</span>',
+                                    namespaced_glyph('parentns', true).'<span'.$namespaced['a11y']['standalone'].'>'.tpl_getLang('parentns').'</span>',
                                     'title="'.tpl_getLang('parentns').'"'
                                 );
                             print '</li>';
@@ -151,7 +150,7 @@ if (!defined('DOKU_INC')) die();
                                 // display link to namespace home page
                                 tpl_link(
                                     wl(getns($ID).':'.$conf['start']),
-                                    namespaced_glyph('nshome', true).'<span'.$a11y.'>'.tpl_getLang('nshome').'</span>',
+                                    namespaced_glyph('nshome', true).'<span'.$namespaced['a11y']['standalone'].'>'.tpl_getLang('nshome').'</span>',
                                     'title="'.tpl_getLang('nshome').'"'
                                 );
                             print '</li>';
@@ -161,7 +160,7 @@ if (!defined('DOKU_INC')) die();
                                 // display link to namespace home page
                                 tpl_link(
                                     wl($_SESSION["origID"]),
-                                    namespaced_glyph('back-to-article', true).'<span'.$a11y.'>'.tpl_getLang('back-to-article').'</span>',
+                                    namespaced_glyph('back-to-article', true).'<span'.$namespaced['a11y']['standalone'].'>'.tpl_getLang('back-to-article').'</span>',
                                     'title="'.$_SESSION["origID"].'"'
                                 );
                             print '</li>';
