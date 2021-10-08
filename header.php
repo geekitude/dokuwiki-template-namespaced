@@ -90,7 +90,7 @@ if (!defined('DOKU_INC')) die();
                 <!-- NAV BUTTON(S) -->
                 <?php
                     if (tpl_getConf('combonav')) {
-                        if ((strpos(tpl_getConf('navbuttons'), 'back-to-article') !== false) and ((($ACT == "recent") or ($ACT == "media") or ($ACT == "index") or ($ACT == "admin")) and (isset($_SESSION["origID"])))) {
+                        if ((strpos(tpl_getConf('navbuttons'), 'back-to-article') !== false) and ((($ACT == "recent") or ($ACT == "media") or ($ACT == "index") or ($ACT == "admin") or (strpos($ID, 'playground:') === 0)) and (isset($_SESSION["origID"])))) {
                             print '<li>';
                                 // display link to namespace home page
                                 tpl_link(
