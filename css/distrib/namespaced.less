@@ -126,13 +126,14 @@ hr.vertical {
   border-radius: 0;
 }
 
-button[type=submit] {
+button[type=submit],
+button[type=reset] {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
 }
 
-[dir] button[type=submit] {
+[dir] button[type=submit], [dir] button[type=reset] {
   cursor: pointer;
 }
 
@@ -602,9 +603,11 @@ div.secedit.editbutton_section {
     padding: .6rem 1rem;
 }
 
-#namespaced__site_nav.navbar ul li a svg {
+#namespaced__site_nav.navbar ul li a svg,
+#namespaced__site_nav.navbar ul li button svg {
     width: 30px;
     height: 30px;
+    fill: #fff;
 }
 
 [dir] #namespaced__site_nav.navbar ul li span {
@@ -634,6 +637,27 @@ div.secedit.editbutton_section {
 }
 */
 
+#namespaced__usertools > ul li.savesettings button,
+#namespaced__usertools > ul li.resetsettings button {
+    max-height: 50px;
+}
+
+[dir] #namespaced__usertools > ul li.savesettings button, [dir] #namespaced__usertools > ul li.resetsettings button {
+    padding: 4px 10px;
+    background-color: transparent;
+    border: none;
+}
+
+#namespaced__usertools > ul li.savesettings button svg,
+#namespaced__usertools > ul li.resetsettings button svg {
+    width: 3rem;
+    height: 100%;
+}
+
+[dir] #namespaced__usertools > ul li.savesettings button svg, [dir] #namespaced__usertools > ul li.resetsettings button svg {
+    background-color: transparent;
+}
+
 #namespaced__site_nav.navbar ul.sub-menu li a {
     justify-content: flex-end;
 }
@@ -657,6 +681,8 @@ div.secedit.editbutton_section {
 #namespaced__site_nav.navbar ul.sub-menu li a.active {
     pointer-events : none;
 }
+
+
 
 /*
 #namespaced__site_nav.navbar ul li a:hover {
