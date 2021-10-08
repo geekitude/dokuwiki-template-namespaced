@@ -60,6 +60,7 @@ function namespaced_init() {
     $namespaced['glyphs']['nshome'] = null;
     $namespaced['glyphs']['pagerefresh'] = null;
     $namespaced['glyphs']['parentns'] = null;
+    $namespaced['glyphs']['playground'] = null;
     $namespaced['glyphs']['popularity'] = null;
     $namespaced['glyphs']['recycle'] = null;
     $namespaced['glyphs']['revert'] = null;
@@ -748,6 +749,13 @@ function namespaced_usertools() {
     global $ID, $ACT, $lang, $INFO;
     global $namespaced;
 
+    // EXTRATOOLS
+    // Playground
+    if ((strpos(tpl_getConf('extratools'), 'playground') !== false) and (strpos($ID, 'playground:') !== 0)){
+        print '<li class="menu-item action playground"><a href="/doku.php?id=playground:playground&amp;do=edit" rel="nofollow" title="playground:playground">'.namespaced_glyph('playground', true).'<span'.$namespaced['a11y']['standalone'].'>'.tpl_getLang('playground').'</span></a></li>';
+    }
+
+    // DOKUWIKI USERTOOLS
     $objects = (new \dokuwiki\Menu\UserMenu())->getItems();
     //$objects = (new \dokuwiki\Menu\UserMenu())->getListItems('action ', tpl_getConf('glyphs'));
     $object =  (array) $objects;

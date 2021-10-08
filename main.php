@@ -83,7 +83,19 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                 <article id="namespaced__content">
 
                     <div>
-                        <?php html_msgarea() ?>
+                        <?php
+                            html_msgarea();
+                            // If in playground...
+                            if (strpos($ID, 'playground') !== false) {
+                                // ...and admin, show a link to managing page...
+                                if ($INFO['isadmin']) {
+                                    msg(tpl_getLang('playground_admin'), 2);
+                                // ...else, show a few hints on what it's for
+                                } else {
+                                    msg(tpl_getLang('playground_user'), 0);
+                                }
+                            }
+                        ?>
 
                         <div class="flex">
                             <div class="pageId">
