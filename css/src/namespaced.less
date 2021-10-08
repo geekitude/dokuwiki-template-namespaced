@@ -321,6 +321,16 @@ div.secedit.editbutton_section button {
 /* NAVBAR
 ----------------------------------------------- */
 
+#namespaced__site_nav.navbar {
+    font-size: 90%;
+}
+
+#namespaced__site_nav.navbar ul li,
+#namespaced__site_nav.navbar ul li a,
+#namespaced__site_nav.navbar ul li button {
+    height: 42px;
+}
+
 .navbar > div > ul {
     display: flex;
 }
@@ -406,8 +416,10 @@ div.secedit.editbutton_section button {
 .navbar ul li.current-menu-ancestor ul li a,
 .navbar ul li.current_page_item ul li a {
     float: none;
+    /*
     font-size: 14px;
     height: 100%;
+    */
     padding: 10px 15px;
     display: block;
     text-align: left;
@@ -453,11 +465,11 @@ div.secedit.editbutton_section button {
     display: flex;
     align-items: center;
     padding: .6rem 1rem;
-    max-height: 50px;
 }
 
 #namespaced__site_nav.navbar ul li a svg,
-#namespaced__site_nav.navbar ul li button svg {
+#namespaced__site_nav.navbar ul li button svg,
+#namespaced__usertools > ul li button svg {
     width: 30px;
     height: 30px;
     fill: #fff;
@@ -486,17 +498,16 @@ div.secedit.editbutton_section button {
 #namespaced__usertools > ul li.savesettings button,
 #namespaced__usertools > ul li.resetsettings button {
     padding: 4px 10px;
-    max-height: 50px;
     background-color: transparent;
     border: none;
 }
 
+/*
 #namespaced__usertools > ul li.savesettings button svg,
 #namespaced__usertools > ul li.resetsettings button svg {
-    width: 3rem;
-    height: 100%;
     background-color: transparent;
 }
+*/
 
 #namespaced__site_nav.navbar ul.sub-menu li a {
     justify-content: flex-end;
