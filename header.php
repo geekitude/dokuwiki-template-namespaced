@@ -42,7 +42,7 @@ if (!defined('DOKU_INC')) die();
                         ?>
                     </h1>
                     <?php if ($conf['tagline']): ?>
-                        <p id="namespaced__site_description" class="claim"><?php echo $conf['tagline']; ?></p>
+                        <p id="namespaced__site_description" class="claim"><?php echo $conf['tagline'] ?></p>
                     <?php endif ?>
                 </div>
             </div>
@@ -59,30 +59,30 @@ if (!defined('DOKU_INC')) die();
 
                     <!-- SITE TOOLS -->
                     <aside id="namespaced__sitetools">
-                        <h6<?php print $namespaced['a11y']['standalone']; ?>><?php echo $lang['site_tools']; ?></h6>
+                        <h6<?php print $namespaced['a11y']['standalone'] ?>><?php echo $lang['site_tools'] ?></h6>
 
                         <div class="mobiletools">
-                            <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']); ?>
+                            <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']) ?>
                         </div>
                         <ul class="nostyle inline">
-                            <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', tpl_getConf('glyphs')); ?>
+                            <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', tpl_getConf('glyphs')) ?>
                         </ul>
                     </aside>
                 </div>
                 <?php if ($namespaced['defaultsearch'] == true): ?>
                     <div id="namespaced__search" class="tools">
-                        <?php namespaced_searchform(true); ?>
+                        <?php namespaced_searchform(true) ?>
                     </div>
                 <?php endif ?>
             </div>
         </div>
 
-        <hr<?php print $namespaced['a11y']['standalone']; ?> />
+        <hr<?php print $namespaced['a11y']['standalone'] ?> />
     </div>
 
     <div class="pad flex justify-between">
-        <h6<?php print $namespaced['a11y']['standalone']; ?>><?php echo tpl_getLang('ns_content'); ?></h6>
-        <h6<?php print $namespaced['a11y']['standalone']; ?>><?php echo $lang['user_tools']; ?></h6>
+        <h6<?php print $namespaced['a11y']['standalone'] ?>><?php echo tpl_getLang('ns_content') ?></h6>
+        <h6<?php print $namespaced['a11y']['standalone'] ?>><?php echo $lang['user_tools'] ?></h6>
     </div>
     <nav id="namespaced__site_nav" class="flex navbar pad">
         <div id="namespaced_ns_menu">
@@ -195,7 +195,7 @@ if (!defined('DOKU_INC')) die();
                 namespaced_ui_image('widebanner');
             ?>
         </div><!-- #namespaced__widebanner_wrap -->
-    <?php endif; ?>
+    <?php endif ?>
 
     <nav id="namespaced__page_nav">
         <!-- BREADCRUMBS -->

@@ -75,10 +75,8 @@ function namespaced_init() {
     $namespaced['glyphs']['usermanager'] = null;
     foreach ($namespaced['glyphs'] as $key => $value) {
         if (is_file(DOKU_CONF."tpl/namespaced/".$key.".svg")) {
-//            $namespaced['glyphs'][$key] = file_get_contents(DOKU_CONF."tpl/namespaced/".$key.".svg");
             $namespaced['glyphs'][$key] = DOKU_CONF."tpl/namespaced/".$key.".svg";
         } elseif (is_file(".".tpl_basedir()."images/glyphs/".$key.".svg")) {
-//            $namespaced['glyphs'][$key] = file_get_contents(".".tpl_basedir()."images/glyphs/".$key.".svg");
             $namespaced['glyphs'][$key] = ".".tpl_basedir()."images/glyphs/".$key.".svg";
         } else {
             $namespaced['glyphs'][$key] = DOKU_INC.'lib/images/menu/00-default_checkbox-blank-circle-outline.svg';
@@ -108,7 +106,6 @@ function namespaced_init() {
         // Read file content
         $namespaced['widgets'][$area] = confToHash($widgetsFile);
 //dbg($namespaced['widgets'][$area]);
-        //$namespaced['widgets'][$area] = array_filter($namespaced['widgets'][$area]);
         if (is_array($namespaced['widgets'][$area]) and (count($namespaced['widgets'][$area]) > 0)) {
             foreach ($namespaced['widgets'][$area] as $widget => $title) {
                 // Disable default search if there's a search widget
@@ -176,9 +173,7 @@ function namespaced_init() {
     } else {
         $namespaced['translation']['default_lang'] = $conf['lang_before_translation'];
     }
-//    $namespaced['translation']['untranslatedhome'] = $conf['start'];
 //dbg("untranslatedhome: ".$namespaced['translation']['untranslatedhome']);
-    //$namespaced['translation']['parts'] = array();
     if (!plugin_isdisabled('translation')) {
         $namespaced['translation']['helper'] = plugin_load('helper','translation');
         $namespaced['translation']['parts'] = $namespaced['translation']['helper']->getTransParts($ID);
@@ -307,9 +302,7 @@ function namespaced_inherit($target, $type = "media", $origin, $useacl = false, 
 
     $src = null;
     if (($type == "media") and (($_GET['debug'] == 1) or ($_GET['debug'] == "images") or ($_GET['debug'] == $target))) {
-        //$result['src'] = tpl_incdir().'debug/'.$target.'.png';
         $src = tpl_incdir().'debug/'.$target.'.png';
-        //$result['src'] = $src;
         $result['src'] = '/lib/tpl/namespaced/debug/'.$target.'.png';
         $result['ns'] = null;
     } elseif (isset($glob[0])) {
@@ -320,7 +313,6 @@ function namespaced_inherit($target, $type = "media", $origin, $useacl = false, 
         } elseif ($type == "conf") {
             $result['src'] = $src;
 //dbg($result);
-            //$result['src'] = $src;
         }
     }
 
@@ -373,7 +365,7 @@ function namespaced_css_applystyle($css, $replacements) {
     // now prepend the list of LESS variables as the very first thing
     $css = $less.$css;
     return $css;
-}
+}/* /namespaced_css_applystyle */
 
 /**
  * Tell if given page is home (default, translated or untranslated) or not
@@ -409,7 +401,7 @@ function namespaced_ishome($page) {
     }
 //dbg($ishome);
     return $ishome;
-}
+}/* /namespaced_ishome */
 
 /**
  * Returns body classes according to settings
@@ -429,16 +421,7 @@ function namespaced_bodyclasses() {
     }
 
     if (isset($namespaced['ishome'])) {
-        //if ($namespaced['ishome'] == "untranslated") {
-        //    $home = "untranslated-home";
-        //} elseif ($namespaced['ishome'] == "translated") {
-        //    $home = "translated-home";
-        //} else {
-        //    $home = "not-home";
-        //}
         $home = $namespaced['ishome']."-home";
-//    } elseif ($ID == $conf['start']) {
-//        $home = "untranslated-home";
     } else {
         $home = null;
     }
@@ -453,7 +436,6 @@ function namespaced_bodyclasses() {
         }
     }
 
-//    array_push($classes, $home, $pattern, $showSidebar ? ((strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'right-sidebar' : 'left-sidebar') : 'no-sidebar', tpl_getConf('layout').'-layout', (strpos(tpl_getConf('flexflip'), 'banner') !== false) ? 'banner-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagenav') !== false) ? 'pagenav-flip' : '', (strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'sidebar-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagetools') !== false) ? 'pagetools-flip' : '', (strpos(tpl_getConf('flexflip'), 'socket') !== false) ? 'socket-flip' : '', tpl_getConf('widgetslook').'-widgets', (strpos(tpl_getConf('print'), 'hrefs') !== false) ? 'printhrefs' : '', ($_GET['debug']==1) ? 'debug' : '');
     array_push($classes, $home, $sidepanel, $pattern, $showSidebar ? ((strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'right-sidebar' : 'left-sidebar') : 'no-sidebar', tpl_getConf('layout').'-layout', (strpos(tpl_getConf('flexflip'), 'banner') !== false) ? 'banner-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagenav') !== false) ? 'pagenav-flip' : '', (strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'sidebar-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagetools') !== false) ? 'pagetools-flip' : '', (strpos(tpl_getConf('flexflip'), 'socket') !== false) ? 'socket-flip' : '', tpl_getConf('widgetslook').'-widgets', (strpos(tpl_getConf('print'), 'hrefs') !== false) ? 'printhrefs' : '', ($_GET['debug']==1) ? 'debug' : '', ($_GET['debug']=='mediaq') ? 'mediaq' : '');
 //dbg($classes);
 
@@ -472,30 +454,16 @@ function namespaced_searchform($useglyph) {
     // don't print the search form if search action has been disabled
     if(!actionOK('search')) return false;
     print '<form id="search-form" action="'.wl().'" accept-charset="utf-8" class="search searchform clearfix';
-//    if ($dw) { print ' dw'; }
-//    print '" method="get" role="search"><div class="no">';
-    //print '" method="get" role="search"><div class="no">';
     print '" method="get" role="search">';
-//    print '<div class="search-wrap">';
     print '<input type="hidden" name="do" value="search" />';
     print '<input type="text" ';
 
-//    print '<form action="'.wl().'" accept-charset="utf-8" class="form-inline search" id="dw__search" method="get" role="search"><div class="no">';
-//    print '<input type="hidden" name="do" value="search" />';
-//    print '<input type="text" ';
     if($ACT == 'search') print 'value="'.htmlspecialchars($QUERY).'" ';
-//    print 'placeholder="&#xF002; '.$lang['btn_search'].'" ';
     print 'placeholder="'.$lang['btn_search'].'" ';
-    //if(!$autocomplete) print 'autocomplete="off" ';
     if(!$namespaced['search']['autocomplete']) print 'autocomplete="off" ';
     print 'id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" />';
-    //if (!$dw) {
-        print '<button type="submit" class="btn themed" title="'.$lang['btn_search'].'">'.inlineSVG($namespaced['glyphs']['search']).'</button>';
-    //}
-//    print '</div>';
-//  REMOVED JSpopup class because when used, quick search result doesn't show up ("Found pages"). Original line: if ($ajax) print '<div id="qsearch__out" class="panel panel-default ajax_qsearch JSpopup"></div>';
+    print '<button type="submit" class="btn themed" title="'.$lang['btn_search'].'">'.inlineSVG($namespaced['glyphs']['search']).'</button>';
     if ($namespaced['search']['autosearch']) print '<div id="qsearch__out" class="panel panel-default ajax_qsearch JSpopup"></div>';
-    //print '</div></form>';
     print '</form>';
     return true;
 }/* /namespaced_searchform */
@@ -513,9 +481,6 @@ function namespaced_widgets($area = null){
 //dbg($area);
 //dbg($namespaced['widgets'][$area]);
     foreach ($namespaced['widgets'][$area] as $widget => $data) {
-//$namespaced['widgets'][$area][$widget]['title'] = $title;
-//$namespaced['widgets'][$area][$widget]['type'] = $type;
-//$namespaced['widgets'][$area][$widget]['target'] = $target;
 //dbg($data);
 //dbg($data['target']);
         $widgetid = "namespaced__widget_".str_replace(".html", "", str_replace(":", "_", ltrim($widget, ":")));
@@ -532,9 +497,6 @@ function namespaced_widgets($area = null){
             } elseif ($data['type'] == "include") {
                 tpl_includeFile($widget);
             } else {
-                //tpl_include_page($data['target'], true, false, true);
-                //print p_wiki_xhtml($data['target'], '', false);
-                //print p_render('xhtml',p_get_instructions(io_readWikiPage($data['target'],$id,$rev)),$info,$date_at);
                 if ($widget == "sidebar") {
                     tpl_include_page($data['target'], true, false, true);
                 } else {
@@ -569,96 +531,6 @@ function namespaced_pagepath($id){
 }/* /namespaced_pagepath */
 
 /**
- * The loginform
- * adapted from html_login() because Namespaced doesn't need autofocus on username input
- *
- * See original function in inc/html.php for details
-SWITCHED TO SIMPLE USERPROFILE WIDGET (SEE BELOW)
-function namespaced_userwidget($context = "null") {
-    global $lang, $conf, $ID, $INPUT, $INFO;
-
-    if (($conf['useacl']) && (empty($_SERVER['REMOTE_USER']))) {
-        if ($context == "widget") {
-            $tmp = explode("</h1>", p_locale_xhtml('login'));
-            $title = explode(">", $tmp[0])[1];
-            $tmp = str_replace("! ", "!<br />", $tmp[1]);
-            $tmp = str_replace(". ", ".<br />", $tmp);
-            print '<h6 class="widget-title"><span>';
-                print $title;
-            print '</span></h6>';
-            print $tmp;
-        } else {
-            print p_locale_xhtml('login');
-        }
-        //print '<div>'.NL;
-
-        $form = new Doku_Form(array('id' => 'dw__login'));
-        $form->startFieldset($lang['btn_login']);
-        $form->addHidden('id', $ID);
-        $form->addHidden('do', 'login');
-        $form->addElement(form_makeTextField('u', ((!$INPUT->bool('http_credentials')) ? $INPUT->str('u') : ''), $lang['user'], 'username', 'block'));
-        $form->addElement(form_makePasswordField('p', $lang['pass'], '', 'block'));
-        if($conf['rememberme']) {
-            $form->addElement(form_makeCheckboxField('r', '1', $lang['remember'], 'remember__me', 'simple'));
-        }
-        $form->addElement(form_makeButton('submit', '', $lang['btn_login']));
-        $form->endFieldset();
-
-        if(actionOK('register')){
-            $form->addElement('<p>'.explode("?", $lang['reghere'])[0].'? '.tpl_actionlink('register','','','',true).'.</p>');
-        }
-
-        if (actionOK('resendpwd')) {
-            $form->addElement('<p>'.explode("?", $lang['pwdforget'])[0].'? '.tpl_actionlink('resendpwd','','','',true).'.</p>');
-        }
-
-        html_form('login', $form);
-        //print '</div>'.NL;
-    } else {
-        print '<h6 class="widget-title"><span>';
-            print $lang['profile'];
-        print '</span></h6>';
-        if ($namespaced['images']['avatar']['target'] != null) {
-            if (strpos($namespaced['images']['avatar']['target'], "debug") !== false) {
-                print '<a href="/doku.php?id='.$ID.'&amp;do=media&amp;ns='.tpl_getConf('avatars').'&amp;tab_files=upload" title="'.tpl_getLang('upload_avatar').'"><img id="namespaced__user-avatar" src="'.$namespaced['images']['avatar']['target'].'" title="'.tpl_getLang('upload_avatar').'" alt="*'.tpl_getLang('upload_avatar').'*" width="64px" height="100%" /></a>';
-            } else {
-                if ($namespaced['images']['avatar']['thumbnail'] != null) {
-                    print '<a href="'.$namespaced['images']['avatar']['target'].'" data-lity data-lity-desc="'.tpl_getLang('your_avatar').'" title="'.tpl_getLang('your_avatar').'"><img id="namespaced__user-avatar" src="'.$namespaced['images']['avatar']['thumbnail'].'" title="'.tpl_getLang('your_avatar').'" alt="*'.tpl_getLang('your_avatar').'*" width="64px" height="100%" /></a>';
-                } else {
-                    print '<a href="'.$namespaced['images']['avatar']['target'].'" data-lity data-lity-desc="'.tpl_getLang('your_avatar').'" title="'.tpl_getLang('your_avatar').'"><img id="namespaced__user-avatar" src="'.$namespaced['images']['avatar']['target'].'" title="'.tpl_getLang('your_avatar').'" alt="*'.tpl_getLang('your_avatar').'*" width="64px" height="100%" /></a>';
-                }
-            }
-        }
-        print '<ul>';
-//dbg($INFO['userinfo']);
-            print '<li>'.$lang['fullname'].' : <em>'.$INFO['userinfo']['name'].'</em></li>'; 
-            print '<li>'.$lang['user'].' : <em>'.$_SERVER['REMOTE_USER'].'</em></li>'; 
-            print '<li>'.$lang['email'].' : <em>'.$INFO['userinfo']['mail'].'</em></li>'; 
-        print '</ul>';
-        echo '<p class="user">';
-            // If user has public page ID but no private space ID (most likely because UserHomePage plugin is not available)
-            //if (($namespaced['user']['private'] == null) && ($namespaced['user']['public']['link'] != null)) {
-            if (($namespaced['user']['public']['id'] != null) && ($namespaced['user']['private']['id'] != null)) {
-dbg("vérifier ces liens");
-                tpl_link(wl($namespaced['user']['private']['id']),'<span>'.$namespaced['user']['private']['title'].'</span>','title="'.$namespaced['user']['private']['title'].'" class="'.$namespaced['user']['private']['classes'].'"');
-                print " - ";
-                tpl_link(wl($namespaced['user']['public']['id']),'<span>'.$namespaced['user']['public']['title'].'</span>','title="'.$namespaced['user']['public']['title'].'" class="'.$namespaced['user']['public']['classes'].'"');
-            } elseif (($namespaced['user']['public']['id'] != null) && ($namespaced['user']['private'] == null)) {
-                print '<span title="'.$namespaced['user']['public']['title'].'">'.$namespaced['user']['public']['string'].'</span>';
-            // If user has both public page ID and private space ID
-            // In any other case, use DW's default function
-            //} else {
-            //    print $lang['loggedinas'].' '.userlink();
-            }
-        echo '</p>';
-        echo '<p class="profile">';
-            //print '<a href="/doku.php?id='.$ID.'&amp;do=profile" rel="nofollow" title="'.$lang['btn_profile'].'"><span>'.$lang['btn_profile'].'</span>'.namespaced_glyph("profile", true).'</a>';
-            print '<a href="/doku.php?id='.$ID.'&amp;do=profile" rel="nofollow" title="'.$lang['btn_profile'].'"><span>'.$lang['btn_profile'].'</span></a>';
-        echo '</p>';
-    }
-}/* /namespaced_userwidget */
-
-/**
  * Userwidget
  */
 function namespaced_userwidget($context = "null") {
@@ -686,7 +558,6 @@ function namespaced_userwidget($context = "null") {
         print '</ul>';
         echo '<p class="user">';
             // If user has public page ID but no private space ID (most likely because UserHomePage plugin is not available)
-            //if (($namespaced['user']['private'] == null) && ($namespaced['user']['public']['link'] != null)) {
             if (($namespaced['user']['public']['id'] != null) && ($namespaced['user']['private']['id'] != null)) {
 dbg("vérifier ces liens");
                 tpl_link(wl($namespaced['user']['private']['id']),'<span>'.$namespaced['user']['private']['title'].'</span>','title="'.$namespaced['user']['private']['title'].'" class="'.$namespaced['user']['private']['classes'].'"');
@@ -701,7 +572,6 @@ dbg("vérifier ces liens");
             }
         echo '</p>';
         echo '<p class="profile">';
-            //print '<a href="/doku.php?id='.$ID.'&amp;do=profile" rel="nofollow" title="'.$lang['btn_profile'].'"><span>'.$lang['btn_profile'].'</span>'.namespaced_glyph("profile", true).'</a>';
             print '<a href="/doku.php?id='.$ID.'&amp;do=profile" rel="nofollow" title="'.$lang['btn_profile'].'"><span>'.$lang['btn_profile'].'</span></a>';
         echo '</p>';
 }/* /namespaced_userwidget */
@@ -775,29 +645,20 @@ function namespaced_usertools() {
 //dbg($key);
 //dbg($value);
         $field = (array) $value;
-//        if (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y') or (tpl_getConf('headertoolsIcons') == 0)) {
-        if (($_GET['debug'] == 1) or ($_GET['debug'] == 'a11y')) {
-            $class = null;
-            //$icon = null;
-        } else {
-            $class = ' class="a11y"';
-            //$icon = $field["\0*\0svg"];
-        }
         $icon = $field["\0*\0svg"];
         if ($field["\0*\0type"] == "login") {
             if ($ACT == "denied") {
-                print '<li class="menu-item action login"><a href="#namespaced__content" rel="nofollow" title="'.$lang['btn_login'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['btn_login'].'</span></a></li>';
+                print '<li class="menu-item action login"><a href="#namespaced__content" rel="nofollow" title="'.$lang['btn_login'].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_login'].'</span></a></li>';
             } else {
-                print '<li class="menu-item action login"><a href="/doku.php?id='.$ID.'&amp;do=login" rel="nofollow" title="'.$lang['btn_login'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['btn_login'].'</span></a></li>';
+                print '<li class="menu-item action login"><a href="/doku.php?id='.$ID.'&amp;do=login" rel="nofollow" title="'.$lang['btn_login'].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_login'].'</span></a></li>';
             }
         } elseif (($field["\0*\0type"] == "register") && ($ACT != "register")) {
-            print '<li class="menu-item action register"><a href="/doku.php?id='.$ID.'&amp;do=register" rel="nofollow" title="'.$lang['btn_register'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['btn_register'].'</span></a></li>';
+            print '<li class="menu-item action register"><a href="/doku.php?id='.$ID.'&amp;do=register" rel="nofollow" title="'.$lang['btn_register'].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_register'].'</span></a></li>';
         } elseif ($field["\0*\0type"] == "profile") {
-            //print '<li class="action profile"><a href="/doku.php?id='.$ID.'#namespaced__widget_user" rel="nofollow" title="'.$lang['profile'].'">'.inlineSVG($field["\0*\0svg"]).'<span class="a11y">'.$lang['profile'].'</span></a></li>';
             if (isset($namespaced['widgets']['footer']['user.html'])) {
-                print '<li class="menu-item action profile"><a href="#namespaced__widget_user" rel="nofollow" title="'.$lang['profile'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['profile'].'</span></a></li>';
+                print '<li class="menu-item action profile"><a href="#namespaced__widget_user" rel="nofollow" title="'.$lang['profile'].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['profile'].'</span></a></li>';
             } else {
-                print '<li class="menu-item action account-edit"><a href="/doku.php?id='.$ID.'&amp;do=profile" rel="nofollow" title="'.$lang['btn_profile'].'">'.inlineSVG($namespaced['glyphs']["account-edit"]).'<span'.$class.'>'.$lang['btn_profile'].'</span></a></li>';
+                print '<li class="menu-item action account-edit"><a href="/doku.php?id='.$ID.'&amp;do=profile" rel="nofollow" title="'.$lang['btn_profile'].'">'.inlineSVG($namespaced['glyphs']["account-edit"]).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_profile'].'</span></a></li>';
             }
 //dbg($namespaced['glyphs']['account-edit']);
 
@@ -816,15 +677,15 @@ function namespaced_usertools() {
 
         } elseif (($field["\0*\0type"] == "admin") && ($_SERVER['REMOTE_USER'] != NULL) && ($INFO['isadmin'])) {
             print '<li class="menu-item menu-item-has-children action admin">';
-                print '<a href="/doku.php?id='.$ID.'&do=admin" rel="nofollow" title="'.$lang['btn_admin'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['btn_admin'].'</span></a>';
+                print '<a href="/doku.php?id='.$ID.'&do=admin" rel="nofollow" title="'.$lang['btn_admin'].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_admin'].'</span></a>';
                 print '<ul class="sub-menu nostyle">';
                     namespaced_admindropdown();
                 print '</ul>';
             print '</li><!-- .action.admin -->';
         } elseif ($field["\0*\0type"] == "logout") {
-            print '<li class="menu-item action logout"><a href="/doku.php?id='.$ID.'&amp;do=logout&amp;sectok='.$field["\0*\0params"]['sectok'].'" rel="nofollow" title="'.$lang['btn_logout'].'">'.inlineSVG($icon).'<span'.$class.'>'.$lang['btn_logout'].'</span></a></li>';
+            print '<li class="menu-item action logout"><a href="/doku.php?id='.$ID.'&amp;do=logout&amp;sectok='.$field["\0*\0params"]['sectok'].'" rel="nofollow" title="'.$lang['btn_logout'].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_logout'].'</span></a></li>';
         } else {
-            print '<li class="menu-item action debug '.$field["\0*\0type"].'"><a title="'.$field["\0*\0type"].'">'.inlineSVG($icon).'<span'.$class.'>'.$field["\0*\0type"].'</span></a></li>';
+            print '<li class="menu-item action debug '.$field["\0*\0type"].'"><a title="'.$field["\0*\0type"].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$field["\0*\0type"].'</span></a></li>';
 //dbg($field["\0*\0type"]);
 //dbg($field["\0*\0type"]);
 //dbg($field["\0*\0svg"]);
@@ -849,14 +710,12 @@ function namespaced_admindropdown() {
     );
     foreach ($adminmenu['tasks'] as $task) {
         if(($plugin = plugin_load('admin', $task, true)) === null) continue;
-//        if($plugin->forAdminOnly() && !$INFO['isadmin']) continue;
         if($task == 'usermanager' && ! ($auth && $auth->canDo('getUsers'))) continue;
         $label = $plugin->getMenuText($conf['lang']);
         if (! $label) continue;
         if ($task == "popularity") { $label = preg_replace("/\([^)]+\)/","",$label); }
         $class = 'action '.$task;
         if (($ACT == 'admin') and ($_GET['page'] == $task)) { $class .= ' active'; }
-        //echo sprintf('<li><a href="%s" title="%s"%s>%s%s'.namespaced_glyph($namespaced['glyphs'][$task], true).'</a></li>', wl($ID, array('do' => 'admin','page' => $task)), ucfirst($task), ' class="'.$class.'"', "", $label);
         echo sprintf('<li><a href="%s" title="%s"%s>%s%s'.namespaced_glyph($task, true).'</a></li>', wl($ID, array('do' => 'admin','page' => $task)), ucfirst($task), ' class="'.$class.'"', "", $label);
     }
     $f = fopen(DOKU_INC.'inc/lang/'.$conf['lang'].'/adminplugins.txt', 'r');
@@ -877,35 +736,19 @@ function namespaced_admindropdown() {
             if($label == null) { $label = ucfirst($task); }
             $class = 'action '.$task;
             if (($ACT == 'admin') and ($_GET['page'] == $task)) { $class .= ' active'; }
-            //echo sprintf('<li><a href="%s" title="%s"%s>%s %s'.namespaced_glyph($namespaced['glyphs'][$task], true).'</a></li>', wl($ID, array('do' => 'admin','page' => $task)), ucfirst($task), ' class="'.$class.'"', "", ucfirst($label));
             echo sprintf('<li><a href="%s" title="%s"%s>%s %s'.namespaced_glyph($task, true).'</a></li>', wl($ID, array('do' => 'admin','page' => $task)), ucfirst($task), ' class="'.$class.'"', "", ucfirst($label));
         }
     }
     echo '<li class="dropdown-header">'.tpl_getLang('cache').'<hr/></li>';
-    //echo '<li><a href="'.wl($ID, array("do" => $_GET['do'], "page" => $_GET['page'], "purge" => "true")).'">'.tpl_getLang('purgepagecache').namespaced_glyph($namespaced['glyphs']["recycle"], true).'</a></li>';
     echo '<li><a href="'.wl($ID, array("do" => $_GET['do'], "page" => $_GET['page'], "purge" => "true")).'">'.tpl_getLang('purgepagecache').namespaced_glyph("pagerefresh", true).'</a></li>';
-    //echo '<li><a href="'.DOKU_URL.'lib/exe/js.php">'.tpl_getLang('purgejscache').namespaced_glyph($namespaced['glyphs']["refresh"], true).'</a></li>';
     echo '<li><a href="'.DOKU_URL.'lib/exe/js.php">'.tpl_getLang('purgejscache').namespaced_glyph("recycle", true).'</a></li>';
-    //echo '<li><a href="'.DOKU_URL.'lib/exe/css.php">'.tpl_getLang('purgecsscache').namespaced_glyph($namespaced['glyphs']["refresh"], true).'</a></li>';
     echo '<li><a href="'.DOKU_URL.'lib/exe/css.php">'.tpl_getLang('purgecsscache').namespaced_glyph("recycle", true).'</a></li>';
-}/* namespaced_admin */
+}/* namespaced_admindropdown */
 
 function namespaced_glyph($glyph, $return = false) {
     global $namespaced;
 //dbg($glyph);
-//if (file_exists($glyph)) {
-//    dbg("bingo!");
-//}
-//    if (isset($colormag['socials'][$glyph])) {
-//        $maxsize = 4096;
-//    } else {
-//        $maxsize = 2048;
-//    }
-//    dbg($maxsize);
-//    if ((isset($colormag['glyphs'][$glyph])) and (file_exists($colormag['glyphs'][$glyph]))) {
-    //if (file_exists($namespaced['glyphs'][$glyph])) {
     if (isset($namespaced['glyphs'][$glyph])) {
-//        $result = inlineSVG($glyph, $maxsize);
         $result = inlineSVG($namespaced['glyphs'][$glyph], 4096);
 //dbg("ici?");
     } else {
