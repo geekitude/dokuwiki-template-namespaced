@@ -63,7 +63,9 @@ function namespaced_init() {
     $namespaced['glyphs']['playground'] = null;
     $namespaced['glyphs']['popularity'] = null;
     $namespaced['glyphs']['recycle'] = null;
+    $namespaced['glyphs']['reset'] = null;
     $namespaced['glyphs']['revert'] = null;
+    $namespaced['glyphs']['save'] = null;
     $namespaced['glyphs']['search'] = null;
     $namespaced['glyphs']['searchindex'] = null;
     $namespaced['glyphs']['searchstats'] = null;
@@ -752,7 +754,15 @@ function namespaced_usertools() {
     // EXTRATOOLS
     // Playground
     if ((strpos(tpl_getConf('extratools'), 'playground') !== false) and (strpos($ID, 'playground:') !== 0)){
-        print '<li class="menu-item action playground"><a href="/doku.php?id=playground:playground&amp;do=edit" rel="nofollow" title="playground:playground">'.namespaced_glyph('playground', true).'<span'.$namespaced['a11y']['standalone'].'>'.tpl_getLang('playground').'</span></a></li>';
+        print '<li class="action playground"><a href="/doku.php?id=playground:playground&amp;do=edit" rel="nofollow" title="playground:playground">'.namespaced_glyph('playground', true).'<span'.$namespaced['a11y']['standalone'].'>'.tpl_getLang('playground').'</span></a></li>';
+    }
+    // Save settings
+    if((strpos(tpl_getConf('extratools'), 'save') !== false) && ($INFO['isadmin'] || $INFO['ismanager']) && ($_GET['do'] == "admin") && ($_GET['page'] == "config")) {
+        print '<li class="action savesettings"><button type="submit" form="dw__configform" value="submit" title="'.$lang['btn_save'].' [s]">'.namespaced_glyph('save', true).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_save'].'</span></button></li>';
+    }
+    // Reset settings
+    if((strpos(tpl_getConf('extratools'), 'reset') !== false) && ($INFO['isadmin'] || $INFO['ismanager']) && ($_GET['do'] == "admin") && ($_GET['page'] == "config")) {
+        print '<li class="action resetsettings"><button type="reset" form="dw__configform" value="reset" title="'.$lang['btn_reset'].'">'.namespaced_glyph('reset', true).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_reset'].'</span></button></li>';
     }
 
     // DOKUWIKI USERTOOLS
