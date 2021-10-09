@@ -87,7 +87,7 @@ function namespaced_init() {
     // SEARCH SETTINGS
     $namespaced['search'] = array(
         "quicksearch" => (strpos(tpl_getConf('searches'), 'quicksearch') !== false), 
-        "autocomplete" => (strpos(tpl_getConf('searches'), 'autocomplete') !== false) ? "on" : "off"
+        "autocomplete" => (strpos(tpl_getConf('searches'), 'autocomplete') !== false)
     );
 //dbg($namespaced['search']);
 
@@ -443,56 +443,19 @@ function namespaced_bodyclasses() {
 }/* /namespaced_bodyclasses */
 
 /**
- * Adapted from core
+ * Print custom search form butoon
  *
- * See original function in inc/template.php for details
- * 
- * Added support for Namespaced search settings and better tooltips
- *  Replaced original button with one based on SVG image.
+ * Note: original button is hidden through CSS
  *
  */
-function namespaced_searchform($useglyph) {
+function namespaced_searchbutton() {
     global $namespaced;
-    global $lang, $ACT, $QUERY, $ID;
+    global $lang;
 
-    // don't print the search form if search action has been disabled
-    if(!actionOK('search')) return false;
-
-    $searchForm = new dokuwiki\Form\Form([
-        'action' => wl(),
-        'method' => 'get',
-        'role' => 'search',
-        'class' => 'search',
-        'id' => 'dw__search',
-    ], true);
-    $searchForm->addTagOpen('div')->addClass('no');
-    $searchForm->setHiddenField('do', 'search');
-    $searchForm->setHiddenField('id', $ID);
-    $searchForm->addTextInput('q')
-        ->addClass('edit')
-        ->attrs([
-            'title' => $lang['btn_search'].' [F]',
-            'accesskey' => 'f',
-            'placeholder' => $lang['btn_search'],
-            'autocomplete' => $namespaced['search']['autocomplete'],
-        ])
-        ->id('qsearch__in')
-        ->val($ACT === 'search' ? $QUERY : '')
-        ->useInput(false)
-    ;
-
-    if ($namespaced['search']['quicksearch']) {
-        $searchForm->addTagOpen('div')->id('qsearch__out')->addClass('ajax_qsearch JSpopup');
-        $searchForm->addTagClose('div');
-    }
-    $searchForm->addTagClose('div');
-    Event::createAndTrigger('FORM_QUICKSEARCH_OUTPUT', $searchForm);
-
-    echo $searchForm->toHTML();
-    echo '<button type="submit" form="dw__search" value="'.$lang['btn_search'].'" title="'.$lang['btn_search'].' [F]">'.inlineSVG($namespaced['glyphs']['search']).'</button>';
+    echo '<button id="namespaced__search_button" type="submit" form="dw__search" value="'.$lang['btn_search'].'" title="'.$lang['btn_search'].' [F]">'.inlineSVG($namespaced['glyphs']['search']).'</button>';
 
     return true;
-}/* /namespaced_searchform */
+}/* /namespaced_searchbutton */
 
 /**
  * Print a given set of widgets.

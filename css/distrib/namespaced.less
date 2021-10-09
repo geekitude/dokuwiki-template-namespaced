@@ -642,13 +642,6 @@ div.secedit.editbutton_section {
     /*display: flex;*/
 }
 
-/*
-#namespaced__usertools > ul li.search {
-    align-self: center;
-    padding: 0 10px;
-}
-*/
-
 [dir] #namespaced__usertools > ul li.savesettings button, [dir] #namespaced__usertools > ul li.resetsettings button {
     padding: 4px 10px;
     background-color: transparent;
@@ -740,37 +733,6 @@ a.skip:active {
 
 [dir] #namespaced__header_tools, [dir] #namespaced__search {
     margin-top: .5rem;
-}
-
-#namespaced__search form {
-    position: relative;
-}
-
-[dir=ltr] #namespaced__search form {
-    right: -3.2rem;
-}
-
-[dir=rtl] #namespaced__search form {
-    left: -3.2rem;
-}
-
-[dir=ltr] #namespaced__search form input {
-    padding: 0 3rem 0 0;
-}
-
-[dir=rtl] #namespaced__search form input {
-    padding: 0 0 0 3rem;
-}
-
-#namespaced__search button {
-    display: inline;
-    position: relative;
-    top: .3rem;
-}
-
-[dir] #namespaced__search button {
-    background-color: transparent;
-    border: none;
 }
 
 [dir=ltr] #namespaced__site_logo, [dir=ltr] #namespaced__site_title span {
@@ -1107,28 +1069,41 @@ body.mediaq #namespaced__mediaq {
     text-align: center;
 }
 
-/*
-#search-form {
-    display: inline-flex;
+#dw__search {
+    position: relative;
 }
 
-#search-form button svg {
-    vertical-align: middle;
+[dir=ltr] #dw__search {
+    left: 3.2rem;
 }
-*/
 
-#qsearch__in,
-#search-form button {
+[dir=rtl] #dw__search {
+    right: 3.2rem;
+}
+
+#dw__search input {
     height: 2.8rem;
 }
 
-#search-form input,
-#search-form button {
-    vertical-align: middle;
+[dir=ltr] #dw__search input {
+    padding: 0 3rem 0 .4rem;
+}
+
+[dir=rtl] #dw__search input {
+    padding: 0 .4rem 0 3rem;
+}
+
+#dw__search div button {
+    display: none;
 }
 
 #qsearch__out {
     width: 30rem;
+    color: @ini_text_neu;
+}
+
+[dir] #qsearch__out {
+    background-color: @ini_background_neu;
 }
 
 [dir=ltr] #qsearch__out {
@@ -1139,21 +1114,23 @@ body.mediaq #namespaced__mediaq {
     left: 0;
 }
 
-#qsearch__out strong,
-#qsearch__out ul {
-    display: block !important;
-}
-
-#qsearch__out ul {
-    position: unset !important;
+[dir] #qsearch__out strong {
+    margin: .6rem .6rem .3rem .6rem;
 }
 
 [dir] #qsearch__out ul {
-    margin: 0;
+    margin-bottom: .6rem;
 }
 
-#qsearch__out ul li {
-    display: list-item !important;
+#namespaced__search_button {
+    display: inline;
+    position: relative;
+    top: .3rem;
+}
+
+[dir] #namespaced__search_button {
+    background-color: transparent;
+    border: none;
 }
 
 /* GENERIC CLASSES
