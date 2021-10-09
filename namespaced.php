@@ -486,7 +486,7 @@ function namespaced_searchform($useglyph) {
         $searchForm->addTagClose('div');
     }
     $searchForm->addTagClose('div');
-    trigger_event('FORM_QUICKSEARCH_OUTPUT', $searchForm);
+    Event::createAndTrigger('FORM_QUICKSEARCH_OUTPUT', $searchForm);
 
     echo $searchForm->toHTML();
     echo '<button type="submit" form="dw__search" value="'.$lang['btn_search'].'" title="'.$lang['btn_search'].' [F]">'.inlineSVG($namespaced['glyphs']['search']).'</button>';
