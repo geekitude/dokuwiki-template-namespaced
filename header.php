@@ -84,7 +84,7 @@ if (!defined('DOKU_INC')) die();
         <hr<?php print $namespaced['a11y']['standalone'] ?> />
     </div>
 
-    <div class="pad flex justify-between">
+    <div id="namespaced__site_nav_labels" class="pad flex justify-between">
         <h6<?php print $namespaced['a11y']['standalone'] ?>><?php echo tpl_getLang('ns_content') ?></h6>
         <h6<?php print $namespaced['a11y']['standalone'] ?>><?php echo $lang['user_tools'] ?></h6>
     </div>
