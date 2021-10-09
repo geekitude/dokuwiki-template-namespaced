@@ -292,23 +292,24 @@ h5 {
 }
 
 h6,
-#dw__toc h3 {
+#dw__toc h3,
+#qsearch__out strong {
     font-size: 1.9rem;
     /*line-height: 25px;*/
 }
 
-[dir] h6, [dir] #dw__toc h3 {
+[dir] h6, [dir] #dw__toc h3, [dir] #qsearch__out strong {
     padding: 0 0 1rem 0;
 }
 
 h6 span.label,
 #dw__toc h3 {
+    /*border-bottom: 2px solid @ini_blue_color;*/
     line-height: 1.7;
     display: unset;
 }
 
 [dir] h6 span.label, [dir] #dw__toc h3 {
-    border-bottom: 2px solid @ini_blue_color;
     padding: 0 0 3px 0 !important;
 }
 
@@ -1115,7 +1116,7 @@ body.mediaq #namespaced__mediaq {
 }
 
 [dir] #qsearch__out strong {
-    margin: .6rem .6rem .3rem .6rem;
+    margin: .6rem .6rem 0 .6rem;
 }
 
 [dir] #qsearch__out ul {
