@@ -70,7 +70,7 @@ if (!defined('DOKU_INC')) die();
                     </aside>
                 </div>
                 <?php if ($namespaced['defaultsearch'] == true): ?>
-                    <div id="namespaced__search" class="tools">
+                    <div id="namespaced__search" class="tools flex row align-end">
                         <?php namespaced_searchform(true) ?>
                     </div>
                 <?php endif ?>

@@ -86,8 +86,8 @@ function namespaced_init() {
 
     // SEARCH SETTINGS
     $namespaced['search'] = array(
-        "autosearch" => (strpos(tpl_getConf('searches'), 'autosearch') !== false), 
-        "autocomplete" => (strpos(tpl_getConf('searches'), 'autocomplete') !== false)
+        "quicksearch" => (strpos(tpl_getConf('searches'), 'quicksearch') !== false), 
+        "autocomplete" => (strpos(tpl_getConf('searches'), 'autocomplete') !== false) ? "on" : "off"
     );
 //dbg($namespaced['search']);
 
@@ -443,28 +443,54 @@ function namespaced_bodyclasses() {
 }/* /namespaced_bodyclasses */
 
 /**
- * adapted from core
+ * Adapted from core
  *
  * See original function in inc/template.php for details
+ * 
+ * Added support for Namespaced search settings and better tooltips
+ *  Replaced original button with one based on SVG image.
+ *
  */
 function namespaced_searchform($useglyph) {
     global $namespaced;
-    global $lang, $ACT, $QUERY;
+    global $lang, $ACT, $QUERY, $ID;
 
     // don't print the search form if search action has been disabled
     if(!actionOK('search')) return false;
-    print '<form id="search-form" action="'.wl().'" accept-charset="utf-8" class="search searchform clearfix';
-    print '" method="get" role="search">';
-    print '<input type="hidden" name="do" value="search" />';
-    print '<input type="text" ';
 
-    if($ACT == 'search') print 'value="'.htmlspecialchars($QUERY).'" ';
-    print 'placeholder="'.$lang['btn_search'].'" ';
-    if(!$namespaced['search']['autocomplete']) print 'autocomplete="off" ';
-    print 'id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" />';
-    print '<button type="submit" class="btn themed" title="'.$lang['btn_search'].'">'.inlineSVG($namespaced['glyphs']['search']).'</button>';
-    if ($namespaced['search']['autosearch']) print '<div id="qsearch__out" class="panel panel-default ajax_qsearch JSpopup"></div>';
-    print '</form>';
+    $searchForm = new dokuwiki\Form\Form([
+        'action' => wl(),
+        'method' => 'get',
+        'role' => 'search',
+        'class' => 'search',
+        'id' => 'dw__search',
+    ], true);
+    $searchForm->addTagOpen('div')->addClass('no');
+    $searchForm->setHiddenField('do', 'search');
+    $searchForm->setHiddenField('id', $ID);
+    $searchForm->addTextInput('q')
+        ->addClass('edit')
+        ->attrs([
+            'title' => $lang['btn_search'].' [F]',
+            'accesskey' => 'f',
+            'placeholder' => $lang['btn_search'],
+            'autocomplete' => $namespaced['search']['autocomplete'],
+        ])
+        ->id('qsearch__in')
+        ->val($ACT === 'search' ? $QUERY : '')
+        ->useInput(false)
+    ;
+
+    if ($namespaced['search']['quicksearch']) {
+        $searchForm->addTagOpen('div')->id('qsearch__out')->addClass('ajax_qsearch JSpopup');
+        $searchForm->addTagClose('div');
+    }
+    $searchForm->addTagClose('div');
+    trigger_event('FORM_QUICKSEARCH_OUTPUT', $searchForm);
+
+    echo $searchForm->toHTML();
+    echo '<button type="submit" form="dw__search" value="'.$lang['btn_search'].'" title="'.$lang['btn_search'].' [F]">'.inlineSVG($namespaced['glyphs']['search']).'</button>';
+
     return true;
 }/* /namespaced_searchform */
 

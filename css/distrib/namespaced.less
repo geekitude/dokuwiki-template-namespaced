@@ -742,6 +742,37 @@ a.skip:active {
     margin-top: .5rem;
 }
 
+#namespaced__search form {
+    position: relative;
+}
+
+[dir=ltr] #namespaced__search form {
+    right: -3.2rem;
+}
+
+[dir=rtl] #namespaced__search form {
+    left: -3.2rem;
+}
+
+[dir=ltr] #namespaced__search form input {
+    padding: 0 3rem 0 0;
+}
+
+[dir=rtl] #namespaced__search form input {
+    padding: 0 0 0 3rem;
+}
+
+#namespaced__search button {
+    display: inline;
+    position: relative;
+    top: .3rem;
+}
+
+[dir] #namespaced__search button {
+    background-color: transparent;
+    border: none;
+}
+
 [dir=ltr] #namespaced__site_logo, [dir=ltr] #namespaced__site_title span {
     margin-right: 2rem;
 }
@@ -1101,11 +1132,11 @@ body.mediaq #namespaced__mediaq {
 }
 
 [dir=ltr] #qsearch__out {
-    right: 5rem;
+    right: 0;
 }
 
 [dir=rtl] #qsearch__out {
-    left: 5rem;
+    left: 0;
 }
 
 #qsearch__out strong,
