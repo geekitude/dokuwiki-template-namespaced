@@ -24,11 +24,15 @@ function tpl_dokuwiki_mobile(){
     // determine our device pattern
     // TODO: consider moving into dokuwiki core
     switch (screen_mode) {
-        case '1':
-            if (device_class.match(/tablet/)) return;
+        case '2002':
+            if (device_class.match(/extract-sidebar/)) return;
             device_class = 'mobile tablet';
             break;
-        case '2':
+        case '2001':
+            if (device_class.match(/extract-toc/)) return;
+            device_class = 'mobile tablet';
+            break;
+        case '1001':
             if (device_class.match(/phone/)) return;
             device_class = 'mobile phone';
             break;

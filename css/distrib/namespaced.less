@@ -1041,18 +1041,21 @@ body.pagetools-flip #namespaced__pagetools ul li a {
     flex-direction: row-reverse;
 }
 
-#namespaced__mediaq {
+#screen__mode {
     position: absolute;
-    display: none;
+    /*display: none;*/
+    visibility: hidden;
+    z-index: 1007;
 }
 
-#namespaced__mediaq span::after {
+#screen__mode span::after {
     content: 'wide';
 }
 
-body.debug #namespaced__mediaq,
-body.mediaq #namespaced__mediaq {
-    display: unset;
+body.debug #screen__mode,
+body.mediaq #screen__mode {
+    /*display: unset;*/
+    visibility: unset;
 }
 
 /* FOOTER
@@ -1361,20 +1364,44 @@ body.mediaq #namespaced__mediaq {
 /* RESPONSIVENESS
 -------------------------------------------------------------- */
 
+@media screen and (min-width: @ini_site_width + 60px + @ini_sidebar_width) {
+    #screen__mode {
+        z-index: 2002;
+    }
+    #screen__mode span::after {
+        content: 'extractible sidebar';
+    }
+}
+
+@media screen and (min-width: @ini_site_width + 60px + @ini_toc_width) {
+    #screen__mode {
+        z-index: 2001;
+    }
+    #screen__mode span::after {
+        content: 'extractible TOC';
+    }
+}
+
 @media screen and (max-width: @ini_site_width + 60px) {
+    #screen__mode {
+        z-index: 1006;
+    }
     [dir] body.debug #namespaced__site, [dir] body.mediaq #namespaced__site {
         background-color: lightyellow;
     }
-    #namespaced__mediaq span::after {
+    #screen__mode span::after {
         content: '< Site + 60px';
     }
 }
 
 @media screen and (max-width: @ini_site_width) {
+    #screen__mode {
+        z-index: 1005;
+    }
     [dir] body.debug #namespaced__site, [dir] body.mediaq #namespaced__site {
         background-color: bisque;
     }
-    #namespaced__mediaq span::after {
+    #screen__mode span::after {
         content: '< Site';
     }
 /*
@@ -1407,10 +1434,13 @@ body.mediaq #namespaced__mediaq {
 }
 
 @media screen and (max-width: @ini_site_width - ((@ini_site_width - @ini_tablet_width) / 2)) {
+    #screen__mode {
+        z-index: 1004;
+    }
     [dir] body.debug #namespaced__site, [dir] body.mediaq #namespaced__site {
         background-color: burlywood;
     }
-    #namespaced__mediaq span::after {
+    #screen__mode span::after {
         content: '> Tablet & < Site';
     }
     [dir=ltr] #namespaced__site_title span {
@@ -1426,10 +1456,13 @@ body.mediaq #namespaced__mediaq {
 }
 
 @media screen and (max-width: @ini_tablet_width) {
+    #screen__mode {
+        z-index: 1003;
+    }
     [dir] body.debug #namespaced__site, [dir] body.mediaq #namespaced__site {
         background-color: darkgoldenrod;
     }
-    #namespaced__mediaq span::after {
+    #screen__mode span::after {
         content: '< Tablet';
     }
     [dir] #namespaced__header div.pad {
@@ -1457,10 +1490,13 @@ body.mediaq #namespaced__mediaq {
 }
 
 @media screen and (max-width: @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2)) {
+    #screen__mode {
+        z-index: 1002;
+    }
     [dir] body.debug #namespaced__site, [dir] body.mediaq #namespaced__site {
         background-color: chocolate;
     }
-    #namespaced__mediaq span::after {
+    #screen__mode span::after {
         content: '> Phone & < Tablet';
     }
     [dir] #namespaced__header div.pad {
@@ -1479,10 +1515,13 @@ body.mediaq #namespaced__mediaq {
 }
 
 @media screen and (max-width: @ini_phone_width) {
+    #screen__mode {
+        z-index: 1001;
+    }
     [dir] body.debug #namespaced__site, [dir] body.mediaq #namespaced__site {
         background-color: brown;
     }
-    #namespaced__mediaq span::after {
+    #screen__mode span::after {
         content: '< Phone';
     }
     [dir] #namespaced__header div.pad {

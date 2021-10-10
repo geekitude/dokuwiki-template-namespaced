@@ -789,18 +789,21 @@ body.pagetools-flip #namespaced__pagetools ul li a {
     flex-direction: row-reverse;
 }
 
-#namespaced__mediaq {
+#screen__mode {
     position: absolute;
-    display: none;
+    /*display: none;*/
+    visibility: hidden;
+    z-index: 1007;
 }
 
-#namespaced__mediaq span::after {
+#screen__mode span::after {
     content: 'wide';
 }
 
-body.debug #namespaced__mediaq,
-body.mediaq #namespaced__mediaq {
-    display: unset;
+body.debug #screen__mode,
+body.mediaq #screen__mode {
+    /*display: unset;*/
+    visibility: unset;
 }
 
 /* FOOTER
@@ -1051,22 +1054,46 @@ div.tagstop {
 /* RESPONSIVENESS
 -------------------------------------------------------------- */
 
+@media screen and (min-width: @ini_site_width + 60px + @ini_sidebar_width) {
+    #screen__mode {
+        z-index: 2002;
+    }
+    #screen__mode span::after {
+        content: 'extractible sidebar';
+    }
+}
+
+@media screen and (min-width: @ini_site_width + 60px + @ini_toc_width) {
+    #screen__mode {
+        z-index: 2001;
+    }
+    #screen__mode span::after {
+        content: 'extractible TOC';
+    }
+}
+
 @media screen and (max-width: @ini_site_width + 60px) {
+    #screen__mode {
+        z-index: 1006;
+    }
     body.debug #namespaced__site,
     body.mediaq #namespaced__site {
         background-color: lightyellow;
     }
-    #namespaced__mediaq span::after {
+    #screen__mode span::after {
         content: '< Site + 60px';
     }
 }
 
 @media screen and (max-width: @ini_site_width) {
+    #screen__mode {
+        z-index: 1005;
+    }
     body.debug #namespaced__site,
     body.mediaq #namespaced__site {
         background-color: bisque;
     }
-    #namespaced__mediaq span::after {
+    #screen__mode span::after {
         content: '< Site';
     }
 /*
@@ -1099,11 +1126,14 @@ div.tagstop {
 }
 
 @media screen and (max-width: @ini_site_width - ((@ini_site_width - @ini_tablet_width) / 2)) {
+    #screen__mode {
+        z-index: 1004;
+    }
     body.debug #namespaced__site,
     body.mediaq #namespaced__site {
         background-color: burlywood;
     }
-    #namespaced__mediaq span::after {
+    #screen__mode span::after {
         content: '> Tablet & < Site';
     }
     #namespaced__site_title span {
@@ -1116,11 +1146,14 @@ div.tagstop {
 }
 
 @media screen and (max-width: @ini_tablet_width) {
+    #screen__mode {
+        z-index: 1003;
+    }
     body.debug #namespaced__site,
     body.mediaq #namespaced__site {
         background-color: darkgoldenrod;
     }
-    #namespaced__mediaq span::after {
+    #screen__mode span::after {
         content: '< Tablet';
     }
     #namespaced__header div.pad {
@@ -1148,11 +1181,14 @@ div.tagstop {
 }
 
 @media screen and (max-width: @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2)) {
+    #screen__mode {
+        z-index: 1002;
+    }
     body.debug #namespaced__site,
     body.mediaq #namespaced__site {
         background-color: chocolate;
     }
-    #namespaced__mediaq span::after {
+    #screen__mode span::after {
         content: '> Phone & < Tablet';
     }
     #namespaced__header div.pad {
@@ -1171,11 +1207,14 @@ div.tagstop {
 }
 
 @media screen and (max-width: @ini_phone_width) {
+    #screen__mode {
+        z-index: 1001;
+    }
     body.debug #namespaced__site,
     body.mediaq #namespaced__site {
         background-color: brown;
     }
-    #namespaced__mediaq span::after {
+    #screen__mode span::after {
         content: '< Phone';
     }
     #namespaced__header div.pad {
