@@ -134,8 +134,10 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                 <nav class="tools<?php print (strpos(tpl_getConf('uicolorize'), 'pagetools') !== false) ? " uicolor-pagetools" : "" ?>">
                     <ul class="sub-menu nostyle">
                         <li><h6 class="aside-title<?php print $namespaced['a11y']['extraclass'] ?>"><?php print $lang['page_tools'] ?></h6></li>
+                        <?php if($ACT=='edit'): ?>
+                            <li class="syntax"><a href="/doku.php?id=wiki:syntax" title="<?php print tpl_getLang('syntax') ?>" rel="nofollow"><span><?php print tpl_getLang('syntax') ?></span><?php namespaced_glyph('syntax') ?></a></li>
+                        <?php endif ?>
                         <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems() ?>
-                        <?php //echo (new \dokuwiki\Menu\NamespacedPageTools())->getListItems() ?>
                         <li class="bottom"><a href="#namespaced__footer" title="<?php print tpl_getLang('go_to_bottom') ?> [b]" rel="nofollow" accesskey="b"><span><?php print tpl_getLang('go_to_bottom') ?></span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z" /></svg></a></li>
                     </ul>
                 </nav><!-- /.tools -->

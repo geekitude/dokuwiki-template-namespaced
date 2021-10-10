@@ -70,6 +70,7 @@ function namespaced_init() {
     $namespaced['glyphs']['searchindex'] = null;
     $namespaced['glyphs']['searchstats'] = null;
     $namespaced['glyphs']['styling'] = null;
+    $namespaced['glyphs']['syntax'] = null;
     $namespaced['glyphs']['translation'] = null;
     $namespaced['glyphs']['upgrade'] = null;
     $namespaced['glyphs']['usermanager'] = null;
