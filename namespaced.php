@@ -54,6 +54,7 @@ function namespaced_init() {
     $namespaced['glyphs']['account-edit'] = null;
     $namespaced['glyphs']['acl'] = null;
     $namespaced['glyphs']['back-to-article'] = null;
+    $namespaced['glyphs']['bottom'] = null;
     $namespaced['glyphs']['config'] = null;
     $namespaced['glyphs']['extension'] = null;
     $namespaced['glyphs']['home'] = null;
