@@ -94,6 +94,19 @@ body {
 
 a {
     text-decoration: none;
+    color: @ini_link;
+}
+
+a:hover {
+    color: @ini_text_neu;
+}
+
+a:hover svg {
+    fill: @ini_text_neu;
+}
+
+a:hover img {
+    opacity: .8;
 }
 
 hr {
@@ -144,7 +157,8 @@ svg {
     fill: @ini_text;
 }
 
-svg:hover {
+svg:hover,
+a:hover svg {
     fill: @ini_text_neu;
 }
 
@@ -430,6 +444,23 @@ div.secedit.editbutton_section button {
     display: block;
     text-align: left;
     text-transform: none;
+}
+
+.navbar ul li a,
+.navbar ul li button {
+    color: #fff;
+}
+
+.navbar ul.sub-menu li a {
+    color: @ini_link;
+}
+
+.navbar ul.sub-menu li a.active {
+    color: @ini_text;
+}
+
+.navbar ul.sub-menu li:hover a:not(.active) {
+    color: #fff;
 }
 
 .navbar ul li ul li ul {
