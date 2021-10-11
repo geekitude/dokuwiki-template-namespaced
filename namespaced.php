@@ -619,11 +619,11 @@ function namespaced_usertools() {
     }
     // Save settings
     if((strpos(tpl_getConf('extratools'), 'save') !== false) && ($INFO['isadmin'] || $INFO['ismanager']) && ($_GET['do'] == "admin") && ($_GET['page'] == "config")) {
-        print '<li class="action savesettings"><button type="submit" form="dw__configform" value="submit" title="'.$lang['btn_save'].' [s]">'.namespaced_glyph('save', true).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_save'].'</span></button></li>';
+        print '<li class="action savesettings"><button class="flex" type="submit" form="dw__configform" value="submit" title="'.$lang['btn_save'].' [s]">'.namespaced_glyph('save', true).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_save'].'</span></button></li>';
     }
     // Reset settings
     if((strpos(tpl_getConf('extratools'), 'reset') !== false) && ($INFO['isadmin'] || $INFO['ismanager']) && ($_GET['do'] == "admin") && ($_GET['page'] == "config")) {
-        print '<li class="action resetsettings"><button type="reset" form="dw__configform" value="reset" title="'.$lang['btn_reset'].'">'.namespaced_glyph('reset', true).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_reset'].'</span></button></li>';
+        print '<li class="action resetsettings"><button class="flex" type="reset" form="dw__configform" value="reset" title="'.$lang['btn_reset'].'">'.namespaced_glyph('reset', true).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_reset'].'</span></button></li>';
     }
 
     // DOKUWIKI USERTOOLS
