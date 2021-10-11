@@ -16,11 +16,11 @@
 * -- Headings
 * FLEXBOX
 * SECTION HIGHLIGHTING
-* NAVBAR
 * SKIP
 * HEADER
+* -- Navbar
 * MAIN
-* PAGETOOLS
+* -- Pagetools
 * FOOTER
 * WIDGETS
 * GENERIC CLASSES
@@ -432,8 +432,97 @@ div.secedit.editbutton_section {
     border-style: solid;
 }
 
-/* NAVBAR
------------------------------------------------ */
+/* SKIP
+-------------------------------------------------------------- */
+
+.skip {
+    width: 100% !important;
+    font-size: 3rem;
+    display: block;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+[dir] .skip {
+    padding: 1rem 0;
+    background-color: #000;
+}
+
+a.skip:focus,
+a.skip:active {
+   position: initial !important;
+   height: initial !important;
+}
+
+[dir=ltr] a.skip:focus, [dir=ltr] a.skip:active {
+    left: 0;
+}
+
+[dir=rtl] a.skip:focus, [dir=rtl] a.skip:active {
+   right: 0;
+}
+
+/* HEADER
+-------------------------------------------------------------- */
+
+/*
+#namespaced__header .pad .flex {
+    margin: .5rem 0;
+}
+*/
+
+[dir] #namespaced__site_branding, [dir] #namespaced__secondary_header {
+    margin: 1rem 0;
+}
+
+[dir] #namespaced__header_tools, [dir] #namespaced__search {
+    margin-top: .5rem;
+}
+
+[dir=ltr] #namespaced__site_logo, [dir=ltr] #namespaced__site_title span {
+    margin-right: 2rem;
+}
+
+[dir=rtl] #namespaced__site_logo, [dir=rtl] #namespaced__site_title span {
+    margin-left: 2rem;
+}
+
+#namespaced__site_description,
+#namespaced__widebanner_wrap img {
+    width: 100%;
+}
+
+/* A SUPPRIMER PLUS TARD AVEC LA DIV ELLE-MEME */
+#namespaced__sitetools .mobiletools {
+    display: none;
+}
+
+#namespaced__sitetools ul li a span,
+#namespaced__sitetools ul li a svg {
+    vertical-align: middle;
+}
+
+[dir=ltr] #namespaced__sitetools ul li a span {
+    margin-right: .1rem;
+}
+
+[dir=rtl] #namespaced__sitetools ul li a span {
+    margin-left: .1rem;
+}
+
+[dir=ltr] #namespaced__sitetools ul li.media a span {
+    margin-right: .4rem;
+}
+
+[dir=rtl] #namespaced__sitetools ul li.media a span {
+    margin-left: .4rem;
+}
+
+#namespaced__widebanner_wrap img {
+    height: auto;
+}
+
+/* -- Navbar -- */
 
 #namespaced__site_nav.navbar {
     font-size: 90%;
@@ -719,103 +808,11 @@ div.secedit.editbutton_section {
     pointer-events : none;
 }
 
-
-
 /*
 #namespaced__site_nav.navbar ul li a:hover {
 */
 nav ul li a:hover {
     transition: box-shadow 350ms ease-in-out, color 350ms ease-in-out;
-}
-
-/* SKIP
--------------------------------------------------------------- */
-
-.skip {
-    width: 100% !important;
-    font-size: 3rem;
-    display: block;
-    text-transform: uppercase;
-    color: #fff;
-}
-
-[dir] .skip {
-    padding: 1rem 0;
-    background-color: #000;
-}
-
-a.skip:focus,
-a.skip:active {
-   position: initial !important;
-   height: initial !important;
-}
-
-[dir=ltr] a.skip:focus, [dir=ltr] a.skip:active {
-    left: 0;
-}
-
-[dir=rtl] a.skip:focus, [dir=rtl] a.skip:active {
-   right: 0;
-}
-
-/* HEADER
--------------------------------------------------------------- */
-
-/*
-#namespaced__header .pad .flex {
-    margin: .5rem 0;
-}
-*/
-
-[dir] #namespaced__site_branding, [dir] #namespaced__secondary_header {
-    margin: 1rem 0;
-}
-
-[dir] #namespaced__header_tools, [dir] #namespaced__search {
-    margin-top: .5rem;
-}
-
-[dir=ltr] #namespaced__site_logo, [dir=ltr] #namespaced__site_title span {
-    margin-right: 2rem;
-}
-
-[dir=rtl] #namespaced__site_logo, [dir=rtl] #namespaced__site_title span {
-    margin-left: 2rem;
-}
-
-#namespaced__site_description,
-#namespaced__widebanner_wrap img {
-    width: 100%;
-}
-
-/* A SUPPRIMER PLUS TARD AVEC LA DIV ELLE-MEME */
-#namespaced__sitetools .mobiletools {
-    display: none;
-}
-
-#namespaced__sitetools ul li a span,
-#namespaced__sitetools ul li a svg {
-    vertical-align: middle;
-}
-
-[dir=ltr] #namespaced__sitetools ul li a span {
-    margin-right: .1rem;
-}
-
-[dir=rtl] #namespaced__sitetools ul li a span {
-    margin-left: .1rem;
-}
-
-[dir=ltr] #namespaced__sitetools ul li.media a span {
-    margin-right: .4rem;
-}
-
-[dir=rtl] #namespaced__sitetools ul li.media a span {
-    margin-left: .4rem;
-}
-
-#namespaced__widebanner_wrap img {
-    height: auto;
 }
 
 /* MAIN
@@ -926,8 +923,7 @@ body.sidepanel-flip #namespaced__aside {
     margin-left: 0;
 }
 
-/* =PAGETOOLS
--------------------------------------------------------------- */
+/* -- Pagetools -- */
 
 #namespaced__pagetools .tools {
     position: sticky;
