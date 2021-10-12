@@ -105,58 +105,70 @@ function namespaced_init() {
             $widgetsFile = tpl_incdir().$area.'.widgets.local.conf';
         }
 //dbg($widgetsFile);
+
         // Read file content
         $namespaced['widgets'][$area] = confToHash($widgetsFile);
 //dbg($namespaced['widgets'][$area]);
-        if (is_array($namespaced['widgets'][$area]) and (count($namespaced['widgets'][$area]) > 0)) {
-            foreach ($namespaced['widgets'][$area] as $widget => $title) {
-                // Disable default search if there's a search widget
-                if ($widget == "search.html") {
-                    $namespaced['defaultsearch'] = false;
-                }
-                if (strpos($widget, ".") !== false) {
-                    $propagate = 0;
-                } else {
-                    $propagate = 1;
-                }
-                if (substr($widget, 0, 1) === ':') {
-                    $type = "media";
-//dbg(ltrim($widget, ":"));
-                    if (isset($namespaced['images'][ltrim($widget, ":")])) {
-//dbg("bingo");
-                        $target = $namespaced['images'][ltrim($widget, ":")];
+        if (is_array($namespaced['widgets'][$area])) {
+            if ($area == "side") {
+                $namespaced['widgets'][$area] += [ "sidebar" => "" ];
+//dbg($namespaced['widgets'][$area]);
+            }
+            if ($area == "footer") {
+                $namespaced['widgets'][$area] += [ "license.html" => "" ];
+                $namespaced['widgets'][$area]['license.html'] = tpl_getLang('license');
+//dbg($namespaced['widgets'][$area]);
+            }
+            if (count($namespaced['widgets'][$area]) > 0) {
+                foreach ($namespaced['widgets'][$area] as $widget => $title) {
+                    // Disable default search if there's a search widget
+                    if ($widget == "search.html") {
+                        $namespaced['defaultsearch'] = false;
+                    }
+                    if (strpos($widget, ".") !== false) {
+                        $propagate = 0;
                     } else {
-                        $target = namespaced_inherit($widget, $type, $ID, true, $propagate);
+                        $propagate = 1;
                     }
-//dbg($media);
-                } elseif (strpos($widget, ".html") !== false) {
-                    $type = "include";
-                    if (file_exists(tpl_incdir().$widget)) {
-                        $target = 1;
-                    }
-                } elseif (page_exists($widget)) {
-                    $type = "page";
-                    $target = $widget;
-                } else {
-                    $type = "page";
-                    $target = page_findnearest($widget);
-                }
-
-                if ($target != null) {
-                    $namespaced['widgets'][$area][$widget] = array();
-                    //if (($title != "Sidecard") and ($title != "Search") and ($title != "Sidebar") and ($title != "User")) {
-                    if ($title != null) {
-                        $locale = DOKU_CONF.'template_lang/'.$conf['template'].'/'.$conf['lang'].'/'.$title.'.txt';
-//dbg($locale);
-                        if (file_exists($locale)) {
-                            $title = io_readFile($locale);
+                    if (substr($widget, 0, 1) === ':') {
+                        $type = "media";
+//dbg(ltrim($widget, ":"));
+                        if (isset($namespaced['images'][ltrim($widget, ":")])) {
+//dbg("bingo");
+                            $target = $namespaced['images'][ltrim($widget, ":")];
+                        } else {
+                            $target = namespaced_inherit($widget, $type, $ID, true, $propagate);
                         }
-                        $namespaced['widgets'][$area][$widget]['title'] = $title;
+//dbg($media);
+                    } elseif (strpos($widget, ".html") !== false) {
+                        $type = "include";
+                        if (file_exists(tpl_incdir().$widget)) {
+                            $target = 1;
+                        }
+                    } elseif (page_exists($widget)) {
+                        $type = "page";
+                        $target = $widget;
+                    } else {
+                        $type = "page";
+                        $target = page_findnearest($widget);
                     }
-                    $namespaced['widgets'][$area][$widget]['type'] = $type;
-                    $namespaced['widgets'][$area][$widget]['target'] = $target;
-                } else {
-                    unset($namespaced['widgets'][$area][$widget]);
+
+                    if ($target != null) {
+                        $namespaced['widgets'][$area][$widget] = array();
+                        //if (($title != "Sidecard") and ($title != "Search") and ($title != "Sidebar") and ($title != "User")) {
+                        if ($title != null) {
+                            $locale = DOKU_CONF.'template_lang/'.$conf['template'].'/'.$conf['lang'].'/'.$title.'.txt';
+//dbg($locale);
+                            if (file_exists($locale)) {
+                                $title = io_readFile($locale);
+                            }
+                            $namespaced['widgets'][$area][$widget]['title'] = $title;
+                        }
+                        $namespaced['widgets'][$area][$widget]['type'] = $type;
+                        $namespaced['widgets'][$area][$widget]['target'] = $target;
+                    } else {
+                        unset($namespaced['widgets'][$area][$widget]);
+                    }
                 }
             }
         }
@@ -526,7 +538,8 @@ function namespaced_pagepath($id){
 /**
  * Userwidget
  */
-function namespaced_userwidget($context = "null") {
+//function namespaced_userwidget($context = "null") {
+function namespaced_userwidget() {
     global $lang, $conf, $ID, $INPUT, $INFO;
 
         print '<h6 class="widget-title"><span>';

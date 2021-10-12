@@ -39,3 +39,4 @@ $lang['cache']                  = 'Cache';
 $lang['purgepagecache']         = 'Remove current page from cache';
 $lang['purgejscache']           = 'Purge JavaScript cache';
 $lang['purgecsscache']          = 'Purge CSS cache';
+$lang['license']                = 'License';
