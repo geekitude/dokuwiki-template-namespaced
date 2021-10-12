@@ -97,17 +97,40 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                             }
                         ?>
 
-                        <div class="flex">
-                            <div class="pageId">
-                                <span><?php echo hsc($ID) ?></span>
-                            </div>
-                            <!-- TRANSLATIONS -->
-                            <?php if(true): ?>
-                                <nav id="namespaced__translations">
-                                    <span class="dbg">*Translations*</span>
-                                </nav>
-                            <?php endif ?>
-                        </div>
+                        <nav class="flex">
+                            <aside id="namespaced__page_nav" class="flex between">
+                                <div class="flex column">
+                                    <div class="pageId">
+                                        <span><?php echo hsc($ID) ?></span>
+                                    </div>
+                                </div>
+                                <div class="flex column align-end">
+                                    <!-- BREADCRUMBS -->
+                                    <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
+                                        <nav class="breadcrumbs flex column end align-stretch">
+                                            <?php if($conf['youarehere']): ?>
+                                                <div class="youarehere"><?php tpl_youarehere() ?></div>
+                                            <?php endif ?>
+                                            <?php if($conf['breadcrumbs']): ?>
+                                                <div class="trace"><?php tpl_breadcrumbs() ?></div>
+                                            <?php endif ?>
+                                        </nav>
+                                    <?php endif ?>
+                                    <!-- TRANSLATIONS -->
+                                    <?php if(true): ?>
+                                        <nav id="namespaced__translations">
+                                            <span class="dbg">*Translations*</span>
+                                        </nav>
+                                    <?php endif ?>
+                                </div>
+                            </aside>
+                        </nav>
+
+
+
+
+
+
 
                         <div class="page">
                             <?php tpl_flush() ?>

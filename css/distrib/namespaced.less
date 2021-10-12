@@ -20,6 +20,7 @@
 * HEADER
 * -- Navbar
 * MAIN
+* -- Page nav
 * -- Pagetools
 * FOOTER
 * WIDGETS
@@ -866,12 +867,13 @@ article {
 }
 
 #namespaced__aside aside,
+#namespaced__page_nav,
 #dw__toc,
 #namespaced__footer_widgets aside {
     color: @ini_text_neu;
 }
 
-[dir] #namespaced__aside aside, [dir] #dw__toc, [dir] #namespaced__footer_widgets aside {
+[dir] #namespaced__aside aside, [dir] #namespaced__page_nav, [dir] #dw__toc, [dir] #namespaced__footer_widgets aside {
     background-color: @ini_background_neu;
     padding: .8rem;
     margin-bottom: 1.5rem;
@@ -915,6 +917,17 @@ body.sidepanel-flip #namespaced__aside {
 [dir=rtl] body.sidepanel-flip #namespaced__aside {
     margin-right: 1.5rem;
     margin-left: 0;
+}
+
+/* -- Page nav -- */
+
+#namespaced__page_nav {
+    width: 100%;
+}
+
+[dir] #namespaced__page_nav {
+    margin-top: 1rem;
+    padding: 1rem;
 }
 
 /* -- Pagetools -- */

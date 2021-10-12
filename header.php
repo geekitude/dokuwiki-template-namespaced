@@ -201,18 +201,4 @@ if (!defined('DOKU_INC')) die();
         </div><!-- #namespaced__widebanner_wrap -->
     <?php endif ?>
 
-    <nav id="namespaced__page_nav">
-        <!-- BREADCRUMBS -->
-        <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
-            <nav class="breadcrumbs flex navbar pad">
-                <?php if($conf['youarehere']): ?>
-                    <div class="youarehere"><?php tpl_youarehere() ?></div>
-                <?php endif ?>
-                <?php if($conf['breadcrumbs']): ?>
-                    <div class="trace"><?php tpl_breadcrumbs() ?></div>
-                <?php endif ?>
-            </nav>
-        <?php endif ?>
-    <nav>
-
 </header><!-- /header -->
