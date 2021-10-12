@@ -26,11 +26,11 @@ function tpl_dokuwiki_mobile(){
     switch (screen_mode) {
         case '2002':
             if (device_class.match(/extract-sidebar/)) return;
-            device_class = 'mobile tablet';
+            device_class = 'desktop extract-sidebar';
             break;
         case '2001':
             if (device_class.match(/extract-toc/)) return;
-            device_class = 'mobile tablet';
+            device_class = 'desktop extract-toc';
             break;
         case '1001':
             if (device_class.match(/phone/)) return;
