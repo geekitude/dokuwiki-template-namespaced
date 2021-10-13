@@ -99,10 +99,16 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
 
                         <nav class="flex">
                             <aside id="namespaced__page_nav" class="flex between">
-                                <div class="flex column">
-                                    <div class="pageId">
+                                <div class="flex column align-start">
+                                    <div class="pageId h6">
                                         <span><?php echo hsc($ID) ?></span>
                                     </div>
+                                    <!-- TRANSLATIONS -->
+                                    <?php if(true): ?>
+                                        <nav id="namespaced__translations">
+                                            <span class="dbg">*Translations*</span>
+                                        </nav>
+                                    <?php endif ?>
                                 </div>
                                 <div class="flex column align-end">
                                     <!-- BREADCRUMBS -->
@@ -114,12 +120,6 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                                             <?php if($conf['breadcrumbs']): ?>
                                                 <div class="trace"><?php tpl_breadcrumbs() ?></div>
                                             <?php endif ?>
-                                        </nav>
-                                    <?php endif ?>
-                                    <!-- TRANSLATIONS -->
-                                    <?php if(true): ?>
-                                        <nav id="namespaced__translations">
-                                            <span class="dbg">*Translations*</span>
                                         </nav>
                                     <?php endif ?>
                                 </div>

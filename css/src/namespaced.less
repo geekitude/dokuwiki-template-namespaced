@@ -198,7 +198,8 @@ h3,
 h4,
 h5,
 h6,
-#dw__toc h3 {
+#dw__toc h3,
+.h6 {
     font-weight: bold;
     margin: 0;
 }
@@ -211,7 +212,8 @@ h6,
 #namespaced__aside h5,
 h6,
 #dw__toc h3,
-#qsearch__out strong {
+#qsearch__out strong,
+.h6 {
     color: @ini_text_neu;
 }
 
@@ -247,9 +249,14 @@ h5 {
 
 h6,
 #dw__toc h3,
-#qsearch__out strong {
+#qsearch__out strong,
+.h6 {
     font-size: 1.9rem;
-    /*line-height: 25px;*/
+}
+
+h6,
+#dw__toc h3,
+#qsearch__out strong {
     padding: 0 0 1rem 0;
 }
 
@@ -669,7 +676,16 @@ article {
     color: @ini_text_neu;
     background-color: @ini_background_neu;
     padding: .8rem;
+}
+
+#namespaced__aside aside,
+#dw__toc,
+#namespaced__footer_widgets aside {
     margin-bottom: 1.5rem;
+}
+
+#namespaced__page_nav {
+    margin-bottom: 1rem;
 }
 
 /*
