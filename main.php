@@ -82,7 +82,8 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                 <!-- ********** CONTENT ********** -->
                 <article id="namespaced__content">
 
-                    <div>
+                    <div class="flex column align-stretch">
+
                         <?php
                             html_msgarea();
                             // If in playground...
@@ -122,15 +123,16 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                                             <?php endif ?>
                                         </nav>
                                     <?php endif ?>
+                                    <?php
+                                        if (tpl_getConf('docinfopos') == "pagenav") {
+                                            print '<div class="docInfo">';
+                                            tpl_pageinfo();
+                                            print '</div>';
+                                        }
+                                    ?>
                                 </div>
                             </aside>
                         </nav>
-
-
-
-
-
-
 
                         <div class="page">
                             <?php tpl_flush() ?>
@@ -143,7 +145,13 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                             <?php tpl_includeFile('pagefooter.html') ?>
                         </div>
 
-                        <div class="docInfo"><?php tpl_pageinfo() ?></div>
+                        <?php
+                            if (tpl_getConf('docinfopos') == "standalone") {
+                                print '<div class="docInfo">';
+                                tpl_pageinfo();
+                                print '</div>';
+                            }
+                        ?>
 
                         <?php tpl_flush() ?>
                     </div>

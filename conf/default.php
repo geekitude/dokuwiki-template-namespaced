@@ -16,6 +16,7 @@ $conf['glyphs']             = 1;
 $conf['navbuttons']         = 'wikihome,parentns,nshome,back-to-article';
 $conf['combonav']           = 1;
 $conf['extratools']         = 'playground,save,reset';
+$conf['docinfopos']         = 'pagenav';
 $conf['searches']           = 'quicksearch';
 $conf['licensevisual']      = 'badge';
 $conf['uiimagetarget']      = 'image-ns';

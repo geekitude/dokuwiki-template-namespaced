@@ -88,6 +88,7 @@ See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#setting
   * [ ] *timers* (show alerts reporting time taken by a few functions, currently autotheme and colored breadcrumbs)
   * [ ] *widebanner*
   * [ ] *widgets* (show dummy widgets set by `debug/footer.widgets.local.conf` and `debug/side.widgets.local.conf` file)
+* [x] `docInfo` can be combined in page header
 * [x] Force "Right to Left" or "Left to Right" mode by adding `&dir=rtl` or `&dir=ltr` to URL to show one ore the other (mostly no use outside of development)
 
 (*) to replace a glyph by another, simply put desired SVG file (4kb max) in `conf/glyphs` folder (you will most likely need to create it) and name it after the target social network or after one of the following elements : acl.svg, config.svg, date.svg, discussion.svg, editor.svg, extentions.svg, externaleditor.svg, from-playground.svg, help.svg, hide.svg, home.svg, lastmod.svg, locked.svg, map.svg, namespace-start.svg, news.svg, pagepath.svg, parent-namespace.svg, playground.svg, popularity.svg, previous.svg, private-ns.svg, profile.svg, public-page.svg, recycle.svg, refresh.svg, revert.svg, save.svg, search.svg, show.svg, social.svg, styling.svg, translated.svg, translation.svg, upgrade.svg, usertools.svg, usermanager.svg (collapse, ellipsis, expand, menu-down and menu-right are too specific and cannot be customized). Site, user and page tools glyphs can't be customized as they come from DokuWiki core code.
