@@ -544,8 +544,7 @@ a.skip:active {
 }
 
 #namespaced__site_nav.navbar ul li,
-#namespaced__site_nav.navbar ul li a,
-#namespaced__site_nav.navbar ul li button {
+#namespaced__site_nav.navbar ul li a {
     height: 42px;
 }
 
@@ -743,8 +742,7 @@ a.skip:active {
 }
 
 #namespaced__site_nav.navbar ul li a svg,
-#namespaced__site_nav.navbar ul li button svg,
-#namespaced__usertools > ul li button svg {
+#namespaced__site_nav.navbar ul li button svg {
     width: 30px;
     height: 30px;
     fill: #fff;
@@ -770,11 +768,14 @@ a.skip:active {
     /*display: flex;*/
 }
 
-[dir] #namespaced__usertools > ul li.savesettings button, [dir] #namespaced__usertools > ul li.resetsettings button {
+/*
+#namespaced__usertools > ul li.savesettings button,
+#namespaced__usertools > ul li.resetsettings button {
     padding: 4px 10px;
     background-color: transparent;
     border: none;
 }
+*/
 
 /*
 #namespaced__usertools > ul li.savesettings button svg,
@@ -822,12 +823,8 @@ main aside.gutter {
     max-width: @ico-margin + @ico-width + @ico-margin;
 }
 
-[dir=ltr] #namespaced__main_subflex {
-    margin-left: @ico-margin + @ico-width + @ico-margin;
-}
-
-[dir=rtl] #namespaced__main_subflex {
-    margin-right: @ico-margin + @ico-width + @ico-margin;
+#namespaced__main_subflex {
+    /*margin-left: @ico-margin + @ico-width + @ico-margin;*/
 }
 
 #namespaced__main_subflex,
@@ -943,6 +940,7 @@ body.sidepanel-flip #namespaced__aside {
 
 /* -- Pagetools -- */
 
+#namespaced__contools .tools,
 #namespaced__pagetools .tools {
     position: sticky;
     top: 2rem;
@@ -951,15 +949,22 @@ body.sidepanel-flip #namespaced__aside {
     height: auto;
 }
 
+#namespaced__contools ul,
 #namespaced__pagetools ul {
     position: absolute;
-    /*border: 1px solid transparent;*/ /* add transparent border to prevent jumping when proper border is added on focus */
     white-space: nowrap;
-/*    line-height: 1.8;*/
 }
 
-[dir] #namespaced__pagetools ul {
+[dir] #namespaced__contools ul, [dir] #namespaced__pagetools ul {
     margin: 0;
+}
+
+[dir=ltr] #namespaced__contools ul {
+    left: 0;
+}
+
+[dir=rtl] #namespaced__contools ul {
+    right: 0;
 }
 
 [dir=ltr] #namespaced__pagetools ul {
@@ -970,31 +975,55 @@ body.sidepanel-flip #namespaced__aside {
     left: 0;
 }
 
+#namespaced__contools ul li a,
 #namespaced__pagetools ul li a {
-    /*text-align: end;*/
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
 }
 
-[dir] #namespaced__pagetools ul li a {
+[dir] #namespaced__contools ul li a, [dir] #namespaced__pagetools ul li a {
     padding: @ico-margin 0;
 }
 
+#namespaced__contools ul li a,
+#namespaced__contools ul li button {
+    justify-content: flex-start;
+}
+
+#namespaced__pagetools ul li a {
+    justify-content: flex-end;
+}
+
+#namespaced__contools ul li a span,
+#namespaced__contools ul li button span,
 #namespaced__pagetools ul li a span {
     display: none; /* hide label until hover */
 }
 
+#namespaced__contools ul li h6,
 #namespaced__pagetools ul li h6 {
     visibility: hidden;
+    width: 0;
 }
 
-[dir] #namespaced__pagetools ul li a span {
+[dir] #namespaced__contools ul li a span, [dir] #namespaced__contools ul li button span, [dir] #namespaced__pagetools ul li a span {
     margin: 5px @ico-margin 0 @ico-margin;
 }
 
+#namespaced__contools ul li h6,
 #namespaced__pagetools ul li h6 {
     white-space: normal;
+}
+
+#namespaced__contools ul li h6 {
+    line-height: .5;
+}
+
+#namespaced__contools ul:hover li h6 {
+    line-height: 1;
+}
+
+#namespaced__pagetools ul li h6 {
     line-height: .5;
 }
 
@@ -1002,18 +1031,8 @@ body.sidepanel-flip #namespaced__aside {
     line-height: 1.5;
 }
 
-/*
-#namespaced__pagetools ul li h6 {
-    margin: 0;
-}
-*/
-
-/*
-#namespaced__pagetools ul li h6 span {
-    width: 100%;
-}
-*/
-
+#namespaced__contools ul li a svg,
+#namespaced__contools ul li button svg,
 #namespaced__pagetools ul li a svg {
     width: @ico-width;
     height: @ico-width;
@@ -1021,32 +1040,65 @@ body.sidepanel-flip #namespaced__aside {
     vertical-align: middle;
 }
 
-[dir] #namespaced__pagetools ul li a svg {
+[dir] #namespaced__contools ul li a svg, [dir] #namespaced__contools ul li button svg, [dir] #namespaced__pagetools ul li a svg {
     margin: 0 @ico-margin;
 }
 
+#namespaced__contools ul li button {
+    /*padding: 4px 10px;*/
+}
+
+[dir] #namespaced__contools ul li button {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+}
+
+#namespaced__contools ul li button {
+    height: 50px;
+    width: 100%;
+    color: @ini_link;
+}
+
+#namespaced__contools ul li button svg {
+    width: 30px;
+    height: 30px;
+}
+
+#namespaced__contools ul:hover,
 #namespaced__pagetools ul:hover {
 /*    border: 1px solid @ini_border;*/
 }
 
+#namespaced__contools ul:hover li a span,
+#namespaced__contools ul:hover li x-sizing span,
+#namespaced__contools ul:hover li p span,
+#namespaced__contools ul:hover li button span,
 #namespaced__pagetools ul:hover li a span,
 #namespaced__pagetools ul:hover li x-sizing span,
 #namespaced__pagetools ul:hover li p span {
     display: initial;
 }
 
+#namespaced__contools ul:hover li h6,
 #namespaced__pagetools ul:hover li h6 {
     visibility: visible;
+    width: initial;
 }
 
+#namespaced__contools ul li:hover a,
+#namespaced__contools ul li:hover button,
 #namespaced__pagetools ul li:hover a {
     color: #fff;
 }
 
+#namespaced__contools ul li:hover a svg,
+#namespaced__contools ul li:hover button svg,
 #namespaced__pagetools ul li:hover a svg {
     fill: #fff;
 }
 
+html.js #namespaced__contools ul li.top,
 html.js #namespaced__pagetools ul li.top {
     display: none;
 }
@@ -1228,11 +1280,12 @@ body.mediaq #screen__mode {
     padding: 0 @ico-margin + @ico-width + @ico-margin;
 }
 
-.sub-menu {
+.sub-menu,
+nav.tools ul {
     top: auto;
 }
 
-[dir] .sub-menu {
+[dir] .sub-menu, [dir] nav.tools ul {
     background-color: @ini_background;
 }
 

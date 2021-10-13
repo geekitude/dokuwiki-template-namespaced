@@ -627,21 +627,6 @@ function namespaced_usertools() {
     global $ID, $ACT, $lang, $INFO;
     global $namespaced;
 
-    // EXTRATOOLS
-    // Playground
-    if ((strpos(tpl_getConf('extratools'), 'playground') !== false) and (strpos($ID, 'playground:') !== 0)){
-        print '<li class="action playground"><a href="/doku.php?id=playground:playground&amp;do=edit" rel="nofollow" title="playground:playground">'.namespaced_glyph('playground', true).'<span'.$namespaced['a11y']['standalone'].'>'.tpl_getLang('playground').'</span></a></li>';
-    }
-    // Save settings
-    if((strpos(tpl_getConf('extratools'), 'save') !== false) && ($INFO['isadmin'] || $INFO['ismanager']) && ($_GET['do'] == "admin") && ($_GET['page'] == "config")) {
-        print '<li class="action savesettings"><button class="flex" type="submit" form="dw__configform" value="submit" title="'.$lang['btn_save'].' [s]">'.namespaced_glyph('save', true).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_save'].'</span></button></li>';
-    }
-    // Reset settings
-    if((strpos(tpl_getConf('extratools'), 'reset') !== false) && ($INFO['isadmin'] || $INFO['ismanager']) && ($_GET['do'] == "admin") && ($_GET['page'] == "config")) {
-        print '<li class="action resetsettings"><button class="flex" type="reset" form="dw__configform" value="reset" title="'.$lang['btn_reset'].'">'.namespaced_glyph('reset', true).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_reset'].'</span></button></li>';
-    }
-
-    // DOKUWIKI USERTOOLS
     $objects = (new \dokuwiki\Menu\UserMenu())->getItems();
     //$objects = (new \dokuwiki\Menu\UserMenu())->getListItems('action ', tpl_getConf('glyphs'));
     $object =  (array) $objects;
