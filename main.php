@@ -64,7 +64,105 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                 <nav class="tools<?php print (strpos(tpl_getConf('uicolorize'), 'pagetools') !== false) ? " uicolor-pagetools" : "" ?>">
                     <ul class="nostyle">
                         <li><h6 class="aside-title<?php print $namespaced['a11y']['extraclass'] ?>"><?php print tpl_getLang('context_tools') ?></h6></li>
-                        <?php namespaced_contools() ?>
+                        <!-- NAV BUTTON(S) -->
+                        <?php
+                            if (tpl_getConf('combonav')) {
+                                if ((strpos(tpl_getConf('navbuttons'), 'back-to-article') !== false) and ((($ACT == "recent") or ($ACT == "media") or ($ACT == "index") or ($ACT == "admin") or (strpos($ID, 'playground:') === 0)) and (isset($_SESSION["origID"])))) {
+                                    print '<li>';
+                                        // display link to namespace home page
+                                        tpl_link(
+                                            wl($_SESSION["origID"]),
+                                            namespaced_glyph('back-to-article', true).'<span>'.tpl_getLang('back-to-article').'</span>',
+                                            'title="'.$_SESSION["origID"].'" rel="nofollow"'
+                                        );
+                                    print '</li>';
+                                } elseif ((strpos(tpl_getConf('navbuttons'), 'nshome') !== false) and ($namespaced['ishome'] == false)) {
+                                    print '<li>';
+                                        // display link to namespace home page
+                                        tpl_link(
+                                            wl(getns($ID).':'.$conf['start']),
+                                            namespaced_glyph('nshome', true).'<span>'.tpl_getLang('nshome').'</span>',
+                                            'title="'.tpl_getLang('nshome').'" rel="nofollow"'
+                                        );
+                                    print '</li>';
+                                } elseif ((strpos(tpl_getConf('navbuttons'), 'parentns') !== false) and (getns(getns($ID)) != null)) {
+                                    print '<li>';
+                                        // display link to parent namespace home page
+                                        tpl_link(
+                                            wl(getns(getns($ID)).':'.$conf['start']),
+                                            namespaced_glyph('parentns', true).'<span>'.tpl_getLang('parentns').'</span>',
+                                            'title="'.tpl_getLang('parentns').'" rel="nofollow"'
+                                        );
+                                    print '</li>';
+                                } elseif ((strpos(tpl_getConf('navbuttons'), 'wikihome') !== false) and (!in_array($namespaced['ishome'], array("default", "untranslated", "translated")))) {
+                                    print '<li>';
+                                        // display link to the home page
+                                        tpl_link(
+                                            wl(),
+                                            namespaced_glyph('home', true).'<span>'.tpl_getLang('wikihome').'</span>',
+                                            'accesskey="h" title="'.tpl_getLang('wikihome').' [H]" rel="nofollow"'
+                                        );
+                                    print '</li>';
+                                }
+                            } else {
+                                if ((strpos(tpl_getConf('navbuttons'), 'wikihome') !== false) and (!in_array($namespaced['ishome'], array("default", "untranslated", "translated")))) {
+                                    print '<li>';
+                                        // display link to the home page
+                                        tpl_link(
+                                            wl(),
+                                            namespaced_glyph('home', true).'<span>'.tpl_getLang('wikihome').'</span>',
+                                            'accesskey="h" title="'.tpl_getLang('wikihome').' [H]" rel="nofollow"'
+                                        );
+                                    print '</li>';
+                                }
+                                //if ((strpos(tpl_getConf('navbuttons'), 'parentns') !== false) and (($namespaced['ishome'] == "nshome") and (getns(getns($ID)) != null))) {
+                                if ((strpos(tpl_getConf('navbuttons'), 'parentns') !== false) and (getns(getns($ID)) != null)) {
+                                    print '<li>';
+                                        // display link to parent namespace home page
+                                        tpl_link(
+                                            wl(getns(getns($ID)).':'.$conf['start']),
+                                            namespaced_glyph('parentns', true).'<span>'.tpl_getLang('parentns').'</span>',
+                                            'title="'.tpl_getLang('parentns').'" rel="nofollow"'
+                                        );
+                                    print '</li>';
+                                }
+                                if ((strpos(tpl_getConf('navbuttons'), 'nshome') !== false) and ($namespaced['ishome'] == false)) {
+                                    print '<li>';
+                                        // display link to namespace home page
+                                        tpl_link(
+                                            wl(getns($ID).':'.$conf['start']),
+                                            namespaced_glyph('nshome', true).'<span>'.tpl_getLang('nshome').'</span>',
+                                            'title="'.tpl_getLang('nshome').'" rel="nofollow"'
+                                        );
+                                    print '</li>';
+                                }
+                                if ((strpos(tpl_getConf('navbuttons'), 'back-to-article') !== false) and ((($ACT == "recent") or ($ACT == "media") or ($ACT == "index") or ($ACT == "admin")) and (isset($_SESSION["origID"])))) {
+                                    print '<li>';
+                                        // display link to namespace home page
+                                        tpl_link(
+                                            wl($_SESSION["origID"]),
+                                            namespaced_glyph('back-to-article', true).'<span>'.tpl_getLang('back-to-article').'</span>',
+                                            'title="'.$_SESSION["origID"].'" rel="nofollow"'
+                                        );
+                                    print '</li>';
+                                }
+                            }
+                            // Playground
+                            if ((strpos(tpl_getConf('extratools'), 'playground') !== false) and (strpos($ID, 'playground:') !== 0)){
+                                print '<li class="action playground"><a href="/doku.php?id=playground:playground&amp;do=edit" rel="nofollow" title="playground:playground">'.namespaced_glyph('playground', true).'<span>'.tpl_getLang('playground').'</span></a></li>';
+                            }
+                            // Save settings
+                            if((strpos(tpl_getConf('extratools'), 'save') !== false) && ($INFO['isadmin'] || $INFO['ismanager']) && ($_GET['do'] == "admin") && ($_GET['page'] == "config")) {
+                                print '<li class="action savesettings"><button class="flex" type="submit" form="dw__configform" value="submit" title="'.$lang['btn_save'].' [s]">'.namespaced_glyph('save', true).'<span>'.$lang['btn_save'].'</span></button></li>';
+                            }
+                            // Reset settings
+                            if((strpos(tpl_getConf('extratools'), 'reset') !== false) && ($INFO['isadmin'] || $INFO['ismanager']) && ($_GET['do'] == "admin") && ($_GET['page'] == "config")) {
+                                print '<li class="action resetsettings"><button class="flex" type="reset" form="dw__configform" value="reset" title="'.$lang['btn_reset'].'">'.namespaced_glyph('reset', true).'<span>'.$lang['btn_reset'].'</span></button></li>';
+                            }
+                        ?>
+                        <?php if($ACT=='edit'): ?>
+                            <li class="syntax"><a href="/doku.php?id=wiki:syntax" title="<?php print tpl_getLang('syntax') ?>" rel="nofollow"><?php namespaced_glyph('syntax') ?><span><?php print tpl_getLang('syntax') ?></span></a></li>
+                        <?php endif ?>
                     </ul>
                 </nav><!-- /.tools -->
             </aside><!-- /#dokuwiki__pagetools -->
