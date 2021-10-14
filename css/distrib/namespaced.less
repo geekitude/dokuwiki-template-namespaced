@@ -27,7 +27,7 @@
 * FOOTER
 * WIDGETS
 * GENERIC CLASSES
-* DOKUWIKI SYNTAX
+* DOKUWIKI GLOBAL
 * DOKUWIKI MODES
 * -- Admin page
 * -- Settings
@@ -1312,7 +1312,7 @@ nav.tools ul {
     background-color: gold;
 }
 
-/* DOKUWIKI SYNTAX
+/* DOKUWIKI GLOBAL
 ----------------------------------------------- */
 
 [dir=ltr] div.error, [dir=ltr] div.info, [dir=ltr] div.success, [dir=ltr] div.notify {
@@ -1357,6 +1357,11 @@ nav.tools ul {
 
 [dir] .page div.level5 {
     margin-bottom: 1rem;
+}
+
+pre {
+    /* Required for Dokuwiki to prevent article to overflow horizontally */
+    white-space: break-spaces;
 }
 
 /* DOKUWIKI MODES
