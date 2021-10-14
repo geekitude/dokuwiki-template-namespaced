@@ -74,6 +74,7 @@ See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#setting
 * [ ] Social networks links (see [Social links](https://github.com/geekitude/dokuwiki-template-colormag#social-links) below)
 * [ ] Supports a cheatsheet that will be shown as a sidebar in edit and preview modes
 * [x] Added a "Go to bottom" pagetool to easily reach footer widgets or save settings button (Javascript is needed to switch between this pagetool and "Back to top")
+* [x] Added contextual tools "facing" page tools (navigation, playground, syntax page, most usefull forms' buttons)
 * [ ] Expanded debug mode to force some UI elements regardless of settings: add `&debug=1` to URL to show all debug elements at once or `&debug=keyword` to show a specific element from following list of keywords (usefull to play around with template settings)
   * [ ] *a11y* (visual accessibility helpers)
   * [ ] *alerts*
