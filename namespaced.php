@@ -782,11 +782,11 @@ function namespaced_contools() {
         print '<li class="playground"><a href="/doku.php?id=playground:playground&amp;do=edit" rel="nofollow" title="playground:playground">'.namespaced_glyph('playground', true).'<span>'.tpl_getLang('playground').'</span></a></li>';
     }
     // Save settings
-    if ($INFO['isadmin'] || $INFO['ismanager']) && ($_GET['do'] == "admin") && ($_GET['page'] == "config") {
+    if (($INFO['isadmin'] || $INFO['ismanager']) && ($_GET['do'] == "admin") && ($_GET['page'] == "config")) {
         print '<li class="savesettings"><button class="flex" type="submit" form="dw__configform" value="submit" title="'.$lang['btn_save'].' [s]">'.namespaced_glyph('save', true).'<span>'.$lang['btn_save'].'</span></button></li>';
     }
     // Reset settings
-    if ($INFO['isadmin'] || $INFO['ismanager']) && ($_GET['do'] == "admin") && ($_GET['page'] == "config") {
+    if (($INFO['isadmin'] || $INFO['ismanager']) && ($_GET['do'] == "admin") && ($_GET['page'] == "config")) {
         print '<li class="resetsettings"><button class="flex" type="reset" form="dw__configform" value="reset" title="'.$lang['btn_reset'].'">'.namespaced_glyph('reset', true).'<span>'.$lang['btn_reset'].'</span></button></li>';
     }
     // Save page modification
