@@ -63,6 +63,7 @@ function namespaced_init() {
     $namespaced['glyphs']['parentns'] = null;
     $namespaced['glyphs']['playground'] = null;
     $namespaced['glyphs']['popularity'] = null;
+    $namespaced['glyphs']['preview'] = null;
     $namespaced['glyphs']['recycle'] = null;
     $namespaced['glyphs']['reset'] = null;
     $namespaced['glyphs']['revert'] = null;
@@ -792,6 +793,10 @@ function namespaced_contools() {
     // Save page modification
     if ($_GET['do'] == "edit") {
         print '<li class="savepage"><button class="flex" name="do[save]" type="submit" form="dw__editform" title="'.$lang['btn_save'].' [s]">'.namespaced_glyph('save', true).'<span>'.$lang['btn_save'].'</span></button></li>';
+    }
+    // Preview page modification
+    if ($_GET['do'] == "edit") {
+        print '<li class="previewpage"><button class="flex" name="do[preview]" type="submit" form="dw__editform" title="'.$lang['btn_preview'].' [p]">'.namespaced_glyph('preview', true).'<span>'.$lang['btn_preview'].'</span></button></li>';
     }
     // Cancel page modification
     if ($_GET['do'] == "edit") {
