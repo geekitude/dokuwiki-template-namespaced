@@ -170,7 +170,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
 
             </div><!-- /wrapper -->
 
-            <!-- PAGE ACTIONS -->
+            <!-- PAGE TOOLS -->
             <aside id="namespaced__pagetools" class="gutter flex column">
                 <nav class="tools<?php print (strpos(tpl_getConf('uicolorize'), 'pagetools') !== false) ? " uicolor-pagetools" : "" ?>">
                     <ul class="nostyle">
