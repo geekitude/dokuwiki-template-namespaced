@@ -696,7 +696,7 @@ function namespaced_contools() {
     // NAV BUTTON(S)
     // one button to rule them all...
     if (tpl_getConf('combonav')) {
-        if ((strpos(tpl_getConf('navbuttons'), 'back-to-article') !== false) and ((($ACT == "recent") or ($ACT == "media") or ($ACT == "index") or ($ACT == "admin") or (strpos($ID, 'playground:') === 0)) and (isset($_SESSION["origID"])))) {
+        if ((($ACT == "recent") or ($ACT == "media") or ($ACT == "index") or ($ACT == "admin") or (strpos($ID, 'playground:') === 0)) and (isset($_SESSION["origID"])))) {
             print '<li class="back-to-article">';
                 // display link to get back to article from current mode
                 tpl_link(
@@ -788,6 +788,14 @@ function namespaced_contools() {
     // Reset settings
     if((strpos(tpl_getConf('extratools'), 'reset') !== false) && ($INFO['isadmin'] || $INFO['ismanager']) && ($_GET['do'] == "admin") && ($_GET['page'] == "config")) {
         print '<li class="resetsettings"><button class="flex" type="reset" form="dw__configform" value="reset" title="'.$lang['btn_reset'].'">'.namespaced_glyph('reset', true).'<span>'.$lang['btn_reset'].'</span></button></li>';
+    }
+    // Save page modification
+    if((strpos(tpl_getConf('extratools'), 'save') !== false) && ($_GET['do'] == "edit")) {
+        print '<li class="savepage"><button class="flex" name="do[save]" type="submit" form="dw__editform" title="'.$lang['btn_save'].' [s]">'.namespaced_glyph('save', true).'<span>'.$lang['btn_save'].'</span></button></li>';
+    }
+    // Cancel page modification
+    if((strpos(tpl_getConf('extratools'), 'reset') !== false) && ($_GET['do'] == "edit")) {
+        print '<li class="cancelpage"><button class="flex" name="do[cancel]" type="submit" form="dw__editform" title="'.$lang['btn_cancel'].'">'.namespaced_glyph('reset', true).'<span>'.$lang['btn_cancel'].'</span></button></li>';
     }
     // Syntax
     if ($ACT=='edit') {
