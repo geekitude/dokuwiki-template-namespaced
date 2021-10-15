@@ -937,19 +937,19 @@ function namespaced_nsindex($useexclusions = false) {
             // If item is a directory, we need an ID that points to that namespace's start page (even if it doesn't exist)
             if ($item['type'] == 'd') {
                 $target = $item['id'].':'.$conf['start'];
-                $classes = "is_ns ";
+                $classes = "is_ns";
                 $subnamespaces[] = $datakey;
             // Or just keep current item ID
             } else {
                 $target = $item['id'];
-                $classes = "is_page ";
+                $classes = "is_page";
                 $pages[] = $datakey;
             }
 //            // Add (non-)existence class
 //            if (page_exists($target)) {
-//                $classes .= "wikilink1";
+//                $classes .= " wikilink1";
 //            } else {
-//                $classes .= "wikilink2";
+//                $classes .= " wikilink2";
 //            }
             // Get page title from metadata
             $title = null;
@@ -969,8 +969,7 @@ function namespaced_nsindex($useexclusions = false) {
             $data[$datakey]['id'] = $target;
             $title = @$title ?: hsc(noNS($item['id']));
             // Store a link to the page in the data that will be sent back
-//            $data[$datakey]['link'] = '<a href="'.wl($target).'" class="'.$classes.'" title="'.$data[$datakey]['id'].'">'.$title.'</a>';
-            $data[$datakey]['link'] = '<a href="'.wl($target).'" title="'.$data[$datakey]['id'].'">'.$title.'</a>';
+            $data[$datakey]['link'] = '<a href="'.wl($target).'" class="'.$classes.'" title="'.$data[$datakey]['id'].'">'.$title.'</a>';
 
             // Print result (note: sub-namespaces are shown before pages)
 //            if ($data[$datakey]['link'] != null) {
