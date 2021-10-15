@@ -945,12 +945,12 @@ function namespaced_nsindex($useexclusions = false) {
                 $classes = "is_page ";
                 $pages[] = $datakey;
             }
-            // Add (non-)existence class
-            if (page_exists($target)) {
-                $classes .= "wikilink1";
-            } else {
-                $classes .= "wikilink2";
-            }
+//            // Add (non-)existence class
+//            if (page_exists($target)) {
+//                $classes .= "wikilink1";
+//            } else {
+//                $classes .= "wikilink2";
+//            }
             // Get page title from metadata
             $title = null;
 //            if ($this->getConf('useheading')) {
@@ -969,7 +969,8 @@ function namespaced_nsindex($useexclusions = false) {
             $data[$datakey]['id'] = $target;
             $title = @$title ?: hsc(noNS($item['id']));
             // Store a link to the page in the data that will be sent back
-            $data[$datakey]['link'] = '<a href="'.wl($target).'" class="'.$classes.'" title="'.$data[$datakey]['id'].'">'.$title.'</a>';
+//            $data[$datakey]['link'] = '<a href="'.wl($target).'" class="'.$classes.'" title="'.$data[$datakey]['id'].'">'.$title.'</a>';
+            $data[$datakey]['link'] = '<a href="'.wl($target).'" title="'.$data[$datakey]['id'].'">'.$title.'</a>';
 
             // Print result (note: sub-namespaces are shown before pages)
 //            if ($data[$datakey]['link'] != null) {
