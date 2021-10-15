@@ -904,6 +904,8 @@ function namespaced_nsindex($useexclusions = false) {
 
     $dir  = utf8_encodeFN(str_replace(':','/',$namespace));
     $data = array();
+    $pages = array();
+    $subnamespaces = array();
     search($data,$conf['datadir'],'search_index',array('ns' => $namespace),$dir);
     // Known plugins that set title and corresponding metadata keys
     $title_metafields = array(
@@ -934,10 +936,12 @@ function namespaced_nsindex($useexclusions = false) {
             if ($item['type'] == 'd') {
                 $target = $item['id'].':'.$conf['start'];
                 $classes = "is_ns ";
+                $subnamespaces[] = $datakey;
             // Or just keep current item ID
             } else {
                 $target = $item['id'];
                 $classes = "is_page ";
+                $pages[] = $datakey;
             }
             // Add (non-)existence class
             if (page_exists($target)) {
@@ -965,7 +969,18 @@ function namespaced_nsindex($useexclusions = false) {
             // Store a link to the page in the data that will be sent back
             $data[$datakey]['link'] = '<a href="'.wl($target).'" class="'.$classes.'" title="'.$data[$datakey]['id'].'">'.$title.'</a>';
 
-            if ($data[$datakey]['link'] != null) {
+//            if ($data[$datakey]['link'] != null) {
+//                print '<li>'.$data[$datakey]['link'].'</li>';
+//            }
+        }
+//dbg($data);
+        if (count($pages) != 0) {
+            foreach ($pages as $datakey) {
+                print '<li>'.$data[$datakey]['link'].'</li>';
+            }
+        }
+        if (count($subnamespaces) != 0) {
+            foreach ($subnamespaces as $datakey) {
                 print '<li>'.$data[$datakey]['link'].'</li>';
             }
         }
