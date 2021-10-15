@@ -969,21 +969,23 @@ function namespaced_nsindex($useexclusions = false) {
             // Store a link to the page in the data that will be sent back
             $data[$datakey]['link'] = '<a href="'.wl($target).'" class="'.$classes.'" title="'.$data[$datakey]['id'].'">'.$title.'</a>';
 
+            // Print result (note: sub-namespaces are shown before pages)
 //            if ($data[$datakey]['link'] != null) {
 //                print '<li>'.$data[$datakey]['link'].'</li>';
 //            }
         }
 //dbg($data);
+        // Print pages links
         if (count($pages) != 0) {
             foreach ($pages as $datakey) {
                 print '<li>'.$data[$datakey]['link'].'</li>';
             }
         }
+        // Print sub-namespaces links
         if (count($subnamespaces) != 0) {
             foreach ($subnamespaces as $datakey) {
                 print '<li>'.$data[$datakey]['link'].'</li>';
             }
         }
     }
-//    return array_values($data);
 }/* /namespaced_nsindex */
