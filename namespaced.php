@@ -917,18 +917,20 @@ function namespaced_nsindex($useexclusions = false) {
     }
     $title_metafields['dokuwiki'] = 'title';
 
+//dbg(tpl_getConf('nsindexexclude'));
     if (count($data) != 0) {
         foreach ($data as $datakey => $item) {
             // Unset item if is in 'exclusions'
-            if (($useexclusions) && (in_array(noNS($item['id']), $this->exclusions))) {
+            if (($useexclusions) && (in_array(noNS($item['id']), tpl_getConf('nsindexexclude')))) {
                 unset($data[$datakey]);
                 continue;
-            // Unset item if it is in 'nsignore'
-            } elseif (($useexclusions) && (in_array(explode(":", $item['id'])[0], $this->nsignore))) {
-                unset($data[$datakey]);
-                continue;
-            // Unset item if it starts with "playground" or is equal to current $ID
-            } elseif ((explode(":", $item['id'])[0] == "playground") or ($item['id'] == $ID) or ($item['id'] == $ajaxId)) {
+//            // Unset item if it is in 'nsignore'
+//            } elseif (($useexclusions) && (in_array(explode(":", $item['id'])[0], $this->nsignore))) {
+//                unset($data[$datakey]);
+//                continue;
+            // Always unset item if it starts with "playground" or is equal to current $ID
+//            } elseif ((explode(":", $item['id'])[0] == "playground") or ($item['id'] == $ID) or ($item['id'] == $ajaxId)) {
+            } elseif ((explode(":", $item['id'])[0] == "playground") or ($item['id'] == $ID)) {
                 unset($data[$datakey]);
                 continue;
             }

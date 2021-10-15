@@ -92,7 +92,7 @@ if (!defined('DOKU_INC')) die();
         <div id="namespaced_ns_menu">
             <ul class="nostyle">
                 <!-- NAMESPACE CONTENT -->
-                <?php namespaced_nsindex() ?>
+                <?php namespaced_nsindex(true) ?>
             </ul>
         </div>
         <!-- USER TOOLS -->

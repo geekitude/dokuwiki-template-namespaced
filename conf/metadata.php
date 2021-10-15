@@ -15,6 +15,7 @@ $meta['flexflip']           = array('multicheckbox','_choices' => array('banner'
 /* functionnalities */
 $meta['glyphs']             = array('onoff');
 $meta['combonav']           = array('onoff');
+$meta['nsindexexclude']     = array('array');
 $meta['docinfopos']         = array('multichoice','_choices' => array('standalone','pagenav'));;
 $meta['searches']           = array('multicheckbox','_choices' => array('quicksearch','autocomplete'),'_other' => 'never');
 $meta['licensevisual']      = array('multichoice','_choices' => array('badge','button','none'));
