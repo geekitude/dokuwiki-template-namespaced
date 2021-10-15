@@ -782,10 +782,6 @@ function namespaced_contools() {
             print '</li>';
         }
     }
-    // Playground
-    if (strpos($ID, 'playground:') !== 0) {
-        print '<li class="playground"><a href="/doku.php?id=playground:playground&amp;do=edit" rel="nofollow" title="playground:playground">'.namespaced_glyph('playground', true).'<span>'.tpl_getLang('playground').'</span></a></li>';
-    }
     // Save settings
     if (($INFO['isadmin'] || $INFO['ismanager']) && ($_GET['do'] == "admin") && ($_GET['page'] == "config")) {
         print '<li class="savesettings"><button class="flex" type="submit" form="dw__configform" value="submit" title="'.$lang['btn_save'].' [s]">'.namespaced_glyph('save', true).'<span>'.$lang['btn_save'].'</span></button></li>';
@@ -809,6 +805,10 @@ function namespaced_contools() {
     // Syntax
     if ($ACT=='edit') {
         print '<li class="syntax"><a href="/doku.php?id=wiki:syntax" title="'.tpl_getLang('syntax').'" rel="nofollow">'.namespaced_glyph('syntax', true).'<span>'.tpl_getLang('syntax').'</span></a></li>';
+    }
+    // Playground
+    if (strpos($ID, 'playground:') !== 0) {
+        print '<li class="playground"><a href="/doku.php?id=playground:playground&amp;do=edit" rel="nofollow" title="playground:playground">'.namespaced_glyph('playground', true).'<span>'.tpl_getLang('playground').'</span></a></li>';
     }
 }/* namespaced_contools */
 
