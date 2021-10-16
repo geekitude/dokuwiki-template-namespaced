@@ -14,7 +14,7 @@ $conf['flexflip']           = '';
 
 $conf['glyphs']             = 1;
 $conf['combonav']           = 1;
-$conf['nsindexexclude']     = 'sidebar,topbar';
+$conf['nsindexexclude']     = array('sidebar', 'topbar');
 $conf['docinfopos']         = 'pagenav';
 $conf['searches']           = 'quicksearch';
 $conf['licensevisual']      = 'badge';
