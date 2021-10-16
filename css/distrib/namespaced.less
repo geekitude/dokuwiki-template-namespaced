@@ -167,9 +167,11 @@ nav {
     z-index: 2
     /* Keeps any <nav> above settings `outkey` spans on configuration page */
 }
+
 pre {
     overflow: auto;
 }
+
 [dir] pre {
     padding: 1rem;
     border-width: 1px;
@@ -848,6 +850,10 @@ article {
 
 [dir=rtl] #namespaced__aside {
     margin-left: 1.5rem;
+}
+
+#namespaced__content nav {
+    z-index: 1;
 }
 
 #dw__toc {
