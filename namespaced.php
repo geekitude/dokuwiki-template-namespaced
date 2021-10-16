@@ -186,12 +186,6 @@ function namespaced_init() {
 //dbg("start: ".$conf['start']);
     $namespaced['translation'] = array();
     $namespaced['translation']['istranslated'] = false;
-    // get default translation
-    if(empty($conf['lang_before_translation'])) {
-        $namespaced['translation']['default_lang'] = $conf['lang'];
-    } else {
-        $namespaced['translation']['default_lang'] = $conf['lang_before_translation'];
-    }
 //dbg("untranslatedhome: ".$namespaced['translation']['untranslatedhome']);
     if (!plugin_isdisabled('translation')) {
         $namespaced['translation']['helper'] = plugin_load('helper','translation');
@@ -212,6 +206,7 @@ function namespaced_init() {
         //}
     }
 //dbg($namespaced['translation']['ishome']);
+//dbg($namespaced['translation']);
 
     // IS HOME ?
     $namespaced['ishome'] = namespaced_ishome($ID);

@@ -35,6 +35,7 @@
 * -- Cloud
 * -- Sitemapnavi
 * -- Tagalerts
+* -- Translation
 * RESPONSIVENESS
 * MORE ACCESSIBILITY
 */
@@ -1506,6 +1507,29 @@ pre {
 
 [dir] div.tagstop {
     padding-bottom: .4rem;
+}
+
+/* -- Translation  -- */
+
+.plugin_translation {
+    display: flex;
+    align-items: center;
+}
+
+[dir] .plugin_translation {
+    margin: 0 !important;
+}
+
+[dir] .plugin_translation ul li {
+    margin: 0 !important;
+}
+
+[dir] .plugin_translation ul li a.wikilink1 {
+    background-color: @ini_existing !important;
+}
+
+[dir] .plugin_translation ul li a.wikilink2 {
+    background-color: @ini_missing !important;
 }
 
 /* RESPONSIVENESS

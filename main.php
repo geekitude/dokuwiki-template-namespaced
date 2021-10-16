@@ -115,9 +115,9 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                                         <span><?php echo hsc($ID) ?></span>
                                     </div>
                                     <!-- TRANSLATIONS -->
-                                    <?php if(true): ?>
+                                    <?php if($namespaced['translation']['helper']): ?>
                                         <nav id="namespaced__translations">
-                                            <span class="dbg">*Translations*</span>
+                                            <?php echo $namespaced['translation']['helper']->showTranslations() ?>
                                         </nav>
                                     <?php endif ?>
                                 </div>
