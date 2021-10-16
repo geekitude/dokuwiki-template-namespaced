@@ -1231,10 +1231,24 @@ div.tagstop {
     background-color: @ini_missing !important;
 }
 
+.plugin_translation form select option.wikilink1 {
+    color: @ini_existing !important;
+}
+
+.plugin_translation form select option.wikilink2 {
+    color: @ini_missing !important;
+}
+
+/*
 .plugin_translation ul li a.wikilink1.cur,
 .plugin_translation ul li a.wikilink2.cur {
     background-color: #000 !important;
     pointer-events: none;
+}
+*/
+
+.plugin_translation .cur {
+    display: none;
 }
 
 /* RESPONSIVENESS
