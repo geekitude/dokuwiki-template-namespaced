@@ -14,7 +14,7 @@ if (!defined('DOKU_INC')) die();
         <?php tpl_includeFile('footertop.html') ?>
 
         <?php if(@count($namespaced['widgets']['footer']) > 0): ?>
-            <div id="namespaced__footer_widgets" class="flex nowrap justify-evenly align-start">
+            <div id="namespaced__footer_widgets" class="flex nowrap justify-evenly align-start gap20">
                 <?php namespaced_widgets('footer') ?>
             </div>
         <?php endif ?>
