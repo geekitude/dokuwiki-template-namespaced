@@ -967,6 +967,14 @@ body.sidepanel-flip #namespaced__aside {
     padding: 1rem;
 }
 
+div.pageId span:hover {
+  color: #000;
+}
+
+[dir] div.pageId span {
+  cursor: default;
+}
+
 /* -- Pagetools -- */
 
 #namespaced__contools .tools,
@@ -1178,6 +1186,22 @@ body.pagetools-flip #namespaced__pagetools ul li a {
 
 div.docInfo {
     order: 3;
+}
+
+[dir] div.docInfo span {
+  cursor: help;
+}
+
+div.docInfo span svg {
+    fill: @ini_text_neu;
+}
+
+div.docInfo span:hover {
+    color: #000;
+}
+
+div.docInfo span:hover svg {
+    fill: #000;
 }
 
 /* -- Screen Mode -- */
@@ -1590,6 +1614,10 @@ pre {
 
 [dir] .plugin_translation ul li a.wikilink2 {
     background-color: @ini_missing !important;
+}
+
+[dir] .plugin_translation ul li a:hover {
+    box-shadow: 0 0 40px 40px @ini_text_neu inset;
 }
 
 .plugin_translation form select option.wikilink1 {
