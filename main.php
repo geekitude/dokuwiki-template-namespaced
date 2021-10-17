@@ -109,7 +109,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                         ?>
 
                         <nav class="flex">
-                            <aside id="namespaced__page_nav" class="flex between">
+                            <aside id="namespaced__page_nav" class="flex between gap20">
                                 <div class="flex column align-start">
                                     <div class="pageId h6">
                                         <span><?php echo hsc($ID) ?></span>
