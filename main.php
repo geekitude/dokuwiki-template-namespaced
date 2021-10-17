@@ -116,9 +116,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                                     </div>
                                     <?php
                                         if (tpl_getConf('docinfopos') == "pagenav") {
-                                            print '<div class="docInfo">';
                                             namespaced_docinfo();
-                                            print '</div>';
                                         }
                                     ?>
                                 </div>
@@ -157,9 +155,9 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
 
                         <?php
                             if (tpl_getConf('docinfopos') == "standalone") {
-                                print '<aside id="namespaced__docinfo"><div class="docInfo">';
+                                print '<aside id="namespaced__docinfo">';
                                     namespaced_docinfo();
-                                print '</div><aside>';
+                                print '<aside>';
                             }
                         ?>
 
