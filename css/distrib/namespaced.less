@@ -1803,11 +1803,16 @@ pre {
         max-width: 7rem;
         max-height: 7rem;
     }
-    #namespaced__sitetools ul li a span {
+    #namespaced__sitetools ul li a span,
+    div.docInfo span.content {
         display: none;
     }
-    #namespaced__sitetools ul li a:hover span {
+    #namespaced__sitetools ul li a:hover span,
+    div.docInfo span:hover span.content {
         display: inline !important;
+    }
+    #namespaced__docinfo {
+        width: 90%;
     }
 }
 
