@@ -21,8 +21,8 @@
 * -- Navbar
 * MAIN
 * -- Page nav
-* -- Pagetools
 * -- docInfo
+* -- Pagetools & Contools
 * -- Screen Mode
 * FOOTER
 * WIDGETS
@@ -899,21 +899,31 @@ article {
 #namespaced__aside aside,
 #namespaced__page_nav,
 #dw__toc,
-#namespaced__footer_widgets aside {
+#namespaced__footer_widgets aside,
+#namespaced__docinfo {
     color: @ini_text_neu;
 }
 
-[dir] #namespaced__aside aside, [dir] #namespaced__page_nav, [dir] #dw__toc, [dir] #namespaced__footer_widgets aside {
+[dir] #namespaced__aside aside, [dir] #namespaced__page_nav, [dir] #dw__toc, [dir] #namespaced__footer_widgets aside, [dir] #namespaced__docinfo {
     background-color: @ini_background_neu;
     padding: .8rem;
 }
 
-[dir] #namespaced__aside aside, [dir] #dw__toc, [dir] #namespaced__footer_widgets aside {
+[dir] #namespaced__aside aside, [dir] #dw__toc {
     margin-bottom: 1.5rem;
 }
 
 [dir] #namespaced__page_nav {
     margin-bottom: 1rem;
+}
+
+#namespaced__docinfo {
+    width: 70%;
+}
+
+[dir] #namespaced__docinfo {
+    margin: 1.5rem auto 0 auto;
+    padding: .8rem 1.5rem;
 }
 
 /*
@@ -975,7 +985,29 @@ div.pageId span:hover {
   cursor: default;
 }
 
-/* -- Pagetools -- */
+/* -- docInfo -- */
+
+div.docInfo {
+    order: 3;
+}
+
+[dir] div.docInfo span {
+  cursor: help;
+}
+
+div.docInfo span svg {
+    fill: @ini_text_neu;
+}
+
+div.docInfo span:hover {
+    color: #000;
+}
+
+div.docInfo span:hover svg {
+    fill: #000;
+}
+
+/* -- Pagetools & Contools -- */
 
 #namespaced__contools .tools,
 #namespaced__pagetools .tools {
@@ -1182,28 +1214,6 @@ body.pagetools-flip #namespaced__pagetools ul li a {
     flex-direction: row-reverse;
 }
 
-/* -- docInfo -- */
-
-div.docInfo {
-    order: 3;
-}
-
-[dir] div.docInfo span {
-  cursor: help;
-}
-
-div.docInfo span svg {
-    fill: @ini_text_neu;
-}
-
-div.docInfo span:hover {
-    color: #000;
-}
-
-div.docInfo span:hover svg {
-    fill: #000;
-}
-
 /* -- Screen Mode -- */
 
 #screen__mode {
@@ -1225,6 +1235,10 @@ body.mediaq #screen__mode {
 
 /* FOOTER
 ----------------------------------------------- */
+
+[dir] #namespaced__footer_widgets, [dir] #namespaced__footer_sole {
+    margin-top: 1.5rem;
+}
 
 /*
 #namespaced__footer_widgets aside.widget {
@@ -1357,9 +1371,11 @@ body.mediaq #screen__mode {
     text-align: end;
 }
 
-[dir] aside.widget {
+/*
+aside.widget {
     margin-bottom: 1.5rem;
 }
+*/
 
 .pad {
     /* Main uses it's own gutters instead */

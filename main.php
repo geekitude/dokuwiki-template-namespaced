@@ -157,9 +157,9 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
 
                         <?php
                             if (tpl_getConf('docinfopos') == "standalone") {
-                                print '<div class="docInfo">';
-                                tpl_pageinfo();
-                                print '</div>';
+                                print '<aside id="namespaced__docinfo"><div class="docInfo">';
+                                    namespaced_docinfo();
+                                print '</div><aside>';
                             }
                         ?>
 
