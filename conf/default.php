@@ -11,6 +11,9 @@
 
 $conf['layout']             = 'box2wide';
 $conf['flexflip']           = '';
+$conf['datelocale']         = 'fra';
+$conf['longdatestring']     = '%A %d %B %Y';
+$conf['shortdatestring']    = '%d/%m/%Y';
 
 $conf['glyphs']             = 1;
 $conf['combonav']           = 1;

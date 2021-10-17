@@ -114,14 +114,21 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                                     <div class="pageId h6">
                                         <span><?php echo hsc($ID) ?></span>
                                     </div>
+                                    <?php
+                                        if (tpl_getConf('docinfopos') == "pagenav") {
+                                            print '<div class="docInfo">';
+                                            namespaced_docinfo();
+                                            print '</div>';
+                                        }
+                                    ?>
+                                </div>
+                                <div class="flex column align-end">
                                     <!-- TRANSLATIONS -->
                                     <?php if($namespaced['translation']['helper']): ?>
                                         <nav id="namespaced__translations">
                                             <?php echo $namespaced['translation']['helper']->showTranslations() ?>
                                         </nav>
                                     <?php endif ?>
-                                </div>
-                                <div class="flex column align-end">
                                     <!-- BREADCRUMBS -->
                                     <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
                                         <nav class="breadcrumbs flex column end align-stretch">
@@ -133,13 +140,6 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                                             <?php endif ?>
                                         </nav>
                                     <?php endif ?>
-                                    <?php
-                                        if (tpl_getConf('docinfopos') == "pagenav") {
-                                            print '<div class="docInfo">';
-                                            tpl_pageinfo();
-                                            print '</div>';
-                                        }
-                                    ?>
                                 </div>
                             </aside>
                         </nav>

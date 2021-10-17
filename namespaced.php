@@ -56,9 +56,14 @@ function namespaced_init() {
     $namespaced['glyphs']['back-to-article'] = null;
     $namespaced['glyphs']['bottom'] = null;
     $namespaced['glyphs']['config'] = null;
+    $namespaced['glyphs']['editor'] = null;
     $namespaced['glyphs']['extension'] = null;
+    $namespaced['glyphs']['extedit'] = null;
     $namespaced['glyphs']['home'] = null;
+    $namespaced['glyphs']['lastmod'] = null;
+    $namespaced['glyphs']['locked'] = null;
     $namespaced['glyphs']['nshome'] = null;
+    $namespaced['glyphs']['pagepath'] = null;
     $namespaced['glyphs']['pagerefresh'] = null;
     $namespaced['glyphs']['parentns'] = null;
     $namespaced['glyphs']['playground'] = null;
@@ -457,6 +462,44 @@ function namespaced_bodyclasses() {
 
     return rtrim(join(' ', array_filter($classes)));
 }/* /namespaced_bodyclasses */
+
+/**
+ * RETURN A DATE
+ * 
+ * @param string    $type "long" for long date based on 'dateString' setting, "short" for numeric
+ * @param integer   $timestamp timestamp to use (null for current server time)
+ * @param bool      $clock if true, add hour to the result
+ * @param bool      $print if true, print the result instead of returning it
+ */
+function namespaced_date($type = "long", $timestamp = null, $clock = false, $return = false) {
+    global $conf;
+    $datelocale = tpl_getConf('datelocale');
+    if ($datelocale != null) {
+        if (strpos($datelocale, ',') !== false) {
+            $datelocale = explode(",", $datelocale)[1];
+        }
+        setlocale(LC_TIME, $datelocale);
+    }
+    if ($type == "short") {
+        $format = tpl_getConf('shortdatestring');
+    } else {
+        $format = tpl_getConf('longdatestring');
+    }
+    if ($clock) {
+        $format .= ' %H:%M';
+    }
+    if ($timestamp == null) {
+        $result = utf8_encode(ucwords(strftime($format)));
+    } else {
+        $result = utf8_encode(ucwords(strftime($format, $timestamp)));
+    }
+    if ($return) {
+        return $result;
+    } else {
+        print $result;
+        return 1;
+    }
+}/* /namespaced_date */
 
 /**
  * Print custom search form butoon
@@ -986,3 +1029,83 @@ function namespaced_nsindex($useexclusions = false) {
         }
     }
 }/* /namespaced_nsindex */
+
+/**
+ * Adapted from page_findnearest() core function
+ *
+ * Print some info about the current page
+ *
+ * @author Andreas Gohr <andi@splitbrain.org>
+ *
+ * @param bool $ret return content instead of printing it
+ * @return bool|string
+ */
+function namespaced_docinfo($ret = false) {
+    global $conf;
+    global $lang;
+    global $INFO;
+    global $ID;
+    global $namespaced;
+
+    // return if we are not allowed to view the page
+    if(!auth_quickaclcheck($ID)) {
+        return false;
+    }
+
+    // prepare date and path
+    $fn = $INFO['filepath'];
+    if(!$conf['fullpath']) {
+        if($INFO['rev']) {
+            $fn = str_replace($conf['olddir'].'/', '', $fn);
+        } else {
+            $fn = str_replace($conf['datadir'].'/', '', $fn);
+        }
+    }
+    $fn   = utf8_decodeFN($fn);
+//    $date = dformat($INFO['lastmod']);
+    $date = namespaced_date("short", $INFO['lastmod'], true, true);
+    // print it
+    if($INFO['exists']) {
+        $out = '';
+//print "<img class='qrcode' src='".$namespaced['qrcode']['id']."' alt='*this page*' />";
+        if($INFO['editor']) {
+            $out .= '<span title="'.tpl_getLang('lasteditor').'" class="flex gap3 editor">'.namespaced_glyph('editor', true);
+            if ((isset($namespaced['qrcode']['editor'])) and ($namespaced['qrcode']['editor'] != null)) {
+                $out .= "<img class='qrcode editor' src='".$namespaced['qrcode']['editor']."' alt='*qrcode*' title='".tpl_getLang('lasteditor')."' />";
+            }
+            $out .= '<bdi>'.ucfirst(editorinfo($INFO['editor'])).'</bdi>';
+        } else {
+            $out .= '<span class="flex gap3 editor svgonly" title="'.ucfirst($lang['external_edit']).'">'.namespaced_glyph('extedit', true);
+            //$out .= '['.$lang['external_edit'].']';
+        }
+        $out .= '</span>';
+        $out .= '<span title="'.explode(':',$lang['lastmod'])[0].'" class="flex gap3 lastmod">'.namespaced_glyph('lastmod', true).$date.'</span>';
+        if($INFO['locked']) {
+            $out .= '<span title="'.$lang['lockedby'].'" class="flex gap3 locked">'.namespaced_glyph('locked', true);
+            if ((isset($namespaced['qrcode']['locked'])) and ($namespaced['qrcode']['locked'] != null)) {
+                $out .= "<img class='qrcode locked' src='".$namespaced['qrcode']['locked']."' alt='*qrcode*' title='".$lang['lockedby']."' />";
+            }
+            $out .= '<bdi>'.ucfirst(editorinfo($INFO['locked'])).'</bdi>';
+            $out .= '</span>';
+        }
+        $out .= '<span title="'.tpl_getLang('pagepath').'" class="flex gap3 path">'.namespaced_glyph('pagepath', true);
+        $out .= '<bdi>'.$fn.'</bdi></span>';
+        if($ret) {
+            return $out;
+        } else {
+//            $classes = "docInfo flex evenly wrap smallest";
+//            if (strpos(tpl_getConf('neutralize'), 'docinfo') !== false) {
+//                $classes .= " neu";
+//            }
+//            if (!(strpos(tpl_getConf('print'), 'docinfo') !== false)) {
+//                $classes .= " noprint";
+//            }
+//            echo '<div class="'.$classes.'">';
+            echo '<div class="docInfo flex gap10 evenly">';
+            echo $out;
+            echo '</div>';
+            return true;
+        }
+    }
+    return false;
+}/* /namespaced_docinfo */

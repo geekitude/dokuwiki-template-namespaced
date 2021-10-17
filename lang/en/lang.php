@@ -41,3 +41,5 @@ $lang['purgepagecache']         = 'Remove current page from cache';
 $lang['purgejscache']           = 'Purge JavaScript cache';
 $lang['purgecsscache']          = 'Purge CSS cache';
 $lang['license']                = 'License';
+$lang['lasteditor']             = 'Last editor';
+$lang['pagepath']               = 'File path';

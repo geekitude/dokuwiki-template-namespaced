@@ -12,6 +12,9 @@
 /* global look */
 $meta['layout']             = array('multichoice','_choices' => array('box','wide','box2wide','mix'));
 $meta['flexflip']           = array('multicheckbox','_choices' => array('banner','pagenav','sidepanel','pagetools','socket'),'_other' => 'never');
+$meta['datelocale']         = array('string');
+$meta['longdatestring']     = array('string');
+$meta['shortdatestring']    = array('string');
 /* functionnalities */
 $meta['glyphs']             = array('onoff');
 $meta['combonav']           = array('onoff');
