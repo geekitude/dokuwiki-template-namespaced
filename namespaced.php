@@ -1073,23 +1073,23 @@ function namespaced_docinfo($ret = false) {
             if ((isset($namespaced['qrcode']['editor'])) and ($namespaced['qrcode']['editor'] != null)) {
                 $out .= "<img class='qrcode editor' src='".$namespaced['qrcode']['editor']."' alt='*qrcode*' title='".tpl_getLang('lasteditor')."' />";
             }
-            $out .= '<bdi>'.ucfirst(editorinfo($INFO['editor'])).'</bdi>';
+            $out .= '<span class="content"><bdi>'.ucfirst(editorinfo($INFO['editor'])).'</bdi></span>';
         } else {
             $out .= '<span class="flex gap3 editor svgonly" title="'.ucfirst($lang['external_edit']).'">'.namespaced_glyph('extedit', true);
             //$out .= '['.$lang['external_edit'].']';
         }
         $out .= '</span>';
-        $out .= '<span title="'.explode(':',$lang['lastmod'])[0].'" class="flex gap3 lastmod">'.namespaced_glyph('lastmod', true).$date.'</span>';
+        $out .= '<span title="'.explode(':',$lang['lastmod'])[0].'" class="flex gap3 lastmod">'.namespaced_glyph('lastmod', true).'<span class="content">'.$date.'</span></span>';
         if($INFO['locked']) {
             $out .= '<span title="'.$lang['lockedby'].'" class="flex gap3 locked">'.namespaced_glyph('locked', true);
             if ((isset($namespaced['qrcode']['locked'])) and ($namespaced['qrcode']['locked'] != null)) {
                 $out .= "<img class='qrcode locked' src='".$namespaced['qrcode']['locked']."' alt='*qrcode*' title='".$lang['lockedby']."' />";
             }
-            $out .= '<bdi>'.ucfirst(editorinfo($INFO['locked'])).'</bdi>';
+            $out .= '<span class="content"><bdi>'.ucfirst(editorinfo($INFO['locked'])).'</bdi></span>';
             $out .= '</span>';
         }
         $out .= '<span title="'.tpl_getLang('pagepath').'" class="flex gap3 path">'.namespaced_glyph('pagepath', true);
-        $out .= '<bdi>'.$fn.'</bdi></span>';
+        $out .= '<span class="content"><bdi>'.$fn.'</bdi></span></span>';
         if($ret) {
             return $out;
         } else {
