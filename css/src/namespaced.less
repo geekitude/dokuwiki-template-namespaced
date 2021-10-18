@@ -374,10 +374,11 @@ div.secedit.editbutton_section button {
 }
 
 .dokuwiki div.section_highlight {
-    margin: 0 -1.3rem; /* negative side margin = side padding + side border */
-    padding: 0 .5rem;
+    margin: 0 -1rem; /* negative side margin = side padding + side border */
+    padding: 0 .2rem;
     border-width: 0 .8rem;
     border-style: solid;
+    border-color: @ini_highlight;
 }
 
 /* SKIP
@@ -721,6 +722,8 @@ article {
 */
 #namespaced__content .page {
     margin-top: 1rem;
+    padding: 0 @ico-margin;
+    /*overflow: hidden;*/
 }
 
 #namespaced__docinfo {
@@ -824,7 +827,9 @@ div.docInfo span:hover svg {
 #namespaced__pagetools .tools {
     position: sticky;
     top: 2rem;
-    width: (@ico-width + @ico-margin + @ico-margin);
+    /*width: (@ico-width + @ico-margin + @ico-margin);*/
+    width: (@ico-width + @ico-margin);
+    /* Inner margin is simulated by page left and right padding */
     /*min-height: (7 * (@ico-width + @ico-margin + @ico-margin));*/ /* 30 (= height of icons) + 10 (<a> padding) x 7 (= maximum number of possible tools of 6 + a11y title) */
     height: auto;
 }
@@ -908,9 +913,17 @@ div.docInfo span:hover svg {
 #namespaced__pagetools ul li a svg {
     width: @ico-width;
     height: @ico-width;
-    margin: 0 @ico-margin;
     display: inline-block;
     vertical-align: middle;
+}
+
+#namespaced__contools ul li a svg,
+#namespaced__contools ul li button svg {
+    margin: 0 0 0 @ico-margin;
+}
+
+#namespaced__pagetools ul li a svg {
+    margin: 0 @ico-margin 0 0;
 }
 
 #namespaced__contools ul li button {
