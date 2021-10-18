@@ -970,7 +970,7 @@ body.sidepanel-flip #namespaced__aside {
 }
 
 div.pageId span:hover {
-  color: #000;
+  color: @ini_text;
 }
 
 [dir] div.pageId span {
@@ -1008,11 +1008,11 @@ div.docInfo span svg {
 }
 
 div.docInfo span:hover {
-    color: #000;
+    color: @ini_text;
 }
 
 div.docInfo span:hover svg {
-    fill: #000;
+    fill: @ini_text;
 }
 
 #namespaced__site.mode_denied div.docInfo,
@@ -1667,14 +1667,6 @@ pre {
 .plugin_translation form select option.wikilink2 {
     color: @ini_missing !important;
 }
-
-/*
-.plugin_translation ul li a.wikilink1.cur,
-.plugin_translation ul li a.wikilink2.cur {
-    background-color: #000 !important;
-    pointer-events: none;
-}
-*/
 
 .plugin_translation .cur {
     display: none;
