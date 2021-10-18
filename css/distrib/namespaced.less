@@ -985,6 +985,22 @@ div.pageId span:hover {
   cursor: default;
 }
 
+#namespaced__site.mode_admin #namespaced__page_nav,
+#namespaced__site.mode_profile #namespaced__page_nav,
+#namespaced__site.mode_recent #namespaced__page_nav,
+#namespaced__site.mode_resendpwd #namespaced__page_nav,
+#namespaced__site.mode_search #namespaced__page_nav {
+    display: none !important;
+}
+
+#namespaced__site.mode_conflict nav.breadcrumbs,
+#namespaced__site.mode_draft nav.breadcrumbs,
+#namespaced__site.mode_edit nav.breadcrumbs,
+#namespaced__site.mode_preview nav.breadcrumbs,
+#namespaced__site.mode_recover nav.breadcrumbs {
+    display: none !important;
+}
+
 /* -- docInfo -- */
 
 div.docInfo {
@@ -1005,6 +1021,16 @@ div.docInfo span:hover {
 
 div.docInfo span:hover svg {
     fill: #000;
+}
+
+#namespaced__site.mode_denied div.docInfo,
+#namespaced__site.mode_admin #namespaced__docinfo,
+#namespaced__site.mode_denied #namespaced__docinfo,
+#namespaced__site.mode_profile #namespaced__docinfo,
+#namespaced__site.mode_recent #namespaced__docinfo,
+#namespaced__site.mode_resendpwd #namespaced__docinfo,
+#namespaced__site.mode_search #namespaced__docinfo {
+    display: none;
 }
 
 /* -- Pagetools & Contools -- */
@@ -1354,6 +1380,10 @@ body.mediaq #screen__mode {
 [dir] #namespaced__search_button {
     background-color: transparent;
     border: none;
+}
+
+#namespaced__site.mode_profile #namespaced__widget_user {
+    display: none;
 }
 
 /* GENERIC CLASSES

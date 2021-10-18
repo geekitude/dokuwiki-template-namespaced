@@ -829,15 +829,15 @@ function namespaced_contools() {
         print '<li class="resetsettings"><button class="flex" type="reset" form="dw__configform" value="reset" title="'.$lang['btn_reset'].'">'.namespaced_glyph('reset', true).'<span>'.$lang['btn_reset'].'</span></button></li>';
     }
     // Save page modification
-    if ($_GET['do'] == "edit") {
+    if (($_GET['do'] == "edit") or ($_GET['do'] == "draft")) {
         print '<li class="savepage"><button class="flex" name="do[save]" type="submit" form="dw__editform" title="'.$lang['btn_save'].' [s]">'.namespaced_glyph('save', true).'<span>'.$lang['btn_save'].'</span></button></li>';
     }
     // Preview page modification
-    if ($_GET['do'] == "edit") {
+    if (($_GET['do'] == "edit") or ($_GET['do'] == "draft")) {
         print '<li class="previewpage"><button class="flex" name="do[preview]" type="submit" form="dw__editform" title="'.$lang['btn_preview'].' [p]">'.namespaced_glyph('preview', true).'<span>'.$lang['btn_preview'].'</span></button></li>';
     }
     // Cancel page modification
-    if ($_GET['do'] == "edit") {
+    if (($_GET['do'] == "edit") or ($_GET['do'] == "draft")) {
         print '<li class="cancelpage"><button class="flex" name="do[cancel]" type="submit" form="dw__editform" title="'.$lang['btn_cancel'].'">'.namespaced_glyph('reset', true).'<span>'.$lang['btn_cancel'].'</span></button></li>';
     }
     // Syntax
