@@ -15,6 +15,7 @@
 * -- Navbar
 * MAIN
 * -- Page nav
+* -- Pagetools & Contools
 * PLUGINS
 * -- Cloud
 */
@@ -53,6 +54,10 @@ h5 {
     background-color: @ini_theme_color;
 }
 
+#namespaced__site_nav_labels h6 {
+    color: @ini_theme_text_color;
+}
+
 /* HEADER
 ----------------------------------------------- */
 
@@ -71,8 +76,26 @@ nav ul li a:hover,
 }
 */
 
+.navbar ul li a,
+.navbar ul li button {
+    color: @ini_theme_text_color;
+}
+
+#namespaced__site_nav.navbar ul li a svg,
+#namespaced__site_nav.navbar ul li button svg {
+    fill: @ini_theme_text_color;
+}
+
 [dir] nav ul li a:hover, [dir] #namespaced__contools ul li button:hover {
     box-shadow: 0 0 40px 40px @ini_theme_color inset;
+}
+
+.navbar ul.sub-menu li:hover a:not(.active) {
+    color: @ini_theme_text_color;
+}
+
+.navbar ul.sub-menu li:hover a svg {
+    fill: @ini_theme_text_color;
 }
 
 /* MAIN
@@ -82,6 +105,20 @@ nav ul li a:hover,
 
 #namespaced__page_nav {
     /*background-color: @ini_theme_color;*/
+}
+
+/* -- Pagetools & Contools -- */
+
+#namespaced__contools ul li:hover a,
+#namespaced__contools ul li:hover button,
+#namespaced__pagetools ul li:hover a {
+    color: @ini_theme_text_color;
+}
+
+#namespaced__contools ul li:hover a svg,
+#namespaced__contools ul li:hover button svg,
+#namespaced__pagetools ul li:hover a svg {
+    fill: @ini_theme_text_color;
 }
 
 /* PLUGINS
