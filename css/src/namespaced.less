@@ -904,11 +904,11 @@ div.docInfo span:hover svg {
 
 #namespaced__contools ul li a svg,
 #namespaced__contools ul li button svg {
-    margin: 0 0 0 @ico-margin;
+    margin: 0 0 0 calc(@ico-margin/2);
 }
 
 #namespaced__pagetools ul li a svg {
-    margin: 0 @ico-margin 0 0;
+    margin: 0 calc(@ico-margin/2) 0 0;
 }
 
 #namespaced__contools ul li button {
@@ -1026,6 +1026,14 @@ body.mediaq #screen__mode {
 #namespaced__footer_widgets aside:last-child {
     margin-right: 0;
     margin-left: 1rem;
+}
+
+#namespaced__footer_sole h6 {
+    font-size: 0;
+    padding: 0;
+}
+
+#namespaced__footer_sole h6 a {
 }
 
 /* WIDGETS

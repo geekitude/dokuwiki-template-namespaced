@@ -1134,19 +1134,19 @@ div.docInfo span:hover svg {
 }
 
 [dir=ltr] #namespaced__contools ul li a svg, [dir=ltr] #namespaced__contools ul li button svg {
-    margin: 0 0 0 @ico-margin;
+    margin: 0 0 0 calc(@ico-margin/2);
 }
 
 [dir=rtl] #namespaced__contools ul li a svg, [dir=rtl] #namespaced__contools ul li button svg {
-    margin: 0 @ico-margin 0 0;
+    margin: 0 calc(@ico-margin/2) 0 0;
 }
 
 [dir=ltr] #namespaced__pagetools ul li a svg {
-    margin: 0 @ico-margin 0 0;
+    margin: 0 calc(@ico-margin/2) 0 0;
 }
 
 [dir=rtl] #namespaced__pagetools ul li a svg {
-    margin: 0 0 0 @ico-margin;
+    margin: 0 0 0 calc(@ico-margin/2);
 }
 
 #namespaced__contools ul li button {
@@ -1294,6 +1294,14 @@ body.mediaq #screen__mode {
 [dir=rtl] #namespaced__footer_widgets aside:last-child {
     margin-left: 0;
     margin-right: 1rem;
+}
+
+#namespaced__footer_sole h6 {
+    font-size: 0;
+}
+
+[dir] #namespaced__footer_sole h6 {
+    padding: 0;
 }
 
 /* WIDGETS
