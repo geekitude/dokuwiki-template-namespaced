@@ -20,11 +20,6 @@ if (!defined('DOKU_INC')) die();
         <?php endif ?>
 
         <div  id="namespaced__footer_sole" class="flex justify-center">
-            <div class="center">
-                <h6><a href="http://www.dokuwiki.org/template:namespaced"  title="Namespaced documentation"<?php print $external ?>><img src="/lib/tpl/namespaced/images/namespaced_logo_85.png" width="85" height="16" alt="" /></a></h6>
-                <p><?php print tpl_getLang('namespaced') ?></p>
-                <p><a href="http://www.dokuwiki.org/template:namespaced"  title="Namespaced documentation"<?php print $external ?>>Documentation</a> - <a href="https://github.com/geekitude/dokuwiki-template-namespaced/issues"  title="Namespaced issues"<?php print $external ?>>Github issues</a></p>
-            </div>
             <div class="buttons">
                 <ul class="nostyle inline">
                     <li>
@@ -46,6 +41,11 @@ if (!defined('DOKU_INC')) die();
                         <a href="//jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS"<?php print $external ?>><img src="<?php echo tpl_basedir() ?>images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
                     </li>
                 </ul>
+            </div>
+            <div class="center">
+                <h6><a href="http://www.dokuwiki.org/template:namespaced"  title="Namespaced documentation"<?php print $external ?>><img src="/lib/tpl/namespaced/images/namespaced_logo_85.png" width="85" height="16" alt="" /></a></h6>
+                <p><?php print tpl_getLang('namespaced') ?></p>
+                <p><a href="http://www.dokuwiki.org/template:namespaced"  title="Namespaced documentation"<?php print $external ?>>Documentation</a> - <a href="https://github.com/geekitude/dokuwiki-template-namespaced/issues"  title="Namespaced issues"<?php print $external ?>>Github issues</a></p>
             </div>
         </div>
 
