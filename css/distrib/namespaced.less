@@ -1600,6 +1600,50 @@ table {
     border: 1px solid @ini_border;
 }
 
+[dir] body.colored-tables th, [dir] body.striped-tables th {
+    background-color: @ini_theme_color;
+}
+
+[dir] body.striped-tables tr:nth-child(even) {
+    background-color: @ini_background_alt;
+}
+
+body.dynamic-tables #namespaced__site:not(.mode_admin) table {
+  overflow: hidden;
+}
+
+[dir] body.dynamic-tables #namespaced__site:not(.mode_admin) tr:hover {
+  background-color: @ini_highlight;
+}
+
+body.dynamic-tables #namespaced__site:not(.mode_admin) td,
+body.dynamic-tables #namespaced__site:not(.mode_admin) th {
+  position: relative;
+}
+
+body.dynamic-tables #namespaced__site:not(.mode_admin) td:hover::after,
+body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
+  content: "";
+  position: absolute;
+  top: -5000px;
+  height: 10000px;
+  width: 100%;
+  z-index: -1;
+}
+
+[dir] body.dynamic-tables #namespaced__site:not(.mode_admin) td:hover::after, [dir] body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
+  background-color: @ini_highlight;
+}
+
+[dir=ltr] body.dynamic-tables #namespaced__site:not(.mode_admin) td:hover::after, [dir=ltr] body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
+    left: 0;
+}
+
+[dir=rtl] body.dynamic-tables #namespaced__site:not(.mode_admin) td:hover::after, [dir=rtl] body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
+  right: 0;
+}
+
+
 /* DOKUWIKI MODES
 ----------------------------------------------- */
 
@@ -1631,7 +1675,7 @@ table {
 }
 
 [dir] .dokuwiki #config__manager fieldset table tr:nth-child(odd) {
-    background-color: @ini_border;
+    background-color: @ini_background_neu;
 }
 
 [dir] .dokuwiki #config__manager fieldset td {

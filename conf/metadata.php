@@ -15,6 +15,7 @@ $meta['flexflip']           = array('multicheckbox','_choices' => array('banner'
 $meta['datelocale']         = array('string');
 $meta['longdatestring']     = array('string');
 $meta['shortdatestring']    = array('string');
+$meta['tablestyle']         = array('multichoice','_choices' => array('colored','striped','dynamic'));
 /* functionnalities */
 $meta['glyphs']             = array('onoff');
 $meta['combonav']           = array('onoff');

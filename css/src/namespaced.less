@@ -1268,6 +1268,41 @@ td {
     border: 1px solid @ini_border;
 }
 
+body.colored-tables th, 
+body.striped-tables th {
+    background-color: @ini_theme_color;
+}
+
+body.striped-tables tr:nth-child(even) {
+    background-color: @ini_background_alt;
+}
+
+body.dynamic-tables #namespaced__site:not(.mode_admin) table {
+  overflow: hidden;
+}
+
+body.dynamic-tables #namespaced__site:not(.mode_admin) tr:hover {
+  background-color: @ini_highlight;
+}
+
+body.dynamic-tables #namespaced__site:not(.mode_admin) td,
+body.dynamic-tables #namespaced__site:not(.mode_admin) th {
+  position: relative;
+}
+
+body.dynamic-tables #namespaced__site:not(.mode_admin) td:hover::after,
+body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
+  content: "";
+  position: absolute;
+  background-color: @ini_highlight;
+  left: 0;
+  top: -5000px;
+  height: 10000px;
+  width: 100%;
+  z-index: -1;
+}
+
+
 /* DOKUWIKI MODES
 ----------------------------------------------- */
 
@@ -1299,7 +1334,7 @@ td {
 }
 
 .dokuwiki #config__manager fieldset table tr:nth-child(odd) {
-    background-color: @ini_border;
+    background-color: @ini_background_neu;
 }
 
 .dokuwiki #config__manager fieldset td {
