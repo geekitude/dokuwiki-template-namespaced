@@ -32,6 +32,7 @@
 * -- Admin page
 * -- Settings
 * PLUGINS
+* -- Blockquote
 * -- Cloud
 * -- Sitemapnavi
 * -- Tagalerts
@@ -1744,6 +1745,17 @@ body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
 
 /* PLUGINS
 ----------------------------------------------- */
+
+/* -- Blockquote  -- */
+
+[dir] blockquote.blockquote-plugin {
+    margin: 0 0 1rem 0;
+    border: 1px solid @ini_border;
+}
+
+[dir] blockquote.blockquote-plugin p:last-child {
+    margin: 0;
+}
 
 /* -- Cloud  -- */
 
