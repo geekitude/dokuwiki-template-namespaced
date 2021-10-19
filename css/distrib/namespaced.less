@@ -879,6 +879,10 @@ article {
     margin-right: 1.5rem;
 }
 
+[dir] #dw__toc ul {
+    margin-bottom: 0 !important;
+}
+
 #namespaced__aside aside,
 #namespaced__page_nav,
 #dw__toc,
@@ -1260,6 +1264,10 @@ body.mediaq #screen__mode {
     margin-top: 1.5rem;
 }
 
+[dir] #namespaced__footer_sole div {
+    margin-bottom: 1rem;
+}
+
 /*
 #namespaced__footer_widgets aside.widget {
     max-width: 25%;
@@ -1519,6 +1527,77 @@ nav.tools ul {
 pre {
     /* Required for Dokuwiki to prevent article to overflow horizontally */
     white-space: break-spaces;
+}
+
+[dir] .page ol, [dir] .page p, [dir] .page pre, [dir] .page table, [dir] .page ul {
+    margin-bottom: 1rem;
+}
+
+[dir] .page hr {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.page img.icon {
+    vertical-align: -.2rem;
+}
+
+[dir=ltr] sup {
+    margin-left: -3px;
+    margin-right: 2px;
+}
+
+[dir=rtl] sup {
+    margin-right: -3px;
+    margin-left: 2px;
+}
+
+.fn sup,
+.fn div.content {
+    display: inline;
+}
+
+blockquote {
+    font-style: italic;
+    font-weight: normal;
+}
+
+[dir] blockquote {
+    border-style: solid;
+    margin: 0 0 1.5rem 0;
+    padding: .75rem;
+}
+
+[dir=ltr] blockquote {
+    border-width: 1px 1px 1px 3px;
+}
+
+[dir=rtl] blockquote {
+    border-width: 1px 3px 1px 1px;
+}
+
+[dir] blockquote blockquote {
+    margin-bottom: 0;
+}
+
+[dir=ltr] blockquote blockquote {
+    border-width: 0 0 0 3px;
+}
+
+[dir=rtl] blockquote blockquote {
+    border-width: 0 3px 0 0;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+[dir] th, [dir] td {
+    padding: .3rem;
+}
+
+[dir] table, [dir] th, [dir] td {
+    border: 1px solid @ini_border;
 }
 
 /* DOKUWIKI MODES

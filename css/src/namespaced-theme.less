@@ -16,6 +16,7 @@
 * MAIN
 * -- Page nav
 * -- Pagetools & Contools
+* DOKUWIKI GLOBAL
 * PLUGINS
 * -- Cloud
 */
@@ -120,6 +121,24 @@ nav ul li a:hover,
 #namespaced__contools ul li:hover button svg,
 #namespaced__pagetools ul li:hover a svg {
     fill: @ini_theme_text_color;
+}
+
+/* DOKUWIKI GLOBAL
+----------------------------------------------- */
+
+blockquote {
+    border-color: @ini_border @ini_border @ini_border @ini_theme_color;
+}
+
+blockquote,
+pre {
+    color: @ini_text_alt;
+    background-color: @ini_background_alt;
+}
+
+pre,
+table {
+    border-color: @ini_border;
 }
 
 /* PLUGINS
