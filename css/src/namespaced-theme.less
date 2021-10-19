@@ -17,7 +17,10 @@
 * -- Page nav
 * -- Pagetools & Contools
 * DOKUWIKI GLOBAL
+* DOKUWIKI GLOBAL
+* -- Settings
 * PLUGINS
+* -- Blockquote
 * -- Cloud
 */
 
@@ -137,12 +140,33 @@ pre {
 }
 
 pre,
-table {
-    border-color: @ini_border;
+table,
+th,
+td {
+    border: 1px solid @ini_border;
+}
+
+body.striped-tables tr:nth-child(even) {
+    background-color: @ini_background_alt;
+}
+
+/* DOKUWIKI MODES
+----------------------------------------------- */
+
+/* -- Settings  -- */
+
+.dokuwiki #config__manager fieldset {
+    border: 1px solid @ini_border;
 }
 
 /* PLUGINS
 ----------------------------------------------- */
+
+/* -- Blockquote  -- */
+
+blockquote.blockquote-plugin {
+    border: 1px solid @ini_border;
+}
 
 /* -- Cloud  -- */
 
