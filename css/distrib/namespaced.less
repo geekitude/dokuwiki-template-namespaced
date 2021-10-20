@@ -1562,14 +1562,15 @@ blockquote {
     border-style: solid;
     margin: 0 0 1.5rem 0;
     padding: .75rem;
+    border-style: solid;
 }
 
 [dir=ltr] blockquote {
-    border-width: 1px 1px 1px 3px;
+    border-width: 1px 1px 1px 4px;
 }
 
 [dir=rtl] blockquote {
-    border-width: 1px 3px 1px 1px;
+    border-width: 1px 4px 1px 1px;
 }
 
 [dir] blockquote blockquote {
@@ -1736,10 +1737,26 @@ body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
 
 [dir] blockquote.blockquote-plugin {
     margin: 0 0 1rem 0;
+    border-style: solid;
+    background-image: url(images/blockquote.svg);
+    background-size: 64px 64px;
+    background-position: -5px -10px;
+}
+
+[dir=ltr] blockquote.blockquote-plugin {
+    border-width: 1px 1px 1px 4px;
+}
+
+[dir=rtl] blockquote.blockquote-plugin {
+    border-width: 1px 4px 1px 1px;
 }
 
 [dir] blockquote.blockquote-plugin p:last-child {
     margin: 0;
+}
+
+blockquote.blockquote-plugin cite {
+    text-style: normal;
 }
 
 /* -- Cloud  -- */

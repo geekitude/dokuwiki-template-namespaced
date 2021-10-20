@@ -167,8 +167,12 @@ pre {
 
 /* -- Blockquote  -- */
 
-[dir] blockquote.blockquote-plugin {
-    border: 1px solid @ini_border;
+[dir=ltr] blockquote.blockquote-plugin {
+  border-color: @ini_border @ini_border @ini_border @ini_theme_color;
+}
+
+[dir=rtl] blockquote.blockquote-plugin {
+    border-color: @ini_border @ini_theme_color @ini_border @ini_border;
 }
 
 /* -- Cloud  -- */
