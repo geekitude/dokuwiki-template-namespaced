@@ -37,6 +37,7 @@
 * -- Sitemapnavi
 * -- Tagalerts
 * -- Translation
+* -- Wrap
 * RESPONSIVENESS
 * MORE ACCESSIBILITY
 */
@@ -176,8 +177,6 @@ pre {
 
 [dir] pre {
     padding: 1rem;
-    border-width: 1px;
-    border-style: solid;
 }
 
 svg {
@@ -237,7 +236,7 @@ ul.inline li {
     margin: 0;
 }
 
-/* -- Headings  -- */
+/* -- Headings -- */
 
 h1,
 h2,
@@ -1660,7 +1659,7 @@ body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
 /* DOKUWIKI MODES
 ----------------------------------------------- */
 
-/* -- Admin page  -- */
+/* -- Admin page -- */
 
 .dokuwiki div.ui-admin ul li a span.icon svg {
     width: 24px;
@@ -1672,7 +1671,7 @@ body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
     height: 24px;
 }
 
-/* -- Settings  -- */
+/* -- Settings -- */
 
 [dir] .dokuwiki #config__manager fieldset {
     background-color: @ini_background;
@@ -1758,7 +1757,7 @@ body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
 /* PLUGINS
 ----------------------------------------------- */
 
-/* -- Blockquote  -- */
+/* -- Blockquote -- */
 
 [dir] blockquote.blockquote-plugin {
     margin: 0 0 1rem 0;
@@ -1784,25 +1783,25 @@ blockquote.blockquote-plugin cite {
     text-style: normal;
 }
 
-/* -- Cloud  -- */
+/* -- Cloud -- */
 
 [dir] div.cloud {
     margin: 0;
 }
 
-/* -- Sitemapnavi  -- */
+/* -- Sitemapnavi -- */
 
 [dir] button.plugin__sitemapnavi__dir {
     cursor: zoom-in;
 }
 
-/* -- Tagalerts  -- */
+/* -- Tagalerts -- */
 
 [dir] div.tagstop {
     padding-bottom: .4rem;
 }
 
-/* -- Translation  -- */
+/* -- Translation -- */
 
 .plugin_translation {
     display: flex;
@@ -1839,6 +1838,40 @@ blockquote.blockquote-plugin cite {
 
 .plugin_translation .cur {
     display: none;
+}
+
+/* -- Wrap -- */
+
+[dir] div.wrap_download {
+    background-image: url(images/override/wrap_download_48.png);
+}
+
+[dir] span.wrap_download {
+    background-image: url(images/override/wrap_download_16.png);
+}
+
+[dir=ltr] span.wrap_info, [dir=ltr] span.wrap_tip, [dir=ltr] span.wrap_important, [dir=ltr] span.wrap_alert, [dir=ltr] span.wrap_help, [dir=ltr] span.wrap_download, [dir=ltr] span.wrap_todo, [dir=ltr] span.wrap_box, [dir=ltr] span.wrap_danger, [dir=ltr] span.wrap_warning, [dir=ltr] span.wrap_caution, [dir=ltr] span.wrap_notice, [dir=ltr] span.wrap_safety, [dir=ltr] span.wrap_hi {
+    padding-right: .4rem;
+}
+
+[dir=rtl] span.wrap_info, [dir=rtl] span.wrap_tip, [dir=rtl] span.wrap_important, [dir=rtl] span.wrap_alert, [dir=rtl] span.wrap_help, [dir=rtl] span.wrap_download, [dir=rtl] span.wrap_todo, [dir=rtl] span.wrap_box, [dir=rtl] span.wrap_danger, [dir=rtl] span.wrap_warning, [dir=rtl] span.wrap_caution, [dir=rtl] span.wrap_notice, [dir=rtl] span.wrap_safety, [dir=rtl] span.wrap_hi {
+    padding-left: .4rem;
+}
+
+[dir=ltr] span.wrap_info, [dir=ltr] span.wrap_tip, [dir=ltr] span.wrap_important, [dir=ltr] span.wrap_alert, [dir=ltr] span.wrap_help, [dir=ltr] span.wrap_download, [dir=ltr] span.wrap_todo {
+    padding-left: 2rem;
+}
+
+[dir=rtl] span.wrap_info, [dir=rtl] span.wrap_tip, [dir=rtl] span.wrap_important, [dir=rtl] span.wrap_alert, [dir=rtl] span.wrap_help, [dir=rtl] span.wrap_download, [dir=rtl] span.wrap_todo {
+    padding-right: 2rem;
+}
+
+[dir=ltr] span.wrap_box, [dir=ltr] span.wrap_danger, [dir=ltr] span.wrap_warning, [dir=ltr] span.wrap_caution, [dir=ltr] span.wrap_notice, [dir=ltr] span.wrap_safety, [dir=ltr] span.wrap_hi {
+    padding-left: .4rem;
+}
+
+[dir=rtl] span.wrap_box, [dir=rtl] span.wrap_danger, [dir=rtl] span.wrap_warning, [dir=rtl] span.wrap_caution, [dir=rtl] span.wrap_notice, [dir=rtl] span.wrap_safety, [dir=rtl] span.wrap_hi {
+    padding-right: .4rem;
 }
 
 /* RESPONSIVENESS

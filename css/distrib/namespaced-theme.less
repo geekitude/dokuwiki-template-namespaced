@@ -22,6 +22,7 @@
 * PLUGINS
 * -- Blockquote
 * -- Cloud
+* -- Wrap
 */
 
 /* HTML ITEMS
@@ -36,7 +37,7 @@
     border-color: @ini_theme_color;
 }
 
-/* -- Headings  -- */
+/* -- Headings -- */
 
 h1,
 h2,
@@ -156,7 +157,7 @@ pre {
 /* DOKUWIKI MODES
 ----------------------------------------------- */
 
-/* -- Settings  -- */
+/* -- Settings -- */
 
 [dir] .dokuwiki #config__manager fieldset {
     border: 1px solid @ini_border;
@@ -165,7 +166,7 @@ pre {
 /* PLUGINS
 ----------------------------------------------- */
 
-/* -- Blockquote  -- */
+/* -- Blockquote -- */
 
 [dir=ltr] blockquote.blockquote-plugin {
   border-color: @ini_border @ini_border @ini_border @ini_theme_color;
@@ -175,7 +176,7 @@ pre {
     border-color: @ini_border @ini_theme_color @ini_border @ini_border;
 }
 
-/* -- Cloud  -- */
+/* -- Cloud -- */
 
 @l: 10%; /* Percentage to lighten the original color. */
 @d: 15%; /* Percentage to desaturate the original color. */
@@ -207,3 +208,75 @@ pre {
 #namespaced__widget_search div.cloud a.cloud3 { color: desaturate(lighten(@c3, 2 * @l), 2 * @d); }
 #namespaced__widget_search div.cloud a.cloud4 { color: desaturate(lighten(@c3, 1 * @l), 1 * @d); }
 #namespaced__widget_search div.cloud a.cloud5 { color: @c3; }
+
+/* -- WRAP -- */
+
+div.wrap_box,
+span.wrap_box {
+    color: @ini_text_alt;
+}
+
+[dir] div.wrap_box, [dir] span.wrap_box {
+    background-color: @ini_background_alt;
+}
+
+[dir] div.wrap_box {
+    border: 1px solid @ini_border;
+}
+
+[dir] div.wrap_info, [dir] div.wrap_notice {
+    background-color: @ini_blue_color;
+}
+[dir] span.wrap_info, [dir] span.wrap_notice {
+    background-color: mix(#fff, @ini_blue_color, 40%);
+}
+
+[dir] div.wrap_tip, [dir] div.wrap_caution {
+    background-color: @ini_yellow_color;
+}
+[dir] span.wrap_tip, [dir] span.wrap_caution {
+    background-color: mix(#fff, @ini_yellow_color, 50%);
+}
+
+[dir] div.wrap_alert, [dir] div.wrap_danger {
+    background-color: @ini_red_color;
+}
+[dir] span.wrap_alert, [dir] span.wrap_danger {
+    background-color: mix(#fff, @ini_red_color, 30%);
+}
+
+[dir] div.wrap_download, [dir] div.wrap_safety {
+    background-color: @ini_green_color;
+}
+[dir] span.wrap_download, [dir] span.wrap_safety {
+    background-color: mix(#fff, @ini_green_color, 30%);
+}
+
+[dir] div.wrap_important, [dir] div.wrap_warning {
+    background-color: mix(@ini_red_color, @ini_yellow_color, 50%);
+}
+[dir] span.wrap_important, [dir] span.wrap_warning {
+    background-color: mix(#fff, mix(@ini_red_color, @ini_yellow_color, 50%), 50%);
+}
+
+[dir] div.wrap_help {
+    background-color: mix(@ini_red_color, @ini_blue_color, 50%);
+}
+[dir] span.wrap_help {
+    background-color: mix(#fff, mix(@ini_red_color, @ini_blue_color, 50%), 50%);
+}
+
+[dir] div.wrap_todo {
+    background-color: mix(@ini_green_color, @ini_blue_color, 50%);
+}
+[dir] span.wrap_todo {
+    background-color: mix(#fff, mix(@ini_green_color, @ini_blue_color, 50%), 50%);
+}
+
+[dir] span.wrap_hi {
+    background-color: @ini_highlight;
+}
+
+span.wrap_em {
+    color: @ini_red_color;
+}

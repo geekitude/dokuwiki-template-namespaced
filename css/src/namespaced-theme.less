@@ -22,6 +22,7 @@
 * PLUGINS
 * -- Blockquote
 * -- Cloud
+* -- Wrap
 */
 
 /* HTML ITEMS
@@ -36,7 +37,7 @@ input[type=text]:focus {
     border-color: @ini_theme_color;
 }
 
-/* -- Headings  -- */
+/* -- Headings -- */
 
 h1,
 h2,
@@ -153,7 +154,7 @@ body.striped-tables tr:nth-child(even) {
 /* DOKUWIKI MODES
 ----------------------------------------------- */
 
-/* -- Settings  -- */
+/* -- Settings -- */
 
 .dokuwiki #config__manager fieldset {
     border: 1px solid @ini_border;
@@ -162,13 +163,13 @@ body.striped-tables tr:nth-child(even) {
 /* PLUGINS
 ----------------------------------------------- */
 
-/* -- Blockquote  -- */
+/* -- Blockquote -- */
 
 blockquote.blockquote-plugin {
     border-color: @ini_border @ini_border @ini_border @ini_theme_color;
 }
 
-/* -- Cloud  -- */
+/* -- Cloud -- */
 
 @l: 10%; /* Percentage to lighten the original color. */
 @d: 15%; /* Percentage to desaturate the original color. */
@@ -200,3 +201,82 @@ blockquote.blockquote-plugin {
 #namespaced__widget_search div.cloud a.cloud3 { color: desaturate(lighten(@c3, 2 * @l), 2 * @d); }
 #namespaced__widget_search div.cloud a.cloud4 { color: desaturate(lighten(@c3, 1 * @l), 1 * @d); }
 #namespaced__widget_search div.cloud a.cloud5 { color: @c3; }
+
+/* -- WRAP -- */
+
+div.wrap_box,
+span.wrap_box {
+    background-color: @ini_background_alt;
+    color: @ini_text_alt;
+}
+
+div.wrap_box {
+    border: 1px solid @ini_border;
+}
+
+div.wrap_info,
+div.wrap_notice {
+    background-color: @ini_blue_color;
+}
+span.wrap_info,
+span.wrap_notice {
+    background-color: mix(#fff, @ini_blue_color, 40%);
+}
+
+div.wrap_tip,
+div.wrap_caution {
+    background-color: @ini_yellow_color;
+}
+span.wrap_tip,
+span.wrap_caution {
+    background-color: mix(#fff, @ini_yellow_color, 50%);
+}
+
+div.wrap_alert,
+div.wrap_danger {
+    background-color: @ini_red_color;
+}
+span.wrap_alert,
+span.wrap_danger {
+    background-color: mix(#fff, @ini_red_color, 30%);
+}
+
+div.wrap_download,
+div.wrap_safety {
+    background-color: @ini_green_color;
+}
+span.wrap_download,
+span.wrap_safety {
+    background-color: mix(#fff, @ini_green_color, 30%);
+}
+
+div.wrap_important,
+div.wrap_warning {
+    background-color: mix(@ini_red_color, @ini_yellow_color, 50%);
+}
+span.wrap_important,
+span.wrap_warning {
+    background-color: mix(#fff, mix(@ini_red_color, @ini_yellow_color, 50%), 50%);
+}
+
+div.wrap_help {
+    background-color: mix(@ini_red_color, @ini_blue_color, 50%);
+}
+span.wrap_help {
+    background-color: mix(#fff, mix(@ini_red_color, @ini_blue_color, 50%), 50%);
+}
+
+div.wrap_todo {
+    background-color: mix(@ini_green_color, @ini_blue_color, 50%);
+}
+span.wrap_todo {
+    background-color: mix(#fff, mix(@ini_green_color, @ini_blue_color, 50%), 50%);
+}
+
+span.wrap_hi {
+    background-color: @ini_highlight;
+}
+
+span.wrap_em {
+    color: @ini_red_color;
+}

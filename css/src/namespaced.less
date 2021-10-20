@@ -37,6 +37,7 @@
 * -- Sitemapnavi
 * -- Tagalerts
 * -- Translation
+* -- Wrap
 * RESPONSIVENESS
 * MORE ACCESSIBILITY
 */
@@ -159,8 +160,6 @@ nav {
 pre {
     overflow: auto;
     padding: 1rem;
-    border-width: 1px;
-    border-style: solid;
 }
 
 svg {
@@ -199,7 +198,7 @@ ul.inline li:first-child:last-child {
     margin: 0;
 }
 
-/* -- Headings  -- */
+/* -- Headings -- */
 
 h1,
 h2,
@@ -1315,7 +1314,7 @@ body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
 /* DOKUWIKI MODES
 ----------------------------------------------- */
 
-/* -- Admin page  -- */
+/* -- Admin page -- */
 
 .dokuwiki div.ui-admin ul li a span.icon svg {
     width: 24px;
@@ -1327,7 +1326,7 @@ body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
     height: 24px;
 }
 
-/* -- Settings  -- */
+/* -- Settings -- */
 
 .dokuwiki #config__manager fieldset {
     background-color: @ini_background;
@@ -1401,7 +1400,7 @@ body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
 /* PLUGINS
 ----------------------------------------------- */
 
-/* -- Blockquote  -- */
+/* -- Blockquote -- */
 
 blockquote.blockquote-plugin {
     margin: 0 0 1rem 0;
@@ -1420,25 +1419,25 @@ blockquote.blockquote-plugin cite {
     text-style: normal;
 }
 
-/* -- Cloud  -- */
+/* -- Cloud -- */
 
 div.cloud {
     margin: 0;
 }
 
-/* -- Sitemapnavi  -- */
+/* -- Sitemapnavi -- */
 
 button.plugin__sitemapnavi__dir {
     cursor: zoom-in;
 }
 
-/* -- Tagalerts  -- */
+/* -- Tagalerts -- */
 
 div.tagstop {
     padding-bottom: .4rem;
 }
 
-/* -- Translation  -- */
+/* -- Translation -- */
 
 .plugin_translation {
     display: flex;
@@ -1472,6 +1471,53 @@ div.tagstop {
 
 .plugin_translation .cur {
     display: none;
+}
+
+/* -- Wrap -- */
+
+div.wrap_download {
+    background-image: url(images/override/wrap_download_48.png);
+}
+
+span.wrap_download {
+    background-image: url(images/override/wrap_download_16.png);
+}
+
+span.wrap_info,
+span.wrap_tip,
+span.wrap_important,
+span.wrap_alert,
+span.wrap_help,
+span.wrap_download,
+span.wrap_todo,
+span.wrap_box,
+span.wrap_danger,
+span.wrap_warning,
+span.wrap_caution,
+span.wrap_notice,
+span.wrap_safety,
+span.wrap_hi {
+    padding-right: .4rem;
+}
+
+span.wrap_info,
+span.wrap_tip,
+span.wrap_important,
+span.wrap_alert,
+span.wrap_help,
+span.wrap_download,
+span.wrap_todo {
+    padding-left: 2rem;
+}
+
+span.wrap_box,
+span.wrap_danger,
+span.wrap_warning,
+span.wrap_caution,
+span.wrap_notice,
+span.wrap_safety,
+span.wrap_hi {
+    padding-left: .4rem;
 }
 
 /* RESPONSIVENESS
