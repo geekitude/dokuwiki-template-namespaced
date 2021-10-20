@@ -15,6 +15,7 @@ $conf['datelocale']         = 'fra';
 $conf['longdatestring']     = '%A %d %B %Y';
 $conf['shortdatestring']    = '%d/%m/%Y';
 $conf['tablestyle']         = 'dynamic';
+$conf['kbdstyle']           = 'default';
 
 $conf['glyphs']             = 1;
 $conf['combonav']           = 1;

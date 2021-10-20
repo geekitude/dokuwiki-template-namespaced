@@ -1,0 +1,164 @@
+/**
+ * Auth0/kbd customized for Namespaced template
+ *
+ * @link    https://github.com/auth0/kbd
+ * @author  Auth0 members (https://github.com/orgs/auth0/people) <support@auth0.com>
+ * @license The MIT License (MIT) (https://opensource.org/licenses/MIT)
+ *
+ * This file provides style rules for <kbd> elements
+*/
+
+kbd {
+  font-family: Consolas, "Lucida Console", monospace;
+  display: inline-block;
+  border-radius: 3px;
+  padding: 1px 2px !important;
+  box-shadow: 1px 1px 1px #777;
+  margin: 2px;
+  font-size: small;
+  vertical-align: text-bottom;
+  background: @ini_background_neu !important;
+  color: @ini_text_neu !important;
+  font-weight: 500;
+  cursor: default;
+  font-variant: small-caps;
+  font-weight: 600;
+
+  /* This two work */
+  /* letter-spacing: 0.5px; */
+  letter-spacing: 1px;
+
+  /* Prevent selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+kbd:hover, kbd:hover * {
+  color: @ini_text !important;
+}
+kbd:active, kbd:active * {
+  box-shadow: 1px 1px 0 #ddd inset;
+  background: darken(@ini_background_neu, 10%) !important;
+}
+
+kbd:active kbd {
+  box-shadow: 0 0 0 #000;
+  background: none;
+}
+
+/* Basic */
+body.basic-kbd kbd {
+  background: #eee !important;
+  color: #555 !important;
+}
+
+body.basic-kbd kbd:hover {
+  color: #000 !important;
+}
+
+body.basic-kbd kbd:active {
+  color: #000 !important;
+  box-shadow: 1px 1px 1px #777;
+}
+
+/* Deep blue */
+body.deep-blue-kbd kbd {
+  background: steelblue !important;
+  color: #eee !important;
+}
+
+body.deep-blue-kbd kbd:hover {
+  color: #fff !important;
+}
+
+body.deep-blue-kbd kbd:active {
+  background: darken(steelblue, 10%) !important;
+  color: #eee !important;
+}
+
+/* Dark apple */
+body.dark-apple-kbd kbd {
+  background: #000 !important;
+  color: #ddd !important;
+}
+
+body.dark-apple-kbd kbd:hover {
+  color: #fff !important;
+}
+
+/* Type writer */
+body.type-writer-kbd kbd {
+  border-radius: 10px;
+  background: #333 !important;
+  color: #fff !important;
+}
+
+/* DW */
+body.dw-red-kbd kbd {
+  color: @ini_text !important;
+}
+
+body.dw-green-kbd kbd,
+body.dw-blue-kbd kbd,
+body.dw-yellow-kbd kbd {
+  color: @ini_text_neu !important;
+}
+
+body.dw-theme-kbd kbd {
+  color: @ini_theme_text_color !important;
+}
+
+
+body.dw-red-kbd kbd:hover {
+  color: #888 !important;
+}
+
+body.dw-green-kbd kbd:hover,
+body.dw-blue-kbd kbd:hover,
+body.dw-yellow-kbd kbd:hover {
+  color: @ini_text !important;
+}
+
+body.dw-theme-kbd kbd:hover {
+  color: @ini_theme_dark_color !important;
+}
+
+/* DW red */
+body.dw-red-kbd kbd {
+  background: @ini_red_color !important;
+}
+
+body.dw-red-kbd kbd:active {
+  background: darken(@ini_red_color, 10%) !important;
+}
+
+/* DW green */
+body.dw-green-kbd kbd {
+  background: @ini_green_color !important;
+}
+
+body.dw-green-kbd kbd:active {
+  background: darken(@ini_green_color, 15%) !important;
+}
+
+/* DW blue */
+body.dw-blue-kbd kbd {
+  background: @ini_blue_color !important;
+}
+
+body.dw-blue-kbd kbd:active {
+  background: darken(@ini_blue_color, 10%) !important;
+}
+
+/* DW yellow */
+body.dw-yellow-kbd kbd {
+  background: @ini_yellow_color !important;
+}
+
+body.dw-yellow-kbd kbd:active {
+  background: darken(@ini_yellow_color, 15%) !important;
+}

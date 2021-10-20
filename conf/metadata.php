@@ -16,6 +16,7 @@ $meta['datelocale']         = array('string');
 $meta['longdatestring']     = array('string');
 $meta['shortdatestring']    = array('string');
 $meta['tablestyle']         = array('multichoice','_choices' => array('colored','striped','dynamic'));
+$meta['kbdstyle']           = array('multichoice','_choices' => array('basic','default','deep-blue','dark-apple','type-writer','dw-red','dw-green','dw-blue','dw-yellow'));
 /* functionnalities */
 $meta['glyphs']             = array('onoff');
 $meta['combonav']           = array('onoff');
