@@ -26,6 +26,7 @@
 * -- Screen Mode
 * FOOTER
 * WIDGETS
+* TABS
 * GENERIC CLASSES
 * DOKUWIKI GLOBAL
 * DOKUWIKI MODES
@@ -1106,6 +1107,44 @@ body.footerwidgets4 #namespaced__footer_widgets aside {
 
 #namespaced__site.mode_profile #namespaced__widget_user {
     display: none;
+}
+
+/* TABS
+-------------------------------------------------------------- */
+
+ul.tabs {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0 0 1rem 0;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+ul.tabs li {
+    border-bottom: 3px solid transparent;
+}
+
+ul.tabs li:not(.active) a {
+    color: @ini_text_neu;
+}
+
+ul.tabs li.active {
+    border-color: @ini_blue_color;
+    pointer-events: none;
+}
+
+ul.tabs li.active:hover a {
+    color: @ini_blue_color;
+}
+
+ul.tabs li:hover:not(.active) {
+    border-color: @ini_background_neu;
+}
+
+ul.tabs li a {
+    border: none;
+    margin: 1rem 1.5rem;
 }
 
 /* GENERIC CLASSES
