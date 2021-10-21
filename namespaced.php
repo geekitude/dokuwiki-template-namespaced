@@ -821,23 +821,23 @@ function namespaced_contools() {
         }
     }
     // Save settings
-    if (($INFO['isadmin'] || $INFO['ismanager']) && ($_GET['do'] == "admin") && ($_GET['page'] == "config")) {
+    if (($INFO['isadmin'] || $INFO['ismanager']) && ($ACT == "admin") && ($_GET['page'] == "config")) {
         print '<li class="savesettings"><button class="flex" type="submit" form="dw__configform" value="submit" title="'.$lang['btn_save'].' [s]">'.namespaced_glyph('save', true).'<span>'.$lang['btn_save'].'</span></button></li>';
     }
     // Reset settings
-    if (($INFO['isadmin'] || $INFO['ismanager']) && ($_GET['do'] == "admin") && ($_GET['page'] == "config")) {
+    if (($INFO['isadmin'] || $INFO['ismanager']) && ($ACT == "admin") && ($_GET['page'] == "config")) {
         print '<li class="resetsettings"><button class="flex" type="reset" form="dw__configform" value="reset" title="'.$lang['btn_reset'].'">'.namespaced_glyph('reset', true).'<span>'.$lang['btn_reset'].'</span></button></li>';
     }
     // Save page modification
-    if (($_GET['do'] == "edit") or ($_GET['do'] == "draft")) {
+    if (($ACT == "edit") or ($ACT == "draft")) {
         print '<li class="savepage"><button class="flex" name="do[save]" type="submit" form="dw__editform" title="'.$lang['btn_save'].' [s]">'.namespaced_glyph('save', true).'<span>'.$lang['btn_save'].'</span></button></li>';
     }
     // Preview page modification
-    if (($_GET['do'] == "edit") or ($_GET['do'] == "draft")) {
+    if (($ACT == "edit") or ($ACT == "draft")) {
         print '<li class="previewpage"><button class="flex" name="do[preview]" type="submit" form="dw__editform" title="'.$lang['btn_preview'].' [p]">'.namespaced_glyph('preview', true).'<span>'.$lang['btn_preview'].'</span></button></li>';
     }
     // Cancel page modification
-    if (($_GET['do'] == "edit") or ($_GET['do'] == "draft")) {
+    if (($ACT == "edit") or ($ACT == "draft")) {
         print '<li class="cancelpage"><button class="flex" name="do[cancel]" type="submit" form="dw__editform" title="'.$lang['btn_cancel'].'">'.namespaced_glyph('reset', true).'<span>'.$lang['btn_cancel'].'</span></button></li>';
     }
     // Syntax
@@ -895,7 +895,7 @@ function namespaced_admindropdown() {
         }
     }
     echo '<li class="dropdown-header">'.tpl_getLang('cache').'<hr/></li>';
-    echo '<li><a href="'.wl($ID, array("do" => $_GET['do'], "page" => $_GET['page'], "purge" => "true")).'">'.tpl_getLang('purgepagecache').namespaced_glyph("pagerefresh", true).'</a></li>';
+    echo '<li><a href="'.wl($ID, array("do" => $ACT, "page" => $_GET['page'], "purge" => "true")).'">'.tpl_getLang('purgepagecache').namespaced_glyph("pagerefresh", true).'</a></li>';
     echo '<li><a href="'.DOKU_URL.'lib/exe/js.php">'.tpl_getLang('purgejscache').namespaced_glyph("recycle", true).'</a></li>';
     echo '<li><a href="'.DOKU_URL.'lib/exe/css.php">'.tpl_getLang('purgecsscache').namespaced_glyph("recycle", true).'</a></li>';
 }/* namespaced_admindropdown */
