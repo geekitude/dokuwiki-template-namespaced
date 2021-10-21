@@ -836,6 +836,11 @@ nav ul li a:hover {
 /* MAIN
 -------------------------------------------------------------- */
 
+[dir] #namespaced__content .page {
+    margin-top: 1rem;
+    padding: 0 @ico-margin;
+}
+
 main aside.gutter {
     min-width: @ico-margin + @ico-width + @ico-margin;
     max-width: @ico-margin + @ico-width + @ico-margin;
@@ -915,13 +920,6 @@ article {
     margin-bottom: 1rem;
 }
 */
-#namespaced__content .page {
-    /*overflow: hidden;*/
-}
-[dir] #namespaced__content .page {
-    margin-top: 1rem;
-    padding: 0 @ico-margin;
-}
 
 #namespaced__docinfo {
     width: 70%;
@@ -1710,10 +1708,6 @@ body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
   right: 0;
 }
 
-[dir] form.doku_form {
-    margin: 0 auto;
-}
-
 label.block {
     display: block;
 }
@@ -1746,6 +1740,10 @@ label.block {
 
 [dir] .dokuwiki #extension__manager div.panelHeader {
     background-color: @ini_background_neu;
+}
+
+[dir] .dokuwiki #extension__manager form.doku_form {
+    margin: 0 auto;
 }
 
 /* -- Settings -- */
