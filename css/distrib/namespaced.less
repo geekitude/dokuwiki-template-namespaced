@@ -31,7 +31,9 @@
 * DOKUWIKI GLOBAL
 * DOKUWIKI MODES
 * -- Admin page
+* -- Extensions
 * -- Settings
+* -- Users
 * PLUGINS
 * -- Blockquote
 * -- Cloud
@@ -1708,6 +1710,14 @@ body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
   right: 0;
 }
 
+[dir] form.doku_form {
+    margin: 0 auto;
+}
+
+label.block {
+    display: block;
+}
+
 /* DOKUWIKI MODES
 ----------------------------------------------- */
 
@@ -1725,19 +1735,19 @@ body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
 
 /* -- Extensions manager -- */
 
-[dir] #extension__manager ul.tabs li.active a {
+[dir] .dokuwiki #extension__manager ul.tabs li.active a {
     background-color: transparent;
     border: none;
 }
 
-#extension__manager div.panelHeader {
+.dokuwiki #extension__manager div.panelHeader {
     color: @ini_text_neu;
 }
 
-[dir] #extension__manager div.panelHeader {
+[dir] .dokuwiki #extension__manager div.panelHeader {
     background-color: @ini_background_neu;
 }
-    
+
 /* -- Settings -- */
 
 [dir] .dokuwiki #config__manager fieldset {
@@ -1819,6 +1829,16 @@ body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
 
 [dir] .dokuwiki #config__manager fieldset input.checkbox {
     margin: .3rem;
+}
+
+/* -- User manager -- */
+
+[dir=ltr] .dokuwiki #user__manager form input[type=file] {
+    margin-left: .5rem;
+}
+
+[dir=rtl] .dokuwiki #user__manager form input[type=file] {
+    margin-right: .5rem;
 }
 
 /* PLUGINS
