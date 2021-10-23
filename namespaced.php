@@ -442,7 +442,7 @@ function namespaced_bodyclasses() {
         $pattern = null;
     }
 
-    if (isset($namespaced['ishome'])) {
+    if ((isset($namespaced['ishome'])) and ($namespaced['ishome'] != null)) {
         $home = $namespaced['ishome']."-home";
     } else {
         $home = null;
