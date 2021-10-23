@@ -199,12 +199,15 @@ function namespaced_init() {
 //dbg($namespaced['translation']['parts'][1]);
 //dbg("translations: ".$conf['plugin']['translation']['translations']);
 //dbg($conf['lang']);
-        if (strpos($conf['plugin']['translation']['translations'], $namespaced['translation']['default_lang']) !== false) {
-            $namespaced['translation']['untranslatedhome'] = $namespaced['translation']['default_lang'].":".$conf['start'];
+//dbg($conf['plugin']['translation']['translations']);
+//dbg($namespaced['translation']['default_lang']);
+//dbg($namespaced['translation']['helper']->defaultlang);
+        if (strpos($conf['plugin']['translation']['translations'], $namespaced['translation']['helper']->defaultlang) !== false) {
+            $namespaced['translation']['untranslatedhome'] = $namespaced['translation']['helper']->defaultlang.":".$conf['start'];
         }
 //dbg("untranslatedhome: ".$namespaced['translation']['untranslatedhome']);
 //dbg("before: ".$namespaced['translation']['default_lang']);
-        if ($namespaced['translation']['parts'][0] != $namespaced['translation']['default_lang']) {
+        if ($namespaced['translation']['parts'][0] != $namespaced['translation']['helper']->defaultlang) {
             $namespaced['translation']['istranslated'] = true;
         }
 //dbg("translated: ".$namespaced['translation']['istranslated']);
