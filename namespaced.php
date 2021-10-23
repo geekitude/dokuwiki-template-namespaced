@@ -458,10 +458,19 @@ function namespaced_bodyclasses() {
         }
     }
 
+    $footerwidgets = count($namespaced['widgets']['footer']);
+    if ($footerwidgets == 3) {
+        $footerwidgets = "three-footerwidgets";
+    } elseif ($footerwidgets > 3) {
+        $footerwidgets = "more-footerwidgets";
+    } else {
+        $footerwidgets = null;
+    }
+
 //    array_push($classes, $home, $sidepanel, $pattern, $showSidebar ? ((strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'right-sidebar' : 'left-sidebar') : 'no-sidebar', tpl_getConf('layout').'-layout', (strpos(tpl_getConf('flexflip'), 'banner') !== false) ? 'banner-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagenav') !== false) ? 'pagenav-flip' : '', (strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'sidebar-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagetools') !== false) ? 'pagetools-flip' : '', (strpos(tpl_getConf('flexflip'), 'socket') !== false) ? 'socket-flip' : '', tpl_getConf('widgetslook').'-widgets', (strpos(tpl_getConf('print'), 'hrefs') !== false) ? 'printhrefs' : '', ($_GET['debug']==1) ? 'debug' : '', ($_GET['debug']=='mediaq') ? 'mediaq' : '');
 
 // VOIR SI IL FAUT REINTEGRER `widgetlooks` et/ou `printhrefs`
-    array_push($classes, $home, $sidepanel, $pattern, $showSidebar ? ((strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'right-sidebar' : 'left-sidebar') : 'no-sidebar', tpl_getConf('layout').'-layout', (strpos(tpl_getConf('flexflip'), 'banner') !== false) ? 'banner-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagenav') !== false) ? 'pagenav-flip' : '', (strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'sidebar-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagetools') !== false) ? 'pagetools-flip' : '', (strpos(tpl_getConf('flexflip'), 'socket') !== false) ? 'socket-flip' : '', tpl_getConf('tablestyle').'-tables', 'footerwidgets'.count($namespaced['widgets']['footer']), (tpl_getConf('kbdstyle') != 'default') ? tpl_getConf('kbdstyle').'-kbd' : '', ($_GET['debug']==1) ? 'debug' : '', ($_GET['debug']=='mediaq') ? 'mediaq' : '');
+    array_push($classes, $home, $sidepanel, $footerwidgets, $pattern, $showSidebar ? ((strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'right-sidebar' : 'left-sidebar') : 'no-sidebar', tpl_getConf('layout').'-layout', (strpos(tpl_getConf('flexflip'), 'banner') !== false) ? 'banner-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagenav') !== false) ? 'pagenav-flip' : '', (strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'sidebar-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagetools') !== false) ? 'pagetools-flip' : '', (strpos(tpl_getConf('flexflip'), 'socket') !== false) ? 'socket-flip' : '', tpl_getConf('tablestyle').'-tables', (tpl_getConf('kbdstyle') != 'default') ? tpl_getConf('kbdstyle').'-kbd' : '', ($_GET['debug']==1) ? 'debug' : '', ($_GET['debug']=='mediaq') ? 'mediaq' : '');
 
     return rtrim(join(' ', array_filter($classes)));
 }/* /namespaced_bodyclasses */
