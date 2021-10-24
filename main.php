@@ -57,17 +57,92 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
 
         <?php include('header.php') ?>
 
+        <div id="namespaced__site_nav_labels" class="pad flex justify-between">
+            <h6<?php print $namespaced['a11y']['standalone'] ?>><?php echo tpl_getLang('ns_content') ?></h6>
+            <h6<?php print $namespaced['a11y']['standalone'] ?>><?php echo $lang['user_tools'] ?></h6>
+        </div>
+        <nav id="namespaced__site_nav" class="flex navbar pad<?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' sticky' : '' ?>">
+            <div id="namespaced_ns_menu">
+                <ul class="nostyle">
+                    <!-- NAMESPACE CONTENT -->
+                    <?php namespaced_nsindex(true) ?>
+                </ul>
+            </div>
+            <!-- USER TOOLS -->
+            <?php if ($conf['useacl']): ?>
+                <div id="namespaced__usertools">
+                    <ul class="nostyle">
+                        <?php
+                            namespaced_usertools();
+                        ?>
+                    </ul>
+                </div>
+            <?php endif ?>
+        </nav>
+
+        <?php if($ACT == "show"): ?>
+            <div id="namespaced__widebanner_wrap" class="group<?php print (strpos(tpl_getConf('print'), 'widebanner') !== false) ? '' : ' noprint' ?>">
+                <?php
+                    namespaced_ui_image('widebanner');
+                ?>
+            </div><!-- #namespaced__widebanner_wrap -->
+        <?php endif ?>
+
+        <nav id="namespaced__page_nav" class="flex between gap20<?php print (strpos(tpl_getConf('stickies'), 'pagenav') !== false) ? ' sticky' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' stickynav' : '' ?>">
+                <div class="flex column align-start">
+                    <div class="pageId h6">
+                        <span><?php echo hsc($ID) ?></span>
+                    </div>
+                    <?php
+                        if ((tpl_getConf('docinfopos') == "pagenav") and (strpos(tpl_getConf('stickies'), 'docinfo') === false)) {
+                            namespaced_docinfo();
+                            print '</div>';
+                            print '<div class="flex column align-end">';
+                            $closed = true;
+                        }
+                    ?>
+                    <!-- TRANSLATIONS -->
+                    <?php
+                        if (!($conf['breadcrumbs'] and $conf['youarehere'])) {
+                            print '</div>';
+                            print '<div class="flex column align-end">';
+                            $closed = true;
+                        }
+                        if ($namespaced['translation']['helper']) {
+                            print '<nav id="namespaced__translations">';
+                                print $namespaced['translation']['helper']->showTranslations();
+                            print '</nav>';
+                        }
+                        if ($closed != true) {
+                            print '</div>';
+                            print '<div class="flex column align-end">';
+                        }
+                    ?>
+                    <!-- BREADCRUMBS -->
+                    <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
+                        <nav class="breadcrumbs flex column end align-stretch">
+                            <?php if($conf['youarehere']): ?>
+                                <div class="youarehere"><?php tpl_youarehere() ?></div>
+                            <?php endif ?>
+                            <?php if($conf['breadcrumbs']): ?>
+                                <div class="trace"><?php tpl_breadcrumbs() ?></div>
+                            <?php endif ?>
+                        </nav>
+                    <?php endif ?>
+                </div>
+        </nav>
+
         <main class="flex nowrap align-stretch">
 
             <!-- CONTEXT TOOLS -->
             <aside id="namespaced__contools" class="gutter flex column">
-                <nav class="tools<?php print (strpos(tpl_getConf('uicolorize'), 'pagetools') !== false) ? " uicolor-pagetools" : "" ?>">
+                <nav class="tools<?php print (strpos(tpl_getConf('uicolorize'), 'contools') !== false) ? " uicolor-contools" : "" ?><?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' stickynav' : '' ?>">
                     <ul class="nostyle">
                         <li><h6 class="aside-title<?php print $namespaced['a11y']['extraclass'] ?>"><?php print tpl_getLang('context_tools') ?></h6></li>
                         <?php namespaced_contools() ?>
                     </ul>
                 </nav><!-- /.tools -->
-            </aside><!-- /#dokuwiki__pagetools -->
+            </aside><!-- /#namespaced__contools -->
 
             <div id="namespaced__main_subflex" class="flex nowrap align-stretch">
 
@@ -75,7 +150,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                 <?php if(($ACT=='show') && (@count($namespaced['widgets']['side']) > 0)): ?>
                     <!-- ********** ASIDE ********** -->
                     <div id="namespaced__aside">
-                        <div class="aside include">
+                        <div class="aside include<?php print (strpos(tpl_getConf('stickies'), 'sidebar') !== false) ? ' sticky' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' stickynav' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'pagenav') !== false) ? ' stickypagenav' : '' ?>">
                             <h6 class="toggle"><?php echo $lang['sidebar'] ?></h6>
                             <div class="content">
                                 <?php tpl_flush() ?>
@@ -108,40 +183,6 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                             }
                         ?>
 
-                        <nav class="flex">
-                            <aside id="namespaced__page_nav" class="flex between gap20">
-                                <div class="flex column align-start">
-                                    <div class="pageId h6">
-                                        <span><?php echo hsc($ID) ?></span>
-                                    </div>
-                                    <?php
-                                        if (tpl_getConf('docinfopos') == "pagenav") {
-                                            namespaced_docinfo();
-                                        }
-                                    ?>
-                                </div>
-                                <div class="flex column align-end">
-                                    <!-- TRANSLATIONS -->
-                                    <?php if($namespaced['translation']['helper']): ?>
-                                        <nav id="namespaced__translations">
-                                            <?php echo $namespaced['translation']['helper']->showTranslations() ?>
-                                        </nav>
-                                    <?php endif ?>
-                                    <!-- BREADCRUMBS -->
-                                    <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
-                                        <nav class="breadcrumbs flex column end align-stretch">
-                                            <?php if($conf['youarehere']): ?>
-                                                <div class="youarehere"><?php tpl_youarehere() ?></div>
-                                            <?php endif ?>
-                                            <?php if($conf['breadcrumbs']): ?>
-                                                <div class="trace"><?php tpl_breadcrumbs() ?></div>
-                                            <?php endif ?>
-                                        </nav>
-                                    <?php endif ?>
-                                </div>
-                            </aside>
-                        </nav>
-
                         <div class="page">
                             <?php tpl_flush() ?>
                             <?php tpl_includeFile('pageheader.html') ?>
@@ -153,14 +194,6 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                             <?php tpl_includeFile('pagefooter.html') ?>
                         </div>
 
-                        <?php
-                            if (tpl_getConf('docinfopos') == "standalone") {
-                                print '<aside id="namespaced__docinfo">';
-                                    namespaced_docinfo();
-                                print '<aside>';
-                            }
-                        ?>
-
                         <?php tpl_flush() ?>
                     </div>
 
@@ -170,16 +203,29 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
 
             <!-- PAGE TOOLS -->
             <aside id="namespaced__pagetools" class="gutter flex column">
-                <nav class="tools<?php print (strpos(tpl_getConf('uicolorize'), 'pagetools') !== false) ? " uicolor-pagetools" : "" ?>">
+                <nav class="tools<?php print (strpos(tpl_getConf('uicolorize'), 'pagetools') !== false) ? " uicolor-pagetools" : "" ?><?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' stickynav' : '' ?>">
                     <ul class="nostyle">
                         <li><h6 class="aside-title<?php print $namespaced['a11y']['extraclass'] ?>"><?php print $lang['page_tools'] ?></h6></li>
                         <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems() ?>
                         <li class="bottom"><a href="#namespaced__footer" title="<?php print tpl_getLang('go_to_bottom') ?> [b]" rel="nofollow" accesskey="b"><span><?php print tpl_getLang('go_to_bottom') ?></span><?php namespaced_glyph('bottom') ?></svg></a></li>
                     </ul>
                 </nav><!-- /.tools -->
-            </aside><!-- /#dokuwiki__pagetools -->
+            </aside><!-- /#namespaced__pagetools -->
 
         </main>
+
+        <?php
+            if ((tpl_getConf('docinfopos') == "standalone") or (strpos(tpl_getConf('stickies'), 'docinfo') !== false)) {
+                print '<aside id="namespaced__docinfo"';
+                    if (strpos(tpl_getConf('stickies'), 'docinfo') !== false) {
+                        print ' class="sticky">';
+                    } else {
+                        print '>';
+                    }
+                    namespaced_docinfo();
+                print '</aside>';
+            }
+        ?>
 
         <?php include('footer.php') ?>
 

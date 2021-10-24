@@ -12,6 +12,7 @@
 /* global look */
 $meta['layout']             = array('multichoice','_choices' => array('box','wide','box2wide','mix'));
 $meta['flexflip']           = array('multicheckbox','_choices' => array('banner','pagenav','sidepanel','pagetools','socket'),'_other' => 'never');
+$meta['stickies']           = array('multicheckbox','_choices' => array('navbar','pagenav','sidebar','docinfo'),'_other' => 'never');
 $meta['datelocale']         = array('string');
 $meta['longdatestring']     = array('string');
 $meta['shortdatestring']    = array('string');
@@ -21,7 +22,7 @@ $meta['kbdstyle']           = array('multichoice','_choices' => array('basic','d
 $meta['glyphs']             = array('onoff');
 $meta['combonav']           = array('onoff');
 $meta['nsindexexclude']     = array('array');
-$meta['docinfopos']         = array('multichoice','_choices' => array('standalone','pagenav'));;
+$meta['docinfopos']         = array('multichoice','_choices' => array('standalone','pagenav'));
 $meta['searches']           = array('multicheckbox','_choices' => array('quicksearch','autocomplete'),'_other' => 'never');
 $meta['licensevisual']      = array('multichoice','_choices' => array('badge','button','none'));
 $meta['uiimagetarget']      = array('multichoice','_choices' => array('image-ns','current-ns','home','image-details','none'));

@@ -84,35 +84,4 @@ if (!defined('DOKU_INC')) die();
         <hr<?php print $namespaced['a11y']['standalone'] ?> />
     </div>
 
-    <div id="namespaced__site_nav_labels" class="pad flex justify-between">
-        <h6<?php print $namespaced['a11y']['standalone'] ?>><?php echo tpl_getLang('ns_content') ?></h6>
-        <h6<?php print $namespaced['a11y']['standalone'] ?>><?php echo $lang['user_tools'] ?></h6>
-    </div>
-    <nav id="namespaced__site_nav" class="flex navbar pad">
-        <div id="namespaced_ns_menu">
-            <ul class="nostyle">
-                <!-- NAMESPACE CONTENT -->
-                <?php namespaced_nsindex(true) ?>
-            </ul>
-        </div>
-        <!-- USER TOOLS -->
-        <?php if ($conf['useacl']): ?>
-            <div id="namespaced__usertools">
-                <ul class="nostyle">
-                    <?php
-                        namespaced_usertools();
-                    ?>
-                </ul>
-            </div>
-        <?php endif ?>
-    </nav>
-
-    <?php if($ACT == "show"): ?>
-        <div id="namespaced__widebanner_wrap" class="group<?php print (strpos(tpl_getConf('print'), 'widebanner') !== false) ? '' : ' noprint' ?>">
-            <?php
-                namespaced_ui_image('widebanner');
-            ?>
-        </div><!-- #namespaced__widebanner_wrap -->
-    <?php endif ?>
-
 </header><!-- /header -->

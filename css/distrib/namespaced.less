@@ -571,6 +571,11 @@ a.skip:active {
 
 /* -- Navbar -- */
 
+#namespaced__site_nav {
+    z-index: 3;
+    /* Above standard navs (mostly contools and pagetools) */
+}
+
 #namespaced__site_nav.navbar {
     font-size: 90%;
 }
@@ -597,23 +602,24 @@ a.skip:active {
 .navbar ul ul li.focus ul ul,
 .navbar ul ul ul li.focus ul ul,
 .navbar ul ul ul ul li.focus ul ul {
-    z-index: 100;
+    /*left: -99999px;*/
+    /*z-index: 100;*/
+    display: none;
 }
 
-[dir=ltr] .navbar ul li ul, [dir=ltr] .navbar ul li:hover ul ul, [dir=ltr] .navbar ul ul li:hover ul ul, [dir=ltr] .navbar ul ul ul li:hover ul ul, [dir=ltr] .navbar ul ul ul ul li:hover ul ul, [dir=ltr] .navbar ul li.focus ul ul, [dir=ltr] .navbar ul ul li.focus ul ul, [dir=ltr] .navbar ul ul ul li.focus ul ul, [dir=ltr] .navbar ul ul ul ul li.focus ul ul {
-    left: -99999px;
-}
-
-[dir=rtl] .navbar ul li ul, [dir=rtl] .navbar ul li:hover ul ul, [dir=rtl] .navbar ul ul li:hover ul ul, [dir=rtl] .navbar ul ul ul li:hover ul ul, [dir=rtl] .navbar ul ul ul ul li:hover ul ul, [dir=rtl] .navbar ul li.focus ul ul, [dir=rtl] .navbar ul ul li.focus ul ul, [dir=rtl] .navbar ul ul ul li.focus ul ul, [dir=rtl] .navbar ul ul ul ul li.focus ul ul {
-    right: -99999px;
-}
-
-[dir=ltr] .navbar ul li:hover ul, [dir=ltr] .navbar ul ul li:hover ul, [dir=ltr] .navbar ul ul ul li:hover ul, [dir=ltr] .navbar ul ul ul ul li:hover ul, [dir=ltr] .navbar ul ul ul ul ul li:hover ul, [dir=ltr] .navbar ul li.focus ul, [dir=ltr] .navbar ul ul li.focus ul, [dir=ltr] .navbar ul ul ul li.focus ul, [dir=ltr] .navbar ul ul ul ul li.focus ul, [dir=ltr] .navbar ul ul ul ul ul li.focus ul {
-    left: 100%;
-}
-
-[dir=rtl] .navbar ul li:hover ul, [dir=rtl] .navbar ul ul li:hover ul, [dir=rtl] .navbar ul ul ul li:hover ul, [dir=rtl] .navbar ul ul ul ul li:hover ul, [dir=rtl] .navbar ul ul ul ul ul li:hover ul, [dir=rtl] .navbar ul li.focus ul, [dir=rtl] .navbar ul ul li.focus ul, [dir=rtl] .navbar ul ul ul li.focus ul, [dir=rtl] .navbar ul ul ul ul li.focus ul, [dir=rtl] .navbar ul ul ul ul ul li.focus ul {
-    right: 100%;
+.navbar ul li:hover ul,
+.navbar ul ul li:hover ul,
+.navbar ul ul ul li:hover ul,
+.navbar ul ul ul ul li:hover ul,
+.navbar ul ul ul ul ul li:hover ul,
+.navbar ul li.focus ul,
+.navbar ul ul li.focus ul,
+.navbar ul ul ul li.focus ul,
+.navbar ul ul ul ul li.focus ul,
+.navbar ul ul ul ul ul li.focus ul {
+    /*left: 100%;*/
+    display: block;
+    z-index: 3;
 }
 
 .navbar .action .sub-menu {
@@ -850,10 +856,21 @@ main aside.gutter {
     /*margin-left: @ico-margin + @ico-width + @ico-margin;*/
 }
 
+/* if overflow is set on main_subflex, sidebar can't be sticky
 #namespaced__main_subflex,
 article {
     width: 100%;
     overflow: auto;
+}
+*/
+
+article {
+    overflow: auto;
+}
+
+#namespaced__main_subflex,
+article {
+    width: 100%;
 }
 
 #namespaced__aside {
@@ -872,6 +889,7 @@ article {
 
 #namespaced__content nav {
     z-index: 1;
+    /* Below most important navs (admin dropdown, contools & pagetools) but same as config page `outkey` elements (doesn't matter as this nav will be hidden at config page) */
 }
 
 #dw__toc {
@@ -973,12 +991,17 @@ body.sidepanel-flip #namespaced__aside {
 /* -- Page nav -- */
 
 #namespaced__page_nav {
-    width: 100%;
+    /*margin-top: 1rem;*/
+    /*width: 100%;*/
 }
 
 [dir] #namespaced__page_nav {
-    margin-top: 1rem;
+    margin: 1rem 50px 0 50px;
     padding: 1rem;
+}
+
+#namespaced__page_nav aside {
+    width: 100%;
 }
 
 div.pageId span:hover {
@@ -1511,6 +1534,52 @@ nav.tools ul {
 
 .is_page {
     text-transform: capitalize;
+}
+
+.sticky {
+    position: sticky;
+}
+
+/* these values may need some adjustment */
+#namespaced__site_nav.sticky {
+    top: -.01rem;
+}
+
+#namespaced__page_nav.sticky {
+    top: -.01rem;
+}
+
+#namespaced__page_nav.sticky.stickynav {
+    top: 4.5rem;
+}
+
+#namespaced__contools .tools.stickynav,
+#namespaced__pagetools .tools.stickynav {
+    top: 5rem;
+}
+
+#namespaced__aside .sticky {
+    top: 0;
+}
+
+#namespaced__aside .sticky.stickynav:not(.stickypagenav) {
+    top: 5rem;
+}
+
+#namespaced__aside .sticky.stickypagenav:not(.stickynav) {
+    top: 7.5rem;
+}
+
+#namespaced__aside .sticky.stickynav.stickypagenav {
+    top: 12rem;
+}
+
+#namespaced__docinfo.sticky {
+    bottom: -3rem;
+}
+
+#namespaced__docinfo.sticky:hover {
+    bottom: 0;
 }
 
 /* -- Debug -- */
