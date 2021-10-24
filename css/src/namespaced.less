@@ -718,6 +718,7 @@ article {
     float: right;
     margin-top: .8rem;
     margin-left: 1.5rem;
+    /*border-right: @ini_border_width solid transparent;*/
 }
 
 #dw__toc ul {
@@ -731,8 +732,15 @@ article {
 #namespaced__docinfo {
     color: @ini_text_neu;
     background-color: @ini_background_neu;
-    padding: .8rem;
+    padding: .2rem;
+    border: @ini_border_width solid transparent;
 }
+
+/*
+#namespaced__aside aside {
+    border-left: @ini_border_width solid transparent;
+}
+*/
 
 #namespaced__aside aside,
 #dw__toc {
@@ -745,10 +753,17 @@ article {
 }
 */
 
+/*
+#namespaced__page_nav {
+    border-top: @ini_border_width solid transparent;
+}
+*/
+
 #namespaced__docinfo {
     margin: 1.5rem auto 0 auto;
     width: 70%;
     padding: .8rem 1.5rem;
+    /*border-bottom: @ini_border_width solid transparent;*/
 }
 
 /*
@@ -1055,6 +1070,7 @@ body.mediaq #screen__mode {
     margin-right: 1rem;
     margin-left: 1rem;
     max-width: 50%;
+    /*border-bottom: @ini_border_width solid transparent;*/
 }
 
 body.three-footerwidgets #namespaced__footer_widgets aside {

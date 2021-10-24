@@ -896,6 +896,7 @@ article {
     min-width: @ini_toc_width;
     max-width: @ini_toc_width;
     width: @ini_toc_width;
+    /*border-right: @ini_border_width solid transparent;*/
 }
 
 [dir] #dw__toc {
@@ -926,8 +927,15 @@ article {
 
 [dir] #namespaced__aside aside, [dir] #namespaced__page_nav, [dir] #dw__toc, [dir] #namespaced__footer_widgets aside, [dir] #namespaced__docinfo {
     background-color: @ini_background_neu;
-    padding: .8rem;
+    padding: .2rem;
+    border: @ini_border_width solid transparent;
 }
+
+/*
+#namespaced__aside aside {
+    border-left: @ini_border_width solid transparent;
+}
+*/
 
 [dir] #namespaced__aside aside, [dir] #dw__toc {
     margin-bottom: 1.5rem;
@@ -939,8 +947,15 @@ article {
 }
 */
 
+/*
+#namespaced__page_nav {
+    border-top: @ini_border_width solid transparent;
+}
+*/
+
 #namespaced__docinfo {
     width: 70%;
+    /*border-bottom: @ini_border_width solid transparent;*/
 }
 
 [dir] #namespaced__docinfo {
@@ -1302,6 +1317,7 @@ body.mediaq #screen__mode {
 
 #namespaced__footer_widgets aside {
     max-width: 50%;
+    /*border-bottom: @ini_border_width solid transparent;*/
 }
 
 [dir=ltr] #namespaced__footer_widgets aside {
