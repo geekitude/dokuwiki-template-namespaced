@@ -15,9 +15,11 @@
 * -- Navbar
 * MAIN
 * -- Page nav
+* -- docInfo
 * -- Pagetools & Contools
+* FOOTER
 * DOKUWIKI GLOBAL
-* DOKUWIKI GLOBAL
+* DOKUWIKI MODES
 * -- Settings
 * PLUGINS
 * -- Blockquote
@@ -35,6 +37,10 @@
 [dir] .themed:hover {
     box-shadow: 0 0 40px 40px @ini_theme_color inset;
     border-color: @ini_theme_color;
+}
+
+[dir] body.colored-tables th, [dir] body.striped-tables th {
+    background-color: @ini_theme_color;
 }
 
 /* -- Headings -- */
@@ -56,7 +62,7 @@ h5 {
 }
 
 [dir] #namespaced__site_nav_labels h6 {
-    background-color: @ini_theme_color;
+    background-color: @ini_theme_dark_color;
 }
 
 #namespaced__site_nav_labels h6 {
@@ -69,8 +75,8 @@ h5 {
 /* -- Navbar -- */
 
 [dir] #namespaced__site_nav.navbar {
-    background-color: @ini_theme_dark_color;
-    border-top: .6rem solid @ini_theme_color;
+    background-color: @ini_theme_color;
+    border-top: .6rem solid @ini_theme_dark_color;
 }
 
 /*
@@ -92,7 +98,7 @@ nav ul li a:hover,
 }
 
 [dir] nav ul li a:hover, [dir] #namespaced__contools ul li button:hover {
-    box-shadow: 0 0 40px 40px @ini_theme_color inset;
+    box-shadow: 0 0 40px 40px @ini_theme_dark_color inset;
 }
 
 .navbar ul.sub-menu li:hover a:not(.active) {
@@ -106,10 +112,36 @@ nav ul li a:hover,
 /* MAIN
 ----------------------------------------------- */
 
+[dir=ltr] #dw__toc {
+  border-left: .6rem solid @ini_border;
+}
+
+[dir=rtl] #dw__toc {
+    border-right: .6rem solid @ini_border;
+}
+
+[dir=ltr] #namespaced__aside aside {
+  border-right: .6rem solid @ini_border;
+}
+
+[dir=rtl] #namespaced__aside aside {
+    border-left: .6rem solid @ini_border;
+}
+
 /* -- Page nav -- */
 
 #namespaced__page_nav {
     /*background-color: @ini_theme_color;*/
+}
+
+[dir] #namespaced__page_nav {
+    border-bottom: .6rem solid @ini_border;
+}
+
+/* -- docInfo -- */
+
+[dir] #namespaced__docinfo {
+    border-top: .6rem solid @ini_border;
 }
 
 /* -- Pagetools & Contools -- */
@@ -124,6 +156,13 @@ nav ul li a:hover,
 #namespaced__contools ul li:hover button svg,
 #namespaced__pagetools ul li:hover a svg {
     fill: @ini_theme_text_color;
+}
+
+/* FOOTER
+----------------------------------------------- */
+
+[dir] #namespaced__footer_widgets aside {
+    border-top: .6rem solid @ini_border;
 }
 
 /* DOKUWIKI GLOBAL
