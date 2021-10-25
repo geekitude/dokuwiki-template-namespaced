@@ -765,13 +765,6 @@ article {
 }
 */
 
-#namespaced__docinfo {
-    margin: 1.5rem auto 0 auto;
-    width: 70%;
-    padding: .8rem 1.5rem;
-    /*border-bottom: @ini_border_width solid transparent;*/
-}
-
 /*
 body.no-sidepanel #namespaced__aside,
 body.no-sidepanel #namespaced__main_subflex hr {
@@ -856,13 +849,22 @@ div.docInfo span:hover svg {
     fill: @ini_text;
 }
 
+#namespaced__docinfo {
+    margin: 1.5rem auto 0 auto;
+    width: 70%;
+    padding: .8rem 1.5rem;
+    /*border-bottom: @ini_border_width solid transparent;*/
+}
+
 #namespaced__site.mode_denied div.docInfo,
 #namespaced__site.mode_admin #namespaced__docinfo,
 #namespaced__site.mode_denied #namespaced__docinfo,
 #namespaced__site.mode_profile #namespaced__docinfo,
 #namespaced__site.mode_recent #namespaced__docinfo,
 #namespaced__site.mode_resendpwd #namespaced__docinfo,
-#namespaced__site.mode_search #namespaced__docinfo {
+#namespaced__site.mode_search #namespaced__docinfo,
+#namespaced__site.notFound div.docInfo,
+#namespaced__site.notFound #namespaced__docinfo {
     display: none;
 }
 
