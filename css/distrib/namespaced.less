@@ -179,7 +179,8 @@ pre {
 }
 
 [dir] pre {
-    padding: 1rem;
+    padding: .4rem;
+    border: @ini_border_width solid transparent;
 }
 
 svg {
@@ -189,6 +190,14 @@ svg {
 svg:hover,
 a:hover svg {
     fill: @ini_text_neu;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+[dir] table, [dir] thead, [dir] th, [dir] td {
+    border: 1px solid transparent;
 }
 
 ul, ol {
@@ -931,12 +940,6 @@ article {
     border: @ini_border_width solid transparent;
 }
 
-/*
-#namespaced__aside aside {
-    border-left: @ini_border_width solid transparent;
-}
-*/
-
 [dir] #namespaced__aside aside, [dir] #dw__toc {
     margin-bottom: 1.5rem;
 }
@@ -1466,7 +1469,7 @@ ul.tabs {
 }
 
 [dir] ul.tabs li {
-    border-bottom: 3px solid transparent;
+    border-bottom: @ini_border_width solid transparent;
 }
 
 ul.tabs li:not(.active) a {
@@ -1704,33 +1707,18 @@ pre {
 blockquote {
     font-style: italic;
     font-weight: normal;
+    /*border-style: solid;*/
+    /*border-width: @ini_border_width;*/
 }
 
 [dir] blockquote {
-    border-style: solid;
     margin: 0 0 1rem 0;
-    padding: .75rem;
-    border-style: solid;
-}
-
-[dir=ltr] blockquote {
-    border-width: .1rem .1rem .1rem .4rem;
-}
-
-[dir=rtl] blockquote {
-    border-width: .1rem .4rem .1rem .1rem;
+    padding: .4rem;
+    border: @ini_border_width solid transparent;
 }
 
 [dir] blockquote blockquote {
     margin-bottom: 0;
-}
-
-[dir=ltr] blockquote blockquote {
-    border-width: 0 0 0 .4rem;
-}
-
-[dir=rtl] blockquote blockquote {
-    border-width: 0 .4rem 0 0;
 }
 
 [dir] pre.code, [dir] pre.file {
@@ -1744,10 +1732,6 @@ blockquote {
 
 [dir] pre.file {
     background-image: url(images/file.svg);
-}
-
-table {
-    border-collapse: collapse;
 }
 
 [dir] th, [dir] td {
@@ -1927,18 +1911,12 @@ label.block {
 
 [dir] blockquote.blockquote-plugin {
     margin: 0 auto 1rem auto;
+    padding: .4rem;
     border-style: solid;
+    border-width: @ini_border_width !important;
     background-image: url(images/override/blockquote.svg);
     background-size: 6.4rem 6.4rem;
     background-position: -.5rem -1rem;
-}
-
-[dir=ltr] blockquote.blockquote-plugin {
-    border-width: .1rem .1rem .1rem .4rem;
-}
-
-[dir=rtl] blockquote.blockquote-plugin {
-    border-width: .1rem .4rem .1rem .1rem;
 }
 
 [dir] blockquote.blockquote-plugin p:last-child {
@@ -2010,6 +1988,10 @@ blockquote.blockquote-plugin cite {
 
 [dir] div.wrap_download {
     background-image: url(images/override/wrap_download_48.png);
+}
+
+[dir] div.wrap_box {
+    border: @ini_border_width solid transparent;
 }
 
 [dir] span.wrap_download {

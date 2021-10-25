@@ -44,6 +44,17 @@ body.striped-tables th {
     background-color: @ini_theme_color;
 }
 
+pre {
+    border-bottom-color: @ini_border;
+}
+
+table,
+thead,
+th,
+td {
+    border-color: @ini_border;
+}
+
 /* -- Headings -- */
 
 h1,
@@ -129,6 +140,7 @@ nav ul li a:hover,
 }
 
 #namespaced__page_nav {
+    /*border-bottom-color: desaturate(@ini_border, 100%);*/
     border-bottom-color: @ini_border;
 }
 
@@ -163,20 +175,13 @@ nav ul li a:hover,
 ----------------------------------------------- */
 
 blockquote {
-    border-color: @ini_border @ini_border @ini_border @ini_theme_color;
+    border-color: transparent transparent transparent @ini_border;
 }
 
 blockquote,
 pre {
     color: @ini_text_alt;
     background-color: @ini_background_alt;
-}
-
-pre,
-table,
-th,
-td {
-    border: 1px solid @ini_border;
 }
 
 body.striped-tables tr:nth-child(even) {
@@ -198,7 +203,7 @@ body.striped-tables tr:nth-child(even) {
 /* -- Blockquote -- */
 
 blockquote.blockquote-plugin {
-    border-color: @ini_border @ini_border @ini_border @ini_theme_color;
+    border-color: transparent transparent transparent @ini_border;
 }
 
 /* -- Cloud -- */
@@ -244,7 +249,7 @@ span.wrap_box {
 }
 
 div.wrap_box {
-    border: 1px solid @ini_border;
+    border-bottom-color: @ini_border;
 }
 
 div.wrap_info,

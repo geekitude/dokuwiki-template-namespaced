@@ -43,6 +43,14 @@
     background-color: @ini_theme_color;
 }
 
+[dir] pre {
+    border-bottom-color: @ini_border;
+}
+
+[dir] table, [dir] thead, [dir] th, [dir] td {
+    border-color: @ini_border;
+}
+
 /* -- Headings -- */
 
 h1,
@@ -134,6 +142,10 @@ nav ul li a:hover,
     /*background-color: @ini_theme_color;*/
 }
 
+#namespaced__page_nav {
+    /*border-bottom-color: desaturate(@ini_border, 100%);*/
+}
+
 [dir] #namespaced__page_nav {
     border-bottom-color: @ini_border;
 }
@@ -169,11 +181,11 @@ nav ul li a:hover,
 ----------------------------------------------- */
 
 [dir=ltr] blockquote {
-  border-color: @ini_border @ini_border @ini_border @ini_theme_color;
+  border-color: transparent transparent transparent @ini_border;
 }
 
 [dir=rtl] blockquote {
-    border-color: @ini_border @ini_theme_color @ini_border @ini_border;
+    border-color: transparent @ini_border transparent transparent;
 }
 
 blockquote,
@@ -183,10 +195,6 @@ pre {
 
 [dir] blockquote, [dir] pre {
     background-color: @ini_background_alt;
-}
-
-[dir] pre, [dir] table, [dir] th, [dir] td {
-    border: 1px solid @ini_border;
 }
 
 [dir] body.striped-tables tr:nth-child(even) {
@@ -208,11 +216,11 @@ pre {
 /* -- Blockquote -- */
 
 [dir=ltr] blockquote.blockquote-plugin {
-  border-color: @ini_border @ini_border @ini_border @ini_theme_color;
+  border-color: transparent transparent transparent @ini_border;
 }
 
 [dir=rtl] blockquote.blockquote-plugin {
-    border-color: @ini_border @ini_theme_color @ini_border @ini_border;
+    border-color: transparent @ini_border transparent transparent;
 }
 
 /* -- Cloud -- */
@@ -260,7 +268,7 @@ span.wrap_box {
 }
 
 [dir] div.wrap_box {
-    border: 1px solid @ini_border;
+    border-bottom-color: @ini_border;
 }
 
 [dir] div.wrap_info, [dir] div.wrap_notice {
