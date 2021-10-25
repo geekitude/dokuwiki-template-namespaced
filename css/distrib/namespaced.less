@@ -179,7 +179,7 @@ pre {
 }
 
 [dir] pre {
-    padding: .4rem;
+    padding: 1rem 1rem .5rem 1rem;
     border: @ini_border_width solid transparent;
 }
 
@@ -1721,9 +1721,23 @@ blockquote {
     margin-bottom: 0;
 }
 
+pre.code,
+pre.file {
+    min-height: 7rem;
+}
+
 [dir] pre.code, [dir] pre.file {
+    background-position: 15px 50%;
     background-size: 4rem 4rem;
     background-repeat: no-repeat;
+}
+
+[dir=ltr] pre.code, [dir=ltr] pre.file {
+    padding-left: 70px;
+}
+
+[dir=rtl] pre.code, [dir=rtl] pre.file {
+    padding-right: 70px;
 }
 
 [dir] pre.code {
@@ -1911,12 +1925,19 @@ label.block {
 
 [dir] blockquote.blockquote-plugin {
     margin: 0 auto 1rem auto;
-    padding: .4rem;
     border-style: solid;
     border-width: @ini_border_width !important;
     background-image: url(images/override/blockquote.svg);
     background-size: 6.4rem 6.4rem;
-    background-position: -.5rem -1rem;
+    background-position: 4px -8px;
+}
+
+[dir=ltr] blockquote.blockquote-plugin {
+    padding: 1rem 1rem .5rem 70px;
+}
+
+[dir=rtl] blockquote.blockquote-plugin {
+    padding: 1rem 70px .5rem 1rem;
 }
 
 [dir] blockquote.blockquote-plugin p:last-child {
@@ -1985,6 +2006,28 @@ blockquote.blockquote-plugin cite {
 }
 
 /* -- Wrap -- */
+
+[dir] div.plugin_wrap {
+    padding: 1rem 1rem .5rem 1rem;
+}
+
+div.wrap_info,
+div.wrap_important,
+div.wrap_alert,
+div.wrap_tip,
+div.wrap_help,
+div.wrap_todo,
+div.wrap_download {
+    min-height: 7rem;
+}
+
+[dir=ltr] div.wrap_info, [dir=ltr] div.wrap_important, [dir=ltr] div.wrap_alert, [dir=ltr] div.wrap_tip, [dir=ltr] div.wrap_help, [dir=ltr] div.wrap_todo, [dir=ltr] div.wrap_download {
+    padding-left: 70px;
+}
+
+[dir=rtl] div.wrap_info, [dir=rtl] div.wrap_important, [dir=rtl] div.wrap_alert, [dir=rtl] div.wrap_tip, [dir=rtl] div.wrap_help, [dir=rtl] div.wrap_todo, [dir=rtl] div.wrap_download {
+    padding-right: 70px;
+}
 
 [dir] div.wrap_download {
     background-image: url(images/override/wrap_download_48.png);

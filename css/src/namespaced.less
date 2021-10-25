@@ -162,7 +162,7 @@ nav {
 
 pre {
     overflow: auto;
-    padding: .4rem;
+    padding: 1rem 1rem .5rem 1rem;
     border: @ini_border_width solid transparent;
 }
 
@@ -1400,8 +1400,11 @@ blockquote blockquote {
 
 pre.code,
 pre.file {
+    padding-left: 70px;
+    background-position: 15px 50%;
     background-size: 4rem 4rem;
     background-repeat: no-repeat;
+    min-height: 7rem;
 }
 
 pre.code {
@@ -1561,12 +1564,12 @@ label.block {
 
 blockquote.blockquote-plugin {
     margin: 0 auto 1rem auto;
-    padding: .4rem;
+    padding: 1rem 1rem .5rem 70px;
     border-style: solid;
     border-width: @ini_border_width !important;
     background-image: url(images/override/blockquote.svg);
     background-size: 6.4rem 6.4rem;
-    background-position: -.5rem -1rem;
+    background-position: 4px -8px;
 }
 
 blockquote.blockquote-plugin p:last-child {
@@ -1632,6 +1635,21 @@ div.tagstop {
 }
 
 /* -- Wrap -- */
+
+div.plugin_wrap {
+    padding: 1rem 1rem .5rem 1rem;
+}
+
+div.wrap_info,
+div.wrap_important,
+div.wrap_alert,
+div.wrap_tip,
+div.wrap_help,
+div.wrap_todo,
+div.wrap_download {
+    padding-left: 70px;
+    min-height: 7rem;
+}
 
 div.wrap_download {
     background-image: url(images/override/wrap_download_48.png);
