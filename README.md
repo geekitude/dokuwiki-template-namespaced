@@ -66,29 +66,29 @@ See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#setting
 * [ ] Sidebar and ToC can be moved out of page content on wide screen (only works in boxed layout)
 * [ ] Extracted ToC can be given [scrollspy](https://codepen.io/latifur/pen/qLKXpj) superpowers
 * [ ] Retractable sidebar
-* [ ] Stickable main navigation bar, pageheader, sidebar and docinfo
+* [x] Stickable main navigation bar, pageheader, sidebar and docinfo
 * [x] Dynamic navigation button(s): wikihome, parent NS start, current NS home or "back to article" (can be combined as a single button or not)
 * [ ] High number of HTML hooks (based on [this document](https://www.dokuwiki.org/include_hooks))
 * [ ] A few HTML replace hooks that let you replace some elements with more fancy HTML code
-* [ ] Sub namespaces list based on [Twistienav](https://www.dokuwiki.org/plugin:twistienav) plugin?
-* [ ] Siblings based on [Twistienav](https://www.dokuwiki.org/plugin:twistienav) plugin (a breadcrumbs like list of other pages in current namespace)
+* [x] Sub namespaces list based on [Twistienav](https://www.dokuwiki.org/plugin:twistienav) plugin's code
+* [x] Siblings pages list based on [Twistienav](https://www.dokuwiki.org/plugin:twistienav) plugin's code
 * [ ] Social networks links (see [Social links](https://github.com/geekitude/dokuwiki-template-colormag#social-links) below)
 * [ ] Supports a cheatsheet that will be shown as a sidebar in edit and preview modes
 * [x] Added a "Go to bottom" pagetool to easily reach footer widgets or save settings button (Javascript is needed to switch between this pagetool and "Back to top")
 * [x] Added contextual tools "facing" page tools (navigation, playground, syntax page, most usefull forms' buttons)
 * [ ] Expanded debug mode to force some UI elements regardless of settings: add `&debug=1` to URL to show all debug elements at once or `&debug=keyword` to show a specific element from following list of keywords (usefull to play around with template settings)
-  * [ ] *a11y* (visual accessibility helpers)
-  * [ ] *alerts*
-  * [ ] *banner*
-  * [ ] *sidecard* (sidebar header image)
-  * [ ] *images* (all UI images)
+  * [x] *a11y* (visual accessibility helpers)
+  * [x] *alerts*
+  * [x] *banner*
+  * [x] *sidecard* (sidebar header image)
+  * [x] *images* (all UI images)
   * [ ] *includes* (HTML include hooks)
   * [x] *mediaq* (add background color and text to mark CSS media queries)
   * [ ] *pattern*
   * [ ] *replace* (HTML replace hooks)
   * [ ] *social* (load a dummy social networks list)
   * [ ] *timers* (show alerts reporting time taken by a few functions, currently autotheme and colored breadcrumbs)
-  * [ ] *widebanner*
+  * [x] *widebanner*
   * [ ] *widgets* (show dummy widgets set by `debug/footer.widgets.local.conf` and `debug/side.widgets.local.conf` file)
 * [x] `docInfo` can be combined in page header
 * [x] Asides' color scheme can either be standard or use neutral colors defined in `style.ini` 
