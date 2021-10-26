@@ -742,54 +742,15 @@ function namespaced_usertools() {
 }/* /namespaced_usertools */
 
 /**
- * Print context menu
+ * Print context tools
  */
 function namespaced_contools() {
     global $ID, $ACT, $INFO, $conf, $lang;
     global $namespaced;
 
     // NAV BUTTON(S)
-    // one button to rule them all...
-    if (tpl_getConf('combonav')) {
-        if ((($ACT == "recent") or ($ACT == "media") or ($ACT == "index") or ($ACT == "admin") or (strpos($ID, 'playground:') === 0)) and (isset($_SESSION["origID"]))) {
-            print '<li class="back-to-article">';
-                // display link to get back to article from current mode
-                tpl_link(
-                    wl($_SESSION["origID"]),
-                    namespaced_glyph('back-to-article', true).'<span>'.tpl_getLang('back-to-article').'</span>',
-                    'title="'.$_SESSION["origID"].'" rel="nofollow"'
-                );
-            print '</li>';
-        } elseif ($namespaced['ishome'] == false) {
-            print '<li class="nshome">';
-                // display link to namespace home page
-                tpl_link(
-                    wl(getns($ID).':'.$conf['start']),
-                    namespaced_glyph('nshome', true).'<span>'.tpl_getLang('nshome').'</span>',
-                    'title="'.tpl_getLang('nshome').'" rel="nofollow"'
-                );
-            print '</li>';
-        } elseif (getns(getns($ID)) != null) {
-            print '<li class="parentns">';
-                // display link to parent namespace home page
-                tpl_link(
-                    wl(getns(getns($ID)).':'.$conf['start']),
-                    namespaced_glyph('parentns', true).'<span>'.tpl_getLang('parentns').'</span>',
-                    'title="'.tpl_getLang('parentns').'" rel="nofollow"'
-                );
-            print '</li>';
-        } elseif (!in_array($namespaced['ishome'], array("default", "untranslated", "translated"))) {
-            print '<li class="wikihome">';
-                // display link to the home page
-                tpl_link(
-                    wl(),
-                    namespaced_glyph('home', true).'<span>'.tpl_getLang('wikihome').'</span>',
-                    'accesskey="h" title="'.tpl_getLang('wikihome').' [H]" rel="nofollow"'
-                );
-            print '</li>';
-        }
-    // ...or standalone buttons
-    } else {
+    // Standalone buttons
+    if (tpl_getConf('splitnav')) {
         if (!in_array($namespaced['ishome'], array("default", "untranslated", "translated"))) {
             print '<li class="wikihome">';
                 // display link to the home page
@@ -828,6 +789,45 @@ function namespaced_contools() {
                     wl($_SESSION["origID"]),
                     namespaced_glyph('back-to-article', true).'<span>'.tpl_getLang('back-to-article').'</span>',
                     'title="'.$_SESSION["origID"].'" rel="nofollow"'
+                );
+            print '</li>';
+        }
+    // ... or one button to rule them all...
+    } else {
+        if ((($ACT == "recent") or ($ACT == "media") or ($ACT == "index") or ($ACT == "admin") or (strpos($ID, 'playground:') === 0)) and (isset($_SESSION["origID"]))) {
+            print '<li class="back-to-article">';
+                // display link to get back to article from current mode
+                tpl_link(
+                    wl($_SESSION["origID"]),
+                    namespaced_glyph('back-to-article', true).'<span>'.tpl_getLang('back-to-article').'</span>',
+                    'title="'.$_SESSION["origID"].'" rel="nofollow"'
+                );
+            print '</li>';
+        } elseif ($namespaced['ishome'] == false) {
+            print '<li class="nshome">';
+                // display link to namespace home page
+                tpl_link(
+                    wl(getns($ID).':'.$conf['start']),
+                    namespaced_glyph('nshome', true).'<span>'.tpl_getLang('nshome').'</span>',
+                    'title="'.tpl_getLang('nshome').'" rel="nofollow"'
+                );
+            print '</li>';
+        } elseif (getns(getns($ID)) != null) {
+            print '<li class="parentns">';
+                // display link to parent namespace home page
+                tpl_link(
+                    wl(getns(getns($ID)).':'.$conf['start']),
+                    namespaced_glyph('parentns', true).'<span>'.tpl_getLang('parentns').'</span>',
+                    'title="'.tpl_getLang('parentns').'" rel="nofollow"'
+                );
+            print '</li>';
+        } elseif (!in_array($namespaced['ishome'], array("default", "untranslated", "translated"))) {
+            print '<li class="wikihome">';
+                // display link to the home page
+                tpl_link(
+                    wl(),
+                    namespaced_glyph('home', true).'<span>'.tpl_getLang('wikihome').'</span>',
+                    'accesskey="h" title="'.tpl_getLang('wikihome').' [H]" rel="nofollow"'
                 );
             print '</li>';
         }

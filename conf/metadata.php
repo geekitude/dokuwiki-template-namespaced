@@ -20,7 +20,7 @@ $meta['tablestyle']         = array('multichoice','_choices' => array('colored',
 $meta['kbdstyle']           = array('multichoice','_choices' => array('basic','default','deep-blue','dark-apple','type-writer','dw-red','dw-green','dw-blue','dw-yellow'));
 /* functionnalities */
 $meta['glyphs']             = array('onoff');
-$meta['combonav']           = array('onoff');
+$meta['splitnav']           = array('onoff');
 $meta['nsindexexclude']     = array('array');
 $meta['docinfopos']         = array('multichoice','_choices' => array('standalone','pagenav'));
 $meta['searches']           = array('multicheckbox','_choices' => array('quicksearch','autocomplete'),'_other' => 'never');

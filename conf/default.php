@@ -19,7 +19,7 @@ $conf['tablestyle']         = 'dynamic';
 $conf['kbdstyle']           = 'default';
 
 $conf['glyphs']             = 1;
-$conf['combonav']           = 1;
+$conf['splitnav']           = 1;
 $conf['nsindexexclude']     = array('sidebar', 'topbar');
 $conf['docinfopos']         = 'pagenav';
 $conf['searches']           = 'quicksearch';

@@ -9,7 +9,7 @@
  * English language file for Namespaced template config
 */
 
-$lang['combonav']       = 'Combine navigation buttons or not. Priority order will be: back to article > namespace home > parent namespace > wiki home. [default: <code>enabled</code>]';
+$lang['splitnav']       = 'Disable to combine navigation contextual buttons. Priority order will then be: back to article > namespace home > parent namespace > wiki home. [default: <code>enabled</code>]';
 $lang['stickies']       = 'Select elements that should stick to top of window, except `docInfo` that will stick to bottom (a bit below untill hover to be precise. Note that sticky a long sidebar can be quite cumbersome as you\'ll need to scroll to bottom of page to get bottom of sidebar. [default: <code>nothing selected</code>]';
 $lang['tablestyle']     = 'Choose between colored headers, colored headers and striped or dynamic highlight tables (complex design don\'t work very well with spanned cells).';
 $lang['nsindexexclude'] = 'Coma separated list of pages to exclude from navbar current namespace index. [default: <code>sidebar, topbar</code>]';
