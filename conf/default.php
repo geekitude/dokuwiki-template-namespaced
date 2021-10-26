@@ -17,6 +17,7 @@ $conf['longdatestring']     = '%A %d %B %Y';
 $conf['shortdatestring']    = '%d/%m/%Y';
 $conf['tablestyle']         = 'dynamic';
 $conf['kbdstyle']           = 'default';
+$conf['neutralize']         = 'pagenav,toc,docinfo,side-widgets';
 
 $conf['glyphs']             = 1;
 $conf['splitnav']           = 1;

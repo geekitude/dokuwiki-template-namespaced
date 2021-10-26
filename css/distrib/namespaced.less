@@ -926,18 +926,25 @@ article {
     margin-bottom: 0 !important;
 }
 
+/*
 #namespaced__aside aside,
 #namespaced__page_nav,
 #dw__toc,
 #namespaced__footer_widgets aside,
 #namespaced__docinfo {
     color: @ini_text_neu;
+    background-color: @ini_background_neu;
+    border: @ini_border_width solid transparent;
+    padding: .2rem;
 }
+*/
 
 [dir] #namespaced__aside aside, [dir] #namespaced__page_nav, [dir] #dw__toc, [dir] #namespaced__footer_widgets aside, [dir] #namespaced__docinfo {
-    background-color: @ini_background_neu;
     padding: .2rem;
     border: @ini_border_width solid transparent;
+}
+[dir] #namespaced__page_nav:not(.neu), [dir] #namespaced__docinfo:not(.neu) {
+    background-color: @ini_background;
 }
 
 [dir] #namespaced__aside aside, [dir] #dw__toc {
@@ -1512,6 +1519,43 @@ ul.tabs li.active:hover a {
 
 [dir] .end {
     text-align: end;
+}
+
+.neu,
+body.neu-toc #dw__toc {
+    color: @ini_text_neu;
+}
+
+[dir] .neu, [dir] body.neu-toc #dw__toc {
+    background-color: @ini_background_neu;
+}
+
+[dir] #namespaced__page_nav.neu {
+    border-bottom-color: desaturate(@ini_border, 100%);
+}
+
+[dir] #namespaced__docinfo.neu {
+    border-top-color: desaturate(@ini_border, 100%);
+}
+
+[dir=ltr] #namespaced__aside aside.neu {
+    border-right-color: desaturate(@ini_border, 100%);
+}
+
+[dir=rtl] #namespaced__aside aside.neu {
+    border-left-color: desaturate(@ini_border, 100%);
+}
+
+[dir] #namespaced__footer_widgets aside.neu {
+    border-top-color: desaturate(@ini_border, 100%);
+}
+
+[dir=ltr] body.neu-toc #dw__toc {
+    border-left-color: desaturate(@ini_border, 100%);
+}
+
+[dir=rtl] body.neu-toc #dw__toc {
+    border-right-color: desaturate(@ini_border, 100%);
 }
 
 /*

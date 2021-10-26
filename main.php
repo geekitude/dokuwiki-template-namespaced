@@ -88,7 +88,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
             </div><!-- #namespaced__widebanner_wrap -->
         <?php endif ?>
 
-        <nav id="namespaced__page_nav" class="flex between gap20<?php print (strpos(tpl_getConf('stickies'), 'pagenav') !== false) ? ' sticky' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' stickynav' : '' ?>">
+        <nav id="namespaced__page_nav" class="flex between gap20<?php print (strpos(tpl_getConf('neutralize'), 'pagenav') !== false) ? ' neu' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'pagenav') !== false) ? ' sticky' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' stickynav' : '' ?>">
                 <div class="flex column align-start">
                     <div class="pageId h6">
                         <span><?php echo hsc($ID) ?></span>
@@ -215,13 +215,15 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
         </main>
 
         <?php
-            if ((tpl_getConf('docinfopos') == "standalone") or (strpos(tpl_getConf('stickies'), 'docinfo') !== false)) {
-                print '<aside id="namespaced__docinfo"';
-                    if (strpos(tpl_getConf('stickies'), 'docinfo') !== false) {
-                        print ' class="sticky">';
-                    } else {
-                        print '>';
-                    }
+            if ((tpl_getConf('docinfopos') === "standalone") or (strpos(tpl_getConf('stickies'), 'docinfo') !== false)) {
+                $classes = null;
+                if (strpos(tpl_getConf('neutralize'), 'docinfo') !== false) {
+                    $classes .= " neu";
+                }
+                if (strpos(tpl_getConf('stickies'), 'docinfo') !== false) {
+                    $classes .= " sticky";
+                }
+                print '<aside id="namespaced__docinfo" class="'.ltrim($classes, " ").'">';
                     namespaced_docinfo();
                 print '</aside>';
             }

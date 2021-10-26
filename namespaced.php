@@ -470,7 +470,7 @@ function namespaced_bodyclasses() {
 //    array_push($classes, $home, $sidepanel, $pattern, $showSidebar ? ((strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'right-sidebar' : 'left-sidebar') : 'no-sidebar', tpl_getConf('layout').'-layout', (strpos(tpl_getConf('flexflip'), 'banner') !== false) ? 'banner-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagenav') !== false) ? 'pagenav-flip' : '', (strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'sidebar-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagetools') !== false) ? 'pagetools-flip' : '', (strpos(tpl_getConf('flexflip'), 'socket') !== false) ? 'socket-flip' : '', tpl_getConf('widgetslook').'-widgets', (strpos(tpl_getConf('print'), 'hrefs') !== false) ? 'printhrefs' : '', ($_GET['debug']==1) ? 'debug' : '', ($_GET['debug']=='mediaq') ? 'mediaq' : '');
 
 // VOIR SI IL FAUT REINTEGRER `widgetlooks` et/ou `printhrefs`
-    array_push($classes, $home, $sidepanel, $footerwidgets, $pattern, $showSidebar ? ((strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'right-sidebar' : 'left-sidebar') : 'no-sidebar', tpl_getConf('layout').'-layout', (strpos(tpl_getConf('flexflip'), 'banner') !== false) ? 'banner-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagenav') !== false) ? 'pagenav-flip' : '', (strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'sidebar-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagetools') !== false) ? 'pagetools-flip' : '', (strpos(tpl_getConf('flexflip'), 'socket') !== false) ? 'socket-flip' : '', tpl_getConf('tablestyle').'-tables', (tpl_getConf('kbdstyle') != 'default') ? tpl_getConf('kbdstyle').'-kbd' : '', ($_GET['debug']==1) ? 'debug' : '', ($_GET['debug']=='mediaq') ? 'mediaq' : '');
+    array_push($classes, $home, $sidepanel, $footerwidgets, $pattern, $showSidebar ? ((strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'right-sidebar' : 'left-sidebar') : 'no-sidebar', tpl_getConf('layout').'-layout', (strpos(tpl_getConf('flexflip'), 'banner') !== false) ? 'banner-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagenav') !== false) ? 'pagenav-flip' : '', (strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'sidebar-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagetools') !== false) ? 'pagetools-flip' : '', (strpos(tpl_getConf('flexflip'), 'socket') !== false) ? 'socket-flip' : '', tpl_getConf('tablestyle').'-tables', (tpl_getConf('kbdstyle') != 'default') ? tpl_getConf('kbdstyle').'-kbd' : '', (strpos(tpl_getConf('neutralize'), 'toc') !== false) ? 'neu-toc' : '', ($_GET['debug']==1) ? 'debug' : '', ($_GET['debug']=='mediaq') ? 'mediaq' : '');
 
     return rtrim(join(' ', array_filter($classes)));
 }/* /namespaced_bodyclasses */
@@ -546,8 +546,12 @@ function namespaced_widgets($area = null){
         $widgetid = "namespaced__widget_".str_replace(".html", "", str_replace(":", "_", ltrim($widget, ":")));
         if (($widgetid == "namespaced__widget_user") and (($conf['useacl']) && (empty($_SERVER['REMOTE_USER'])))) {
             continue;
-        }            
-        print '<aside id="'.$widgetid.'" class="widget">';
+        }
+        $classes = "widget";
+        if (strpos(tpl_getConf('neutralize'), $area.'-widgets') !== false) {
+            $classes .= " neu";
+        }
+        print '<aside id="'.$widgetid.'" class="'.$classes.'">';
             if (isset($data['title'])) {
                 print '<h6 class="widget-title"><span>'.$data['title'].'</span></h6>';
             }
