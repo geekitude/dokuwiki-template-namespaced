@@ -173,8 +173,20 @@ nav ul li a:hover,
 /* FOOTER
 ----------------------------------------------- */
 
+#namespaced__footer {
+    color: @ini_theme_text_color;
+}
+
+[dir] #namespaced__footer {
+    background-color: @ini_theme_dark_color;
+}
+
 [dir] #namespaced__footer_widgets aside {
     border-top-color: @ini_border;
+}
+
+[dir] #namespaced__footer_sole {
+    background-color: darken(@ini_theme_dark_color, 20%);
 }
 
 /* DOKUWIKI GLOBAL
