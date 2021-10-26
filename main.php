@@ -161,7 +161,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                             </div>
                         </div>
                     </aside><!-- /aside -->
-                    <hr class="vertical<?php print $namespaced['a11y']['extraclass'] ?>" />
+                    <!-- <hr class="vertical<?php //print $namespaced['a11y']['extraclass'] ?>" /> -->
                 <?php endif ?>
 
                 <!-- ********** CONTENT ********** -->
@@ -186,11 +186,11 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                         <div class="page">
                             <?php tpl_flush() ?>
                             <?php tpl_includeFile('pageheader.html') ?>
-                            <hr<?php print $namespaced['a11y']['standalone'] ?> />
+                            <!-- <hr<?php //print $namespaced['a11y']['standalone'] ?> /> -->
                             <!-- wikipage start -->
                             <?php tpl_content() ?>
                             <!-- wikipage stop -->
-                            <hr<?php print $namespaced['a11y']['standalone'] ?> />
+                            <!-- <hr<?php //print $namespaced['a11y']['standalone'] ?> /> -->
                             <?php tpl_includeFile('pagefooter.html') ?>
                         </div>
 

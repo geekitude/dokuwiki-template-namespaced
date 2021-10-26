@@ -72,7 +72,6 @@ if (!defined('DOKU_INC')) die();
                 <?php if ($namespaced['defaultsearch'] == true): ?>
                     <div id="namespaced__search" class="tools flex row align-end">
                         <?php
-                            //namespaced_searchform(true);
                             tpl_searchform($namespaced['search']['quicksearch'], $namespaced['search']['autocomplete']);
                             namespaced_searchbutton();
                         ?>
@@ -81,7 +80,7 @@ if (!defined('DOKU_INC')) die();
             </div>
         </div>
 
-        <hr<?php print $namespaced['a11y']['standalone'] ?> />
+        <!-- <hr<?php //print $namespaced['a11y']['standalone'] ?> /> -->
     </div>
 
 </header><!-- /header -->
