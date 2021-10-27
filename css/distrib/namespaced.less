@@ -2043,8 +2043,24 @@ blockquote.blockquote-plugin cite {
 
 /* -- Tagalerts -- */
 
-[dir] div.tagstop {
+[dir] .dokuwiki .tagstop {
     padding-bottom: .4rem;
+}
+
+[dir] .dokuwiki .tagerror {
+    background-color: lighten(@ini_red_color, 30%) !important;
+}
+
+[dir] .dokuwiki .taginfo {
+    background-color: lighten(@ini_blue_color, 30%) !important;
+}
+
+[dir] .dokuwiki .tagsuccess {
+    background-color: lighten(@ini_green_color, 30%) !important;
+}
+
+[dir] .dokuwiki .tagnotify {
+    background-color: lighten(@ini_yellow_color, 30%) !important;
 }
 
 /* -- Translation -- */
