@@ -19,6 +19,7 @@ $meta['shortdatestring']    = array('string');
 $meta['tablestyle']         = array('multichoice','_choices' => array('colored','striped','dynamic'));
 $meta['kbdstyle']           = array('multichoice','_choices' => array('basic','default','deep-blue','dark-apple','type-writer','dw-red','dw-green','dw-blue','dw-yellow'));
 $meta['neutralize']         = array('multicheckbox','_choices' => array('pagenav','toc','docinfo','side-widgets','footer-widgets'),'_other' => 'never');
+$meta['collapsible-toc']    = array('onoff');
 /* functionnalities */
 $meta['glyphs']             = array('onoff');
 $meta['splitnav']           = array('onoff');

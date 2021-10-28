@@ -65,6 +65,7 @@ See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#setting
 * [ ] Easy to customize glyphs(*) (from [Material Design Icons](https://materialdesignicons.com/) like other DW's SVG glyphs or [IcoMoon](https://icomoon.io/) for social links)
 * [ ] Sidebar and ToC can be moved out of page content on wide screen (only works in boxed layout)
 * [ ] Extracted ToC can be given [scrollspy](https://codepen.io/latifur/pen/qLKXpj) superpowers
+* [x] Collapsible ToC (only showing first level untill hover)
 * [ ] Retractable sidebar
 * [x] Stickable main navigation bar, pageheader, sidebar and docinfo
 * [x] Dynamic navigation button(s): wikihome, parent NS start, current NS home or "back to article" (can be combined as a single button or not)

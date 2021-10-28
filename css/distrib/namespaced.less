@@ -1048,6 +1048,17 @@ div.pageId span:hover {
     display: none !important;
 }
 
+/* -- ToC -- */
+
+body.collapsible-toc #dw__toc ul li ul,
+body.collapsible-toc #dw__toc ul li ul li ul {
+    display: none;
+}
+
+body.collapsible-toc #dw__toc ul li:hover > ul {
+    display: block;
+}
+
 /* -- docInfo -- */
 
 div.docInfo {
