@@ -37,7 +37,7 @@ $lang['playground_user']        = 'Feel free to play around with <a href="/doku.
 $lang['syntax']                 = 'Syntax';
 $lang['namespaced']             = 'An experimental and highly customizable DokuWiki template based on flexbox with many namespace related features.';
 $lang['cache']                  = 'Cache';
-$lang['purgepagecache']         = 'Remove current page from cache';
+$lang['purgepagecache']         = 'Reload current page to cache';
 $lang['purgejscache']           = 'Purge JavaScript cache';
 $lang['purgecsscache']          = 'Purge CSS cache';
 $lang['license']                = 'License';

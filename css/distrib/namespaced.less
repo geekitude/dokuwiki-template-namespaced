@@ -590,7 +590,8 @@ a.skip:active {
 }
 
 #namespaced__site_nav.navbar ul li,
-#namespaced__site_nav.navbar ul li a {
+#namespaced__site_nav.navbar ul li a,
+#namespaced__site_nav.navbar ul li span {
     height: 42px;
 }
 
@@ -670,6 +671,7 @@ a.skip:active {
 }
 
 .navbar ul li ul li a,
+.navbar ul li ul li span,
 .navbar ul li.current-menu-item ul li a,
 .navbar ul li ul li.current-menu-item a,
 .navbar ul li.current_page_ancestor ul li a,
@@ -683,16 +685,16 @@ a.skip:active {
     text-transform: none;
 }
 
-[dir] .navbar ul li ul li a, [dir] .navbar ul li.current-menu-item ul li a, [dir] .navbar ul li ul li.current-menu-item a, [dir] .navbar ul li.current_page_ancestor ul li a, [dir] .navbar ul li.current-menu-ancestor ul li a, [dir] .navbar ul li.current_page_item ul li a {
+[dir] .navbar ul li ul li a, [dir] .navbar ul li ul li span, [dir] .navbar ul li.current-menu-item ul li a, [dir] .navbar ul li ul li.current-menu-item a, [dir] .navbar ul li.current_page_ancestor ul li a, [dir] .navbar ul li.current-menu-ancestor ul li a, [dir] .navbar ul li.current_page_item ul li a {
     float: none;
     padding: 10px 15px;
 }
 
-[dir=ltr] .navbar ul li ul li a, [dir=ltr] .navbar ul li.current-menu-item ul li a, [dir=ltr] .navbar ul li ul li.current-menu-item a, [dir=ltr] .navbar ul li.current_page_ancestor ul li a, [dir=ltr] .navbar ul li.current-menu-ancestor ul li a, [dir=ltr] .navbar ul li.current_page_item ul li a {
+[dir=ltr] .navbar ul li ul li a, [dir=ltr] .navbar ul li ul li span, [dir=ltr] .navbar ul li.current-menu-item ul li a, [dir=ltr] .navbar ul li ul li.current-menu-item a, [dir=ltr] .navbar ul li.current_page_ancestor ul li a, [dir=ltr] .navbar ul li.current-menu-ancestor ul li a, [dir=ltr] .navbar ul li.current_page_item ul li a {
     text-align: left;
 }
 
-[dir=rtl] .navbar ul li ul li a, [dir=rtl] .navbar ul li.current-menu-item ul li a, [dir=rtl] .navbar ul li ul li.current-menu-item a, [dir=rtl] .navbar ul li.current_page_ancestor ul li a, [dir=rtl] .navbar ul li.current-menu-ancestor ul li a, [dir=rtl] .navbar ul li.current_page_item ul li a {
+[dir=rtl] .navbar ul li ul li a, [dir=rtl] .navbar ul li ul li span, [dir=rtl] .navbar ul li.current-menu-item ul li a, [dir=rtl] .navbar ul li ul li.current-menu-item a, [dir=rtl] .navbar ul li.current_page_ancestor ul li a, [dir=rtl] .navbar ul li.current-menu-ancestor ul li a, [dir=rtl] .navbar ul li.current_page_item ul li a {
     text-align: right;
 }
 
@@ -770,30 +772,32 @@ a.skip:active {
     display: none;
 }
 
-#namespaced__site_nav.navbar ul li a {
+#namespaced__site_nav.navbar ul li a,
+#namespaced__site_nav.navbar ul li span {
     display: flex;
     align-items: center;
 }
 
-[dir] #namespaced__site_nav.navbar ul li a {
+[dir] #namespaced__site_nav.navbar ul li a, [dir] #namespaced__site_nav.navbar ul li span {
     padding: .6rem 1rem;
 }
 
 #namespaced__site_nav.navbar ul li a svg,
+#namespaced__site_nav.navbar ul li span svg,
 #namespaced__site_nav.navbar ul li button svg {
     width: 30px;
     height: 30px;
 }
 
-[dir] #namespaced__site_nav.navbar ul li span {
+[dir] #namespaced__site_nav.navbar ul li a span {
     padding: 6px 0;
 }
 
-[dir=ltr] #namespaced__site_nav.navbar ul li span {
+[dir=ltr] #namespaced__site_nav.navbar ul li a span {
     margin-left: .5rem;
 }
 
-[dir=rtl] #namespaced__site_nav.navbar ul li span {
+[dir=rtl] #namespaced__site_nav.navbar ul li a span {
     margin-right: .5rem;
 }
 
@@ -844,7 +848,8 @@ a.skip:active {
 /*
 #namespaced__site_nav.navbar ul li a:hover {
 */
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li span:hover {
     transition: box-shadow 350ms ease-in-out, color 350ms ease-in-out;
 }
 

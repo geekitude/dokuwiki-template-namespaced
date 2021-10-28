@@ -729,10 +729,20 @@ function namespaced_usertools() {
             print '<li class="menu-item menu-item-has-children action admin">';
                 print '<a href="/doku.php?id='.$ID.'&do=admin" rel="nofollow" title="'.$lang['btn_admin'].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_admin'].'</span></a>';
                 print '<ul class="sub-menu nostyle">';
-                    namespaced_admindropdown();
+                    //namespaced_admindropdown();
+                    namespaced_dropdown();
                 print '</ul>';
             print '</li><!-- .action.admin -->';
         } elseif ($field["\0*\0type"] == "logout") {
+            // Extra cache dropdown
+            if (($_SERVER['REMOTE_USER'] != NULL) && ($INFO['ismanager'])) {
+                print '<li class="menu-item menu-item-has-children action cache">';
+                    print '<span title="'.tpl_getLang('cache').'">'.namespaced_glyph('recycle', true).'<span'.$namespaced['a11y']['standalone'].'>'.tpl_getLang('cache').'</span></span>';
+                    print '<ul class="sub-menu nostyle">';
+                        namespaced_dropdown("cache");
+                    print '</ul>';
+                print '</li><!-- .action.cache -->';
+            }
             print '<li class="menu-item action logout"><a href="/doku.php?id='.$ID.'&amp;do=logout&amp;sectok='.$field["\0*\0params"]['sectok'].'" rel="nofollow" title="'.$lang['btn_logout'].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_logout'].'</span></a></li>';
         } else {
             print '<li class="menu-item action debug '.$field["\0*\0type"].'"><a title="'.$field["\0*\0type"].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$field["\0*\0type"].'</span></a></li>';
@@ -869,52 +879,56 @@ function namespaced_contools() {
 /**
  * Adapted from tpl_admin.php file of Bootstrap3 template by Giuseppe Di Terlizzi <giuseppe.diterlizzi@gmail.com>
  */
-function namespaced_admindropdown() {
+//function namespaced_admindropdown() {
+function namespaced_dropdown($menu = "admin") {
     global $ID, $ACT, $auth, $conf, $namespaced;
 
-    $admin_plugins = plugin_list('admin');
-    $tasks = array('usermanager', 'acl', 'extension', 'config', 'styling', 'revert', 'popularity', 'upgrade');
-    $addons = array_diff($admin_plugins, $tasks);
-    $adminmenu = array(
-        'tasks' => $tasks,
-        'addons' => $addons
-    );
-    foreach ($adminmenu['tasks'] as $task) {
-        if(($plugin = plugin_load('admin', $task, true)) === null) continue;
-        if($task == 'usermanager' && ! ($auth && $auth->canDo('getUsers'))) continue;
-        $label = $plugin->getMenuText($conf['lang']);
-        if (! $label) continue;
-        if ($task == "popularity") { $label = preg_replace("/\([^)]+\)/","",$label); }
-        $class = 'action '.$task;
-        if (($ACT == 'admin') and ($_GET['page'] == $task)) { $class .= ' active'; }
-        echo sprintf('<li><a href="%s" title="%s"%s>%s%s'.namespaced_glyph($task, true).'</a></li>', wl($ID, array('do' => 'admin','page' => $task)), ucfirst($task), ' class="'.$class.'"', "", $label);
-    }
-    $f = fopen(DOKU_INC.'inc/lang/'.$conf['lang'].'/adminplugins.txt', 'r');
-    $line = fgets($f);
-    fclose($f);
-    $line = preg_replace('/=/', '', $line);
-    if (count($adminmenu['addons']) > 0) {
-        echo '<li class="dropdown-header">'.$line.'<hr/></li>';
-        foreach ($adminmenu['addons'] as $task) {
-//dbg($task);
+    if ($menu == "admin") {
+        $admin_plugins = plugin_list('admin');
+        $tasks = array('usermanager', 'acl', 'extension', 'config', 'styling', 'revert', 'popularity', 'upgrade');
+        $addons = array_diff($admin_plugins, $tasks);
+        $adminmenu = array(
+            'tasks' => $tasks,
+            'addons' => $addons
+        );
+        foreach ($adminmenu['tasks'] as $task) {
             if(($plugin = plugin_load('admin', $task, true)) === null) continue;
-            if ($task == "move_tree") {
-                $parts = explode('<a href="%s">', $plugin->getLang('treelink'));
-                $label = substr($parts[1], 0, -5);
-            } else {
-                $label = $plugin->getMenuText($conf['lang']);
-            }
-            if($label == null) { $label = ucfirst($task); }
+            if($task == 'usermanager' && ! ($auth && $auth->canDo('getUsers'))) continue;
+            $label = $plugin->getMenuText($conf['lang']);
+            if (! $label) continue;
+            if ($task == "popularity") { $label = preg_replace("/\([^)]+\)/","",$label); }
             $class = 'action '.$task;
             if (($ACT == 'admin') and ($_GET['page'] == $task)) { $class .= ' active'; }
-            echo sprintf('<li><a href="%s" title="%s"%s>%s %s'.namespaced_glyph($task, true).'</a></li>', wl($ID, array('do' => 'admin','page' => $task)), ucfirst($task), ' class="'.$class.'"', "", ucfirst($label));
+            echo sprintf('<li><a href="%s" title="%s"%s>%s%s'.namespaced_glyph($task, true).'</a></li>', wl($ID, array('do' => 'admin','page' => $task)), ucfirst($task), ' class="'.$class.'"', "", $label);
         }
+        $f = fopen(DOKU_INC.'inc/lang/'.$conf['lang'].'/adminplugins.txt', 'r');
+        $line = fgets($f);
+        fclose($f);
+        $line = preg_replace('/=/', '', $line);
+        if (count($adminmenu['addons']) > 0) {
+            echo '<li class="dropdown-header">'.$line.'<hr/></li>';
+            foreach ($adminmenu['addons'] as $task) {
+    //dbg($task);
+                if(($plugin = plugin_load('admin', $task, true)) === null) continue;
+                if ($task == "move_tree") {
+                    $parts = explode('<a href="%s">', $plugin->getLang('treelink'));
+                    $label = substr($parts[1], 0, -5);
+                } else {
+                    $label = $plugin->getMenuText($conf['lang']);
+                }
+                if($label == null) { $label = ucfirst($task); }
+                $class = 'action '.$task;
+                if (($ACT == 'admin') and ($_GET['page'] == $task)) { $class .= ' active'; }
+                echo sprintf('<li><a href="%s" title="%s"%s>%s %s'.namespaced_glyph($task, true).'</a></li>', wl($ID, array('do' => 'admin','page' => $task)), ucfirst($task), ' class="'.$class.'"', "", ucfirst($label));
+            }
+        }
+    } elseif ($menu == "cache") {
+        //echo '<li class="dropdown-header">'.tpl_getLang('cache').'<hr/></li>';
+        echo '<li><a href="'.wl($ID, array("do" => $ACT, "page" => $_GET['page'], "purge" => "true")).'">'.tpl_getLang('purgepagecache').namespaced_glyph("pagerefresh", true).'</a></li>';
+        echo '<li><a href="'.DOKU_URL.'lib/exe/js.php">'.tpl_getLang('purgejscache').namespaced_glyph("recycle", true).'</a></li>';
+        echo '<li><a href="'.DOKU_URL.'lib/exe/css.php">'.tpl_getLang('purgecsscache').namespaced_glyph("recycle", true).'</a></li>';
     }
-    echo '<li class="dropdown-header">'.tpl_getLang('cache').'<hr/></li>';
-    echo '<li><a href="'.wl($ID, array("do" => $ACT, "page" => $_GET['page'], "purge" => "true")).'">'.tpl_getLang('purgepagecache').namespaced_glyph("pagerefresh", true).'</a></li>';
-    echo '<li><a href="'.DOKU_URL.'lib/exe/js.php">'.tpl_getLang('purgejscache').namespaced_glyph("recycle", true).'</a></li>';
-    echo '<li><a href="'.DOKU_URL.'lib/exe/css.php">'.tpl_getLang('purgecsscache').namespaced_glyph("recycle", true).'</a></li>';
-}/* namespaced_admindropdown */
+}/* namespaced_dropdown */
 
 function namespaced_glyph($glyph, $return = false) {
     global $namespaced;
