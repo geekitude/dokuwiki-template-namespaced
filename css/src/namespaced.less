@@ -849,6 +849,31 @@ div.pageId span {
 
 /* -- ToC -- */
 
+#dw__toc ul {
+    list-style: none;
+}
+
+#dw__toc ul:first-child {
+    margin-left: 0;
+}
+
+#dw__toc ul li {
+    margin: .3rem 0;
+}
+
+#dw__toc ul li a {
+    border: @ini_border_width solid transparent;
+}
+
+#dw__toc ul li a {
+    padding-left: 1rem;
+    border: @ini_border_width solid transparent;
+}
+
+#dw__toc ul li a:hover {
+    border-left-color: @ini_highlight;
+}
+
 body.collapsible-toc #dw__toc ul li ul,
 body.collapsible-toc #dw__toc ul li ul li ul {
     display: none;
