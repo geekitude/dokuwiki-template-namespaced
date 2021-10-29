@@ -34,6 +34,7 @@ $lang['context_tools']          = 'Context Tools';
 $lang['playground']             = 'Playground';
 $lang['playground_admin']       = 'Please make sure Playground is kept clean (see <a href="https://www.dokuwiki.org/tips%3Amaintenance#keeping_playground_clean" class="interwiki iw_doku" title="https://www.dokuwiki.org/tips%3Amaintenance#keeping_playground_clean">this article</a>).';
 $lang['playground_user']        = 'Feel free to play around with <a href="/doku.php?id=wiki:syntax" title="wiki:syntax">syntax</a> in this Playground (note that you can create or delete any page within this Namespace).';
+$lang['jump_to_namespaced']     = 'Jump to <a href="#tpl____namespaced____tpl_settings_name" title="Namespaced settings">Namespaced</a> settings.';
 $lang['syntax']                 = 'Syntax';
 $lang['namespaced']             = 'An experimental and highly customizable DokuWiki template based on flexbox with many namespace related features.';
 $lang['cache']                  = 'Cache';

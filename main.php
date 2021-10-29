@@ -171,7 +171,8 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
 
                         <?php
                             html_msgarea();
-                            // If in playground...
+                            // Namespaced messages
+                            // if in playground...
                             if (strpos($ID, 'playground') !== false) {
                                 // ...and admin, show a link to managing page...
                                 if ($INFO['isadmin']) {
@@ -180,6 +181,9 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                                 } else {
                                     msg(tpl_getLang('playground_user'), 0);
                                 }
+                            // if at settings page
+                            } elseif (($ACT == "admin") && ($_GET['page'] == "config")) {
+                                msg(tpl_getLang('jump_to_namespaced'), 2);
                             }
                         ?>
 
