@@ -53,7 +53,7 @@ It is based on Dokuwiki's default template.
 
 See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#settings) and [About](https://github.com/geekitude/dokuwiki-template-namespaced#about) sections below for details about these features.
 
-* [x] [Widgets](https://github.com/geekitude/dokuwiki-template-namespaced#widgets) areas to customize Namespaced elements
+* [x] [Widgets](https://github.com/geekitude/dokuwiki-template-namespaced#widgets) areas to customize Namespaced elements (any side widget will force side panel even if there's no sidebar page available)
 * [x] Accessibility friendly pure CSS smooth scrolling (speed depends on visitor's browser settings and can even be disable if browser supports that feature)
 * [ ] Namespace dependent CSS for colors and fonts (an automatic theme color is possible while quite experimental)
 * [ ] Namespace dependent UI images ([ ] background pattern, [x] banner, [x] widebanner and a potential [x] sidebar header image aka sidecard)

@@ -448,7 +448,7 @@ function namespaced_bodyclasses() {
         $home = null;
     }
 
-    if (($home != null) and (tpl_getConf('forcesidepanel')) and (count($namespaced['widgets']['side']) > 0)) {
+    if ((tpl_getConf('forcesidepanel')) and (count($namespaced['widgets']['side']) > 0)) {
         $sidepanel = null;
     } elseif (($home != null) and ($namespaced['widgets']['side']['sidebar'] == null)) {
         $sidepanel = "no-sidepanel";
