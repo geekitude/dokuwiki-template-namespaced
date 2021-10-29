@@ -448,7 +448,9 @@ function namespaced_bodyclasses() {
         $home = null;
     }
 
-    if (($home != null) and ($namespaced['widgets']['side']['sidebar'] == null)) {
+    if (($home != null) and (tpl_getConf('forcesidepanel')) and (count($namespaced['widgets']['side']) > 0)) {
+        $sidepanel = null;
+    } elseif (($home != null) and ($namespaced['widgets']['side']['sidebar'] == null)) {
         $sidepanel = "no-sidepanel";
     } elseif ($namespaced['widgets']['side'] != null) {
         if (strpos(tpl_getConf('flexflip'), 'sidepanel') !== false) {

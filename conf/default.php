@@ -19,6 +19,7 @@ $conf['tablestyle']         = 'dynamic';
 $conf['kbdstyle']           = 'default';
 $conf['neutralize']         = 'pagenav,toc,docinfo,side-widgets,footer-widgets';
 $conf['collapsible-toc']    = 0;
+$conf['forcesidepanel']     = 1;
 
 $conf['glyphs']             = 1;
 $conf['splitnav']           = 1;

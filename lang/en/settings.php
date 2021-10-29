@@ -15,3 +15,4 @@ $lang['tablestyle']     = 'Choose between colored headers, colored headers and s
 $lang['nsindexexclude'] = 'Coma separated list of pages to exclude from navbar current namespace index. [default: <code>sidebar, topbar</code>]';
 $lang['docinfopos']     = 'Choose if `docInfo` should be inside main navbar or located below content (sticky `docInfo` will always stick at bottom).';
 $lang['neutralize']     = 'Apply "neutral" colors from `style.ini` to selected elements (`docInfo` is only concerned when set as standalone).  [default: <code>pagenav,toc,docinfo,side-widgets,footer-widgets</code>]';
+$lang['forcesidepanel'] = 'Force side panel at home page if there\'s at least one side widget even if there\'s no `sidebar` page available. [default: <code>enabled</code>]';
