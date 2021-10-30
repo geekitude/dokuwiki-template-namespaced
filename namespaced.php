@@ -710,7 +710,7 @@ function namespaced_usertools() {
             if (isset($namespaced['widgets']['footer']['user.html'])) {
                 print '<li class="menu-item action profile"><a href="#namespaced__widget_user" rel="nofollow" title="'.$lang['profile'].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['profile'].'</span></a></li>';
             } else {
-                print '<li class="menu-item action account-edit"><a href="/doku.php?id='.$ID.'&amp;do=profile" rel="nofollow" title="'.$lang['btn_profile'].'">'.inlineSVG($namespaced['glyphs']["account-edit"]).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_profile'].'</span></a></li>';
+                print '<li class="menu-item action account-edit"><a href="/doku.php?id='.$ID.'&amp;do=profile" rel="nofollow" title="'.$lang['btn_profile'].'">'.inlineSVG($namespaced['glyphs']["account-edit"]).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_profile'].'</span></a><ul class="sub-menu nostyle"><li class="user"><span class="loggedinas flex justify-center">'.$lang['loggedinas'].' '.userlink().'</span></li></ul></li>';
             }
 //dbg($namespaced['glyphs']['account-edit']);
 
