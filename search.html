@@ -1,5 +1,8 @@
 <?php
-    tpl_searchform();
+    print '<div class="tools flex justify-start">';
+        tpl_searchform(true, false);
+        namespaced_searchbutton();
+    print '</div>';
     if ((!plugin_isdisabled('cloud')) and (!plugin_isdisabled('searchstats'))) {
         print p_render('xhtml',p_get_instructions("~~SEARCHCLOUD~~"),$info);
     }
