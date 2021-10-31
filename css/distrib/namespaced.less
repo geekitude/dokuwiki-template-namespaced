@@ -967,16 +967,42 @@ article {
 }
 */
 
-[dir] #namespaced__aside aside, [dir] #namespaced__page_nav, [dir] #dw__toc, [dir] #namespaced__footer_widgets aside, [dir] #namespaced__docinfo {
+/*
+#namespaced__aside aside,
+#namespaced__page_nav,
+#dw__toc,
+#namespaced__footer_widgets aside,
+#namespaced__docinfo {
     padding: .2rem;
+}
+*/
+
+[dir] #namespaced__aside aside, [dir] #namespaced__page_nav, [dir] #dw__toc, [dir] #namespaced__footer_widgets aside, [dir] #namespaced__docinfo {
     border: @ini_border_width solid transparent;
 }
+
 [dir] #namespaced__page_nav:not(.neu), [dir] #namespaced__docinfo:not(.neu) {
     background-color: @ini_background;
 }
 
 [dir] #namespaced__aside aside, [dir] #dw__toc {
     margin-bottom: 1.5rem;
+}
+
+[dir=ltr] #namespaced__aside aside {
+    padding-right: @ini_border_width;
+}
+
+[dir=rtl] #namespaced__aside aside {
+    padding-left: @ini_border_width;
+}
+
+[dir=ltr] #dw__toc {
+    padding-left: @ini_border_width;
+}
+
+[dir=rtl] #dw__toc {
+    padding-right: @ini_border_width;
 }
 
 /*
@@ -1040,7 +1066,7 @@ body.sidepanel-flip #namespaced__aside {
 
 [dir] #namespaced__page_nav {
     margin: 1rem 50px 0 50px;
-    padding: 1rem;
+    padding: calc(1rem-@ini_border_width) 1rem 1rem 1rem;
 }
 
 #namespaced__page_nav aside {
@@ -1146,12 +1172,13 @@ div.docInfo span:hover svg {
 
 #namespaced__docinfo {
     width: 70%;
+    /*padding: .8rem 1.5rem;*/
     /*border-bottom: @ini_border_width solid transparent;*/
 }
 
 [dir] #namespaced__docinfo {
     margin: 1.5rem auto 0 auto;
-    padding: .8rem 1.5rem;
+    padding: 1rem 1rem calc(1rem-@ini_border_width) 1rem;
 }
 
 #namespaced__site.mode_denied div.docInfo,

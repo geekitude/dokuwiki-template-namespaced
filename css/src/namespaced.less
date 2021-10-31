@@ -774,14 +774,24 @@ article {
 }
 */
 
+/*
 #namespaced__aside aside,
 #namespaced__page_nav,
 #dw__toc,
 #namespaced__footer_widgets aside,
 #namespaced__docinfo {
     padding: .2rem;
+}
+*/
+
+#namespaced__aside aside,
+#namespaced__page_nav,
+#dw__toc,
+#namespaced__footer_widgets aside,
+#namespaced__docinfo {
     border: @ini_border_width solid transparent;
 }
+
 #namespaced__page_nav:not(.neu),
 #namespaced__docinfo:not(.neu) {
     background-color: @ini_background;
@@ -790,6 +800,14 @@ article {
 #namespaced__aside aside,
 #dw__toc {
     margin-bottom: 1.5rem;
+}
+
+#namespaced__aside aside {
+    padding-right: @ini_border_width;
+}
+
+#dw__toc {
+    padding-left: @ini_border_width;
 }
 
 /*
@@ -834,7 +852,7 @@ body.sidepanel-flip #namespaced__aside {
 #namespaced__page_nav {
     /*margin-top: 1rem;*/
     margin: 1rem 50px 0 50px;
-    padding: 1rem;
+    padding: calc(1rem-@ini_border_width) 1rem 1rem 1rem;
     /*width: 100%;*/
 }
 
@@ -927,7 +945,8 @@ div.docInfo span:hover svg {
 #namespaced__docinfo {
     margin: 1.5rem auto 0 auto;
     width: 70%;
-    padding: .8rem 1.5rem;
+    /*padding: .8rem 1.5rem;*/
+    padding: 1rem 1rem calc(1rem-@ini_border_width) 1rem;
     /*border-bottom: @ini_border_width solid transparent;*/
 }
 
