@@ -910,6 +910,20 @@ article {
     margin-left: 1.5rem;
 }
 
+#namespaced__aside {
+    min-width: @ini_sidebar_width;
+    max-width: @ini_sidebar_width;
+    width: @ini_sidebar_width;
+}
+
+[dir=ltr] #namespaced__aside {
+    margin-right: 1.5rem;
+}
+
+[dir=rtl] #namespaced__aside {
+    margin-left: 1.5rem;
+}
+
 #namespaced__content nav {
     z-index: 1;
     /* Below most important navs (admin dropdown, contools & pagetools) but same as config page `outkey` elements (doesn't matter as this nav will be hidden at config page) */
@@ -1469,6 +1483,15 @@ body.more-footerwidgets #namespaced__footer_widgets aside {
 
 /* WIDGETS
 ----------------------------------------------- */
+
+aside.widget {
+    display: block;
+    overflow: hidden;
+    word-break: break-word;
+    -webkit-hyphens: manual;
+        -ms-hyphens: manual;
+            hyphens: manual;
+}
 
 #namespaced__widget_license img,
 #namespaced__widget_license a {
