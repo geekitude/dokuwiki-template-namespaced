@@ -1929,6 +1929,27 @@ blockquote {
     margin-bottom: 0;
 }
 
+blockquote:not(.blockquote-plugin) cite {
+    display:block;
+    font-style: normal !important;
+}
+
+[dir] blockquote:not(.blockquote-plugin) cite {
+    margin: 0 1rem;
+}
+
+[dir=ltr] blockquote:not(.blockquote-plugin) cite {
+    text-align: right;
+}
+
+[dir=rtl] blockquote:not(.blockquote-plugin) cite {
+    text-align: left;
+}
+
+blockquote:not(.blockquote-plugin) cite:before {
+    content: "\2014";
+}
+
 pre.code,
 pre.file {
     min-height: 7rem;

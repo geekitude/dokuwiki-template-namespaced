@@ -1570,6 +1570,17 @@ blockquote blockquote {
     margin-bottom: 0;
 }
 
+blockquote:not(.blockquote-plugin) cite {
+    display:block;
+    text-align: right;
+    margin: 0 1rem;
+    font-style: normal !important;
+}
+
+blockquote:not(.blockquote-plugin) cite:before {
+    content: "\2014";
+}
+
 pre.code,
 pre.file {
     padding-left: 70px;
