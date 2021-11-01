@@ -30,12 +30,26 @@
 /* HTML ITEMS
 -------------------------------------------------------------- */
 
+button {
+    background-color: @ini_background_alt;
+    color: @ini_text_alt;
+}
+
+button:hover {
+    background-color: @ini_theme_color;
+    color: @ini_theme_text_color;
+}
+
+button:active {
+    background-color: @ini_theme_dark_color;
+}
+
 input[type=text]:focus {
-  border-color: @ini_theme_color;
+    border-color: @ini_theme_color;
 }
 
 .themed:hover {
-    box-shadow: 0 0 40px 40px @ini_theme_color inset;
+    /*box-shadow: 0 0 40px 40px @ini_theme_color inset;*/
     border-color: @ini_theme_color;
 }
 
@@ -136,7 +150,8 @@ nav ul li a:hover,
 nav ul li a:hover,
 nav ul li span:hover,
 #namespaced__contools ul li button:hover {
-    box-shadow: 0 0 40px 40px @ini_theme_dark_color inset;
+    /*box-shadow: 0 0 40px 40px @ini_theme_dark_color inset;*/
+    background-color: @ini_theme_dark_color;
 }
 
 .navbar ul.sub-menu li:hover a:not(.active) {

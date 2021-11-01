@@ -30,12 +30,35 @@
 /* HTML ITEMS
 -------------------------------------------------------------- */
 
+button {
+    color: @ini_text_alt;
+}
+
+[dir] button {
+    background-color: @ini_background_alt;
+}
+
+button:hover {
+    color: @ini_theme_text_color;
+}
+
+[dir] button:hover {
+    background-color: @ini_theme_color;
+}
+
+[dir] button:active {
+    background-color: @ini_theme_dark_color;
+}
+
 [dir] input[type=text]:focus {
-  border-color: @ini_theme_color;
+    border-color: @ini_theme_color;
+}
+
+.themed:hover {
+    /*box-shadow: 0 0 40px 40px @ini_theme_color inset;*/
 }
 
 [dir] .themed:hover {
-    box-shadow: 0 0 40px 40px @ini_theme_color inset;
     border-color: @ini_theme_color;
 }
 
@@ -129,8 +152,14 @@ nav ul li a:hover,
     fill: @ini_theme_text_color;
 }
 
+nav ul li a:hover,
+nav ul li span:hover,
+#namespaced__contools ul li button:hover {
+    /*box-shadow: 0 0 40px 40px @ini_theme_dark_color inset;*/
+}
+
 [dir] nav ul li a:hover, [dir] nav ul li span:hover, [dir] #namespaced__contools ul li button:hover {
-    box-shadow: 0 0 40px 40px @ini_theme_dark_color inset;
+    background-color: @ini_theme_dark_color;
 }
 
 .navbar ul.sub-menu li:hover a:not(.active) {
@@ -145,7 +174,7 @@ nav ul li a:hover,
 ----------------------------------------------- */
 
 [dir=ltr] #dw__toc {
-  border-left-color: @ini_border;
+    border-left-color: @ini_border;
 }
 
 [dir=rtl] #dw__toc {
@@ -153,7 +182,7 @@ nav ul li a:hover,
 }
 
 [dir=ltr] #namespaced__aside aside {
-  border-right-color: @ini_border;
+    border-right-color: @ini_border;
 }
 
 [dir=rtl] #namespaced__aside aside {
@@ -220,7 +249,7 @@ nav ul li a:hover,
 ----------------------------------------------- */
 
 [dir=ltr] blockquote {
-  border-color: transparent transparent transparent @ini_border;
+    border-color: transparent transparent transparent @ini_border;
 }
 
 [dir=rtl] blockquote {
@@ -259,7 +288,7 @@ pre {
 }
 
 [dir=ltr] blockquote.blockquote-plugin {
-  border-color: transparent transparent transparent @ini_border;
+    border-color: transparent transparent transparent @ini_border;
 }
 
 [dir=rtl] blockquote.blockquote-plugin {

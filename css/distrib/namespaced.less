@@ -124,24 +124,37 @@ hr {
     width: 80%;
 }
 
+/*
 hr.vertical {
+    margin: auto 1.5rem auto 0;
     width: unset;
     height: 95%;
-    /*border-left-width: 1px;*/
-}
-
-[dir=ltr] hr.vertical {
-    margin: auto 1.5rem auto 0;
     border-left-style: solid;
 }
-
-[dir=rtl] hr.vertical {
-    margin: auto 0 auto 1.5rem;
-    border-right-style: solid;
-}
+*/
 
 [dir] input:focus {
     background-color: @ini_highlight;
+}
+
+button {
+    /*box-shadow: 1px 1px 1px #777;*/
+    font-size: small;
+    vertical-align: text-bottom;
+    font-variant: small-caps;
+}
+
+[dir] button {
+    padding: 1rem 2rem;
+    border: none;
+    margin: .5rem;
+}
+
+button:hover {
+    /*box-shadow: 1px 1px 1px #000;*/
+    color: @ini_text;
+    /*font-weight: 600;*/
+    transition: background 200ms ease-in-out, color 300ms ease-in-out;
 }
 
 [dir] input[type=text], [dir] button[type=submit] {
@@ -858,8 +871,9 @@ a.skip:active {
 #namespaced__site_nav.navbar ul li a:hover {
 */
 nav ul li a:hover,
-nav ul li span:hover {
-    transition: box-shadow 350ms ease-in-out, color 350ms ease-in-out;
+nav ul li span:hover,
+#namespaced__contools ul li button:hover {
+    transition: background-color 350ms ease-in-out, color 400ms ease-in-out;
 }
 
 /* MAIN
@@ -1728,9 +1742,11 @@ nav.tools ul {
     left: 0;
 }
 
+/*
 .themed {
     transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 }
+*/
 
 .is_ns {
     text-transform: uppercase;
@@ -2232,6 +2248,11 @@ blockquote.blockquote-plugin cite {
 
 [dir] .plugin_translation ul li a.wikilink2 {
     background-color: @ini_missing !important;
+}
+
+.plugin_translation ul li a:hover {
+    /*transition: box-shadow 250ms ease-in-out, color 250ms ease-in-out;*/
+    transition: box-shadow 250ms ease-in-out, color 300ms ease-in-out;
 }
 
 [dir] .plugin_translation ul li a:hover {

@@ -122,16 +122,34 @@ hr {
     width: 80%;
 }
 
+/*
 hr.vertical {
     margin: auto 1.5rem auto 0;
     width: unset;
     height: 95%;
-    /*border-left-width: 1px;*/
     border-left-style: solid;
 }
+*/
 
 input:focus {
     background-color: @ini_highlight;
+}
+
+button {
+    padding: 1rem 2rem;
+    /*box-shadow: 1px 1px 1px #777;*/
+    border: none;
+    margin: .5rem;
+    font-size: small;
+    vertical-align: text-bottom;
+    font-variant: small-caps;
+}
+
+button:hover {
+    /*box-shadow: 1px 1px 1px #000;*/
+    color: @ini_text;
+    /*font-weight: 600;*/
+    transition: background 200ms ease-in-out, color 300ms ease-in-out;
 }
 
 input[type=text],
@@ -690,8 +708,9 @@ a.skip:active {
 #namespaced__site_nav.navbar ul li a:hover {
 */
 nav ul li a:hover,
-nav ul li span:hover {
-    transition: box-shadow 350ms ease-in-out, color 350ms ease-in-out;
+nav ul li span:hover,
+#namespaced__contools ul li button:hover {
+    transition: background-color 350ms ease-in-out, color 400ms ease-in-out;
 }
 
 /* MAIN
@@ -1388,9 +1407,11 @@ nav.tools ul {
     right: 0;
 }
 
+/*
 .themed {
     transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 }
+*/
 
 .is_ns {
     text-transform: uppercase;
@@ -1819,6 +1840,8 @@ button.plugin__sitemapnavi__dir {
 
 .plugin_translation ul li a:hover {
     box-shadow: 0 0 40px 40px @ini_text_neu inset;
+    /*transition: box-shadow 250ms ease-in-out, color 250ms ease-in-out;*/
+    transition: box-shadow 250ms ease-in-out, color 300ms ease-in-out;
 }
 
 .plugin_translation form select option.wikilink1 {
