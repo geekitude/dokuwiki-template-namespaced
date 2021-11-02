@@ -30,7 +30,9 @@
 * GENERIC CLASSES
 * DOKUWIKI GLOBAL
 * DOKUWIKI MODES
+* -- ACL manager
 * -- Admin page
+* -- Edit
 * -- Extensions
 * -- Settings
 * -- Users
@@ -147,6 +149,10 @@ hr.vertical {
     border: none;
     padding: 1rem 2rem;
     margin: .5rem;
+}
+
+button:disabled {
+    pointer-event: none;
 }
 
 button:hover {
@@ -1629,6 +1635,10 @@ ul.tabs {
     margin: 0 0 1rem 0;
 }
 
+ul.tabs li {
+    transition: border-color 200ms ease-in-out;
+}
+
 [dir] ul.tabs li {
     border-bottom: @ini_border_width solid transparent;
 }
@@ -2042,6 +2052,31 @@ label.block {
 /* DOKUWIKI MODES
 ----------------------------------------------- */
 
+.dokuwiki.mode_admin form div.no button {
+    vertical-align: .1rem;
+}
+
+/* ACL manager */
+
+.dokuwiki #acl_manager .level1 {
+    display: flex;
+    gap: 1rem;
+}
+
+.dokuwiki #acl_manager #acl__detail {
+    display: contents;
+}
+
+.dokuwiki #acl_manager #acl__user {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+[dir] .dokuwiki #acl_manager #acl__user button[type="submit"] {
+    margin: 0;
+}
+
 /* -- Admin page -- */
 
 .dokuwiki div.ui-admin ul li a span.icon svg {
@@ -2052,6 +2087,28 @@ label.block {
 .dokuwiki div.ui-admin ul li a span.icon svg {
     width: 24px;
     height: 24px;
+}
+
+/* -- Edit -- */
+
+[dir] .dokuwiki #tool__bar button {
+    padding: .5rem;
+}
+
+[dir=ltr] .dokuwiki #tool__bar button:first-child {
+    margin-left: 0;
+}
+
+[dir=rtl] .dokuwiki #tool__bar button:first-child {
+    margin-right: 0;
+}
+
+[dir=ltr] .dokuwiki #tool__bar button:last-child {
+    margin-right: 0;
+}
+
+[dir=rtl] .dokuwiki #tool__bar button:last-child {
+    margin-left: 0;
 }
 
 /* -- Extensions manager -- */
@@ -2072,6 +2129,33 @@ label.block {
 [dir] .dokuwiki #extension__manager form.doku_form {
     margin: 0 auto;
 }
+
+[dir] .dokuwiki #extension__list .actions button {
+    padding: 1rem;
+}
+
+[dir=ltr] .dokuwiki #extension__list .actions button:first-child {
+    margin-left: 0;
+}
+
+[dir=rtl] .dokuwiki #extension__list .actions button:first-child {
+    margin-right: 0;
+}
+
+[dir=ltr] .dokuwiki #extension__list .actions button:last-child {
+    margin-right: 0;
+}
+
+[dir=rtl] .dokuwiki #extension__list .actions button:last-child {
+    margin-left: 0;
+}
+
+/*
+.dokuwiki #extension__manager form.search.doku_form div.no {
+    display: flex;
+    align-items: center;
+}
+*/
 
 /* -- Settings -- */
 
@@ -2158,12 +2242,21 @@ label.block {
 
 /* -- User manager -- */
 
-[dir=ltr] .dokuwiki #user__manager form input[type=file] {
+[dir=ltr] .dokuwiki #user__manager .import_users form input[type=file] {
     margin-left: .5rem;
 }
 
-[dir=rtl] .dokuwiki #user__manager form input[type=file] {
+[dir=rtl] .dokuwiki #user__manager .import_users form input[type=file] {
     margin-right: .5rem;
+}
+
+.dokuwiki #user__manager .import_users button[type="submit"] {
+    position: relative;
+    top: .5rem;
+}
+
+[dir] .dokuwiki #user__manager .import_users button[type="submit"] {
+    margin: 0;
 }
 
 /* PLUGINS

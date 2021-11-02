@@ -30,7 +30,9 @@
 * GENERIC CLASSES
 * DOKUWIKI GLOBAL
 * DOKUWIKI MODES
+* -- ACL manager
 * -- Admin page
+* -- Edit
 * -- Extensions
 * -- Settings
 * -- Users
@@ -142,6 +144,10 @@ input:focus {
     margin: .5rem;
     font-size: small;
     vertical-align: text-bottom;
+}
+
+button:disabled {
+    pointer-event: none;
 }
 
 button:hover {
@@ -1320,6 +1326,7 @@ ul.tabs {
 
 ul.tabs li {
     border-bottom: @ini_border_width solid transparent;
+    transition: border-color 200ms ease-in-out;
 }
 
 ul.tabs li:not(.active) a {
@@ -1662,6 +1669,31 @@ label.block {
 /* DOKUWIKI MODES
 ----------------------------------------------- */
 
+.dokuwiki.mode_admin form div.no button {
+    vertical-align: .1rem;
+}
+
+/* ACL manager */
+
+.dokuwiki #acl_manager .level1 {
+    display: flex;
+    gap: 1rem;
+}
+
+.dokuwiki #acl_manager #acl__detail {
+    display: contents;
+}
+
+.dokuwiki #acl_manager #acl__user {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+.dokuwiki #acl_manager #acl__user button[type="submit"] {
+    margin: 0;
+}
+
 /* -- Admin page -- */
 
 .dokuwiki div.ui-admin ul li a span.icon svg {
@@ -1672,6 +1704,20 @@ label.block {
 .dokuwiki div.ui-admin ul li a span.icon svg {
     width: 24px;
     height: 24px;
+}
+
+/* -- Edit -- */
+
+.dokuwiki #tool__bar button {
+    padding: .5rem;
+}
+
+.dokuwiki #tool__bar button:first-child {
+    margin-left: 0;
+}
+
+.dokuwiki #tool__bar button:last-child {
+    margin-right: 0;
 }
 
 /* -- Extensions manager -- */
@@ -1689,6 +1735,25 @@ label.block {
 .dokuwiki #extension__manager form.doku_form {
     margin: 0 auto;
 }
+
+.dokuwiki #extension__list .actions button {
+    padding: 1rem;
+}
+
+.dokuwiki #extension__list .actions button:first-child {
+    margin-left: 0;
+}
+
+.dokuwiki #extension__list .actions button:last-child {
+    margin-right: 0;
+}
+
+/*
+.dokuwiki #extension__manager form.search.doku_form div.no {
+    display: flex;
+    align-items: center;
+}
+*/
 
 /* -- Settings -- */
 
@@ -1763,8 +1828,14 @@ label.block {
 
 /* -- User manager -- */
 
-.dokuwiki #user__manager form input[type=file] {
+.dokuwiki #user__manager .import_users form input[type=file] {
     margin-left: .5rem;
+}
+
+.dokuwiki #user__manager .import_users button[type="submit"] {
+    margin: 0;
+    position: relative;
+    top: .5rem;
 }
 
 /* PLUGINS
