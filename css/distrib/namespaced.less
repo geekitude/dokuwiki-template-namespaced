@@ -1832,6 +1832,53 @@ nav.tools ul {
 /* DOKUWIKI GLOBAL
 ----------------------------------------------- */
 
+[dir] a.urlextern, [dir] a.mail, [dir] a.windows, [dir] a.iw_wp {
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+[dir=ltr] a.interwiki:not(.iw_wp), [dir=ltr] a.mediafile {
+    padding: 0 0 0 1.8rem;
+    background-position: 0 center;
+}
+
+[dir=rtl] a.interwiki:not(.iw_wp), [dir=rtl] a.mediafile {
+    padding: 0 1.8rem 0 0;
+    background-position: 100% center;
+}
+
+[dir=ltr] a.urlextern, [dir=ltr] a.windows, [dir=ltr] a.mail, [dir=ltr] a.interwiki.iw_wp {
+    padding-left: 1.1em;
+}
+
+[dir=rtl] a.urlextern, [dir=rtl] a.windows, [dir=rtl] a.mail, [dir=rtl] a.interwiki.iw_wp {
+    padding-right: 1.1em;
+}
+
+[dir] a.interwiki.iw_doku {
+    background-image: url(images/override/iw_doku.png);
+}
+
+[dir] a.urlextern {
+    background-image: url(images/override/web.svg);
+}
+
+[dir] a.windows {
+    background-image: url(images/override/share.svg);
+}
+
+[dir] a.mail {
+    background-image: url(images/override/email.svg);
+}
+
+[dir] a.mail {
+    background-image: url(images/override/email.svg);
+}
+
+[dir] a.iw_wp {
+    background-image: url(images/override/wikipedia.svg);
+}
+
 .wikilink1 {
     color: @ini_existing;
 }
@@ -1873,26 +1920,6 @@ div.notify a {
 
 [dir] div.notify {
     background-color: @ini_yellow_color;
-}
-
-[dir=ltr] a.interwiki {
-    padding-left: 1.7rem;
-}
-
-[dir=rtl] a.interwiki {
-    padding-right: 1.7rem;
-}
-
-[dir] a.interwiki.iw_doku {
-    background-image: url(images/override/iw_doku.png);
-}
-
-[dir=ltr] a.mediafile {
-    padding-left: 1.9rem;
-}
-
-[dir=rtl] a.mediafile {
-    padding-right: 1.9rem;
 }
 
 [dir] .page div.level1 {

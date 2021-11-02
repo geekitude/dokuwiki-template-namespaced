@@ -1489,6 +1489,44 @@ nav.tools ul {
 /* DOKUWIKI GLOBAL
 ----------------------------------------------- */
 
+a.urlextern, a.mail, a.windows, a.iw_wp {
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+a.interwiki:not(.iw_wp), a.mediafile {
+    padding: 0 0 0 1.8rem;
+    background-position: 0 center;
+}
+
+a.urlextern, a.windows, a.mail, a.interwiki.iw_wp {
+    padding-left: 1.1em;
+}
+
+a.interwiki.iw_doku {
+    background-image: url(images/override/iw_doku.png);
+}
+
+a.urlextern {
+    background-image: url(images/override/web.svg);
+}
+
+a.windows {
+    background-image: url(images/override/share.svg);
+}
+
+a.mail {
+    background-image: url(images/override/email.svg);
+}
+
+a.mail {
+    background-image: url(images/override/email.svg);
+}
+
+a.iw_wp {
+    background-image: url(images/override/wikipedia.svg);
+}
+
 .wikilink1 {
     color: @ini_existing;
 }
@@ -1526,18 +1564,6 @@ div.success {
 
 div.notify {
     background-color: @ini_yellow_color;
-}
-
-a.interwiki {
-    padding-left: 1.7rem;
-}
-
-a.interwiki.iw_doku {
-    background-image: url(images/override/iw_doku.png);
-}
-
-a.mediafile {
-    padding-left: 1.9rem;
 }
 
 .page div.level1 {
