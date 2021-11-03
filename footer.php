@@ -47,9 +47,8 @@ if (!defined('DOKU_INC')) die();
             </ul>
         </div>
         <div class="center">
-            <h6><a href="http://www.dokuwiki.org/template:namespaced"  title="Namespaced documentation"<?php print $external ?>><img src="/lib/tpl/namespaced/images/namespaced_logo_85.png" width="85" height="16" alt="" /></a></h6>
+            <h6><a href="http://www.dokuwiki.org/template:namespaced"  title="Namespaced documentation"<?php print $external ?>><img src="/lib/tpl/namespaced/images/namespaced_logo_85.png" width="85" height="16" alt="" /></a></h6> - <a href="https://github.com/geekitude/dokuwiki-template-namespaced/"  title="Github"<?php print $external ?>><?php print namespaced_glyph('github', true)?></a>
             <p><?php print tpl_getLang('namespaced') ?></p>
-            <p><a href="http://www.dokuwiki.org/template:namespaced"  title="Namespaced documentation"<?php print $external ?>>Documentation</a> - <a href="https://github.com/geekitude/dokuwiki-template-namespaced/issues"  title="Namespaced issues"<?php print $external ?>>Github issues</a></p>
         </div>
     </div>
 </footer><!-- /footer -->

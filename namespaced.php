@@ -59,6 +59,7 @@ function namespaced_init() {
     $namespaced['glyphs']['editor'] = null;
     $namespaced['glyphs']['extension'] = null;
     $namespaced['glyphs']['extedit'] = null;
+    $namespaced['glyphs']['github'] = null;
     $namespaced['glyphs']['home'] = null;
     $namespaced['glyphs']['lastmod'] = null;
     $namespaced['glyphs']['locked'] = null;
