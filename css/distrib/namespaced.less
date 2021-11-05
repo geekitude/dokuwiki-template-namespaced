@@ -156,9 +156,7 @@ button:disabled {
 }
 
 button:hover {
-    /*box-shadow: 1px 1px 1px #000;*/
     color: @ini_text;
-    /*font-weight: 600;*/
     transition: background 200ms ease-in-out, color 300ms ease-in-out;
 }
 
@@ -176,12 +174,6 @@ button[type=reset] {
 [dir] button[type=submit], [dir] button[type=reset] {
   cursor: pointer;
 }
-
-/*
-input[type=text] {
-  box-sizing: border-box;
-}
-*/
 
 input[type=text]:focus {
   outline: none;
@@ -547,22 +539,9 @@ a.skip:active {
 /* HEADER
 -------------------------------------------------------------- */
 
-/*
-#namespaced__header .pad .flex {
-    margin: .5rem 0;
-}
-*/
-
 [dir] #namespaced__site_branding, [dir] #namespaced__secondary_header {
     margin: 1rem 0;
 }
-
-/*
-#namespaced__header_tools,
-#namespaced__search {
-    margin-top: .5rem;
-}
-*/
 
 [dir=ltr] #namespaced__site_logo, [dir=ltr] #namespaced__site_title span {
     margin-right: 2rem;
@@ -641,8 +620,6 @@ a.skip:active {
 .navbar ul ul li.focus ul ul,
 .navbar ul ul ul li.focus ul ul,
 .navbar ul ul ul ul li.focus ul ul {
-    /*left: -99999px;*/
-    /*z-index: 100;*/
     display: none;
 }
 
@@ -656,9 +633,7 @@ a.skip:active {
 .navbar ul ul ul li.focus ul,
 .navbar ul ul ul ul li.focus ul,
 .navbar ul ul ul ul ul li.focus ul {
-    /*left: 100%;*/
     display: block;
-    /*z-index: 3;*/
 }
 
 .navbar .action .sub-menu {
@@ -675,10 +650,6 @@ a.skip:active {
 
 [dir=rtl] .navbar .action .sub-menu {
     left: 0;
-}
-
-.navbar ul li {
-    /*display: inline-block;*/
 }
 
 [dir] .navbar ul li ul li {
@@ -706,10 +677,6 @@ a.skip:active {
 .navbar ul li.current_page_ancestor ul li a,
 .navbar ul li.current-menu-ancestor ul li a,
 .navbar ul li.current_page_item ul li a {
-    /*
-    font-size: 14px;
-    height: 100%;
-    */
     display: block;
     text-transform: none;
 }
@@ -834,10 +801,6 @@ a.skip:active {
     text-align: center;
 }
 
-#namespaced__usertools > ul {
-    /*display: flex;*/
-}
-
 #namespaced__usertools li.account-edit span.loggedinas {
     color: @ini_text;
     pointer-events: none;
@@ -846,22 +809,6 @@ a.skip:active {
 [dir] #namespaced__usertools li.account-edit span.loggedinas bdi:first-child {
     margin: 0 .3rem;
 }
-
-/*
-#namespaced__usertools > ul li.savesettings button,
-#namespaced__usertools > ul li.resetsettings button {
-    padding: 4px 10px;
-    background-color: transparent;
-    border: none;
-}
-*/
-
-/*
-#namespaced__usertools > ul li.savesettings button svg,
-#namespaced__usertools > ul li.resetsettings button svg {
-    background-color: transparent;
-}
-*/
 
 #namespaced__site_nav.navbar ul.sub-menu li a {
     justify-content: flex-end;
@@ -883,9 +830,6 @@ a.skip:active {
     pointer-events : none;
 }
 
-/*
-#namespaced__site_nav.navbar ul li a:hover {
-*/
 nav ul li a:hover,
 nav ul li span:hover,
 #namespaced__contools ul li button:hover {
@@ -903,10 +847,6 @@ nav ul li span:hover,
 main aside.gutter {
     min-width: @ico-margin + @ico-width + @ico-margin;
     max-width: @ico-margin + @ico-width + @ico-margin;
-}
-
-#namespaced__main_subflex {
-    /*margin-left: @ico-margin + @ico-width + @ico-margin;*/
 }
 
 /* if overflow is set on main_subflex, sidebar can't be sticky
@@ -929,22 +869,7 @@ article {
 #namespaced__aside {
     min-width: @ini_sidebar_width;
     max-width: @ini_sidebar_width;
-    width: @ini_sidebar_width;
-}
-
-[dir=ltr] #namespaced__aside {
-    margin-right: 1.5rem;
-}
-
-[dir=rtl] #namespaced__aside {
-    margin-left: 1.5rem;
-}
-
-#namespaced__aside {
-    min-width: @ini_sidebar_width;
-    max-width: @ini_sidebar_width;
     width: @ini_sidebar_width
-    /*margin-right: 1.5rem;*/
 }
 
 [dir=ltr] #namespaced__aside {
@@ -964,7 +889,6 @@ article {
     min-width: @ini_toc_width;
     max-width: @ini_toc_width;
     width: @ini_toc_width;
-    /*border-right: @ini_border_width solid transparent;*/
 }
 
 [dir] #dw__toc {
@@ -996,29 +920,6 @@ article {
 [dir] #dw__toc ul {
     margin-bottom: 0 !important;
 }
-
-/*
-#namespaced__aside aside,
-#namespaced__page_nav,
-#dw__toc,
-#namespaced__footer_widgets aside,
-#namespaced__docinfo {
-    color: @ini_text_neu;
-    background-color: @ini_background_neu;
-    border: @ini_border_width solid transparent;
-    padding: .2rem;
-}
-*/
-
-/*
-#namespaced__aside aside,
-#namespaced__page_nav,
-#dw__toc,
-#namespaced__footer_widgets aside,
-#namespaced__docinfo {
-    padding: .2rem;
-}
-*/
 
 [dir] #namespaced__aside aside.oneborder, [dir] #namespaced__aside aside.fourborders, [dir] #namespaced__page_nav, [dir] body.oneborder-toc #dw__toc, [dir] #namespaced__footer_widgets aside.oneborder, [dir] #namespaced__footer_widgets aside.fourborders, [dir] #namespaced__docinfo {
     border: @ini_border_width solid transparent;
@@ -1052,24 +953,6 @@ article {
     padding-right: @ini_border_width;
 }
 
-/*
-#namespaced__page_nav {
-    margin-bottom: 1rem;
-}
-*/
-
-/*
-#namespaced__page_nav {
-    border-top: @ini_border_width solid transparent;
-}
-*/
-
-/*
-body.no-sidepanel #namespaced__aside,
-body.no-sidepanel #namespaced__main_subflex hr {
-    display: none;
-}
-*/
 body.no-sidepanel #namespaced__aside {
     display: none;
 }
@@ -1105,11 +988,6 @@ body.sidepanel-flip #namespaced__aside {
 }
 
 /* -- Page nav -- */
-
-#namespaced__page_nav {
-    /*margin-top: 1rem;*/
-    /*width: 100%;*/
-}
 
 [dir] #namespaced__page_nav {
     margin: 1rem 50px 0 50px;
@@ -1223,8 +1101,6 @@ div.docInfo span:hover svg {
 
 #namespaced__docinfo {
     width: 70%;
-    /*padding: .8rem 1.5rem;*/
-    /*border-bottom: @ini_border_width solid transparent;*/
 }
 
 [dir] #namespaced__docinfo {
@@ -1250,10 +1126,8 @@ div.docInfo span:hover svg {
 #namespaced__pagetools .tools {
     position: sticky;
     top: 2rem;
-    /*width: (@ico-width + @ico-margin + @ico-margin);*/
     width: (@ico-width + @ico-margin);
     /* Inner margin is simulated by page left and right padding */
-    /*min-height: (7 * (@ico-width + @ico-margin + @ico-margin));*/ /* 30 (= height of icons) + 10 (<a> padding) x 7 (= maximum number of possible tools of 6 + a11y title) */
     height: auto;
 }
 
@@ -1375,10 +1249,6 @@ div.docInfo span:hover svg {
     margin: 0 0 0 calc(@ico-margin/2);
 }
 
-#namespaced__contools ul li button {
-    /*padding: 4px 10px;*/
-}
-
 [dir] #namespaced__contools ul li button {
     padding: 0;
     background-color: transparent;
@@ -1416,12 +1286,6 @@ html.js #namespaced__contools ul li.top,
 html.js #namespaced__pagetools ul li.top {
     display: none;
 }
-
-/*
-html.not-js #namespaced__pagetools ul li.bottom {
-    display: none;
-}
-*/
 
 body.pagetools-flip #namespaced__main_subflex {
     order: 2;
@@ -1491,19 +1355,6 @@ body.mediaq #screen__mode {
     background-color: @ini_background_neu;
 }
 
-/*
-#namespaced__footer_widgets,
-#namespaced__footer_sole {
-    margin-top: 1.5rem;
-}
-*/
-
-/*
-#namespaced__footer_widgets {
-    margin-top: 1.5rem;
-}
-*/
-
 #namespaced__footer_sole h6 {
     display: inline-block;
 }
@@ -1521,12 +1372,6 @@ body.mediaq #screen__mode {
     vertical-align: bottom;
 }
 
-/*
-#namespaced__footer_widgets aside.widget {
-    max-width: 25%;
-}
-*/
-
 [dir] #namespaced__footer_widgets aside.widget {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -1534,7 +1379,6 @@ body.mediaq #screen__mode {
 
 #namespaced__footer_widgets aside {
     max-width: 50%;
-    /*border-bottom: @ini_border_width solid transparent;*/
 }
 
 [dir=ltr] #namespaced__footer_widgets aside {
@@ -1805,12 +1649,6 @@ body.neu-toc #dw__toc {
     background-color: @ini_background_neu;
 }
 
-/*
-aside.widget {
-    margin-bottom: 1.5rem;
-}
-*/
-
 .pad {
     /* Main uses it's own gutters instead */
 }
@@ -1835,12 +1673,6 @@ nav.tools ul {
 [dir=rtl] .sub-menu {
     left: 0;
 }
-
-/*
-.themed {
-    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-}
-*/
 
 .is_ns {
     text-transform: uppercase;
@@ -2060,8 +1892,6 @@ pre {
 blockquote {
     font-style: italic;
     font-weight: normal;
-    /*border-style: solid;*/
-    /*border-width: @ini_border_width;*/
 }
 
 [dir] blockquote {
@@ -2172,7 +2002,7 @@ label.block {
     vertical-align: .1rem;
 }
 
-/* ACL manager */
+/* -- ACL manager -- */
 
 .dokuwiki #acl_manager .level1 {
     display: flex;
@@ -2266,13 +2096,6 @@ label.block {
     margin-left: 0;
 }
 
-/*
-.dokuwiki #extension__manager form.search.doku_form div.no {
-    display: flex;
-    align-items: center;
-}
-*/
-
 /* -- Settings -- */
 
 [dir] .dokuwiki #config__manager fieldset {
@@ -2346,10 +2169,6 @@ label.block {
 
 .dokuwiki #config__manager fieldset select {
     max-width: 100%;
-}
-
-.dokuwiki #config__manager fieldset input.checkbox {
-    /*vertical-align: -1px;*/
 }
 
 [dir] .dokuwiki #config__manager fieldset input.checkbox {
@@ -2467,7 +2286,6 @@ button.plugin__sitemapnavi__dir {
 }
 
 .plugin_translation ul li a:hover {
-    /*transition: box-shadow 250ms ease-in-out, color 250ms ease-in-out;*/
     transition: box-shadow 250ms ease-in-out, color 300ms ease-in-out;
 }
 
@@ -2596,35 +2414,13 @@ div.wrap_download {
     #screen__mode span::after {
         content: '< Site';
     }
-/*
-    #namespaced__header .pad .flex {
-        flex-direction: column;
-    }
-*/
     #namespaced__header .pad .flex {
         justify-content: center;
     }
-/*
-    #namespaced__header .pad .flex div {
-        margin: .5rem 0;
-    }
-*/
-/*
-    #namespaced__site_logo {
-        margin-left: unset;
-        margin-right: unset;
-    }
-*/
     #namespaced__site_logo {
         max-width: 10rem;
         max-height: 10rem;
     }
-/*
-    #namespaced__site_branding_text,
-    #namespaced__header_tools {
-        text-align: center;
-    }
-*/
 }
 
 @media screen and (max-width: @ini_site_width - ((@ini_site_width - @ini_tablet_width) / 2)) {
@@ -2676,11 +2472,6 @@ div.wrap_download {
         max-width: 100% !important;
         height: auto;
     }
-    /*
-    #qsearch__in {
-        max-width: 30px !important;
-    }
-    */
 }
 
 @media screen and (max-width: @ini_tablet_width - ((@ini_tablet_width - @ini_phone_width) / 2)) {
