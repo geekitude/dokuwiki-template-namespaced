@@ -18,6 +18,7 @@
 * -- docInfo
 * -- Pagetools & Contools
 * FOOTER
+* GENERIC CLASSES
 * DOKUWIKI GLOBAL
 * DOKUWIKI MODES
 * -- Settings
@@ -171,20 +172,119 @@ nav ul li span:hover,
 /* MAIN
 ----------------------------------------------- */
 
-[dir=ltr] #dw__toc {
+[dir] body.theme-toc #dw__toc {
+    background-color: @ini_theme_color;
+}
+
+[dir] body.secondary-toc #dw__toc {
+    background-color: @ini_secondary_color;
+}
+
+[dir] body.dark-toc #dw__toc {
+    background-color: @ini_dark_color;
+}
+
+[dir] body.theme-toc #dw__toc h3 {
+    background-color: @ini_secondary_color;
+}
+
+[dir] body.secondary-toc #dw__toc h3 {
+    background-color: @ini_dark_color;
+}
+
+[dir] body.dark-toc #dw__toc h3 {
+    background-color: @ini_secondary_color;
+}
+
+body.theme-toc #dw__toc h3,
+body.secondary-toc #dw__toc h3,
+body.dark-toc #dw__toc h3 {
+    color: @ini_theme_text_color;
+}
+
+[dir] body.fourborders-toc:not(.neu-toc) #dw__toc {
+    border-color: @ini_border;
+}
+
+[dir=ltr] body.oneborder-toc #dw__toc {
     border-left-color: @ini_border;
 }
 
-[dir=rtl] #dw__toc {
+[dir=rtl] body.oneborder-toc #dw__toc {
     border-right-color: @ini_border;
 }
 
-[dir=ltr] #namespaced__aside aside {
+[dir=ltr] #namespaced__aside aside.oneborder {
     border-right-color: @ini_border;
 }
 
-[dir=rtl] #namespaced__aside aside {
+[dir=rtl] #namespaced__aside aside.oneborder {
     border-left-color: @ini_border;
+}
+
+[dir] #namespaced__aside aside.fourborders {
+    border-color: @ini_border;
+}
+
+[dir] aside.theme {
+    background-color: @ini_theme_color;
+}
+
+[dir] aside.theme h6 {
+    background-color: @ini_secondary_color;
+}
+
+[dir] aside.secondary {
+    background-color: @ini_secondary_color;
+}
+
+[dir] aside.secondary h6 {
+    background-color: @ini_dark_color;
+}
+
+[dir] aside.dark {
+    background-color: @ini_dark_color;
+}
+
+[dir] aside.dark h6 {
+    background-color: @ini_secondary_color;
+}
+
+aside.theme,
+aside.theme h6,
+aside.secondary,
+aside.secondary h6,
+aside.dark,
+aside.dark h6 {
+    color: @ini_theme_text_color;
+}
+
+[dir] aside.labeled {
+    border-color: @ini_border;
+}
+
+[dir] aside.labeled h6 {
+    background-color: @ini_background;
+}
+
+[dir] #namespaced__footer.theme aside.labeled, [dir] #namespaced__footer.secondary aside.labeled, [dir] #namespaced__footer.dark aside.labeled {
+    margin-top: 2rem;
+}
+
+[dir] #namespaced__footer.theme aside.labeled h6 {
+    background-color: @ini_theme_color;
+}
+
+[dir] #namespaced__footer.secondary aside.labeled h6 {
+    background-color: @ini_secondary_color;
+}
+
+[dir] #namespaced__footer.dark aside.labeled h6 {
+    background-color: @ini_dark_color;
+}
+
+[dir] aside.labeled h6 span {
+    background-color: @ini_border;
 }
 
 /* -- Page nav -- */
@@ -193,18 +293,60 @@ nav ul li span:hover,
     /*background-color: @ini_theme_color;*/
 }
 
-#namespaced__page_nav {
+#namespaced__page_nav.oneborder {
     /*border-bottom-color: desaturate(@ini_border, 100%);*/
 }
 
-[dir] #namespaced__page_nav {
+[dir] #namespaced__page_nav.oneborder {
     border-bottom-color: @ini_border;
+}
+
+[dir] #namespaced__page_nav.fourborders {
+    border-color: @ini_border;
+}
+
+[dir] #namespaced__page_nav.theme {
+    background-color: @ini_theme_color;
+}
+
+[dir] #namespaced__page_nav.secondary {
+    background-color: @ini_secondary_color;
+}
+
+#namespaced__page_nav.dark {
+    color: @ini_text_neu;
+}
+
+[dir] #namespaced__page_nav.dark {
+    background-color: @ini_dark_color;
+}
+
+#namespaced__page_nav.theme .pageId,
+#namespaced__page_nav.secondary .pageId,
+#namespaced__page_nav.dark .pageId {
+    color: @ini_theme_text_color;
 }
 
 /* -- docInfo -- */
 
-[dir] #namespaced__docinfo {
+[dir] #namespaced__docinfo.oneborder {
     border-top-color: @ini_border;
+}
+
+[dir] #namespaced__docinfo.fourborders {
+    border-color: @ini_border;
+}
+
+[dir] #namespaced__docinfo.theme {
+    background-color: @ini_theme_color;
+}
+
+[dir] #namespaced__docinfo.secondary {
+    background-color: @ini_secondary_color;
+}
+
+[dir] #namespaced__docinfo.dark {
+    background-color: @ini_dark_color;
 }
 
 /* -- Pagetools & Contools -- */
@@ -224,24 +366,102 @@ nav ul li span:hover,
 /* FOOTER
 ----------------------------------------------- */
 
-#namespaced__footer {
-    color: @ini_theme_text_color;
+[dir] #namespaced__footer.theme {
+    background-color: @ini_theme_color;
 }
 
-[dir] #namespaced__footer {
-    background-color: @ini_dark_color;
-}
-
-[dir] #namespaced__footer_widgets aside {
-    border-top-color: @ini_border;
-}
-
-[dir] #namespaced__footer_sole {
+[dir] #namespaced__footer.secondary {
     background-color: @ini_secondary_color;
 }
 
-#namespaced__footer_sole a:hover svg {
+[dir] #namespaced__footer.dark {
+    background-color: @ini_dark_color;
+}
+
+#namespaced__footer.theme,
+#namespaced__footer.secondary,
+#namespaced__footer.dark,
+#namespaced__footer.theme h6,
+#namespaced__footer.secondary h6,
+#namespaced__footer.dark h6 {
+    color: @ini_theme_text_color;
+}
+
+[dir] #namespaced__footer.theme #namespaced__footer_sole {
+    background-color: @ini_secondary_color;
+}
+
+[dir] #namespaced__footer.secondary #namespaced__footer_sole {
+    background-color: @ini_dark_color;
+}
+
+[dir] #namespaced__footer.dark #namespaced__footer_sole {
+    background-color: @ini_secondary_color;
+}
+
+#namespaced__footer.theme #namespaced__footer_sole a:hover svg,
+#namespaced__footer.secondary #namespaced__footer_sole a:hover svg,
+#namespaced__footer.dark #namespaced__footer_sole a:hover svg {
     fill: @ini_theme_text_color;
+}
+
+[dir] #namespaced__footer.oneborder:not(.neu) {
+    border-top: @ini_border_width solid @ini_border;
+}
+
+[dir] #namespaced__footer_widgets aside.oneborder {
+    border-top-color: @ini_border;
+}
+
+[dir] #namespaced__footer_widgets aside.fourborders {
+    border-color: @ini_border;
+}
+
+[dir] #namespaced__footer.neu:not(.dark):not(.secondary):not(.theme) #namespaced__footer_sole {
+    background-color: desaturate(@ini_secondary_color, 100%);
+}
+
+[dir] #namespaced__footer.oneborder.neu {
+    border-top: @ini_border_width solid desaturate(@ini_border, 100%);
+}
+
+/* GENERIC CLASSES
+----------------------------------------------- */
+
+[dir=ltr] body.neu-toc.oneborder-toc #dw__toc {
+    border-left-color: desaturate(@ini_border, 100%);
+}
+
+[dir=rtl] body.neu-toc.oneborder-toc #dw__toc {
+    border-right-color: desaturate(@ini_border, 100%);
+}
+
+[dir] body.neu-toc.fourborders-toc #dw__toc {
+    border-color: desaturate(@ini_border, 100%);
+}
+
+[dir] #namespaced__page_nav.fourborders.neu {
+    border-color: desaturate(@ini_border, 100%);
+}
+
+[dir] #namespaced__page_nav.oneborder.neu {
+    border-bottom-color: desaturate(@ini_border, 100%);
+}
+
+[dir] #namespaced__docinfo.oneborder.neu {
+    border-top-color: desaturate(@ini_border, 100%);
+}
+
+[dir=ltr] #namespaced__aside aside.neu {
+    border-right-color: desaturate(@ini_border, 100%);
+}
+
+[dir=rtl] #namespaced__aside aside.neu {
+    border-left-color: desaturate(@ini_border, 100%);
+}
+
+[dir] #namespaced__footer_widgets aside.neu {
+    border-top-color: desaturate(@ini_border, 100%);
 }
 
 /* DOKUWIKI GLOBAL

@@ -88,7 +88,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
             </div><!-- #namespaced__widebanner_wrap -->
         <?php endif ?>
 
-        <nav id="namespaced__page_nav" class="flex between gap20<?php print (strpos(tpl_getConf('neutralize'), 'pagenav') !== false) ? ' neu' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'pagenav') !== false) ? ' sticky' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' stickynav' : '' ?>">
+        <nav id="namespaced__page_nav" class="flex between gap20 <?php print tpl_getConf('pagenavstyle') ?><?php print (strpos(tpl_getConf('neutralize'), 'pagenav') !== false) ? ' neu' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'pagenav') !== false) ? ' sticky' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' stickynav' : '' ?>">
                 <div class="flex column align-start">
                     <div class="pageId h6">
                         <span><?php echo hsc($ID) ?></span>
@@ -220,12 +220,12 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
 
         <?php
             if ((tpl_getConf('docinfopos') === "standalone") or (strpos(tpl_getConf('stickies'), 'docinfo') !== false)) {
-                $classes = null;
-                if (strpos(tpl_getConf('neutralize'), 'docinfo') !== false) {
-                    $classes .= " neu";
-                }
+                $classes = tpl_getConf("docinfostyle");
                 if (strpos(tpl_getConf('stickies'), 'docinfo') !== false) {
                     $classes .= " sticky";
+                }
+                if (strpos(tpl_getConf('neutralize'), 'docinfo') !== false) {
+                    $classes .= " neu";
                 }
                 print '<aside id="namespaced__docinfo" class="'.ltrim($classes, " ").'">';
                     namespaced_docinfo();

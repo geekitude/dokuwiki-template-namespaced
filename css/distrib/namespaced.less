@@ -364,6 +364,10 @@ h5 {
     padding: 0 4rem .2rem 0;
 }
 
+[dir] body.oneborder-toc #dw__toc h3 {
+    padding: 0;
+}
+
 h6,
 #dw__toc h3,
 #qsearch__out strong,
@@ -371,18 +375,25 @@ h6,
     font-size: 1.9rem;
 }
 
-[dir] h6, [dir] #dw__toc h3, [dir] #qsearch__out strong {
+[dir] h6, [dir] #qsearch__out strong {
     padding: 0 0 1rem 0;
+}
+
+[dir] #dw__toc h3, [dir] aside.theme h6, [dir] aside.secondary h6, [dir] aside.dark h6 {
+    padding: .5rem 1rem;
+}
+
+[dir] h6 span.label {
+    padding: 0 0 3px 0 !important;
 }
 
 h6 span.label,
 #dw__toc h3 {
     line-height: 1.7;
-    display: unset;
 }
 
-[dir] h6 span.label, [dir] #dw__toc h3 {
-    padding: 0 0 3px 0 !important;
+h6 span.label {
+    display: unset;
 }
 
 [dir] #namespaced__site_nav_labels h6 {
@@ -969,6 +980,18 @@ article {
     margin-right: 1.5rem;
 }
 
+[dir] body.theme-toc #dw__toc > div, [dir] body.secondary-toc #dw__toc > div, [dir] body.dark-toc #dw__toc > div, [dir] body.fourborders-toc #dw__toc > div {
+    padding: .5rem;
+}
+
+[dir] body.fourborders-toc #dw__toc > div, [dir] body.neu-toc.transparent-toc #dw__toc > div {
+    padding: 0 .5rem .5rem .5rem;
+}
+
+[dir] body.fourborders-toc #dw__toc {
+    border: @ini_border_width solid transparent;
+}
+
 [dir] #dw__toc ul {
     margin-bottom: 0 !important;
 }
@@ -996,7 +1019,7 @@ article {
 }
 */
 
-[dir] #namespaced__aside aside, [dir] #namespaced__page_nav, [dir] #dw__toc, [dir] #namespaced__footer_widgets aside, [dir] #namespaced__docinfo {
+[dir] #namespaced__aside aside.oneborder, [dir] #namespaced__aside aside.fourborders, [dir] #namespaced__page_nav, [dir] body.oneborder-toc #dw__toc, [dir] #namespaced__footer_widgets aside.oneborder, [dir] #namespaced__footer_widgets aside.fourborders, [dir] #namespaced__docinfo {
     border: @ini_border_width solid transparent;
 }
 
@@ -1008,19 +1031,23 @@ article {
     margin-bottom: 1.5rem;
 }
 
-[dir=ltr] #namespaced__aside aside {
+[dir=ltr] #namespaced__aside aside.oneborder {
     padding-right: @ini_border_width;
 }
 
-[dir=rtl] #namespaced__aside aside {
+[dir=rtl] #namespaced__aside aside.oneborder {
     padding-left: @ini_border_width;
 }
 
-[dir=ltr] #dw__toc {
+[dir] #namespaced__aside aside.fourborders {
+    padding: @ini_border_width;
+}
+
+[dir=ltr] body.oneborder-toc #dw__toc {
     padding-left: @ini_border_width;
 }
 
-[dir=rtl] #dw__toc {
+[dir=rtl] body.oneborder-toc #dw__toc {
     padding-right: @ini_border_width;
 }
 
@@ -1085,7 +1112,11 @@ body.sidepanel-flip #namespaced__aside {
 
 [dir] #namespaced__page_nav {
     margin: 1rem 50px 0 50px;
-    padding: calc(1rem-@ini_border_width) 1rem 1rem 1rem;
+    padding: 1rem;
+}
+
+[dir] #namespaced__page_nav.oneborder {
+    padding-bottom: calc(1rem+@ini_border_width);
 }
 
 #namespaced__page_nav aside {
@@ -1451,6 +1482,14 @@ body.mediaq #screen__mode {
     /* Above tools navs (aka contools and pagetools) */
 }
 
+[dir] #namespaced__footer {
+    background-color: @ini_background;
+}
+
+[dir] #namespaced__footer.neu {
+    background-color: @ini_background_neu;
+}
+
 /*
 #namespaced__footer_widgets,
 #namespaced__footer_sole {
@@ -1507,6 +1546,10 @@ body.mediaq #screen__mode {
     margin-right: 1rem;
 }
 
+[dir] #namespaced__footer_widgets aside.neu, [dir] #namespaced__footer_widgets aside.oneborder, [dir] #namespaced__footer_widgets aside.fourborders {
+    padding: .5rem;
+}
+
 body.three-footerwidgets #namespaced__footer_widgets aside {
     max-width: 33%;
 }
@@ -1553,6 +1596,59 @@ aside.widget {
     -webkit-hyphens: auto;
         -ms-hyphens: auto;
             hyphens: auto;
+}
+
+[dir] #namespaced__aside aside.theme > div, [dir] #namespaced__aside aside.secondary > div, [dir] #namespaced__aside aside.dark > div, [dir] #namespaced__footer_widgets aside.theme > div, [dir] #namespaced__footer_widgets aside.secondary > div, [dir] #namespaced__footer_widgets aside.dark > div {
+    padding: .5rem 1rem;
+}
+
+[dir] aside.dark input {
+    background-color: @ini_background_neu;
+}
+
+aside.labeled {
+    overflow: unset;
+}
+
+[dir] aside.labeled {
+    padding: 1rem;
+    border: @ini_border_width solid transparent;
+}
+
+[dir] aside.labeled.hastitle {
+    margin-top: 2.6rem;
+}
+
+aside.labeled h6 {
+    width: 80%;
+}
+
+[dir] aside.labeled h6 {
+    text-align: center;
+    margin-top: -2.4rem;
+    padding: 0;
+}
+
+[dir=ltr] aside.labeled h6 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+[dir=rtl] aside.labeled h6 {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+aside.labeled h6 span {
+    color: #fff;
+}
+
+[dir] aside.labeled h6 span {
+    padding: .5rem;
+}
+
+[dir] aside.labeled.hastitle > div {
+    margin-top: 1rem;
 }
 
 #namespaced__widget_license img,
@@ -1699,41 +1795,13 @@ ul.tabs li.active:hover a {
     text-align: end;
 }
 
-.neu,
+.neu:not(.labeled):not(.secondary),
 body.neu-toc #dw__toc {
     color: @ini_text_neu;
 }
 
-[dir] .neu, [dir] body.neu-toc #dw__toc {
+[dir] .neu:not(.labeled):not(.secondary), [dir] body.neu-toc #dw__toc {
     background-color: @ini_background_neu;
-}
-
-[dir] #namespaced__page_nav.neu {
-    border-bottom-color: desaturate(@ini_border, 100%);
-}
-
-[dir] #namespaced__docinfo.neu {
-    border-top-color: desaturate(@ini_border, 100%);
-}
-
-[dir=ltr] #namespaced__aside aside.neu {
-    border-right-color: desaturate(@ini_border, 100%);
-}
-
-[dir=rtl] #namespaced__aside aside.neu {
-    border-left-color: desaturate(@ini_border, 100%);
-}
-
-[dir] #namespaced__footer_widgets aside.neu {
-    border-top-color: desaturate(@ini_border, 100%);
-}
-
-[dir=ltr] body.neu-toc #dw__toc {
-    border-left-color: desaturate(@ini_border, 100%);
-}
-
-[dir=rtl] body.neu-toc #dw__toc {
-    border-right-color: desaturate(@ini_border, 100%);
 }
 
 /*

@@ -17,7 +17,13 @@ $conf['longdatestring']     = '%A %d %B %Y';
 $conf['shortdatestring']    = '%d/%m/%Y';
 $conf['tablestyle']         = 'dynamic';
 $conf['kbdstyle']           = 'default';
-$conf['neutralize']         = 'pagenav,toc,docinfo,side-widgets,footer-widgets';
+$conf['pagenavstyle']       = 'secondary';
+$conf['sidewidgetstyle']    = 'labeled';
+$conf['footerwidgetstyle']  = 'transparent';
+$conf['tocstyle']           = 'dark';
+$conf['docinfostyle']       = 'oneborder';
+$conf['footerstyle']        = 'dark';
+$conf['neutralize']         = '';
 $conf['collapsible-toc']    = 0;
 $conf['forcesidepanel']     = 1;
 

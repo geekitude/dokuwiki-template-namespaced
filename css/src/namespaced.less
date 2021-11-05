@@ -300,6 +300,10 @@ h5 {
     padding: 0 0 .2rem 4rem;
 }
 
+body.oneborder-toc #dw__toc h3 {
+    padding: 0;
+}
+
 h6,
 #dw__toc h3,
 #qsearch__out strong,
@@ -308,15 +312,27 @@ h6,
 }
 
 h6,
-#dw__toc h3,
 #qsearch__out strong {
     padding: 0 0 1rem 0;
 }
 
+#dw__toc h3,
+aside.theme h6,
+aside.secondary h6,
+aside.dark h6 {
+    padding: .5rem 1rem;
+}
+
+h6 span.label {
+    padding: 0 0 3px 0 !important;
+}
+
 h6 span.label,
 #dw__toc h3 {
-    padding: 0 0 3px 0 !important;
     line-height: 1.7;
+}
+
+h6 span.label {
     display: unset;
 }
 
@@ -781,6 +797,22 @@ article {
     /*border-right: @ini_border_width solid transparent;*/
 }
 
+body.theme-toc #dw__toc > div,
+body.secondary-toc #dw__toc > div,
+body.dark-toc #dw__toc > div,
+body.fourborders-toc #dw__toc > div {
+    padding: .5rem;
+}
+
+body.fourborders-toc #dw__toc > div,
+body.neu-toc.transparent-toc #dw__toc > div {
+    padding: 0 .5rem .5rem .5rem;
+}
+
+body.fourborders-toc #dw__toc {
+    border: @ini_border_width solid transparent;
+}
+
 #dw__toc ul {
     margin-bottom: 0 !important;
 }
@@ -808,10 +840,12 @@ article {
 }
 */
 
-#namespaced__aside aside,
+#namespaced__aside aside.oneborder,
+#namespaced__aside aside.fourborders,
 #namespaced__page_nav,
-#dw__toc,
-#namespaced__footer_widgets aside,
+body.oneborder-toc #dw__toc,
+#namespaced__footer_widgets aside.oneborder,
+#namespaced__footer_widgets aside.fourborders,
 #namespaced__docinfo {
     border: @ini_border_width solid transparent;
 }
@@ -826,11 +860,15 @@ article {
     margin-bottom: 1.5rem;
 }
 
-#namespaced__aside aside {
+#namespaced__aside aside.oneborder {
     padding-right: @ini_border_width;
 }
 
-#dw__toc {
+#namespaced__aside aside.fourborders {
+    padding: @ini_border_width;
+}
+
+body.oneborder-toc #dw__toc {
     padding-left: @ini_border_width;
 }
 
@@ -876,8 +914,12 @@ body.sidepanel-flip #namespaced__aside {
 #namespaced__page_nav {
     /*margin-top: 1rem;*/
     margin: 1rem 50px 0 50px;
-    padding: calc(1rem-@ini_border_width) 1rem 1rem 1rem;
     /*width: 100%;*/
+    padding: 1rem;
+}
+
+#namespaced__page_nav.oneborder {
+    padding-bottom: calc(1rem+@ini_border_width);
 }
 
 #namespaced__page_nav aside {
@@ -1183,9 +1225,14 @@ body.mediaq #screen__mode {
 ----------------------------------------------- */
 
 #namespaced__footer {
+    background-color: @ini_background;
     position: relative;
     z-index: 3;
     /* Above tools navs (aka contools and pagetools) */
+}
+
+#namespaced__footer.neu {
+    background-color: @ini_background_neu;
 }
 
 /*
@@ -1236,6 +1283,12 @@ body.mediaq #screen__mode {
     /*border-bottom: @ini_border_width solid transparent;*/
 }
 
+#namespaced__footer_widgets aside.neu,
+#namespaced__footer_widgets aside.oneborder,
+#namespaced__footer_widgets aside.fourborders {
+    padding: .5rem;
+}
+
 body.three-footerwidgets #namespaced__footer_widgets aside {
     max-width: 33%;
 }
@@ -1267,6 +1320,47 @@ aside.widget {
     overflow: hidden;
     word-break: break-word;
     hyphens: auto;
+}
+
+#namespaced__aside aside.theme > div,
+#namespaced__aside aside.secondary > div,
+#namespaced__aside aside.dark > div,
+#namespaced__footer_widgets aside.theme > div,
+#namespaced__footer_widgets aside.secondary > div,
+#namespaced__footer_widgets aside.dark > div {
+    padding: .5rem 1rem;
+}
+
+aside.dark input {
+    background-color: @ini_background_neu;
+}
+
+aside.labeled {
+    padding: 1rem;
+    overflow: unset;
+    border: @ini_border_width solid transparent;
+}
+
+aside.labeled.hastitle {
+    margin-top: 2.6rem;
+}
+
+aside.labeled h6 {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: -2.4rem;
+    padding: 0;
+    width: 80%;
+}
+
+aside.labeled h6 span {
+    padding: .5rem;
+    color: #fff;
+}
+
+aside.labeled.hastitle > div {
+    margin-top: 1rem;
 }
 
 #namespaced__widget_license img,
@@ -1380,30 +1474,10 @@ ul.tabs li a {
     text-align: end;
 }
 
-.neu,
+.neu:not(.labeled):not(.secondary),
 body.neu-toc #dw__toc {
     color: @ini_text_neu;
     background-color: @ini_background_neu;
-}
-
-#namespaced__page_nav.neu {
-    border-bottom-color: desaturate(@ini_border, 100%);
-}
-
-#namespaced__docinfo.neu {
-    border-top-color: desaturate(@ini_border, 100%);
-}
-
-#namespaced__aside aside.neu {
-    border-right-color: desaturate(@ini_border, 100%);
-}
-
-#namespaced__footer_widgets aside.neu {
-    border-top-color: desaturate(@ini_border, 100%);
-}
-
-body.neu-toc #dw__toc {
-    border-left-color: desaturate(@ini_border, 100%);
 }
 
 /*
