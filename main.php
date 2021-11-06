@@ -74,6 +74,8 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                                 print '<li>'.$namespaced['nsindex']['pages'][$key]['link'].'</li>';
                                 
                             }
+                        } else {
+                            print '<li class="menu-item action no-pages" title="'.tpl_getLang("no_pages").'"><span>'.namespaced_glyph('info', true).'</span></li>';
                         }
                         // Print sub-namespaces links
                         if (count($namespaced['nsindex']['subns']) != 0) {
