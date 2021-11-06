@@ -75,7 +75,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                                 
                             }
                         } else {
-                            print '<li class="menu-item action no-pages" title="'.tpl_getLang("no_pages").'"><span>'.namespaced_glyph('info', true).'</span></li>';
+                            print '<li class="menu-item action no-pages" title="'.tpl_getLang("no_pages").'">'.namespaced_glyph('info', true).'<span'.$namespaced['a11y']['standalone'].'>'.tpl_getLang("no_pages").'</span></li>';
                         }
                         // Print sub-namespaces links
                         if (count($namespaced['nsindex']['subns']) != 0) {
@@ -203,6 +203,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                             } elseif (($ACT == "admin") && ($_GET['page'] == "config")) {
                                 msg(tpl_getLang('jump_to_namespaced'), 2);
                             }
+                            // Display Translation plugin alerts
                             if ($namespaced['translation']['helper']) {
                                 print $namespaced['translation']['helper']->checkage();
                             }
