@@ -221,14 +221,6 @@ function namespaced_init() {
                 continue;
             }
 
-            // If item is a directory, we need an ID that points to that namespace's start page (even if it doesn't exist)
-            if ($data[$datakey]['type'] == "d") {
-                $data[$datakey]['id'] = $data[$datakey]['id'].':'.$conf['start'];
-                $class = "is_ns";
-            } else {
-                $class = "is_page";
-            }
-
             // Get item title from metadata..
             if ($conf['useheading']) {
                 foreach ($title_metafields as $plugin => $pluginkey) {
@@ -239,6 +231,14 @@ function namespaced_init() {
             // ...or from ID...
             $title = @$title ?: hsc(noNS($data[$datakey]['id']));
 //dbg($title);
+
+            // If item is a directory, we need an ID that points to that namespace's start page (even if it doesn't exist)
+            if ($data[$datakey]['type'] == "d") {
+                $data[$datakey]['id'] = $data[$datakey]['id'].':'.$conf['start'];
+                $class = "is_ns";
+            } else {
+                $class = "is_page";
+            }
 
             // Store item core title
             $data[$datakey]['title'] = $title;
