@@ -489,7 +489,7 @@ function namespaced_ishome($page) {
         $ishome = "untranslated";
     } elseif (strpos($page, $conf['start']) !== false) {
 //dbg("pas là?");
-        $ishome = "nshome";
+        $ishome = "ns";
         if ($namespaced['translation']['helper']) {
             $parts = $namespaced['translation']['helper']->getTransParts($page);
 //dbg("here!");
