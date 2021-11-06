@@ -182,9 +182,86 @@ function namespaced_init() {
     }
 //dbg($namespaced['widgets']);
 
-//    // CURRENT NAMESPACE INDEX
-//    $namespaced['nsindex'] = namespaced_nsindex();
+    // CURRENT NAMESPACE INDEX
+    $namespace = cleanID(getNS($ID));
+    $namespaced['nsindex'] = array();
+    $namespaced['nsindex']['pages'] = array();
+    $namespaced['nsindex']['subns'] = array();
+//dbg($namespace);
+
+    $dir  = utf8_encodeFN(str_replace(':','/',$namespace));
+    $data = array();
+
+    // Get namespace content
+    search($data,$conf['datadir'],'search_index',array('ns' => $namespace),$dir);
+//dbg($data);
+
+    // Known plugins that set title and corresponding metadata keys
+    $title_metafields = array(
+        'croissant' => 'plugin_croissant_bctitle',
+        'pagetitle' => 'shorttitle',
+    );
+    foreach (array_keys($title_metafields) as $plugin) {
+        if(plugin_isdisabled($plugin)) unset($title_metafields[$plugin]);
+    }
+    $title_metafields['dokuwiki'] = 'title';
+
+//dbg(tpl_getConf('nsindexexclude'));
+    if (count($data) != 0) {
+        foreach ($data as $datakey => $item) {
+            $title = null;
+            // Unset item if is in 'exclusions'
+            if (in_array(noNS($item['id']), tpl_getConf('nsindexexclude'))) {
+                unset($data[$datakey]);
+                continue;
+            // Always unset item if it starts with "playground" or is equal to current $ID
+            } elseif ((explode(":", $item['id'])[0] == "playground") or ($item['id'] == $ID)) {
+                unset($data[$datakey]);
+                continue;
+            }
+
+            // If item is a directory, we need an ID that points to that namespace's start page (even if it doesn't exist)
+            if ($data[$datakey]['type'] == "d") {
+                $data[$datakey]['id'] = $data[$datakey]['id'].':'.$conf['start'];
+                $class = "is_ns";
+            } else {
+                $class = "is_page";
+            }
+
+            // Get item title from metadata..
+            if ($conf['useheading']) {
+                foreach ($title_metafields as $plugin => $pluginkey) {
+                    $title = p_get_metadata($data[$datakey]['id'], $pluginkey, METADATA_DONT_RENDER);
+                    if ($title != null) break;
+                }
+            }
+            // ...or from ID...
+            $title = @$title ?: hsc(noNS($data[$datakey]['id']));
+//dbg($title);
+
+            // Store item core title
+            $data[$datakey]['title'] = $title;
+
+            // Adding relevant glyph to local title
+            if ($data[$datakey]['id'] == $namespace.':'.$conf['start']) {
+                $title = namespaced_glyph('nshome', true).$title;
+            }
+
+            // Store a link to item
+            $data[$datakey]['link'] = '<a href="'.wl($data[$datakey]['id']).'" class="'.$class.'" title="'.$data[$datakey]['id'].'">'.$title.'</a>';
+
+            // Store item in relevant array
+            if ($item['type'] == 'd') {
+                $namespaced['nsindex']['subns'][] = $data[$datakey];
+            } else {
+                $namespaced['nsindex']['pages'][] = $data[$datakey];
+            }
+//dbg($data[$datakey]);
+        }
+    }
 //dbg($namespaced['nsindex']);
+    // Sort pages to get current ns start page first
+    usort($namespaced['nsindex']['pages'], 'namespaced_sort_title');
 
     // HELPER PLUGINS
     // Preparing usefull plugins' helpers
@@ -425,6 +502,13 @@ function namespaced_ishome($page) {
 //dbg($ishome);
     return $ishome;
 }/* /namespaced_ishome */
+
+/**
+ * Compare titels of two items from $namespaced['nsindex']
+ */
+function namespaced_sort_title($a, $b) {
+    return strcasecmp($a['title'], $b['title']);
+}
 
 /**
  * Returns body classes according to settings
@@ -957,115 +1041,6 @@ function namespaced_glyph($glyph, $return = false) {
         return 1;
     }
 }/* namespaced_glyph */
-
-
-/**
- * Build current namespace index (list sub-namespaces and pages).
- *
- * @param (str)     $idx namespace ID, must not be a page ID.
- *                  Could be provided with : cleanID(getNS($ID))
- * @param (bool)    $useexclusions use `exclusions` setting or not
- * @param (bool)    $split return a simple level or more complex array
- * @return (arr)    list of sub namespaces and pages found within $idx namespace
- *
- * See https://www.dokuwiki.org/plugin:twistienav?do=draft#helper_component for details
- *
- */
-function namespaced_nsindex($useexclusions = false) {
-    global $conf, $ID;
-
-    $namespace = cleanID(getNS($ID));
-//dbg($namespace);
-
-    $dir  = utf8_encodeFN(str_replace(':','/',$namespace));
-    $data = array();
-    $pages = array();
-    $subnamespaces = array();
-    search($data,$conf['datadir'],'search_index',array('ns' => $namespace),$dir);
-    // Known plugins that set title and corresponding metadata keys
-    $title_metafields = array(
-        'croissant' => 'plugin_croissant_bctitle',
-        'pagetitle' => 'shorttitle',
-    );
-    foreach (array_keys($title_metafields) as $plugin) {
-        if(plugin_isdisabled($plugin)) unset($title_metafields[$plugin]);
-    }
-    $title_metafields['dokuwiki'] = 'title';
-
-//dbg(tpl_getConf('nsindexexclude'));
-    if (count($data) != 0) {
-        foreach ($data as $datakey => $item) {
-            // Unset item if is in 'exclusions'
-            if (($useexclusions) && (in_array(noNS($item['id']), tpl_getConf('nsindexexclude')))) {
-                unset($data[$datakey]);
-                continue;
-//            // Unset item if it is in 'nsignore'
-//            } elseif (($useexclusions) && (in_array(explode(":", $item['id'])[0], $this->nsignore))) {
-//                unset($data[$datakey]);
-//                continue;
-            // Always unset item if it starts with "playground" or is equal to current $ID
-//            } elseif ((explode(":", $item['id'])[0] == "playground") or ($item['id'] == $ID) or ($item['id'] == $ajaxId)) {
-            } elseif ((explode(":", $item['id'])[0] == "playground") or ($item['id'] == $ID)) {
-                unset($data[$datakey]);
-                continue;
-            }
-            // If item is a directory, we need an ID that points to that namespace's start page (even if it doesn't exist)
-            if ($item['type'] == 'd') {
-                $target = $item['id'].':'.$conf['start'];
-                $classes = "is_ns";
-                $subnamespaces[] = $datakey;
-            // Or just keep current item ID
-            } else {
-                $target = $item['id'];
-                $classes = "is_page";
-                $pages[] = $datakey;
-            }
-//            // Add (non-)existence class
-//            if (page_exists($target)) {
-//                $classes .= " wikilink1";
-//            } else {
-//                $classes .= " wikilink2";
-//            }
-            // Get page title from metadata
-            $title = null;
-//            if ($this->getConf('useheading')) {
-//                foreach ($this->title_metadata as $plugin => $pluginkey) {
-//                    $title = p_get_metadata($target, $pluginkey, METADATA_DONT_RENDER);
-//                    if ($title != null) break;
-//                }
-//            }
-
-            if ($conf['useheading']) {
-                foreach ($title_metafields as $plugin => $pluginkey) {
-                    $title = p_get_metadata($target, $pluginkey, METADATA_DONT_RENDER);
-                    if ($title != null) break;
-                }
-            }
-            $data[$datakey]['id'] = $target;
-            $title = @$title ?: hsc(noNS($item['id']));
-            // Store a link to the page in the data that will be sent back
-            $data[$datakey]['link'] = '<a href="'.wl($target).'" class="'.$classes.'" title="'.$data[$datakey]['id'].'">'.$title.'</a>';
-
-            // Print result (note: sub-namespaces are shown before pages)
-//            if ($data[$datakey]['link'] != null) {
-//                print '<li>'.$data[$datakey]['link'].'</li>';
-//            }
-        }
-//dbg($data);
-        // Print pages links
-        if (count($pages) != 0) {
-            foreach ($pages as $datakey) {
-                print '<li>'.$data[$datakey]['link'].'</li>';
-            }
-        }
-        // Print sub-namespaces links
-        if (count($subnamespaces) != 0) {
-            foreach ($subnamespaces as $datakey) {
-                print '<li>'.$data[$datakey]['link'].'</li>';
-            }
-        }
-    }
-}/* /namespaced_nsindex */
 
 /**
  * Adapted from page_findnearest() core function

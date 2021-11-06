@@ -65,7 +65,23 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
             <div id="namespaced_ns_menu">
                 <ul class="nostyle">
                     <!-- NAMESPACE CONTENT -->
-                    <?php namespaced_nsindex(true) ?>
+                    <?php //namespaced_nsindex(true) ?>
+                    <?php
+                        // Print pages links
+                        if (count($namespaced['nsindex']['pages']) != 0) {
+                            foreach ($namespaced['nsindex']['pages'] as $key => $value) {
+                                //print $key."ici - ";
+                                print '<li>'.$namespaced['nsindex']['pages'][$key]['link'].'</li>';
+                                
+                            }
+                        }
+                        // Print sub-namespaces links
+                        if (count($namespaced['nsindex']['subns']) != 0) {
+                            foreach ($namespaced['nsindex']['subns'] as $key => $value) {
+                                print '<li>'.$namespaced['nsindex']['subns'][$key]['link'].'</li>';
+                            }
+                        }
+                    ?>
                 </ul>
             </div>
             <!-- USER TOOLS -->
