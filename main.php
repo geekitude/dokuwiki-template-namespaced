@@ -203,6 +203,9 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                             } elseif (($ACT == "admin") && ($_GET['page'] == "config")) {
                                 msg(tpl_getLang('jump_to_namespaced'), 2);
                             }
+                            if ($namespaced['translation']['helper']) {
+                                print $namespaced['translation']['helper']->checkage();
+                            }
                         ?>
 
                         <div class="page">
