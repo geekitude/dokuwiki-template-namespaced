@@ -22,6 +22,7 @@ if ((strpos($_SERVER["HTTP_REFERER"], DOKU_URL) !== false) and (strpos($_SERVER[
     $tmp = explode("&", $tmp[1]);
     // store in PHP session
     $_SESSION["origID"] = $tmp[0];
+//dbg($_SESSION["origID"]);
 }
 
 
