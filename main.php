@@ -183,7 +183,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                 <?php endif ?>
 
                 <!-- ********** CONTENT ********** -->
-                <article id="namespaced__content"<?php (tpl_getConf('startsubindex') != 'none') ? print ' class="flex column"' : '' ?>>
+                <article id="namespaced__content">
 
                     <div class="flex column align-stretch">
 
@@ -221,9 +221,8 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                         </div>
 
                         <?php tpl_flush() ?>
-                    </div>
-
                     <?php if((tpl_getConf('startsubindex') != "none") && ($namespaced['ishome']) && (count($namespaced['nsindex']['subns']) > 0)): ?>
+                        <hr class="subns" />
                         <nav id="namespaced__subns_index" class="flex justify-evenly align-center gap20">
                             <?php
                                 foreach ($namespaced['nsindex']['subns'] as $key => $value) {
@@ -244,6 +243,8 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                             ?>
                         </nav><!-- /#namespaced__subindex -->
                     <?php endif ?>
+
+                    </div>
 
                 </article><!-- /content -->
 

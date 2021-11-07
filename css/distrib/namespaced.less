@@ -1135,6 +1135,18 @@ body.collapsible-toc #dw__toc ul li:hover > ul {
     min-width: 30px;
 }
 
+body.above-subnsindex #namespaced__subns_index {
+    order: 1;
+}
+
+body.above-subnsindex hr.subns {
+    order: 2;
+}
+
+body.above-subnsindex div.page {
+    order: 3;
+}
+
 /* -- docInfo -- */
 
 /*
@@ -1161,6 +1173,8 @@ div.docInfo span:hover svg {
 
 #namespaced__docinfo {
     width: 70%;
+    z-index: 2;
+    /* Stay above potential SubNS index */
 }
 
 [dir] #namespaced__docinfo {

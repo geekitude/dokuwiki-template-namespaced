@@ -936,6 +936,18 @@ body.collapsible-toc #dw__toc ul li:hover > ul {
     min-width: 30px;
 }
 
+body.above-subnsindex #namespaced__subns_index {
+    order: 1;
+}
+
+body.above-subnsindex hr.subns {
+    order: 2;
+}
+
+body.above-subnsindex div.page {
+    order: 3;
+}
+
 /* -- docInfo -- */
 
 /*
@@ -964,6 +976,8 @@ div.docInfo span:hover svg {
     margin: 1.5rem auto 0 auto;
     width: 70%;
     padding: 1rem 1rem calc(1rem-@ini_border_width) 1rem;
+    z-index: 2;
+    /* Stay above potential SubNS index */
 }
 
 #namespaced__site.mode_denied div.docInfo,
