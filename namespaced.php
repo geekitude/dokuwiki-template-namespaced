@@ -761,10 +761,10 @@ function namespaced_ui_image($type) {
             }
             tpl_link(
                 $target,
-                '<img src="'.$namespaced['images'][$type]['src'].'" title="'.$title.'" alt="*'.$type.'*" '.$namespaced['images'][$type]['size'][3].$style.'/>'
+                '<img src="'.$namespaced['images'][$type]['src'].'" title="'.$title.'" class="'.$type.'" alt="*'.$type.'*" '.$namespaced['images'][$type]['size'][3].$style.'/>'
             );
         } else {
-            print '<img src="'.$namespaced['images'][$type]['src'].'" alt="*'.$title.'*" '.$namespaced['images'][$type]['size'][3].' class="mediacenter" />';
+            print '<img src="'.$namespaced['images'][$type]['src'].'" class="'.$type.'" alt="*'.$title.'*" '.$namespaced['images'][$type]['size'][3].' class="mediacenter" />';
         }
     }
 }/* /namespaced_ui_image */

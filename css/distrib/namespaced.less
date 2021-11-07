@@ -1113,26 +1113,34 @@ body.collapsible-toc #dw__toc ul li:hover > ul {
 
 /* -- SubNS index -- */
 
+#namespaced__subns_index {
+    max-width: 100%;
+}
+
 [dir] #namespaced__subns_index {
     margin: 1rem 1rem 0 1rem;
+}
+
+#namespaced__subns_index a {
+    max-width: 100%;
 }
 
 [dir] #namespaced__subns_index a {
     text-align: center;
 }
 
-#namespaced__subns_index a.textonly {
-    width: 230px;
-}
-
 #namespaced__subns_index a img {
     display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 #namespaced__subns_index a span {
     display: block;
-    min-width: 230px;
-    min-width: 30px;
+}
+
+[dir] #namespaced__subns_index a span {
+    padding: .5rem 1rem;
 }
 
 body.above-subnsindex #namespaced__subns_index {
@@ -1762,10 +1770,19 @@ nav.tools ul {
     text-transform: capitalize;
 }
 
+/*
+.banner {
+    max-width: 600px;
+    max-height: 90px;
+    height: auto;
+}
+
 .sidecard {
     max-width: 230px;
     max-height: 300px;
+    height: auto;
 }
+*/
 
 .sticky {
     position: sticky;

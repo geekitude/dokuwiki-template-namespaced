@@ -229,7 +229,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                                     if ($namespaced['nsindex']['subns'][$key]['image'] != null) {
                                         tpl_link(
                                             wl($namespaced['nsindex']['subns'][$key]['id']),
-                                            '<img src="'.$namespaced['nsindex']['subns'][$key]['image']['src'].'" title="'.$namespaced['nsindex']['subns'][$key]['title'].'" alt="*'.$namespaced['nsindex']['subns'][$key]['title'].'*" '.$namespaced['nsindex']['subns'][$key]['image']['size'][3].' class="sidecard"/>'.'<span class="center">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
+                                            '<img src="'.$namespaced['nsindex']['subns'][$key]['image']['src'].'" title="'.$namespaced['nsindex']['subns'][$key]['title'].'" alt="*'.$namespaced['nsindex']['subns'][$key]['title'].'*" '.$namespaced['nsindex']['subns'][$key]['image']['size'][3].' class="'.tpl_getConf("startsubindeximage").'"/>'.'<span class="center">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
                                             'class="is_ns"'
                                         );
                                     } else {
