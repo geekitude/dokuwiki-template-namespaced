@@ -71,12 +71,14 @@ See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#setting
 * [x] Dynamic navigation button(s): wikihome, parent NS start, current NS home or "back to article" (can be combined as a single button or not)
 * [ ] High number of HTML hooks (based on [this document](https://www.dokuwiki.org/include_hooks))
 * [ ] A few HTML replace hooks that let you replace some elements with more fancy HTML code
-* [x] Sub namespaces list based on [Twistienav](https://www.dokuwiki.org/plugin:twistienav) plugin's code
-* [x] Siblings pages list based on [Twistienav](https://www.dokuwiki.org/plugin:twistienav) plugin's code
+* [x] Siblings pages list inside main navigation bar
+* [x] Sub namespaces list(s) inside main navigation bar, above or below start pages content 
 * [ ] Social networks links (see [Social links](https://github.com/geekitude/dokuwiki-template-colormag#social-links) below)
 * [ ] Supports a cheatsheet that will be shown as a sidebar in edit and preview modes
 * [x] Added a "Go to bottom" pagetool to easily reach footer widgets or save settings button (Javascript is needed to switch between this pagetool and "Back to top")
 * [x] Added contextual tools "facing" page tools (navigation, playground, syntax page, most usefull forms' buttons)
+* [x] `docInfo` can be combined in page header or shown as a standalone block below page
+* [x] Many settings to select color scheme used for page header, toc, side pane and footer
 * [ ] Expanded debug mode to force some UI elements regardless of settings: add `&debug=1` to URL to show all debug elements at once or `&debug=keyword` to show a specific element from following list of keywords (usefull to play around with template settings)
   * [x] *a11y* (visual accessibility helpers)
   * [x] *alerts*
@@ -91,8 +93,6 @@ See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#setting
   * [ ] *timers* (show alerts reporting time taken by a few functions, currently autotheme and colored breadcrumbs)
   * [x] *widebanner*
   * [ ] *widgets* (show dummy widgets set by `debug/footer.widgets.local.conf` and `debug/side.widgets.local.conf` file)
-* [x] `docInfo` can be combined in page header
-* [x] Asides' color scheme can either be standard or use neutral colors defined in `style.ini` 
 * [x] Force "Right to Left" or "Left to Right" mode by adding `&dir=rtl` or `&dir=ltr` to URL to show one ore the other (mostly no use outside of development)
 
 (*) to replace a glyph by another, simply put desired SVG file (4kb max) in `conf/glyphs` folder (you will most likely need to create it) and name it after the target social network or after one of the following elements : acl.svg, config.svg, date.svg, discussion.svg, editor.svg, extentions.svg, externaleditor.svg, from-playground.svg, help.svg, hide.svg, home.svg, lastmod.svg, locked.svg, map.svg, namespace-start.svg, news.svg, pagepath.svg, parent-namespace.svg, playground.svg, popularity.svg, previous.svg, private-ns.svg, profile.svg, public-page.svg, recycle.svg, refresh.svg, revert.svg, save.svg, search.svg, show.svg, social.svg, styling.svg, translated.svg, translation.svg, upgrade.svg, usertools.svg, usermanager.svg (collapse, ellipsis, expand, menu-down and menu-right are too specific and cannot be customized). Site, user and page tools glyphs can't be customized as they come from DokuWiki core code.
