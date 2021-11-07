@@ -204,7 +204,7 @@ function namespaced_init() {
     }
     $title_metafields['dokuwiki'] = 'title';
 //dbg(tpl_getConf('nsindexexclude'));
-    if (count($data) != 0) {
+    if (count($data) > 0) {
         foreach ($data as $datakey => $item) {
             $title = null;
             // Unset item if is in 'exclusions'
@@ -255,10 +255,18 @@ function namespaced_init() {
             }
 //dbg($data[$datakey]);
         }
+        // Move start page to first place
+        if (count($namespaced['nsindex']['pages']) > 0) {
+            foreach ($namespaced['nsindex']['pages'] as $datakey => $item) {
+                if (end(explode(":", $item['id'])) == $conf['start']) {
+                    $home = $item;
+                    unset($namespaced['nsindex']['pages'][$datakey]);
+                    array_unshift($namespaced['nsindex']['pages'], $home);
+                }
+            }
+        }
     }
 //dbg($namespaced['nsindex']);
-    // Sort pages to get current ns start page first
-    usort($namespaced['nsindex']['pages'], 'namespaced_sort_title');
 
     // HELPER PLUGINS
     // Preparing usefull plugins' helpers
@@ -499,13 +507,6 @@ function namespaced_ishome($page) {
 //dbg($ishome);
     return $ishome;
 }/* /namespaced_ishome */
-
-/**
- * Compare titels of two items from $namespaced['nsindex']
- */
-function namespaced_sort_title($a, $b) {
-    return strcasecmp($a['title'], $b['title']);
-}
 
 /**
  * Returns body classes according to settings
