@@ -183,29 +183,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                 <?php endif ?>
 
                 <!-- ********** CONTENT ********** -->
-                <article id="namespaced__content">
-
-        <?php if((tpl_getConf('startsubindex') != "none") && ($namespaced['ishome']) && (count($namespaced['nsindex']['subns']) > 0)): ?>
-            <nav id="namespaced__sub_index" class="flex justify-evenly align-center gap20">
-                <?php
-                    foreach ($namespaced['nsindex']['subns'] as $key => $value) {
-                        if ($namespaced['nsindex']['subns'][$key]['image'] != null) {
-                            tpl_link(
-                                wl($namespaced['nsindex']['subns'][$key]['id']),
-                                '<img src="'.$namespaced['nsindex']['subns'][$key]['image']['src'].'" title="'.$namespaced['nsindex']['subns'][$key]['title'].'" alt="*'.$namespaced['nsindex']['subns'][$key]['title'].'*" '.$namespaced['nsindex']['subns'][$key]['image']['size'][3].' class="sidecard"/>'.'<span class="center">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
-                                'class="is_ns"'
-                            );
-                        } else {
-                            tpl_link(
-                                wl($namespaced['nsindex']['subns'][$key]['id']),
-                                $namespaced['nsindex']['subns'][$key]['title'],
-                                'class="is_ns textonly"'
-                            );
-                        }
-                    }
-                ?>
-            </nav><!-- /#namespaced__subindex -->
-        <?php endif ?>
+                <article id="namespaced__content"<?php (tpl_getConf('startsubindex') != 'none') ? print ' class="flex column"' : '' ?>>
 
                     <div class="flex column align-stretch">
 
@@ -244,6 +222,28 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
 
                         <?php tpl_flush() ?>
                     </div>
+
+                    <?php if((tpl_getConf('startsubindex') != "none") && ($namespaced['ishome']) && (count($namespaced['nsindex']['subns']) > 0)): ?>
+                        <nav id="namespaced__subns_index" class="flex justify-evenly align-center gap20">
+                            <?php
+                                foreach ($namespaced['nsindex']['subns'] as $key => $value) {
+                                    if ($namespaced['nsindex']['subns'][$key]['image'] != null) {
+                                        tpl_link(
+                                            wl($namespaced['nsindex']['subns'][$key]['id']),
+                                            '<img src="'.$namespaced['nsindex']['subns'][$key]['image']['src'].'" title="'.$namespaced['nsindex']['subns'][$key]['title'].'" alt="*'.$namespaced['nsindex']['subns'][$key]['title'].'*" '.$namespaced['nsindex']['subns'][$key]['image']['size'][3].' class="sidecard"/>'.'<span class="center">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
+                                            'class="is_ns"'
+                                        );
+                                    } else {
+                                        tpl_link(
+                                            wl($namespaced['nsindex']['subns'][$key]['id']),
+                                            '<span class="center">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
+                                            'class="is_ns textonly"'
+                                        );
+                                    }
+                                }
+                            ?>
+                        </nav><!-- /#namespaced__subindex -->
+                    <?php endif ?>
 
                 </article><!-- /content -->
 

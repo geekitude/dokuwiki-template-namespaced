@@ -14,8 +14,8 @@
 * HEADER
 * -- Navbar
 * MAIN
-* -- Sub index
 * -- Page nav
+* -- SubNS index
 * -- docInfo
 * -- Pagetools & Contools
 * FOOTER
@@ -299,14 +299,18 @@ aside.dark h6 {
     color: @ini_theme_text_color;
 }
 
-/* -- Sub index -- */
+/* -- SubNS index -- */
 
-#namespaced__sub_index a.textonly {
+#namespaced__subns_index span {
     color: @ini_theme_text_color;
 }
 
-[dir] #namespaced__sub_index a.textonly {
+[dir] #namespaced__subns_index span {
     background-color: @ini_theme_color;
+}
+
+[dir] #namespaced__subns_index a:hover span {
+    background-color: @ini_secondary_color;
 }
 
 /* -- docInfo -- */

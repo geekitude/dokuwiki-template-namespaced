@@ -20,9 +20,9 @@
 * HEADER
 * -- Navbar
 * MAIN
-* -- Sub index
 * -- Page nav
 * -- ToC
+* -- SubNS index
 * -- docInfo
 * -- Pagetools & Contools
 * -- Screen Mode
@@ -815,27 +815,6 @@ body.sidepanel-flip #namespaced__aside {
     margin-right: 0;
 }
 
-/* -- Sub index -- */
-
-#namespaced__sub_index {
-    margin: 1rem 1rem 0 1rem;
-}
-
-#namespaced__sub_index a span {
-    display: block;
-}
-
-#namespaced__sub_index a.textonly {
-    padding: 1rem;
-}
-
-/*
-#namespaced__subindex a img {
-    max-width: 230px;
-    max-height: 300px;
-}
-*/
-
 /* -- Page nav -- */
 
 #namespaced__page_nav {
@@ -930,6 +909,30 @@ body.collapsible-toc #dw__toc ul li ul li ul {
 
 body.collapsible-toc #dw__toc ul li:hover > ul {
     display: block;
+}
+
+/* -- SubNS index -- */
+
+#namespaced__subns_index {
+    margin: 1rem 1rem 0 1rem;
+}
+
+#namespaced__subns_index a {
+    text-align: center;
+}
+
+#namespaced__subns_index a.textonly {
+    width: 230px;
+}
+
+#namespaced__subns_index a img {
+    display: block;
+}
+
+#namespaced__subns_index a span {
+    display: block;
+    min-width: 230px;
+    min-width: 30px;
 }
 
 /* -- docInfo -- */

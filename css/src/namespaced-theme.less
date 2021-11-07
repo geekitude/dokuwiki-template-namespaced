@@ -14,8 +14,8 @@
 * HEADER
 * -- Navbar
 * MAIN
-* -- Sub index
 * -- Page nav
+* -- SubNS index
 * -- docInfo
 * -- Pagetools & Contools
 * FOOTER
@@ -288,11 +288,15 @@ aside.labeled h6 span {
     color: @ini_theme_text_color;
 }
 
-/* -- Sub index -- */
+/* -- SubNS index -- */
 
-#namespaced__sub_index a.textonly {
+#namespaced__subns_index span {
     background-color: @ini_theme_color;
     color: @ini_theme_text_color;
+}
+
+#namespaced__subns_index a:hover span {
+    background-color: @ini_secondary_color;
 }
 
 /* -- docInfo -- */
