@@ -189,14 +189,11 @@ function namespaced_init() {
     $namespaced['nsindex']['pages'] = array();
     $namespaced['nsindex']['subns'] = array();
 //dbg($namespace);
-
     $dir  = utf8_encodeFN(str_replace(':','/',$namespace));
     $data = array();
-
     // Get namespace content
     search($data,$conf['datadir'],'search_index',array('ns' => $namespace),$dir);
 //dbg($data);
-
     // Known plugins that set title and corresponding metadata keys
     $title_metafields = array(
         'croissant' => 'plugin_croissant_bctitle',
@@ -206,7 +203,6 @@ function namespaced_init() {
         if(plugin_isdisabled($plugin)) unset($title_metafields[$plugin]);
     }
     $title_metafields['dokuwiki'] = 'title';
-
 //dbg(tpl_getConf('nsindexexclude'));
     if (count($data) != 0) {
         foreach ($data as $datakey => $item) {
@@ -220,7 +216,6 @@ function namespaced_init() {
                 unset($data[$datakey]);
                 continue;
             }
-
             // Get item title from metadata..
             if ($conf['useheading']) {
                 foreach ($title_metafields as $plugin => $pluginkey) {
@@ -231,26 +226,27 @@ function namespaced_init() {
             // ...or from ID...
             $title = @$title ?: hsc(noNS($data[$datakey]['id']));
 //dbg($title);
-
-            // If item is a directory, we need an ID that points to that namespace's start page (even if it doesn't exist)
+            // If item is a directory, we need an ID that points to that namespace's start page (even if it doesn't exist) and maybe check for an image
             if ($data[$datakey]['type'] == "d") {
                 $data[$datakey]['id'] = $data[$datakey]['id'].':'.$conf['start'];
                 $class = "is_ns";
+                if (tpl_getConf("startsubindex") != "none") {
+//dbg(tpl_getConf("startsubindeximage"));
+//dbg(tpl_getConf(tpl_getConf("startsubindeximage")));
+//dbg($data[$datakey]['id']);
+                    $data[$datakey]['image'] = namespaced_inherit(tpl_getConf(tpl_getConf("startsubindeximage")), "media", $data[$datakey]['id']);
+                }
             } else {
                 $class = "is_page";
             }
-
             // Store item core title
             $data[$datakey]['title'] = $title;
-
             // Adding relevant glyph to local title
             if ($data[$datakey]['id'] == $namespace.':'.$conf['start']) {
                 $title = namespaced_glyph('nshome', true).$title;
             }
-
             // Store a link to item
             $data[$datakey]['link'] = '<a href="'.wl($data[$datakey]['id']).'" class="'.$class.'" title="'.$data[$datakey]['id'].'">'.$title.'</a>';
-
             // Store item in relevant array
             if ($item['type'] == 'd') {
                 $namespaced['nsindex']['subns'][] = $data[$datakey];
@@ -629,6 +625,7 @@ function namespaced_widgets($area = null){
 //dbg($area);
 //dbg($namespaced['widgets'][$area]);
     foreach ($namespaced['widgets'][$area] as $widget => $data) {
+//dbg($widget);
 //dbg($data);
 //dbg($data['target']);
         $widgetid = "namespaced__widget_".str_replace(".html", "", str_replace(":", "_", ltrim($widget, ":")));
@@ -648,7 +645,7 @@ function namespaced_widgets($area = null){
             }
             //print $data['target'];
             if ($data['type'] == "media") {
-                print '<img src="'.$data['target']['src'].'" alt="*'.$data['target']['title'].'*" '.$data['target']['size'][3].' class="mediacenter" />';
+                print '<img src="'.$data['target']['src'].'" alt="*'.$data['target']['title'].'*" '.$data['target']['size'][3].' class="mediacenter '.ltrim($widget, ":").'" />';
             } elseif ($data['type'] == "include") {
                 tpl_includeFile($widget);
             } else {

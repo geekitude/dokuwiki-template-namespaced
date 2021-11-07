@@ -68,17 +68,16 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                     <?php //namespaced_nsindex(true) ?>
                     <?php
                         // Print pages links
-                        if (count($namespaced['nsindex']['pages']) != 0) {
+                        if (count($namespaced['nsindex']['pages']) > 0) {
                             foreach ($namespaced['nsindex']['pages'] as $key => $value) {
                                 //print $key."ici - ";
                                 print '<li>'.$namespaced['nsindex']['pages'][$key]['link'].'</li>';
-                                
                             }
                         } else {
                             print '<li class="menu-item action no-pages" title="'.tpl_getLang("no_pages").'">'.namespaced_glyph('info', true).'<span'.$namespaced['a11y']['standalone'].'>'.tpl_getLang("no_pages").'</span></li>';
                         }
                         // Print sub-namespaces links
-                        if (count($namespaced['nsindex']['subns']) != 0) {
+                        if ((count($namespaced['nsindex']['subns']) > 0) && ((tpl_getConf('startsubindex') == "none") || ($namespaced['ishome'] == false))) {
                             foreach ($namespaced['nsindex']['subns'] as $key => $value) {
                                 print '<li>'.$namespaced['nsindex']['subns'][$key]['link'].'</li>';
                             }
@@ -106,7 +105,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
             </div><!-- #namespaced__widebanner_wrap -->
         <?php endif ?>
 
-        <nav id="namespaced__page_nav" class="flex between gap20 <?php print tpl_getConf('pagenavstyle') ?><?php print (strpos(tpl_getConf('neutralize'), 'pagenav') !== false) ? ' neu' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'pagenav') !== false) ? ' sticky' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' stickynav' : '' ?>">
+        <nav id="namespaced__page_nav" class="flex justify-between gap20 <?php print tpl_getConf('pagenavstyle') ?><?php print (strpos(tpl_getConf('neutralize'), 'pagenav') !== false) ? ' neu' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'pagenav') !== false) ? ' sticky' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' stickynav' : '' ?>">
                 <div class="flex column align-start">
                     <div class="pageId h6">
                         <span><?php echo hsc($ID) ?></span>
@@ -184,6 +183,28 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
 
                 <!-- ********** CONTENT ********** -->
                 <article id="namespaced__content">
+
+        <?php if((tpl_getConf('startsubindex') != "none") && ($namespaced['ishome']) && (count($namespaced['nsindex']['subns']) > 0)): ?>
+            <nav id="namespaced__sub_index" class="flex justify-evenly align-center gap20">
+                <?php
+                    foreach ($namespaced['nsindex']['subns'] as $key => $value) {
+                        if ($namespaced['nsindex']['subns'][$key]['image'] != null) {
+                            tpl_link(
+                                wl($namespaced['nsindex']['subns'][$key]['id']),
+                                '<img src="'.$namespaced['nsindex']['subns'][$key]['image']['src'].'" title="'.$namespaced['nsindex']['subns'][$key]['title'].'" alt="*'.$namespaced['nsindex']['subns'][$key]['title'].'*" '.$namespaced['nsindex']['subns'][$key]['image']['size'][3].' class="sidecard"/>'.'<span class="center">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
+                                'class="is_ns"'
+                            );
+                        } else {
+                            tpl_link(
+                                wl($namespaced['nsindex']['subns'][$key]['id']),
+                                $namespaced['nsindex']['subns'][$key]['title'],
+                                'class="is_ns textonly"'
+                            );
+                        }
+                    }
+                ?>
+            </nav><!-- /#namespaced__subindex -->
+        <?php endif ?>
 
                     <div class="flex column align-stretch">
 

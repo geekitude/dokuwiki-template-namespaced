@@ -20,7 +20,9 @@
 * HEADER
 * -- Navbar
 * MAIN
+* -- Sub index
 * -- Page nav
+* -- ToC
 * -- docInfo
 * -- Pagetools & Contools
 * -- Screen Mode
@@ -813,6 +815,27 @@ body.sidepanel-flip #namespaced__aside {
     margin-right: 0;
 }
 
+/* -- Sub index -- */
+
+#namespaced__sub_index {
+    margin: 1rem 1rem 0 1rem;
+}
+
+#namespaced__sub_index a span {
+    display: block;
+}
+
+#namespaced__sub_index a.textonly {
+    padding: 1rem;
+}
+
+/*
+#namespaced__subindex a img {
+    max-width: 230px;
+    max-height: 300px;
+}
+*/
+
 /* -- Page nav -- */
 
 #namespaced__page_nav {
@@ -840,6 +863,19 @@ div.pageId span:hover {
 
 div.pageId span {
   cursor: default;
+}
+
+#namespaced__site.mode_admin #namespaced__sub_index,
+#namespaced__site.mode_profile #namespaced__sub_index,
+#namespaced__site.mode_recent #namespaced__sub_index,
+#namespaced__site.mode_resendpwd #namespaced__sub_index,
+#namespaced__site.mode_search #namespaced__sub_index,
+#namespaced__site.mode_conflict #namespaced__sub_index,
+#namespaced__site.mode_draft #namespaced__sub_index,
+#namespaced__site.mode_edit #namespaced__sub_index,
+#namespaced__site.mode_preview #namespaced__sub_index,
+#namespaced__site.mode_recover #namespaced__sub_index {
+    display: none !important;
 }
 
 #namespaced__site.mode_admin #namespaced__page_nav,
@@ -1384,6 +1420,14 @@ nav.tools ul {
     text-transform: capitalize;
 }
 */
+.capitalize {
+    text-transform: capitalize;
+}
+
+.sidecard {
+    max-width: 230px;
+    max-height: 300px;
+}
 
 .sticky {
     position: sticky;

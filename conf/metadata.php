@@ -31,6 +31,8 @@ $meta['forcesidepanel']     = array('onoff');
 $meta['glyphs']             = array('onoff');
 $meta['splitnav']           = array('onoff');
 $meta['nsindexexclude']     = array('array');
+$meta['startsubindex']      = array('multichoice','_choices' => array('none','above','below'));
+$meta['startsubindeximage'] = array('multichoice','_choices' => array('banner','sidecard'));
 $meta['docinfopos']         = array('multichoice','_choices' => array('standalone','pagenav'));
 $meta['searches']           = array('multicheckbox','_choices' => array('quicksearch','autocomplete'),'_other' => 'never');
 $meta['licensevisual']      = array('multichoice','_choices' => array('badge','button','none'));
