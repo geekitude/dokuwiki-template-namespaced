@@ -53,7 +53,6 @@ function namespaced_init() {
     // Search for default or custum default SVG glyphs
     $namespaced['glyphs']['account-edit'] = null;
     $namespaced['glyphs']['acl'] = null;
-    $namespaced['glyphs']['back-to-article'] = null;
     $namespaced['glyphs']['bottom'] = null;
     $namespaced['glyphs']['config'] = null;
     $namespaced['glyphs']['editor'] = null;
@@ -885,28 +884,9 @@ function namespaced_contools() {
                 );
             print '</li>';
         }
-        if ((($ACT == "recent") or ($ACT == "media") or ($ACT == "index") or ($ACT == "admin")) and (isset($_SESSION["origID"]))) {
-            print '<li class="back-to-article">';
-                // display link to namespace home page
-                tpl_link(
-                    wl($_SESSION["origID"]),
-                    namespaced_glyph('back-to-article', true).'<span>'.tpl_getLang('back-to-article').'</span>',
-                    'title="'.$_SESSION["origID"].'" rel="nofollow"'
-                );
-            print '</li>';
-        }
     // ... or one button to rule them all...
     } else {
-        if ((($ACT == "recent") or ($ACT == "media") or ($ACT == "index") or ($ACT == "admin") or (strpos($ID, 'playground:') === 0)) and (isset($_SESSION["origID"]))) {
-            print '<li class="back-to-article">';
-                // display link to get back to article from current mode
-                tpl_link(
-                    wl($_SESSION["origID"]),
-                    namespaced_glyph('back-to-article', true).'<span>'.tpl_getLang('back-to-article').'</span>',
-                    'title="'.$_SESSION["origID"].'" rel="nofollow"'
-                );
-            print '</li>';
-        } elseif ($namespaced['ishome'] == false) {
+        if ($namespaced['ishome'] == false) {
             print '<li class="nshome">';
                 // display link to namespace home page
                 tpl_link(
