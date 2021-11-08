@@ -250,16 +250,6 @@ function namespaced_init() {
                 unset($data[$datakey]);
                 continue;
             }
-            // Get item title from metadata..
-            if ($conf['useheading']) {
-                foreach ($title_metafields as $plugin => $pluginkey) {
-                    $title = p_get_metadata($data[$datakey]['id'], $pluginkey, METADATA_DONT_RENDER);
-                    if ($title != null) break;
-                }
-            }
-            // ...or from ID...
-            $title = @$title ?: hsc(noNS($data[$datakey]['id']));
-//dbg($title);
             // If item is a directory, we need an ID that points to that namespace's start page (even if it doesn't exist) and maybe check for an image
             if ($data[$datakey]['type'] == "d") {
                 $data[$datakey]['id'] = $data[$datakey]['id'].':'.$conf['start'];
@@ -279,6 +269,17 @@ function namespaced_init() {
             } else {
                 $class = "is_page";
             }
+            // Get item title from metadata..
+            if ($conf['useheading']) {
+                foreach ($title_metafields as $plugin => $pluginkey) {
+                    $title = p_get_metadata($data[$datakey]['id'], $pluginkey, METADATA_DONT_RENDER);
+                    if ($title != null) break;
+                }
+            }
+            // ...or from ID...
+//            $title = @$title ?: hsc(noNS($data[$datakey]['id']));
+            $title = @$title ?: hsc($data[$datakey]['id']);
+//dbg($title);
             // Store item core title
             $data[$datakey]['title'] = $title;
             // Adding relevant glyph to local title
