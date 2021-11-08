@@ -60,6 +60,10 @@ button:hover {
     background-color: @ini_theme_color;
 }
 
+[dir] hr {
+    border-color: @ini_dark_color;
+}
+
 [dir] pre {
     border-bottom-color: @ini_border;
 }
@@ -210,7 +214,11 @@ body.dark-toc #dw__toc h3 {
     border-left-color: @ini_border;
 }
 
-[dir] #namespaced__aside aside.fourborders {
+[dir] #namespaced__subns_index.oneborder {
+    border-top-color: @ini_border;
+}
+
+[dir] #namespaced__aside aside.fourborders, [dir] #namespaced__subns_index.fourborders {
     border-color: @ini_border;
 }
 
@@ -247,7 +255,7 @@ aside.dark h6 {
     color: @ini_theme_text_color;
 }
 
-[dir] aside.labeled {
+[dir] aside.labeled, [dir] #namespaced__subns_index.labeled {
     border-color: @ini_border;
 }
 
@@ -267,7 +275,7 @@ aside.dark h6 {
     background-color: @ini_dark_color;
 }
 
-[dir] aside.labeled h6 span {
+[dir] aside.labeled h6 span, [dir] #namespaced__subns_index.labeled h6 span {
     background-color: @ini_border;
 }
 
@@ -301,16 +309,54 @@ aside.dark h6 {
 
 /* -- SubNS index -- */
 
-#namespaced__subns_index span {
+#namespaced__subns_index a span {
     color: @ini_theme_text_color;
 }
 
-[dir] #namespaced__subns_index span {
+[dir] #namespaced__subns_index a span {
     background-color: @ini_theme_color;
 }
 
 [dir] #namespaced__subns_index a:hover span {
     background-color: @ini_secondary_color;
+}
+
+[dir] #namespaced__subns_index.theme {
+    background-color: @ini_theme_color;
+}
+
+[dir] #namespaced__subns_index.secondary {
+    background-color: @ini_secondary_color;
+}
+
+[dir] #namespaced__subns_index.dark {
+    background-color: @ini_dark_color;
+}
+
+#namespaced__subns_index.theme h6,
+#namespaced__subns_index.secondary h6,
+#namespaced__subns_index.dark h6 {
+    color: @ini_theme_text_color;
+}
+
+[dir] #namespaced__subns_index.theme div a span {
+    background-color: @ini_secondary_color;
+}
+
+[dir] #namespaced__subns_index.secondary div a span {
+    background-color: @ini_dark_color;
+}
+
+[dir] #namespaced__subns_index.dark div a span {
+    background-color: @ini_secondary_color;
+}
+
+[dir] #namespaced__subns_index.theme div a:hover span {
+    background-color: @ini_dark_color;
+}
+
+[dir] #namespaced__subns_index.secondary div a:hover span, [dir] #namespaced__subns_index.dark div a:hover span {
+    background-color: @ini_theme_color;
 }
 
 /* -- docInfo -- */

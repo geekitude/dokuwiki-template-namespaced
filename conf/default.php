@@ -20,6 +20,7 @@ $conf['kbdstyle']           = 'default';
 $conf['pagenavstyle']       = 'secondary';
 $conf['sidewidgetstyle']    = 'labeled';
 $conf['footerwidgetstyle']  = 'transparent';
+$conf['subnsaltidxstyle']   = 'oneborder';
 $conf['tocstyle']           = 'dark';
 $conf['docinfostyle']       = 'oneborder';
 $conf['footerstyle']        = 'dark';

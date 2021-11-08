@@ -55,6 +55,10 @@ body.striped-tables th {
     background-color: @ini_theme_color;
 }
 
+hr {
+    border-color: @ini_dark_color;
+}
+
 pre {
     border-bottom-color: @ini_border;
 }
@@ -197,7 +201,12 @@ body.oneborder-toc #dw__toc {
     border-right-color: @ini_border;
 }
 
-#namespaced__aside aside.fourborders {
+#namespaced__subns_index.oneborder {
+    border-top-color: @ini_border;
+}
+
+#namespaced__aside aside.fourborders,
+#namespaced__subns_index.fourborders {
     border-color: @ini_border;
 }
 
@@ -234,7 +243,8 @@ aside.dark h6 {
     color: @ini_theme_text_color;
 }
 
-aside.labeled {
+aside.labeled,
+#namespaced__subns_index.labeled {
     border-color: @ini_border;
 }
 
@@ -256,7 +266,8 @@ aside.labeled {
     background-color: @ini_dark_color;
 }
 
-aside.labeled h6 span {
+aside.labeled h6 span,
+#namespaced__subns_index.labeled h6 span {
     background-color: @ini_border;
 }
 
@@ -290,13 +301,52 @@ aside.labeled h6 span {
 
 /* -- SubNS index -- */
 
-#namespaced__subns_index span {
+#namespaced__subns_index a span {
     background-color: @ini_theme_color;
     color: @ini_theme_text_color;
 }
 
 #namespaced__subns_index a:hover span {
     background-color: @ini_secondary_color;
+}
+
+#namespaced__subns_index.theme {
+    background-color: @ini_theme_color;
+}
+
+#namespaced__subns_index.secondary {
+    background-color: @ini_secondary_color;
+}
+
+#namespaced__subns_index.dark {
+    background-color: @ini_dark_color;
+}
+
+#namespaced__subns_index.theme h6,
+#namespaced__subns_index.secondary h6,
+#namespaced__subns_index.dark h6 {
+    color: @ini_theme_text_color;
+}
+
+#namespaced__subns_index.theme div a span {
+    background-color: @ini_secondary_color;
+}
+
+#namespaced__subns_index.secondary div a span {
+    background-color: @ini_dark_color;
+}
+
+#namespaced__subns_index.dark div a span {
+    background-color: @ini_secondary_color;
+}
+
+#namespaced__subns_index.theme div a:hover span {
+    background-color: @ini_dark_color;
+}
+
+#namespaced__subns_index.secondary div a:hover span,
+#namespaced__subns_index.dark div a:hover span {
+    background-color: @ini_theme_color;
 }
 
 /* -- docInfo -- */

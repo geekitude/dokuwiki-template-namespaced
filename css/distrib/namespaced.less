@@ -178,6 +178,10 @@ button[type=reset] {
   cursor: pointer;
 }
 
+[dir] hr {
+    border-width: calc(@ini_border_width/2);
+}
+
 input[type=text]:focus {
   outline: none;
 }
@@ -939,7 +943,7 @@ article {
     margin-bottom: 0 !important;
 }
 
-[dir] #namespaced__aside aside.oneborder, [dir] #namespaced__aside aside.fourborders, [dir] #namespaced__page_nav, [dir] body.oneborder-toc #dw__toc, [dir] #namespaced__footer_widgets aside.oneborder, [dir] #namespaced__footer_widgets aside.fourborders, [dir] #namespaced__docinfo {
+[dir] #namespaced__aside aside.oneborder, [dir] #namespaced__aside aside.fourborders, [dir] #namespaced__page_nav, [dir] body.oneborder-toc #dw__toc, [dir] #namespaced__docinfo, [dir] #namespaced__subns_index.oneborder, [dir] #namespaced__subns_index.fourborders, [dir] #namespaced__footer_widgets aside.oneborder, [dir] #namespaced__footer_widgets aside.fourborders {
     border: @ini_border_width solid transparent;
 }
 
@@ -959,7 +963,15 @@ article {
     padding-left: @ini_border_width;
 }
 
-[dir] #namespaced__aside aside.fourborders {
+[dir] #namespaced__subns_index.oneborder {
+    padding-top: @ini_border_width;
+}
+
+[dir] #namespaced__aside aside.fourborders, [dir] #namespaced__subns_index.fourborders {
+    padding: @ini_border_width;
+}
+
+[dir] #namespaced__aside aside.fourborders, [dir] #namespaced__subns_index.fourborders {
     padding: @ini_border_width;
 }
 
@@ -1118,31 +1130,35 @@ body.collapsible-toc #dw__toc ul li:hover > ul {
 }
 
 [dir] #namespaced__subns_index {
-    margin: 4rem 1rem 0 1rem;
+    margin: 3.5rem 1rem 0 1rem;
 }
 
-#namespaced__subns_index a {
+#namespaced__subns_index div a {
     max-width: 100%;
 }
 
-[dir] #namespaced__subns_index a {
+[dir] #namespaced__subns_index div a {
     text-align: center;
 }
 
-#namespaced__subns_index a img {
+#namespaced__subns_index div a img {
     display: block;
 }
 
-#namespaced__subns_index a span {
+#namespaced__subns_index div a span {
     display: block;
 }
 
-[dir] #namespaced__subns_index a span {
+[dir] #namespaced__subns_index div a span {
     padding: .5rem 1rem;
 }
 
-#namespaced__subns_index a.textonly span {
+#namespaced__subns_index div a.textonly span {
     width: @ini_cover_maxwidth;
+}
+
+[dir] #namespaced__subns_index.theme, [dir] #namespaced__subns_index.secondary, [dir] #namespaced__subns_index.dark {
+    padding: 1rem;
 }
 
 /* -- docInfo -- */
@@ -1523,49 +1539,59 @@ aside.widget {
     background-color: @ini_background_neu;
 }
 
-aside.labeled {
+aside.labeled,
+#namespaced__subns_index.labeled {
     overflow: unset;
+}
+
+[dir] aside.labeled, [dir] #namespaced__subns_index.labeled {
+    border: @ini_border_width solid transparent;
 }
 
 [dir] aside.labeled {
     padding: 1rem;
-    border: @ini_border_width solid transparent;
+}
+
+[dir] #namespaced__subns_index.labeled {
+    padding: 2rem 1rem 1rem 1rem;
 }
 
 [dir] aside.labeled.hastitle {
     margin-top: 2.6rem;
 }
 
-aside.labeled h6 {
+aside.labeled h6,
+#namespaced__subns_index.labeled h6 {
     width: 80%;
 }
 
-[dir] aside.labeled h6 {
+[dir] aside.labeled h6, [dir] #namespaced__subns_index.labeled h6 {
     background-color: @ini_background;
     text-align: center;
     margin-top: -2.4rem;
     padding: 0;
 }
 
-[dir=ltr] aside.labeled h6 {
+[dir=ltr] aside.labeled h6, [dir=ltr] #namespaced__subns_index.labeled h6 {
     margin-left: auto;
     margin-right: auto;
 }
 
-[dir=rtl] aside.labeled h6 {
+[dir=rtl] aside.labeled h6, [dir=rtl] #namespaced__subns_index.labeled h6 {
     margin-right: auto;
     margin-left: auto;
 }
 
-aside.labeled h6 span {
+aside.labeled h6 span,
+#namespaced__subns_index.labeled h6 span {
     color: #fff;
 }
 
-[dir] aside.labeled h6 span {
+[dir] aside.labeled h6 span, [dir] #namespaced__subns_index.labeled h6 span {
     padding: .5rem;
 }
 
-[dir] aside.labeled.hastitle > div {
+[dir] aside.labeled.hastitle > div, [dir] #namespaced__subns_index.labeled > div {
     margin-top: 1rem;
 }
 

@@ -169,6 +169,10 @@ button[type=reset] {
   cursor: pointer;
 }
 
+hr {
+    border-width: calc(@ini_border_width/2);
+}
+
 input[type=text]:focus {
   outline: none;
 }
@@ -767,9 +771,11 @@ body.fourborders-toc #dw__toc {
 #namespaced__aside aside.fourborders,
 #namespaced__page_nav,
 body.oneborder-toc #dw__toc,
+#namespaced__docinfo,
+#namespaced__subns_index.oneborder,
+#namespaced__subns_index.fourborders,
 #namespaced__footer_widgets aside.oneborder,
-#namespaced__footer_widgets aside.fourborders,
-#namespaced__docinfo {
+#namespaced__footer_widgets aside.fourborders {
     border: @ini_border_width solid transparent;
 }
 
@@ -787,7 +793,17 @@ body.oneborder-toc #dw__toc,
     padding-right: @ini_border_width;
 }
 
-#namespaced__aside aside.fourborders {
+#namespaced__subns_index.oneborder {
+    padding-top: @ini_border_width;
+}
+
+#namespaced__aside aside.fourborders,
+#namespaced__subns_index.fourborders {
+    padding: @ini_border_width;
+}
+
+#namespaced__aside aside.fourborders,
+#namespaced__subns_index.fourborders {
     padding: @ini_border_width;
 }
 
@@ -915,26 +931,32 @@ body.collapsible-toc #dw__toc ul li:hover > ul {
 /* -- SubNS index -- */
 
 #namespaced__subns_index {
-    margin: 4rem 1rem 0 1rem;
+    margin: 3.5rem 1rem 0 1rem;
     max-width: 100%;
 }
 
-#namespaced__subns_index a {
+#namespaced__subns_index div a {
     text-align: center;
     max-width: 100%;
 }
 
-#namespaced__subns_index a img {
+#namespaced__subns_index div a img {
     display: block;
 }
 
-#namespaced__subns_index a span {
+#namespaced__subns_index div a span {
     display: block;
     padding: .5rem 1rem;
 }
 
-#namespaced__subns_index a.textonly span {
+#namespaced__subns_index div a.textonly span {
     width: @ini_cover_maxwidth;
+}
+
+#namespaced__subns_index.theme,
+#namespaced__subns_index.secondary,
+#namespaced__subns_index.dark {
+    padding: 1rem;
 }
 
 /* -- docInfo -- */
@@ -1259,17 +1281,26 @@ aside.dark input {
     background-color: @ini_background_neu;
 }
 
-aside.labeled {
-    padding: 1rem;
+aside.labeled,
+#namespaced__subns_index.labeled {
     overflow: unset;
     border: @ini_border_width solid transparent;
+}
+
+aside.labeled {
+    padding: 1rem;
+}
+
+#namespaced__subns_index.labeled {
+    padding: 2rem 1rem 1rem 1rem;
 }
 
 aside.labeled.hastitle {
     margin-top: 2.6rem;
 }
 
-aside.labeled h6 {
+aside.labeled h6,
+#namespaced__subns_index.labeled h6 {
     background-color: @ini_background;
     margin-left: auto;
     margin-right: auto;
@@ -1279,12 +1310,14 @@ aside.labeled h6 {
     width: 80%;
 }
 
-aside.labeled h6 span {
+aside.labeled h6 span,
+#namespaced__subns_index.labeled h6 span {
     padding: .5rem;
     color: #fff;
 }
 
-aside.labeled.hastitle > div {
+aside.labeled.hastitle > div,
+#namespaced__subns_index.labeled > div {
     margin-top: 1rem;
 }
 
