@@ -270,13 +270,13 @@ function namespaced_init() {
                 $class = "is_page";
             }
             // Get item title from metadata..
-            if ($conf['useheading']) {
+//            if ($conf['useheading']) {
                 foreach ($title_metafields as $plugin => $pluginkey) {
                     $title = p_get_metadata($data[$datakey]['id'], $pluginkey, METADATA_DONT_RENDER);
                     if ($title != null) break;
                 }
-            }
-            // ...or from ID...
+//            }
+            // ...or use ID...
 //            $title = @$title ?: hsc(noNS($data[$datakey]['id']));
             $title = @$title ?: hsc($data[$datakey]['id']);
 //dbg($title);
