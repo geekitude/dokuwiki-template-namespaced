@@ -277,8 +277,13 @@ function namespaced_init() {
                 }
 //            }
             // ...or use ID...
-//            $title = @$title ?: hsc(noNS($data[$datakey]['id']));
-            $title = @$title ?: hsc($data[$datakey]['id']);
+            // Complete ID for namespaces (otherwise we'll simply get "start"...
+            if ($data[$datakey]['type'] == "d") {
+                $title = @$title ?: hsc($data[$datakey]['id']);
+            // ...or page ID without NS (makes more sense and saves space in site navbar)
+            } else {
+                $title = @$title ?: hsc(noNS($data[$datakey]['id']));
+            }
 //dbg($title);
             // Store item core title
             $data[$datakey]['title'] = $title;
