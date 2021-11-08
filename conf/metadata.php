@@ -21,7 +21,7 @@ $meta['kbdstyle']           = array('multichoice','_choices' => array('basic','d
 $meta['pagenavstyle']       = array('multichoice','_choices' => array('theme','secondary','dark','fourborders','oneborder','transparent'));
 $meta['sidewidgetstyle']    = array('multichoice','_choices' => array('labeled','theme','secondary','dark','fourborders','oneborder','transparent'));
 $meta['footerwidgetstyle']  = array('multichoice','_choices' => array('labeled','theme','secondary','dark','fourborders','oneborder','transparent'));
-$meta['subnsaltidxstyle']   = array('multichoice','_choices' => array('labeled','theme','secondary','dark','fourborders','oneborder','transparent'));
+$meta['subnsaltidxstyle']   = array('multichoice','_choices' => array('theme','secondary','dark','fourborders','oneborder','transparent'));
 $meta['tocstyle']           = array('multichoice','_choices' => array('theme','secondary','dark','fourborders','oneborder','transparent'));
 $meta['docinfostyle']       = array('multichoice','_choices' => array('theme','secondary','dark','fourborders','oneborder','transparent'));
 $meta['footerstyle']        = array('multichoice','_choices' => array('theme','secondary','dark','oneborder','transparent'));

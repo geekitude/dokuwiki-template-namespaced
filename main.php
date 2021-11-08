@@ -224,7 +224,6 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                         <?php if((count($namespaced['nsindex']['subns']) > 0) && (((tpl_getConf('subnsaltidx') == "home") && (in_array($namespaced['ishome'], array("default", "untranslated", "translated")))) || ((tpl_getConf('subnsaltidx') == "start") && (in_array($namespaced['ishome'], array("default", "untranslated", "translated", "ns")))) || (tpl_getConf('subnsaltidx') == "always"))): ?>
                             <nav id="namespaced__subns_index" class="<?php print tpl_getConf("subnsaltidxstyle") ?>">
                                 <?php print (tpl_getConf("subnsaltidxstyle") == "transparent") ? '<hr'.$namespaced['a11y']['standalone'].' />' : "" ?>
-                                <h6><span><?php print tpl_getLang("subns") ?></span></h6>
                                 <div class="flex justify-evenly align-center gap20">
                                     <?php
                                         foreach ($namespaced['nsindex']['subns'] as $key => $value) {
@@ -236,13 +235,13 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                                                 }
                                                 tpl_link(
                                                     wl($namespaced['nsindex']['subns'][$key]['id']),
-                                                    '<img src="'.$namespaced['nsindex']['subns'][$key]['image']['src'].'" title="'.$namespaced['nsindex']['subns'][$key]['title'].'" alt="*'.$namespaced['nsindex']['subns'][$key]['title'].'*" '.$namespaced['nsindex']['subns'][$key]['image']['size'][3].' class="'.$class.'"/>'.'<span class="center">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
+                                                    '<img src="'.$namespaced['nsindex']['subns'][$key]['image']['src'].'" alt="*'.$namespaced['nsindex']['subns'][$key]['title'].'*" '.$namespaced['nsindex']['subns'][$key]['image']['size'][3].' class="'.$class.'" title="'.tpl_getLang("subns").'"/><span class="center" title="'.tpl_getLang("subns").'">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
                                                     'class="is_ns"'
                                                 );
                                             } else {
                                                 tpl_link(
                                                     wl($namespaced['nsindex']['subns'][$key]['id']),
-                                                    '<span class="center">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
+                                                    '<span class="center" title="'.tpl_getLang("subns").'">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
                                                     'class="is_ns textonly"'
                                                 );
                                             }
