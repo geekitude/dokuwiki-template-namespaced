@@ -182,6 +182,41 @@ function namespaced_init() {
     }
 //dbg($namespaced['widgets']);
 
+    // HELPER PLUGINS
+    // Preparing usefull plugins' helpers
+    // Translation
+//dbg("start: ".$conf['start']);
+    $namespaced['translation'] = array();
+    $namespaced['translation']['istranslated'] = false;
+//dbg("untranslatedhome: ".$namespaced['translation']['untranslatedhome']);
+    if (!plugin_isdisabled('translation')) {
+        $namespaced['translation']['helper'] = plugin_load('helper','translation');
+        $namespaced['translation']['parts'] = $namespaced['translation']['helper']->getTransParts($ID);
+//dbg($namespaced['translation']['parts']);
+//dbg($namespaced['translation']['parts'][1]);
+//dbg("translations: ".$conf['plugin']['translation']['translations']);
+//dbg($conf['lang']);
+//dbg($conf['plugin']['translation']['translations']);
+//dbg($namespaced['translation']['default_lang']);
+//dbg($namespaced['translation']['helper']->defaultlang);
+        if (strpos($conf['plugin']['translation']['translations'], $namespaced['translation']['helper']->defaultlang) !== false) {
+            $namespaced['translation']['untranslatedhome'] = $namespaced['translation']['helper']->defaultlang.":".$conf['start'];
+        }
+//dbg("untranslatedhome: ".$namespaced['translation']['untranslatedhome']);
+//dbg("before: ".$namespaced['translation']['default_lang']);
+        if ($namespaced['translation']['parts'][0] != $namespaced['translation']['helper']->defaultlang) {
+            $namespaced['translation']['istranslated'] = true;
+        }
+//dbg("translated: ".$namespaced['translation']['istranslated']);
+        //}
+    }
+//dbg($namespaced['translation']['ishome']);
+//dbg($namespaced['translation']);
+
+    // IS HOME ?
+    $namespaced['ishome'] = namespaced_ishome($ID);
+//dbg($namespaced['ishome']);
+
     // CURRENT NAMESPACE INDEX
     $namespace = cleanID(getNS($ID));
     $namespaced['nsindex'] = array();
@@ -229,11 +264,17 @@ function namespaced_init() {
             if ($data[$datakey]['type'] == "d") {
                 $data[$datakey]['id'] = $data[$datakey]['id'].':'.$conf['start'];
                 $class = "is_ns";
-                if (tpl_getConf("startsubindex") != "none") {
+                if ((tpl_getConf("subnsaltidx") != "never") and (tpl_getConf("subnsaltidximage") != "none")) {
 //dbg(tpl_getConf("startsubindeximage"));
 //dbg(tpl_getConf(tpl_getConf("startsubindeximage")));
 //dbg($data[$datakey]['id']);
-                    $data[$datakey]['image'] = namespaced_inherit(tpl_getConf(tpl_getConf("startsubindeximage")), "media", $data[$datakey]['id']);
+//dbg($namespaced['ishome']);
+                    if ((tpl_getConf('subnsaltidximage') == "banner") or ((tpl_getConf('subnsaltidximage') == "mix") and (in_array($namespaced['ishome'], array("default", "untranslated", "translated"))))) {
+                        $data[$datakey]['image'] = namespaced_inherit("banner", "media", $data[$datakey]['id'], true, false);
+//                    } elseif (tpl_getConf('subnsaltidximage') == "sidecard") {
+                    } else {
+                        $data[$datakey]['image'] = namespaced_inherit("sidecard", "media", $data[$datakey]['id'], true, false);
+                    }
                 }
             } else {
                 $class = "is_page";
@@ -266,41 +307,6 @@ function namespaced_init() {
         }
     }
 //dbg($namespaced['nsindex']);
-
-    // HELPER PLUGINS
-    // Preparing usefull plugins' helpers
-    // Translation
-//dbg("start: ".$conf['start']);
-    $namespaced['translation'] = array();
-    $namespaced['translation']['istranslated'] = false;
-//dbg("untranslatedhome: ".$namespaced['translation']['untranslatedhome']);
-    if (!plugin_isdisabled('translation')) {
-        $namespaced['translation']['helper'] = plugin_load('helper','translation');
-        $namespaced['translation']['parts'] = $namespaced['translation']['helper']->getTransParts($ID);
-//dbg($namespaced['translation']['parts']);
-//dbg($namespaced['translation']['parts'][1]);
-//dbg("translations: ".$conf['plugin']['translation']['translations']);
-//dbg($conf['lang']);
-//dbg($conf['plugin']['translation']['translations']);
-//dbg($namespaced['translation']['default_lang']);
-//dbg($namespaced['translation']['helper']->defaultlang);
-        if (strpos($conf['plugin']['translation']['translations'], $namespaced['translation']['helper']->defaultlang) !== false) {
-            $namespaced['translation']['untranslatedhome'] = $namespaced['translation']['helper']->defaultlang.":".$conf['start'];
-        }
-//dbg("untranslatedhome: ".$namespaced['translation']['untranslatedhome']);
-//dbg("before: ".$namespaced['translation']['default_lang']);
-        if ($namespaced['translation']['parts'][0] != $namespaced['translation']['helper']->defaultlang) {
-            $namespaced['translation']['istranslated'] = true;
-        }
-//dbg("translated: ".$namespaced['translation']['istranslated']);
-        //}
-    }
-//dbg($namespaced['translation']['ishome']);
-//dbg($namespaced['translation']);
-
-    // IS HOME ?
-    $namespaced['ishome'] = namespaced_ishome($ID);
-//dbg($namespaced['ishome']);
 
     // NAMESPACE THEME
     // Read customized 'style.ini' file generated by Styling plugin
@@ -394,8 +400,8 @@ function namespaced_inherit($target, $type = "media", $origin, $useacl = false, 
             $glob = glob($path.'/'.$target);
         }
 //dbg($glob);
-            
-    } while(($ns !== false) and (empty($glob)));
+
+    } while((($ns !== false) and (empty($glob))) and ($propagate == true));
     //} while($ns !== false);
 
     if (($type == "media") and (count($glob) == 0)) {
@@ -554,7 +560,7 @@ function namespaced_bodyclasses() {
 //    array_push($classes, $home, $sidepanel, $pattern, $showSidebar ? ((strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'right-sidebar' : 'left-sidebar') : 'no-sidebar', tpl_getConf('layout').'-layout', (strpos(tpl_getConf('flexflip'), 'banner') !== false) ? 'banner-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagenav') !== false) ? 'pagenav-flip' : '', (strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'sidebar-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagetools') !== false) ? 'pagetools-flip' : '', (strpos(tpl_getConf('flexflip'), 'socket') !== false) ? 'socket-flip' : '', tpl_getConf('widgetslook').'-widgets', (strpos(tpl_getConf('print'), 'hrefs') !== false) ? 'printhrefs' : '', ($_GET['debug']==1) ? 'debug' : '', ($_GET['debug']=='mediaq') ? 'mediaq' : '');
 
 // VOIR SI IL FAUT REINTEGRER `widgetlooks` et/ou `printhrefs`
-    array_push($classes, $home, $sidepanel, $footerwidgets, $pattern, $showSidebar ? ((strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'right-sidebar' : 'left-sidebar') : 'no-sidebar', tpl_getConf('layout').'-layout', (strpos(tpl_getConf('flexflip'), 'banner') !== false) ? 'banner-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagenav') !== false) ? 'pagenav-flip' : '', (strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'sidebar-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagetools') !== false) ? 'pagetools-flip' : '', (strpos(tpl_getConf('flexflip'), 'socket') !== false) ? 'socket-flip' : '', tpl_getConf('tocstyle').'-toc', (strpos(tpl_getConf('neutralize'), 'toc') !== false) ? 'neu-toc' : '', (tpl_getConf('collapsible-toc') == 1) ? 'collapsible-toc' : '', tpl_getConf('tablestyle').'-tables', (tpl_getConf('kbdstyle') != 'default') ? tpl_getConf('kbdstyle').'-kbd' : '',(tpl_getConf('startsubindex') == 'above') ? 'above-subnsindex' : '', ($_GET['debug']==1) ? 'debug' : '', ($_GET['debug']=='mediaq') ? 'mediaq' : '');
+    array_push($classes, $home, $sidepanel, $footerwidgets, $pattern, $showSidebar ? ((strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'right-sidebar' : 'left-sidebar') : 'no-sidebar', tpl_getConf('layout').'-layout', (strpos(tpl_getConf('flexflip'), 'banner') !== false) ? 'banner-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagenav') !== false) ? 'pagenav-flip' : '', (strpos(tpl_getConf('flexflip'), 'sidebar') !== false) ? 'sidebar-flip' : '', (strpos(tpl_getConf('flexflip'), 'pagetools') !== false) ? 'pagetools-flip' : '', (strpos(tpl_getConf('flexflip'), 'socket') !== false) ? 'socket-flip' : '', tpl_getConf('tocstyle').'-toc', (strpos(tpl_getConf('neutralize'), 'toc') !== false) ? 'neu-toc' : '', (tpl_getConf('collapsible-toc') == 1) ? 'collapsible-toc' : '', tpl_getConf('tablestyle').'-tables', (tpl_getConf('kbdstyle') != 'default') ? tpl_getConf('kbdstyle').'-kbd' : '', ($_GET['debug']==1) ? 'debug' : '', ($_GET['debug']=='mediaq') ? 'mediaq' : '');
 
     return rtrim(join(' ', array_filter($classes)));
 }/* /namespaced_bodyclasses */

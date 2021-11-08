@@ -78,7 +78,8 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                             print '<li class="menu-item action no-pages" title="'.tpl_getLang("no_pages").'">'.namespaced_glyph('info', true).'<span'.$namespaced['a11y']['standalone'].'>'.tpl_getLang("no_pages").'</span></li>';
                         }
                         // Print sub-namespaces links
-                        if ((count($namespaced['nsindex']['subns']) > 0) && ((tpl_getConf('startsubindex') == "none") || ($namespaced['ishome'] == false))) {
+//                        if ((count($namespaced['nsindex']['subns']) > 0) && ((tpl_getConf('startsubindex') == "none") || ($namespaced['ishome'] == false))) {
+                        if ((count($namespaced['nsindex']['subns']) > 0) && ((tpl_getConf('subnsaltidx') == "never") || ((tpl_getConf('subnsaltidx') == "home") && (!in_array($namespaced['ishome'], array("default", "untranslated", "translated")))) || ((tpl_getConf('subnsaltidx') == "start") && (!in_array($namespaced['ishome'], array("default", "untranslated", "translated", "ns")))))) {
                             foreach ($namespaced['nsindex']['subns'] as $key => $value) {
                                 print '<li>'.$namespaced['nsindex']['subns'][$key]['link'].'</li>';
                             }
@@ -185,7 +186,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                 <!-- ********** CONTENT ********** -->
                 <article id="namespaced__content">
 
-                    <div class="flex column align-stretch">
+                    <div>
 
                         <?php
                             html_msgarea();
@@ -220,29 +221,34 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                             <?php tpl_includeFile('pagefooter.html') ?>
                         </div>
 
-                        <?php tpl_flush() ?>
-                    <?php if((tpl_getConf('startsubindex') != "none") && ($namespaced['ishome']) && (count($namespaced['nsindex']['subns']) > 0)): ?>
-                        <hr class="subns" />
-                        <nav id="namespaced__subns_index" class="flex justify-evenly align-center gap20">
-                            <?php
-                                foreach ($namespaced['nsindex']['subns'] as $key => $value) {
-                                    if ($namespaced['nsindex']['subns'][$key]['image'] != null) {
-                                        tpl_link(
-                                            wl($namespaced['nsindex']['subns'][$key]['id']),
-                                            '<img src="'.$namespaced['nsindex']['subns'][$key]['image']['src'].'" title="'.$namespaced['nsindex']['subns'][$key]['title'].'" alt="*'.$namespaced['nsindex']['subns'][$key]['title'].'*" '.$namespaced['nsindex']['subns'][$key]['image']['size'][3].' class="'.tpl_getConf("startsubindeximage").'"/>'.'<span class="center">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
-                                            'class="is_ns"'
-                                        );
-                                    } else {
-                                        tpl_link(
-                                            wl($namespaced['nsindex']['subns'][$key]['id']),
-                                            '<span class="center">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
-                                            'class="is_ns textonly"'
-                                        );
+                        <?php if((count($namespaced['nsindex']['subns']) > 0) && (((tpl_getConf('subnsaltidx') == "home") && (in_array($namespaced['ishome'], array("default", "untranslated", "translated")))) || ((tpl_getConf('subnsaltidx') == "start") && (in_array($namespaced['ishome'], array("default", "untranslated", "translated", "ns")))) || (tpl_getConf('subnsaltidx') == "always"))): ?>
+                            <nav id="namespaced__subns_index" class="flex justify-evenly align-center gap20">
+                                <?php
+                                    foreach ($namespaced['nsindex']['subns'] as $key => $value) {
+                                        if ($namespaced['nsindex']['subns'][$key]['image'] != null) {
+                                            if ((tpl_getConf('subnsaltidximage') == "banner") or ((tpl_getConf('subnsaltidximage') == "mix") and (in_array($namespaced['ishome'], array("default", "untranslated", "translated"))))) {
+                                                $class = "banner";
+                                            } else {
+                                                $class = "sidecard";
+                                            }
+                                            tpl_link(
+                                                wl($namespaced['nsindex']['subns'][$key]['id']),
+                                                '<img src="'.$namespaced['nsindex']['subns'][$key]['image']['src'].'" title="'.$namespaced['nsindex']['subns'][$key]['title'].'" alt="*'.$namespaced['nsindex']['subns'][$key]['title'].'*" '.$namespaced['nsindex']['subns'][$key]['image']['size'][3].' class="'.$class.'"/>'.'<span class="center">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
+                                                'class="is_ns"'
+                                            );
+                                        } else {
+                                            tpl_link(
+                                                wl($namespaced['nsindex']['subns'][$key]['id']),
+                                                '<span class="center">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
+                                                'class="is_ns textonly"'
+                                            );
+                                        }
                                     }
-                                }
-                            ?>
-                        </nav><!-- /#namespaced__subindex -->
-                    <?php endif ?>
+                                ?>
+                            </nav><!-- /#namespaced__subindex -->
+                        <?php endif ?>
+
+                        <?php tpl_flush() ?>
 
                     </div>
 

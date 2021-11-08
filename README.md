@@ -72,7 +72,7 @@ See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#setting
 * [ ] High number of HTML hooks (based on [this document](https://www.dokuwiki.org/include_hooks))
 * [ ] A few HTML replace hooks that let you replace some elements with more fancy HTML code
 * [x] Siblings pages list inside main navigation bar
-* [x] Sub namespaces list(s) inside main navigation bar, above or below start pages content 
+* [x] Sub namespaces list inside main navigation bar or below content , depending on context and settings
 * [ ] Social networks links (see [Social links](https://github.com/geekitude/dokuwiki-template-colormag#social-links) below)
 * [ ] Supports a cheatsheet that will be shown as a sidebar in edit and preview modes
 * [x] Added a "Go to bottom" pagetool to easily reach footer widgets or save settings button (Javascript is needed to switch between this pagetool and "Back to top")
