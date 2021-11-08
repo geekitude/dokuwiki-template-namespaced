@@ -56,7 +56,7 @@ See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#setting
 * [x] [Widgets](https://github.com/geekitude/dokuwiki-template-namespaced#widgets) areas to customize Namespaced elements (any side widget will force side panel even if there's no sidebar page available)
 * [x] Accessibility friendly pure CSS smooth scrolling (speed depends on visitor's browser settings and can even be disable if browser supports that feature)
 * [ ] Namespace dependent CSS for colors and fonts (an automatic theme color is possible while quite experimental)
-* [ ] Namespace dependent UI images ([ ] background pattern, [x] banner, [x] widebanner and a potential [x] sidebar header image aka sidecard)
+* [ ] Namespace dependent UI images ([ ] background pattern, [x] banner, [x] widebanner and [x] cover)
 * [ ] Google Fonts : each of main text, headings, condensed text (mostly nav bar) and monospaced text (```code``` syntax) can use a different Google font (be warned that main text font should be kept very readable)
 * [ ] Wide banner slider with latest changes at wiki home?
 * [ ] Tested with most common plugins ([Blockquote](https://www.dokuwiki.org/plugin:blockquote), [Captcha](https://www.dokuwiki.org/plugin:captcha), [Discussion](https://www.dokuwiki.org/plugin:discussion), [Move](https://www.dokuwiki.org/plugin:move), [SearchIndex](https://www.dokuwiki.org/plugin:searchindex), [SiteMapNavi](https://www.dokuwiki.org/plugin:sitemapnavi), [Styling](https://www.dokuwiki.org/plugin:styling), [Tag](https://www.dokuwiki.org/plugin:tag), [TagAlerts](https://www.dokuwiki.org/plugin:tagalerts), [Translation](https://www.dokuwiki.org/plugin:translation), [Wrap](https://www.dokuwiki.org/plugin:wrap))
@@ -72,7 +72,7 @@ See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#setting
 * [ ] High number of HTML hooks (based on [this document](https://www.dokuwiki.org/include_hooks))
 * [ ] A few HTML replace hooks that let you replace some elements with more fancy HTML code
 * [x] Siblings pages list inside main navigation bar
-* [x] Sub namespaces list inside main navigation bar or below content , depending on context and settings
+* [x] Sub namespaces list inside main navigation bar or below content, depending on context and settings
 * [ ] Social networks links (see [Social links](https://github.com/geekitude/dokuwiki-template-colormag#social-links) below)
 * [ ] Supports a cheatsheet that will be shown as a sidebar in edit and preview modes
 * [x] Added a "Go to bottom" pagetool to easily reach footer widgets or save settings button (Javascript is needed to switch between this pagetool and "Back to top")
@@ -83,7 +83,7 @@ See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#setting
   * [x] *a11y* (visual accessibility helpers)
   * [x] *alerts*
   * [x] *banner*
-  * [x] *sidecard* (sidebar header image)
+  * [x] *cover*
   * [x] *images* (all UI images)
   * [ ] *includes* (HTML include hooks)
   * [x] *mediaq* (add background color and text to mark CSS media queries)
@@ -111,7 +111,7 @@ It is possible to change default set of widgets and order them as you like for a
 
 The three widgets areas are :
 * topbar "right" section (will by default be configured to show links set through "topbar" wiki pages and will however fit only small content widgets like search or social links)
-* sidepanel wich takes place of DokuWiki's regular sidebar and is by default configured to show sidecard (a namespace dependent image), searchbox and reagular sidebar
+* sidepanel wich takes place of DokuWiki's regular sidebar and is by default configured to show cover (a namespace dependent image), searchbox and reagular sidebar
 * footer widgets area that holds a user login/profile, an "about Namespaced", a license and finally a potential QRcode widgets
 
 To change default widgets to your liking, simply copy any of the `dokuwiki/lib/tpl/namespaced/<topbar/side/footer>.widgets.local.conf` file(s) to `dokuwiki/conf` folder and adapt it/them to your needs to include your own set of widgets and order them as you like (sidebar should obviously never be removed).
@@ -122,7 +122,7 @@ To change default widgets to your liking, simply copy any of the `dokuwiki/lib/t
 
 Here's a list of all bundled widgets available :
 * [x] about Namespaced (*namespaced.html*)
-* [x] sidecard
+* [x] cover
 * [x] search (*serach.html*, if not configured anywhere, a search form will be added to main navigation bar)
 * [x] sidebar (*sidebar*)
 * [ ] links (will fit in topbar if the list of links is limited)

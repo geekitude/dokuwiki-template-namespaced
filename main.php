@@ -229,7 +229,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                                             if ((tpl_getConf('subnsaltidximage') == "banner") or ((tpl_getConf('subnsaltidximage') == "mix") and (in_array($namespaced['ishome'], array("default", "untranslated", "translated"))))) {
                                                 $class = "banner";
                                             } else {
-                                                $class = "sidecard";
+                                                $class = "cover";
                                             }
                                             tpl_link(
                                                 wl($namespaced['nsindex']['subns'][$key]['id']),

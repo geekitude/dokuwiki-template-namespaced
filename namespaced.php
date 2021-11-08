@@ -38,7 +38,7 @@ function namespaced_init() {
 
     // UI IMAGES
 // need to search avatar at some point
-    $images= array('banner', 'pattern', 'sidecard', 'widebanner');
+    $images= array('banner', 'pattern', 'cover', 'widebanner');
     foreach ($images as $type) {
 //dbg($type);
 //dbg(tpl_getConf($type));
@@ -162,7 +162,7 @@ function namespaced_init() {
 
                     if ($target != null) {
                         $namespaced['widgets'][$area][$widget] = array();
-                        //if (($title != "Sidecard") and ($title != "Search") and ($title != "Sidebar") and ($title != "User")) {
+                        //if (($title != "cover") and ($title != "Search") and ($title != "Sidebar") and ($title != "User")) {
                         if ($title != null) {
                             $locale = DOKU_CONF.'template_lang/'.$conf['template'].'/'.$conf['lang'].'/'.$title.'.txt';
 //dbg($locale);
@@ -271,9 +271,9 @@ function namespaced_init() {
 //dbg($namespaced['ishome']);
                     if ((tpl_getConf('subnsaltidximage') == "banner") or ((tpl_getConf('subnsaltidximage') == "mix") and (in_array($namespaced['ishome'], array("default", "untranslated", "translated"))))) {
                         $data[$datakey]['image'] = namespaced_inherit("banner", "media", $data[$datakey]['id'], true, false);
-//                    } elseif (tpl_getConf('subnsaltidximage') == "sidecard") {
+//                    } elseif (tpl_getConf('subnsaltidximage') == "cover") {
                     } else {
-                        $data[$datakey]['image'] = namespaced_inherit("sidecard", "media", $data[$datakey]['id'], true, false);
+                        $data[$datakey]['image'] = namespaced_inherit("cover", "media", $data[$datakey]['id'], true, false);
                     }
                 }
             } else {

@@ -32,7 +32,7 @@ $meta['glyphs']             = array('onoff');
 $meta['splitnav']           = array('onoff');
 $meta['nsindexexclude']     = array('array');
 $meta['subnsaltidx']        = array('multichoice','_choices' => array('never','home','start','always'));
-$meta['subnsaltidximage']   = array('multichoice','_choices' => array('none','banner','sidecard','mix'));
+$meta['subnsaltidximage']   = array('multichoice','_choices' => array('none','banner','cover','mix'));
 $meta['docinfopos']         = array('multichoice','_choices' => array('standalone','pagenav'));
 $meta['searches']           = array('multicheckbox','_choices' => array('quicksearch','autocomplete'),'_other' => 'never');
 $meta['licensevisual']      = array('multichoice','_choices' => array('badge','button','none'));
@@ -40,5 +40,5 @@ $meta['uiimagetarget']      = array('multichoice','_choices' => array('image-ns'
 /*file names*/
 $meta['banner']             = array('string');
 $meta['pattern']            = array('string');
-$meta['sidecard']           = array('string');
+$meta['cover']              = array('string');
 $meta['widebanner']         = array('string');
