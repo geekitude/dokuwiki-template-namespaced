@@ -15,6 +15,7 @@
  */
 var device_class = ''; // not yet known
 var device_classes = 'desktop mobile tablet phone';
+var $docHeight = jQuery(document).height();
 
 function tpl_dokuwiki_mobile(){
 
@@ -104,13 +105,20 @@ jQuery(function(){
 //});
 
 jQuery(document).scroll(function() {
-  if (jQuery(document).scrollTop() >= 600) {
+  var $scrollTop = jQuery(document).scrollTop();
+  if ($scrollTop >= 600) {
     // user scrolled 50 pixels or more;
     // do stuff
     jQuery('#namespaced__pagetools ul li.top').fadeIn(500);
-    jQuery('#namespaced__pagetools ul li.bottom').fadeOut(0);
+    //jQuery('#namespaced__pagetools ul li.bottom').fadeOut(0);
+      if ($scrollTop >= $docHeight - 1200) {
+        jQuery('#namespaced__pagetools ul li.bottom').fadeOut(0);
+      } else {
+        //jQuery('#namespaced__pagetools ul li.top').fadeOut(0);
+        jQuery('#namespaced__pagetools ul li.bottom').fadeIn(500);
+      }
   } else {
     jQuery('#namespaced__pagetools ul li.top').fadeOut(0);
-    jQuery('#namespaced__pagetools ul li.bottom').fadeIn(500);
+    //jQuery('#namespaced__pagetools ul li.bottom').fadeIn(500);
   }
 });
