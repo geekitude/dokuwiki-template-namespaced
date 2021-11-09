@@ -21,6 +21,24 @@ if (jQuery('#namespaced__site_nav').hasClass("sticky")) $sitenavH = jQuery('#nam
 var $pagenavH = 0;
 if (jQuery('#namespaced__page_nav').hasClass("sticky")) $pagenavH = jQuery('#namespaced__page_nav').outerHeight();
 var $scrollDelta = $sitenavH + $pagenavH;
+//// blur when clicked
+//jQuery('#dokuwiki__pagetools div.tools>ul>li>a').on('click', function(){
+//    this.blur();
+//});
+
+// RESIZE WATCHER
+jQuery(function(){
+    var resizeTimer;
+    dw_page.makeToggle('#namespaced__aside h6.toggle','#namespaced__aside div.content');
+
+    tpl_dokuwiki_mobile();
+    jQuery(window).on('resize',
+        function(){
+            if (resizeTimer) clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(tpl_dokuwiki_mobile,200);
+        }
+    );
+});
 
 function tpl_dokuwiki_mobile(){
 
@@ -75,79 +93,36 @@ function tpl_dokuwiki_mobile(){
     }
 }
 
-jQuery(function(){
-    var resizeTimer;
-    dw_page.makeToggle('#namespaced__aside h6.toggle','#namespaced__aside div.content');
-
-    tpl_dokuwiki_mobile();
-    jQuery(window).on('resize',
-        function(){
-            if (resizeTimer) clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(tpl_dokuwiki_mobile,200);
+// SCROLL WATCHER
+// Watch scroll to show/hide got-to-top/bottom page tools
+jQuery(document).scroll(function() {
+    var $scrollTop = jQuery(document).scrollTop();
+    if ($scrollTop >= 600) {
+        // user scrolled 600 pixels or more;
+        jQuery('#namespaced__pagetools ul li.top').fadeIn(500);
+        if ($scrollTop >= $docHeight - 1200) {
+            // user scrolled 600 pixels or more;
+            jQuery('#namespaced__pagetools ul li.bottom').fadeOut(0);
+        } else {
+            jQuery('#namespaced__pagetools ul li.bottom').fadeIn(500);
         }
-    );
+    } else {
+        jQuery('#namespaced__pagetools ul li.top').fadeOut(0);
+    }
+});
 
-    // increase sidebar length to match content (desktop mode only)
-//    var sidebar_height = jQuery('.desktop #dokuwiki__aside').height();
-//    var pagetool_height = jQuery('.desktop #dokuwiki__pagetools ul:first').height();
-    // pagetools div has no height; ul has a height
-//    var content_min = Math.max(sidebar_height || 0, pagetool_height || 0);
-
-//    var content_height = jQuery('#dokuwiki__content div.page').height();
-//    if(content_min && content_min > content_height) {
-//        var $content = jQuery('#dokuwiki__content div.page');
-//        $content.css('min-height', content_min);
-//    }
-
-    // blur when clicked
-    jQuery('#dokuwiki__pagetools div.tools>ul>li>a').on('click', function(){
-        this.blur();
-    });
+// CLICK WATCHER
+// Add scroll delta from stickies when clicking a link
+//jQuery('a[href*="#"]:not([href="#spacious__main"])').click(function(e) {
+jQuery('a[href*="#"]').click(function() {
+    var $target = jQuery(this.hash);
+    //if ($target.length == 0) target = jQuery('a[name="' + this.hash.substr(1) + '"]');
+    if ($target.length == 0) $target = jQuery('html');
+    // Move to intended target with delta depending on stickies
+    jQuery('html, body').scrollTop($target.offset().top - $scrollDelta );
+    return false;
 });
 
 //jQuery(document).ready(function() {
 //    jQuery('#namespaced__updown .up').fadeIn(0);
 //});
-
-jQuery(document).scroll(function() {
-  var $scrollTop = jQuery(document).scrollTop();
-  if ($scrollTop >= 600) {
-    // user scrolled 50 pixels or more;
-    // do stuff
-    jQuery('#namespaced__pagetools ul li.top').fadeIn(500);
-    //jQuery('#namespaced__pagetools ul li.bottom').fadeOut(0);
-      if ($scrollTop >= $docHeight - 1200) {
-        jQuery('#namespaced__pagetools ul li.bottom').fadeOut(0);
-      } else {
-        //jQuery('#namespaced__pagetools ul li.top').fadeOut(0);
-        jQuery('#namespaced__pagetools ul li.bottom').fadeIn(500);
-      }
-  } else {
-    jQuery('#namespaced__pagetools ul li.top').fadeOut(0);
-    //jQuery('#namespaced__pagetools ul li.bottom').fadeIn(500);
-  }
-
-//    // Add sticky Navbar height
-//    $tmpPos = jQuery('#namespaced__site_nav').offset().top;
-//    if ((JSINFO.StickyNavbar) && ($tmpPos > $navbarVPos)){
-//        $scrollDelta = jQuery('#namespaced__site_nav').outerHeight();
-//    }
-//    // Add sticky Pagenav height
-//    $tmpPos = jQuery('#namespaced__page_nav').offset().top;
-//    if ((JSINFO.StickyPagenav) && ($tmpPos > $pagenavVPos)){
-//        $scrollDelta = $scrollDelta + jQuery('#namespaced__site_nav').outerHeight();
-//    }
-
-});
-
-
-// CLICK WATCHER
-//jQuery('a[href*="#"]:not([href="#spacious__main"])').click(function(e) {
-jQuery('a[href*="#"]').click(function() {
-  var $target = jQuery(this.hash);
-  //if ($target.length == 0) target = jQuery('a[name="' + this.hash.substr(1) + '"]');
-  if ($target.length == 0) $target = jQuery('html');
-  // Move to intended target
-  jQuery('html, body').scrollTop($target.offset().top - $scrollDelta );
-  return false;
-});
