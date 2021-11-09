@@ -16,6 +16,11 @@
 var device_class = ''; // not yet known
 var device_classes = 'desktop mobile tablet phone';
 var $docHeight = jQuery(document).height();
+var $sitenavH = 0;
+if (jQuery('#namespaced__site_nav').hasClass("sticky")) $sitenavH = jQuery('#namespaced__site_nav').outerHeight();
+var $pagenavH = 0;
+if (jQuery('#namespaced__page_nav').hasClass("sticky")) $pagenavH = jQuery('#namespaced__page_nav').outerHeight();
+var $scrollDelta = $sitenavH + $pagenavH;
 
 function tpl_dokuwiki_mobile(){
 
@@ -121,4 +126,28 @@ jQuery(document).scroll(function() {
     jQuery('#namespaced__pagetools ul li.top').fadeOut(0);
     //jQuery('#namespaced__pagetools ul li.bottom').fadeIn(500);
   }
+
+//    // Add sticky Navbar height
+//    $tmpPos = jQuery('#namespaced__site_nav').offset().top;
+//    if ((JSINFO.StickyNavbar) && ($tmpPos > $navbarVPos)){
+//        $scrollDelta = jQuery('#namespaced__site_nav').outerHeight();
+//    }
+//    // Add sticky Pagenav height
+//    $tmpPos = jQuery('#namespaced__page_nav').offset().top;
+//    if ((JSINFO.StickyPagenav) && ($tmpPos > $pagenavVPos)){
+//        $scrollDelta = $scrollDelta + jQuery('#namespaced__site_nav').outerHeight();
+//    }
+
+});
+
+
+// CLICK WATCHER
+//jQuery('a[href*="#"]:not([href="#spacious__main"])').click(function(e) {
+jQuery('a[href*="#"]').click(function() {
+  var $target = jQuery(this.hash);
+  //if ($target.length == 0) target = jQuery('a[name="' + this.hash.substr(1) + '"]');
+  if ($target.length == 0) $target = jQuery('html');
+  // Move to intended target
+  jQuery('html, body').scrollTop($target.offset().top - $scrollDelta );
+  return false;
 });

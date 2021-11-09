@@ -21,7 +21,7 @@ if (!defined('DOKU_INC')) die();
  * Load usefull informations and plugins' helpers.
  */
 function namespaced_init() {
-    global $ID, $conf;
+    global $ID, $conf, $JSINFO;
     global $namespaced;
 
     // Enable default navbar search untill it's proven useless
@@ -352,6 +352,39 @@ function namespaced_init() {
 //dbg($css);
     $less = new lessc();
     $namespaced['theme'] = $less->compile($css);
+
+    // JSINFO
+    // Note if Navbar and/or Pagenav are sticking to top
+    if (strpos(tpl_getConf('stickies'), 'navbar') !== false) {
+        $JSINFO['StickyNavbar'] = true;
+    } else {
+        $JSINFO['StickyNavbar'] = false;
+    }
+    if (strpos(tpl_getConf('stickies'), 'pagenav') !== false) {
+        $JSINFO['StickyPagenav'] = true;
+    } else {
+        $JSINFO['StickyPagenav'] = false;
+    }
+    // Add a value for connected user (false if none, true otherwise)
+    //if (empty($_SERVER['REMOTE_USER'])) {
+    //    $JSINFO['user'] = false;
+    //} else {
+    //    $JSINFO['user'] = true;
+    //}
+    // Store options into $JSINFO for later use
+    //if (strpos(tpl_getConf('topbar'), 'newsticker') !== false) {
+    //    $JSINFO['LoadNewsTicker'] = true;
+    //} else {
+    //    $JSINFO['LoadNewsTicker'] = false;
+    //}
+    //if (tpl_getConf('scrollspyToC')) {
+    //    $JSINFO['LoadGumshoe'] = true;
+    //} else {
+    //    $JSINFO['LoadGumshoe'] = false;
+    //}
+    //$JSINFO['Animate'] = tpl_getConf('animate');
+//$JSINFO['ScrollspyToc'] = tpl_getConf('scrollspyToc');
+//dbg($JSINFO);
 
     // Adding test alerts if debug is enabled
     if (($_GET['debug'] == 1) or ($_GET['debug'] == "alerts")) {
