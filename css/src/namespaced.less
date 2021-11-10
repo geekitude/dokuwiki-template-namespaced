@@ -754,8 +754,13 @@ body.fourborders-toc #dw__toc > div {
     padding: .5rem;
 }
 
+/*
 body.fourborders-toc #dw__toc > div,
 body.neu-toc.transparent-toc #dw__toc > div {
+    padding: 0 .5rem .5rem .5rem;
+}
+*/
+body.fourborders-toc #dw__toc > div {
     padding: 0 .5rem .5rem .5rem;
 }
 
@@ -787,6 +792,10 @@ body.oneborder-toc #dw__toc,
 
 #namespaced__aside aside.oneborder.neu {
     border-right-color: desaturate(@ini_border, 100%);
+}
+
+#namespaced__subns_index.oneborder.neu {
+    border-top-color: desaturate(@ini_border, 100%);
 }
 
 #namespaced__page_nav:not(.neu),

@@ -25,7 +25,7 @@ $meta['subnsaltidxstyle']   = array('multichoice','_choices' => array('theme','s
 $meta['tocstyle']           = array('multichoice','_choices' => array('theme','secondary','dark','fourborders','oneborder','transparent'));
 $meta['docinfostyle']       = array('multichoice','_choices' => array('theme','secondary','dark','fourborders','oneborder','transparent'));
 $meta['footerstyle']        = array('multichoice','_choices' => array('theme','secondary','dark','oneborder','transparent'));
-$meta['neutralize']         = array('multicheckbox','_choices' => array('pagenav','toc','docinfo','side-widgets','footer-widgets','footer'),'_other' => 'never');
+$meta['neutralize']         = array('multicheckbox','_choices' => array('pagenav','toc','docinfo','side-widgets','subnsaltidx','footer-widgets','footer'),'_other' => 'never');
 $meta['collapsible-toc']    = array('onoff');
 $meta['forcesidepanel']     = array('onoff');
 /* functionnalities */

@@ -222,27 +222,33 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                         </div>
 
                         <?php if((count($namespaced['nsindex']['subns']) > 0) && (((tpl_getConf('subnsaltidx') == "home") && (in_array($namespaced['ishome'], array("default", "untranslated", "translated")))) || ((tpl_getConf('subnsaltidx') == "start") && (in_array($namespaced['ishome'], array("default", "untranslated", "translated", "ns")))) || (tpl_getConf('subnsaltidx') == "always"))): ?>
-                            <nav id="namespaced__subns_index" class="<?php print tpl_getConf("subnsaltidxstyle") ?>">
+                            <nav id="namespaced__subns_index" class="<?php print tpl_getConf("subnsaltidxstyle") ?><?php print (strpos(tpl_getConf('neutralize'), 'subnsaltidx') !== false) ? ' neu' : '' ?>">
                                 <?php print (tpl_getConf("subnsaltidxstyle") == "transparent") ? '<hr'.$namespaced['a11y']['standalone'].' />' : "" ?>
                                 <div class="flex justify-evenly align-center gap20">
                                     <?php
                                         foreach ($namespaced['nsindex']['subns'] as $key => $value) {
+                                            if (page_exists($namespaced['nsindex']['subns'][$key]['id'])) {
+                                                $class = "wikilink1";
+                                            } else {
+                                                $class = "wikilink2";
+                                            }
                                             if ($namespaced['nsindex']['subns'][$key]['image'] != null) {
                                                 if ((tpl_getConf('subnsaltidximage') == "banner") or ((tpl_getConf('subnsaltidximage') == "mix") and (in_array($namespaced['ishome'], array("default", "untranslated", "translated"))))) {
-                                                    $class = "banner";
+                                                    $imgclass = "banner";
                                                 } else {
-                                                    $class = "cover";
+                                                    $imgclass = "cover";
                                                 }
+
                                                 tpl_link(
                                                     wl($namespaced['nsindex']['subns'][$key]['id']),
-                                                    '<img src="'.$namespaced['nsindex']['subns'][$key]['image']['src'].'" alt="*'.$namespaced['nsindex']['subns'][$key]['title'].'*" '.$namespaced['nsindex']['subns'][$key]['image']['size'][3].' class="'.$class.'" title="'.tpl_getLang("subns").'"/><span class="center" title="'.tpl_getLang("subns").'">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
-                                                    'class="is_ns"'
+                                                    '<img src="'.$namespaced['nsindex']['subns'][$key]['image']['src'].'" alt="*'.$namespaced['nsindex']['subns'][$key]['title'].'*" '.$namespaced['nsindex']['subns'][$key]['image']['size'][3].' class="'.$imgclass.'" title="'.tpl_getLang("subns").'"/><span class="center" title="'.tpl_getLang("subns").'">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
+                                                    'class="is_ns '.$class.'"'
                                                 );
                                             } else {
                                                 tpl_link(
                                                     wl($namespaced['nsindex']['subns'][$key]['id']),
                                                     '<span class="center" title="'.tpl_getLang("subns").'">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
-                                                    'class="is_ns textonly"'
+                                                    'class="is_ns textonly '.$class.'"'
                                                 );
                                             }
                                         }

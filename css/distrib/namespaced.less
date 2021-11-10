@@ -931,7 +931,13 @@ article {
     padding: .5rem;
 }
 
-[dir] body.fourborders-toc #dw__toc > div, [dir] body.neu-toc.transparent-toc #dw__toc > div {
+/*
+body.fourborders-toc #dw__toc > div,
+body.neu-toc.transparent-toc #dw__toc > div {
+    padding: 0 .5rem .5rem .5rem;
+}
+*/
+[dir] body.fourborders-toc #dw__toc > div {
     padding: 0 .5rem .5rem .5rem;
 }
 
@@ -957,6 +963,10 @@ article {
 
 [dir=rtl] #namespaced__aside aside.oneborder.neu {
     border-left-color: desaturate(@ini_border, 100%);
+}
+
+[dir] #namespaced__subns_index.oneborder.neu {
+    border-top-color: desaturate(@ini_border, 100%);
 }
 
 [dir] #namespaced__page_nav:not(.neu), [dir] #namespaced__docinfo:not(.neu) {
