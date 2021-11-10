@@ -176,21 +176,21 @@ nav ul li span:hover,
     background-color: @ini_dark_color;
 }
 
-[dir] body.theme-toc #dw__toc h3 {
+[dir] body.theme-toc:not(.neu-toc) #dw__toc h3 {
     background-color: @ini_secondary_color;
 }
 
-[dir] body.secondary-toc #dw__toc h3 {
+[dir] body.secondary-toc:not(.neu-toc) #dw__toc h3 {
     background-color: @ini_dark_color;
 }
 
-[dir] body.dark-toc #dw__toc h3 {
+[dir] body.dark-toc:not(.neu-toc) #dw__toc h3 {
     background-color: @ini_secondary_color;
 }
 
-body.theme-toc #dw__toc h3,
-body.secondary-toc #dw__toc h3,
-body.dark-toc #dw__toc h3 {
+body.theme-toc:not(.neu-toc) #dw__toc h3,
+body.secondary-toc:not(.neu-toc) #dw__toc h3,
+body.dark-toc:not(.neu-toc) #dw__toc h3 {
     color: @ini_theme_text_color;
 }
 

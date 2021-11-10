@@ -171,21 +171,21 @@ body.dark-toc #dw__toc {
     background-color: @ini_dark_color;
 }
 
-body.theme-toc #dw__toc h3 {
+body.theme-toc:not(.neu-toc) #dw__toc h3 {
     background-color: @ini_secondary_color;
 }
 
-body.secondary-toc #dw__toc h3 {
+body.secondary-toc:not(.neu-toc) #dw__toc h3 {
     background-color: @ini_dark_color;
 }
 
-body.dark-toc #dw__toc h3 {
+body.dark-toc:not(.neu-toc) #dw__toc h3 {
     background-color: @ini_secondary_color;
 }
 
-body.theme-toc #dw__toc h3,
-body.secondary-toc #dw__toc h3,
-body.dark-toc #dw__toc h3 {
+body.theme-toc:not(.neu-toc) #dw__toc h3,
+body.secondary-toc:not(.neu-toc) #dw__toc h3,
+body.dark-toc:not(.neu-toc) #dw__toc h3 {
     color: @ini_theme_text_color;
 }
 
