@@ -779,6 +779,16 @@ body.oneborder-toc #dw__toc,
     border: @ini_border_width solid transparent;
 }
 
+#namespaced__aside aside.fourborders.neu,
+#namespaced__footer_widgets aside.fourborders.neu,
+#namespaced__subns_index.fourborders.neu {
+    border-color: desaturate(@ini_border, 100%);
+}
+
+#namespaced__aside aside.oneborder.neu {
+    border-right-color: desaturate(@ini_border, 100%);
+}
+
 #namespaced__page_nav:not(.neu),
 #namespaced__docinfo:not(.neu) {
     background-color: @ini_background;
@@ -1282,13 +1292,19 @@ aside.widget {
     padding: .5rem 1rem;
 }
 
-aside.dark input {
+#namespaced__footer.theme aside.labeled,
+#namespaced__footer.secondary aside.labeled,
+#namespaced__footer.dark aside.labeled {
+    margin-top: 2rem;
+}
+
+aside.dark:not(.neu) input {
     background-color: @ini_background_neu;
 }
 
 aside.labeled {
     overflow: unset;
-    border: @ini_border_width solid transparent;
+    border: @ini_border_width solid desaturate(@ini_border, 100%);
 }
 
 aside.labeled {
@@ -1300,7 +1316,7 @@ aside.labeled.hastitle {
 }
 
 aside.labeled h6 {
-    background-color: @ini_background;
+    background-color: desaturate(@ini_background, 100%);
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -1312,6 +1328,7 @@ aside.labeled h6 {
 aside.labeled h6 span {
     padding: .5rem;
     color: #fff;
+    background-color: desaturate(@ini_border, 100%);
 }
 
 aside.labeled.hastitle > div {
@@ -1429,7 +1446,7 @@ ul.tabs li a {
     text-align: end;
 }
 
-.neu:not(.labeled):not(.secondary),
+.neu:not(.labeled),
 body.neu-toc #dw__toc {
     color: @ini_text_neu;
     background-color: @ini_background_neu;

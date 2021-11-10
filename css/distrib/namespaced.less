@@ -947,6 +947,18 @@ article {
     border: @ini_border_width solid transparent;
 }
 
+[dir] #namespaced__aside aside.fourborders.neu, [dir] #namespaced__footer_widgets aside.fourborders.neu, [dir] #namespaced__subns_index.fourborders.neu {
+    border-color: desaturate(@ini_border, 100%);
+}
+
+[dir=ltr] #namespaced__aside aside.oneborder.neu {
+    border-right-color: desaturate(@ini_border, 100%);
+}
+
+[dir=rtl] #namespaced__aside aside.oneborder.neu {
+    border-left-color: desaturate(@ini_border, 100%);
+}
+
 [dir] #namespaced__page_nav:not(.neu), [dir] #namespaced__docinfo:not(.neu) {
     background-color: @ini_background;
 }
@@ -1542,7 +1554,11 @@ aside.widget {
     padding: .5rem 1rem;
 }
 
-[dir] aside.dark input {
+[dir] #namespaced__footer.theme aside.labeled, [dir] #namespaced__footer.secondary aside.labeled, [dir] #namespaced__footer.dark aside.labeled {
+    margin-top: 2rem;
+}
+
+[dir] aside.dark:not(.neu) input {
     background-color: @ini_background_neu;
 }
 
@@ -1551,7 +1567,7 @@ aside.labeled {
 }
 
 [dir] aside.labeled {
-    border: @ini_border_width solid transparent;
+    border: @ini_border_width solid desaturate(@ini_border, 100%);
 }
 
 [dir] aside.labeled {
@@ -1567,7 +1583,7 @@ aside.labeled h6 {
 }
 
 [dir] aside.labeled h6 {
-    background-color: @ini_background;
+    background-color: desaturate(@ini_background, 100%);
     text-align: center;
     margin-top: -2.4rem;
     padding: 0;
@@ -1589,6 +1605,7 @@ aside.labeled h6 span {
 
 [dir] aside.labeled h6 span {
     padding: .5rem;
+    background-color: desaturate(@ini_border, 100%);
 }
 
 [dir] aside.labeled.hastitle > div {
@@ -1739,12 +1756,12 @@ ul.tabs li.active:hover a {
     text-align: end;
 }
 
-.neu:not(.labeled):not(.secondary),
+.neu:not(.labeled),
 body.neu-toc #dw__toc {
     color: @ini_text_neu;
 }
 
-[dir] .neu:not(.labeled):not(.secondary), [dir] body.neu-toc #dw__toc {
+[dir] .neu:not(.labeled), [dir] body.neu-toc #dw__toc {
     background-color: @ini_background_neu;
 }
 

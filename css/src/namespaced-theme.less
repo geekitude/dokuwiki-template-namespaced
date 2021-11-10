@@ -205,8 +205,9 @@ body.oneborder-toc #dw__toc {
     border-top-color: @ini_border;
 }
 
-#namespaced__aside aside.fourborders,
-#namespaced__subns_index.fourborders {
+#namespaced__aside aside.fourborders:not(.neu),
+#namespaced__footer_widgets aside.fourborders:not(.neu),
+#namespaced__subns_index.fourborders:not(.neu) {
     border-color: @ini_border;
 }
 
@@ -214,43 +215,37 @@ aside.theme {
     background-color: @ini_theme_color;
 }
 
-aside.theme h6 {
+aside.theme:not(.neu) h6 {
     background-color: @ini_secondary_color;
 }
 
-aside.secondary {
+aside.secondary:not(.neu) {
     background-color: @ini_secondary_color;
 }
 
-aside.secondary h6 {
+aside.secondary:not(.neu) h6 {
     background-color: @ini_dark_color;
 }
 
-aside.dark {
+aside.dark:not(.neu) {
     background-color: @ini_dark_color;
 }
 
-aside.dark h6 {
+aside.dark:not(.neu) h6 {
     background-color: @ini_secondary_color;
 }
 
 aside.theme,
-aside.theme h6,
+aside.theme:not(.neu) h6,
 aside.secondary,
-aside.secondary h6,
+aside.secondary:not(.neu) h6,
 aside.dark,
-aside.dark h6 {
+aside.dark:not(.neu) h6 {
     color: @ini_theme_text_color;
 }
 
-aside.labeled {
+aside.labeled:not(.neu) {
     border-color: @ini_border;
-}
-
-#namespaced__footer.theme aside.labeled,
-#namespaced__footer.secondary aside.labeled,
-#namespaced__footer.dark aside.labeled {
-    margin-top: 2rem;
 }
 
 #namespaced__footer.theme aside.labeled h6 {
@@ -265,7 +260,7 @@ aside.labeled {
     background-color: @ini_dark_color;
 }
 
-aside.labeled h6 span {
+aside.labeled:not(.neu) h6 span {
     background-color: @ini_border;
 }
 
@@ -398,12 +393,12 @@ aside.labeled h6 span {
     background-color: @ini_dark_color;
 }
 
-#namespaced__footer.theme,
-#namespaced__footer.secondary,
-#namespaced__footer.dark,
-#namespaced__footer.theme h6,
-#namespaced__footer.secondary h6,
-#namespaced__footer.dark h6 {
+#namespaced__footer.theme aside:not(.neu),
+#namespaced__footer.secondary aside:not(.neu),
+#namespaced__footer.dark aside:not(.neu),
+#namespaced__footer.theme aside:not(.neu) h6,
+#namespaced__footer.secondary aside:not(.neu) h6,
+#namespaced__footer.dark aside:not(.neu) h6 {
     color: @ini_theme_text_color;
 }
 
@@ -431,10 +426,6 @@ aside.labeled h6 span {
 
 #namespaced__footer_widgets aside.oneborder {
     border-top-color: @ini_border;
-}
-
-#namespaced__footer_widgets aside.fourborders {
-    border-color: @ini_border;
 }
 
 #namespaced__footer.neu:not(.dark):not(.secondary):not(.theme) #namespaced__footer_sole {
@@ -466,10 +457,6 @@ body.neu-toc.fourborders-toc #dw__toc {
 
 #namespaced__docinfo.oneborder.neu {
     border-top-color: desaturate(@ini_border, 100%);
-}
-
-#namespaced__aside aside.neu {
-    border-right-color: desaturate(@ini_border, 100%);
 }
 
 #namespaced__footer_widgets aside.neu {
