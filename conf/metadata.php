@@ -20,11 +20,11 @@ $meta['tablestyle']         = array('multichoice','_choices' => array('colored',
 $meta['kbdstyle']           = array('multichoice','_choices' => array('basic','default','deep-blue','dark-apple','type-writer','dw-red','dw-green','dw-blue','dw-yellow'));
 $meta['pagenavstyle']       = array('multichoice','_choices' => array('theme','secondary','dark','fourborders','oneborder'));
 $meta['sidewidgetstyle']    = array('multichoice','_choices' => array('labeled','theme','secondary','dark','fourborders','oneborder'));
-$meta['footerwidgetstyle']  = array('multichoice','_choices' => array('labeled','theme','secondary','dark','fourborders','oneborder','transparent'));
 $meta['subnsaltidxstyle']   = array('multichoice','_choices' => array('theme','secondary','dark','fourborders','oneborder'));
 $meta['tocstyle']           = array('multichoice','_choices' => array('theme','secondary','dark','fourborders','oneborder'));
 $meta['docinfostyle']       = array('multichoice','_choices' => array('theme','secondary','dark','fourborders','oneborder'));
 $meta['footerstyle']        = array('multichoice','_choices' => array('theme','secondary','dark','oneborder','sitebg'));
+$meta['footerwidgetstyle']  = array('multichoice','_choices' => array('labeled','theme','secondary','dark','fourborders','oneborder','transparent'));
 $meta['neutralize']         = array('multicheckbox','_choices' => array('pagenav','toc','docinfo','side-widgets','subnsaltidx','footer-widgets','footer'),'_other' => 'never');
 $meta['collapsible-toc']    = array('onoff');
 $meta['forcesidepanel']     = array('onoff');
