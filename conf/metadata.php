@@ -12,17 +12,17 @@
 /* global look */
 $meta['layout']             = array('multichoice','_choices' => array('box','wide','box2wide','mix'));
 $meta['flexflip']           = array('multicheckbox','_choices' => array('banner','pagenav','sidepanel','pagetools','socket'),'_other' => 'never');
-$meta['stickies']           = array('multicheckbox','_choices' => array('navbar','pagenav','sidebar','docinfo'),'_other' => 'never');
+$meta['stickies']           = array('multicheckbox','_choices' => array('navbar','pagenav','sidepanel','docinfo'),'_other' => 'never');
 $meta['datelocale']         = array('string');
 $meta['longdatestring']     = array('string');
 $meta['shortdatestring']    = array('string');
 $meta['tablestyle']         = array('multichoice','_choices' => array('colored','striped','dynamic'));
 $meta['kbdstyle']           = array('multichoice','_choices' => array('basic','default','deep-blue','dark-apple','type-writer','dw-red','dw-green','dw-blue','dw-yellow'));
 $meta['pagenavstyle']       = array('multichoice','_choices' => array('theme','secondary','dark','fourborders','oneborder','sitebg'));
-$meta['sidewidgetstyle']    = array('multichoice','_choices' => array('labeled','theme','secondary','dark','fourborders','oneborder','sitebg'));
-$meta['footerwidgetstyle']  = array('multichoice','_choices' => array('labeled','theme','secondary','dark','fourborders','oneborder','sitebg'));
-$meta['subnsaltidxstyle']   = array('multichoice','_choices' => array('theme','secondary','dark','fourborders','oneborder','sitebg'));
-$meta['tocstyle']           = array('multichoice','_choices' => array('theme','secondary','dark','fourborders','oneborder','sitebg'));
+$meta['sidewidgetstyle']    = array('multichoice','_choices' => array('labeled','theme','secondary','dark','fourborders','oneborder','transparent'));
+$meta['footerwidgetstyle']  = array('multichoice','_choices' => array('labeled','theme','secondary','dark','fourborders','oneborder','transparent'));
+$meta['subnsaltidxstyle']   = array('multichoice','_choices' => array('theme','secondary','dark','fourborders','oneborder','transparent'));
+$meta['tocstyle']           = array('multichoice','_choices' => array('theme','secondary','dark','fourborders','oneborder','transparent'));
 $meta['docinfostyle']       = array('multichoice','_choices' => array('theme','secondary','dark','fourborders','oneborder','sitebg'));
 $meta['footerstyle']        = array('multichoice','_choices' => array('theme','secondary','dark','oneborder','sitebg'));
 $meta['neutralize']         = array('multicheckbox','_choices' => array('pagenav','toc','docinfo','side-widgets','subnsaltidx','footer-widgets','footer'),'_other' => 'never');

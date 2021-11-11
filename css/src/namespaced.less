@@ -756,7 +756,7 @@ body.fourborders-toc #dw__toc > div {
 
 /*
 body.fourborders-toc #dw__toc > div,
-body.neu-toc.sitebg-toc #dw__toc > div {
+body.neu-toc.transparent-toc #dw__toc > div {
     padding: 0 .5rem .5rem .5rem;
 }
 */
@@ -1215,7 +1215,7 @@ body.mediaq #screen__mode {
     /* Above tools navs (aka contools and pagetools) */
 }
 
-#namespaced__footer.neu:not(.sitebg) {
+#namespaced__footer.neu:not(.transparent) {
     background-color: @ini_background_neu;
 }
 
@@ -1457,8 +1457,8 @@ ul.tabs li a {
     text-align: end;
 }
 
-.neu:not(.labeled):not(.sitebg),
-body.neu-toc:not(.sitebg-toc) #dw__toc {
+.neu:not(.labeled):not(.transparent):not(.sitebg),
+body.neu-toc:not(.transparent-toc) #dw__toc {
     color: @ini_text_neu;
     background-color: @ini_background_neu;
 }

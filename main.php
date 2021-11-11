@@ -169,7 +169,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                 <?php if(($ACT=='show') && (@count($namespaced['widgets']['side']) > 0)): ?>
                     <!-- ********** ASIDE ********** -->
                     <aside id="namespaced__aside">
-                        <div class="aside include<?php print (strpos(tpl_getConf('stickies'), 'sidebar') !== false) ? ' sticky' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' stickynav' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'pagenav') !== false) ? ' stickypagenav' : '' ?>">
+                        <div class="aside include<?php print (strpos(tpl_getConf('stickies'), 'sidepanel') !== false) ? ' sticky' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' stickynav' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'pagenav') !== false) ? ' stickypagenav' : '' ?>">
                             <h6 class="toggle"><?php echo $lang['sidebar'] ?></h6>
                             <div class="content">
                                 <?php tpl_flush() ?>
