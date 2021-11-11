@@ -149,7 +149,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                         </nav>
                     <?php endif ?>
                 </div>
-        </nav>
+        </nav><!-- /#namespaced__page_nav -->
 
         <main class="flex nowrap align-stretch">
 
