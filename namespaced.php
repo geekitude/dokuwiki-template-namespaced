@@ -677,7 +677,13 @@ function namespaced_widgets($area = null){
         if (($widgetid == "namespaced__widget_user") and (($conf['useacl']) && (empty($_SERVER['REMOTE_USER'])))) {
             continue;
         }
-        $classes = "widget ".tpl_getConf($area."widgetstyle");
+        $classes = "widget";
+        // Make sure footer and it's widgets are not set to "transparent" style together
+        if (($area == "footer") and (tpl_getConf("footerwidgetstyle") == "transparent") and (tpl_getConf("footerstyle") == "sitebg")) {
+            $classes .= " labeled";
+        } else {
+            $classes .= tpl_getConf($area."widgetstyle");
+        }
         if (strpos(tpl_getConf('neutralize'), $area.'-widgets') !== false) {
             $classes .= " neu";
         }
