@@ -8,7 +8,7 @@ if (!defined('DOKU_INC')) die();
 ?>
 
 <!-- ********** FOOTER ********** -->
-<footer id="namespaced__footer" class="<?php print tpl_getConf("footerstyle") ?><?php print (strpos(tpl_getConf('neutralize'), 'footer') !== false) ? ' neu' : '' ?><?php print (tpl_getConf('footerwidgetstyle') == "labeled") ? ' extratoppad' : '' ?>">
+<footer id="namespaced__footer" class="<?php print tpl_getConf("footerstyle") ?><?php print (strpos(tpl_getConf('neutralize'), 'footer') !== false) ? ' neu' : '' ?><?php print (tpl_getConf('footerwidgetstyle') == "labeled") ? ' toppadding10' : '' ?>">
     <div class="pad">
         <?php tpl_flush() ?>
         <?php tpl_includeFile('footertop.html') ?>

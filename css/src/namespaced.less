@@ -730,7 +730,12 @@ article {
     min-width: @ini_sidebar_width;
     max-width: @ini_sidebar_width;
     width: @ini_sidebar_width;
-    margin: .5rem .2rem .5rem 1rem
+    /*margin: .5rem .2rem .5rem 1rem*/
+    margin: .5rem .2rem 0 1rem
+}
+
+#namespaced__aside aside:last-child {
+    margin-bottom: 0;
 }
 
 #namespaced__content nav {
@@ -1213,6 +1218,7 @@ body.mediaq #screen__mode {
     position: relative;
     z-index: 3;
     /* Above tools navs (aka contools and pagetools) */
+    margin-top: 1.5rem;
 }
 
 #namespaced__footer.neu:not(.transparent) {
@@ -1468,7 +1474,7 @@ body.neu-toc:not(.transparent-toc) #dw__toc {
     /* Main uses it's own gutters instead */
 }
 
-.extratoppad {
+.toppadding10 {
     padding-top: 1rem;
 }
 

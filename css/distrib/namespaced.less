@@ -892,14 +892,19 @@ article {
     min-width: @ini_sidebar_width;
     max-width: @ini_sidebar_width;
     width: @ini_sidebar_width
+    /*margin: .5rem .2rem .5rem 1rem*/
 }
 
 [dir=ltr] #namespaced__aside {
-    margin: .5rem .2rem .5rem 1rem
+    margin: .5rem .2rem 0 1rem
 }
 
 [dir=rtl] #namespaced__aside {
-    margin: .5rem 1rem .5rem .2rem
+    margin: .5rem 1rem 0 .2rem
+}
+
+[dir] #namespaced__aside aside:last-child {
+    margin-bottom: 0;
 }
 
 #namespaced__content nav {
@@ -1458,6 +1463,7 @@ body.mediaq #screen__mode {
 
 [dir] #namespaced__footer {
     background-color: @ini_background;
+    margin-top: 1.5rem;
 }
 
 [dir] #namespaced__footer.neu:not(.transparent) {
@@ -1783,7 +1789,7 @@ body.neu-toc:not(.transparent-toc) #dw__toc {
     padding: 0 @ico-margin + @ico-width + @ico-margin;
 }
 
-[dir] .extratoppad {
+[dir] .toppadding10 {
     padding-top: 1rem;
 }
 
