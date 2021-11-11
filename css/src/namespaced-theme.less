@@ -393,24 +393,24 @@ aside.labeled:not(.neu) h6 span {
     background-color: @ini_dark_color;
 }
 
-#namespaced__footer.theme aside:not(.neu),
-#namespaced__footer.secondary aside:not(.neu),
-#namespaced__footer.dark aside:not(.neu),
-#namespaced__footer.theme aside:not(.neu) h6,
-#namespaced__footer.secondary aside:not(.neu) h6,
-#namespaced__footer.dark aside:not(.neu) h6 {
+#namespaced__footer.theme:not(.neu) aside:not(.neu),
+#namespaced__footer.secondary:not(.neu) aside:not(.neu),
+#namespaced__footer.dark:not(.neu) aside:not(.neu),
+#namespaced__footer.theme:not(.neu) aside:not(.neu) h6,
+#namespaced__footer.secondary:not(.neu) aside:not(.neu) h6,
+#namespaced__footer.dark:not(.neu) aside:not(.neu) h6 {
     color: @ini_theme_text_color;
 }
 
-#namespaced__footer.theme #namespaced__footer_sole {
+#namespaced__footer.theme:not(.neu) #namespaced__footer_sole {
     background-color: @ini_secondary_color;
 }
 
-#namespaced__footer.secondary #namespaced__footer_sole {
+#namespaced__footer.secondary:not(.neu) #namespaced__footer_sole {
     background-color: @ini_dark_color;
 }
 
-#namespaced__footer.dark #namespaced__footer_sole {
+#namespaced__footer.dark:not(.neu) #namespaced__footer_sole {
     background-color: @ini_secondary_color;
 }
 
@@ -426,10 +426,6 @@ aside.labeled:not(.neu) h6 span {
 
 #namespaced__footer_widgets aside.oneborder {
     border-top-color: @ini_border;
-}
-
-#namespaced__footer.neu:not(.dark):not(.secondary):not(.theme):not(.transparent) #namespaced__footer_sole {
-    background-color: desaturate(@ini_secondary_color, 100%);
 }
 
 #namespaced__footer.oneborder.neu {
