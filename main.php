@@ -188,6 +188,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
 
                     <div>
 
+                        <!-- ********** ALERTS ********** -->
                         <?php
                             html_msgarea();
                             // Namespaced messages
@@ -202,7 +203,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                                 }
                             // if at settings page
                             } elseif (($ACT == "admin") && ($_GET['page'] == "config")) {
-                                msg(tpl_getLang('jump_to_namespaced'), 2);
+                                msg(tpl_getLang('jump_to_namespaced'), 0);
                             }
                             // Display Translation plugin alerts
                             if ($namespaced['translation']['helper']) {
