@@ -475,7 +475,6 @@ function namespaced_inherit($target, $type = "media", $origin, $useacl = false, 
     }
 }/* /namespaced_inherit */
 
-
 /**
  * Copied from lib/exe/css.php to avoid calling core CSS.php file
  * Otherwise, using this code (from dw2pdf plugin) :
@@ -780,7 +779,6 @@ dbg("vérifier ces liens");
         echo '</p>';
 }/* /namespaced_userwidget */
 
-
 /**
  * Print UI images as simple <img> or <a> elements
  */
@@ -819,7 +817,6 @@ function namespaced_ui_image($type) {
         }
     }
 }/* /namespaced_ui_image */
-
 
 function namespaced_usertools() {
     global $ID, $ACT, $lang, $INFO;
@@ -1152,3 +1149,30 @@ function namespaced_docinfo($ret = false) {
     }
     return false;
 }/* /namespaced_docinfo */
+
+/**
+ * Print include/replace hooks function
+ *
+ * @param string $file file name searched without extension
+ * @return bool|string
+ */
+function namespaced_include($file, $widget = false) {
+    if ($file != null) {
+        if ((($_GET['debug'] == 1) or ($_GET['debug'] == 'includes')) && (file_exists(tpl_incdir().'debug/'.$file.'.html'))) {
+            if ($widget) {
+                print '<aside id="namespaced__widget_'.$file.'" class="widget include-hook-sample">';
+            }
+            include(tpl_incdir().'debug/'.$file.'.html');
+        } elseif (file_exists(tpl_incdir().$file.'.html')) {
+            if ($widget) {
+                print '<aside id="namespaced__widget_'.$file.'" class="widget">';
+            }
+            include(tpl_incdir().$file.'.html');
+        } else {
+            print p_wiki_xhtml($file, '', false);
+        }
+        if ($widget) {
+            print '</aside>';
+        }
+    }
+}/* /namespaced_include */

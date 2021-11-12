@@ -9,6 +9,9 @@ if (!defined('DOKU_INC')) die();
 
 <!-- ********** FOOTER ********** -->
 <footer id="namespaced__footer" class="<?php print tpl_getConf("footerstyle") ?><?php print (strpos(tpl_getConf('neutralize'), 'footer') !== false) ? ' neu' : '' ?><?php print (tpl_getConf('footerwidgetstyle') == "labeled") ? ' toppadding10' : '' ?>">
+
+    <?php namespaced_include("footer-head") ?>
+
     <div class="pad">
         <?php tpl_flush() ?>
         <?php tpl_includeFile('footertop.html') ?>
@@ -21,7 +24,7 @@ if (!defined('DOKU_INC')) die();
 
         <?php tpl_includeFile('footerbottom.html') ?>
 
-    </div>
+    </div><!-- /.pad -->
 
     <div  id="namespaced__footer_sole" class="flex column justify-center">
         <div class="buttons">
@@ -50,8 +53,12 @@ if (!defined('DOKU_INC')) die();
             <h6><a href="http://www.dokuwiki.org/template:namespaced"  title="Namespaced documentation"<?php print $external ?>><img src="/lib/tpl/namespaced/images/namespaced_logo_85.png" width="85" height="16" alt="" /></a></h6> - <a href="https://github.com/geekitude/dokuwiki-template-namespaced/"  title="Github"<?php print $external ?>><?php print namespaced_glyph('github', true)?></a>
             <p><?php print tpl_getLang('namespaced') ?></p>
         </div>
-    </div>
-</footer><!-- /footer -->
+
+    </div><!-- /#namespaced__footer_sole -->
+
+    <?php namespaced_include("footer-foot") ?>
+
+</footer>
 
 <?php
 tpl_includeFile('footer.html');

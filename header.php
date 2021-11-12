@@ -9,9 +9,10 @@ if (!defined('DOKU_INC')) die();
 
 <!-- ********** HEADER ********** -->
 <header id="namespaced__header">
-    <div class="pad group">
 
-        <?php tpl_includeFile('header.html') ?>
+    <?php namespaced_include("header-head") ?>
+
+    <div class="pad group">
 
         <div class="flex">
             <div id="namespaced__site_branding" class="headings flex justify-start grow1">
@@ -44,15 +45,16 @@ if (!defined('DOKU_INC')) die();
                     <?php if ($conf['tagline']): ?>
                         <p id="namespaced__site_description" class="claim"><?php echo $conf['tagline'] ?></p>
                     <?php endif ?>
+                    <?php namespaced_include("tagline-foot") ?>
                 </div>
-            </div>
+            </div><!-- /#namespaced__site_branding -->
 
             <div id="namespaced__secondary_header" class="flex column align-end gap5">
                 <div id="namespaced__banner_wrap" class="flex column end<?php print (strpos(tpl_getConf('print'), 'siteheader-banner') !== false) ? '' : ' noprint' ?>">
                     <?php
-                        tpl_includeFile("bannerheader");
+                        namespaced_include("banner-head");
                         namespaced_ui_image('banner');
-                        tpl_includeFile("bannerfooter");
+                        namespaced_include("banner-foot");
                     ?>
                 </div>
                 <div id="namespaced__header_tools" class="tools flex column align-end grow4">
@@ -68,6 +70,9 @@ if (!defined('DOKU_INC')) die();
                             <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', true) ?>
                         </ul>
                     </aside>
+
+                    <?php namespaced_include("sitetools-foot") ?>
+
                 </div>
                 <?php if ($namespaced['defaultsearch'] == true): ?>
                     <div id="namespaced__search" class="tools flex row align-end">
@@ -77,10 +82,12 @@ if (!defined('DOKU_INC')) die();
                         ?>
                     </div>
                 <?php endif ?>
-            </div>
+            </div><!-- /#namespaced__secondary_header -->
         </div>
 
         <!-- <hr<?php //print $namespaced['a11y']['standalone'] ?> /> -->
-    </div>
+    </div><!-- /.pad -->
 
-</header><!-- /header -->
+    <?php namespaced_include("header-foot") ?>
+
+</header>

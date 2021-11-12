@@ -48,7 +48,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
             }
         ?>
     </style>
-    <?php tpl_includeFile('meta.html') ?>
+    <?php namespaced_include("meta") ?>
 </head>
 
 <body id="dokuwiki__top" class="<?php print namespaced_bodyclasses() ?>">
@@ -150,6 +150,8 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                     <?php endif ?>
                 </div>
         </nav><!-- /#namespaced__page_nav -->
+
+        <?php namespaced_include("main-head") ?>
 
         <main class="flex nowrap align-stretch">
 
@@ -282,6 +284,8 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
             </aside><!-- /#namespaced__pagetools -->
 
         </main>
+
+        <?php namespaced_include("main-foot") ?>
 
         <?php
             if ((tpl_getConf('docinfopos') === "standalone") or (strpos(tpl_getConf('stickies'), 'docinfo') !== false)) {
