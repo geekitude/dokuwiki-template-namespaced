@@ -188,7 +188,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
 
                     <div>
 
-                        <!-- ********** ALERTS ********** -->
+                        <!-- ********** Alerts ********** -->
                         <?php
                             html_msgarea();
                             // Namespaced messages
@@ -211,6 +211,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                             }
                         ?>
 
+                        <!-- ********** Page ********** -->
                         <div class="page">
                             <?php tpl_flush() ?>
                             <?php tpl_includeFile('pageheader.html') ?>
@@ -220,8 +221,9 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                             <!-- wikipage stop -->
                             <!-- <hr<?php //print $namespaced['a11y']['standalone'] ?> /> -->
                             <?php tpl_includeFile('pagefooter.html') ?>
-                        </div>
+                        </div><!-- /.page -->
 
+                        <!-- ********** Sub-Namespaces index ********** -->
                         <?php if((count($namespaced['nsindex']['subns']) > 0) && (((tpl_getConf('subnsaltidx') == "home") && (in_array($namespaced['ishome'], array("default", "untranslated", "translated")))) || ((tpl_getConf('subnsaltidx') == "start") && (in_array($namespaced['ishome'], array("default", "untranslated", "translated", "ns")))) || (tpl_getConf('subnsaltidx') == "always"))): ?>
                             <nav id="namespaced__subns_index" class="<?php print tpl_getConf("subnsaltidxstyle") ?><?php print (strpos(tpl_getConf('neutralize'), 'subnsaltidx') !== false) ? ' neu' : '' ?>">
                                 <?php print (tpl_getConf("subnsaltidxstyle") == "transparent") ? '<hr'.$namespaced['a11y']['standalone'].' />' : "" ?>
@@ -242,7 +244,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
 
                                                 tpl_link(
                                                     wl($namespaced['nsindex']['subns'][$key]['id']),
-                                                    '<img src="'.$namespaced['nsindex']['subns'][$key]['image']['src'].'" alt="*'.$namespaced['nsindex']['subns'][$key]['title'].'*" '.$namespaced['nsindex']['subns'][$key]['image']['size'][3].' class="'.$imgclass.'" title="'.tpl_getLang("subns").'"/><span class="center" title="'.tpl_getLang("subns").'">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
+                                                    '<img src="'.$namespaced['nsindex']['subns'][$key]['image']['src'].'" alt="*'.$namespaced['nsindex']['subns'][$key]['title'].'*" '.$namespaced['nsindex']['subns'][$key]['image']['size'][3].' class="'.$imgclass.'" title="'.tpl_getLang("subns")." ".rtrim($namespaced['nsindex']['subns'][$key]['id'], ":".$conf['start']).'"/><span class="center" title="'.tpl_getLang("subns").'">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
                                                     'class="is_ns '.$class.'"'
                                                 );
                                             } else {
@@ -255,7 +257,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                                         }
                                     ?>
                                 </div>
-                            </nav><!-- /#namespaced__subindex -->
+                            </nav><!-- /#namespaced__subns_index -->
                         <?php endif ?>
 
                         <?php tpl_flush() ?>
@@ -296,7 +298,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
 
         <?php include('footer.php') ?>
 
-    </div><!-- /site -->
+    </div><!-- /#namespaced__site -->
 
     <div id="namespaced__housekeeper" class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
     <div id="screen__mode" class="no"></div><?php /* helper to detect CSS media query in script.js */ ?>
