@@ -705,8 +705,8 @@ nav ul li span:hover,
 }
 
 main aside.gutter {
-    min-width: @ico-margin + @ico-width + @ico-margin;
-    max-width: @ico-margin + @ico-width + @ico-margin;
+    min-width: @ico-margin + @ico-width;
+    max-width: @ico-margin + @ico-width;
 }
 
 /* if overflow is set on main_subflex, sidebar can't be sticky
@@ -859,7 +859,7 @@ body.sidepanel-flip #namespaced__aside {
 /* -- Page nav -- */
 
 #namespaced__page_nav {
-    margin: 1rem 50px 0 50px;
+    margin: 1rem calc(@ico-margin + @ico-width + @ico-margin) 0 calc(@ico-margin + @ico-width + @ico-margin);
     padding: 1rem;
 }
 
@@ -1034,7 +1034,7 @@ div.docInfo span:hover svg {
     position: sticky;
     top: 2rem;
     width: (@ico-width + @ico-margin);
-    /* Inner margin is simulated by page left and right padding */
+    /* Inner margin is replaced by page left and right padding used for section highlight*/
     height: auto;
 }
 
@@ -1128,11 +1128,13 @@ div.docInfo span:hover svg {
 
 #namespaced__contools ul li a svg,
 #namespaced__contools ul li button svg {
-    margin: 0 0 0 calc(@ico-margin/2);
+    /*margin: 0 0 0 calc(@ico-margin/2);*/
+    margin: 0 0 0 @ico-margin;
 }
 
 #namespaced__pagetools ul li a svg {
-    margin: 0 calc(@ico-margin/2) 0 0;
+    /*margin: 0 calc(@ico-margin/2) 0 0;*/
+    margin: 0 @ico-margin 0 0;
 }
 
 #namespaced__contools ul li button {
