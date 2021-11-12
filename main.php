@@ -189,27 +189,29 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                     <div>
 
                         <!-- ********** Alerts ********** -->
-                        <?php
-                            html_msgarea();
-                            // Namespaced messages
-                            // if in playground...
-                            if (strpos($ID, 'playground') !== false) {
-                                // ...and admin, show a link to managing page...
-                                if ($INFO['isadmin']) {
-                                    msg(tpl_getLang('playground_admin'), 2);
-                                // ...else, show a few hints on what it's for
-                                } else {
-                                    msg(tpl_getLang('playground_user'), 0);
+                        <div class="alerts">
+                            <?php
+                                html_msgarea();
+                                // Namespaced messages
+                                // if in playground...
+                                if (strpos($ID, 'playground') !== false) {
+                                    // ...and admin, show a link to managing page...
+                                    if ($INFO['isadmin']) {
+                                        msg(tpl_getLang('playground_admin'), 2);
+                                    // ...else, show a few hints on what it's for
+                                    } else {
+                                        msg(tpl_getLang('playground_user'), 0);
+                                    }
+                                // if at settings page
+                                } elseif (($ACT == "admin") && ($_GET['page'] == "config")) {
+                                    msg(tpl_getLang('jump_to_namespaced'), 0);
                                 }
-                            // if at settings page
-                            } elseif (($ACT == "admin") && ($_GET['page'] == "config")) {
-                                msg(tpl_getLang('jump_to_namespaced'), 0);
-                            }
-                            // Display Translation plugin alerts
-                            if ($namespaced['translation']['helper']) {
-                                print $namespaced['translation']['helper']->checkage();
-                            }
-                        ?>
+                                // Display Translation plugin alerts
+                                if ($namespaced['translation']['helper']) {
+                                    print $namespaced['translation']['helper']->checkage();
+                                }
+                            ?>
+                        </div><!-- /.alerts -->
 
                         <!-- ********** Page ********** -->
                         <div class="page">

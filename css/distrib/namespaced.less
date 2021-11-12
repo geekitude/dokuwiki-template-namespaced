@@ -1957,22 +1957,38 @@ nav.tools ul {
     color: @ini_missing;
 }
 
-[dir] div.error, [dir] div.info, [dir] div.success, [dir] div.notify {
+/*
+div.error,
+div.info,
+div.success,
+div.notify {
     margin-top: 1rem;
-}
-
-[dir=ltr] div.error, [dir=ltr] div.info, [dir=ltr] div.success, [dir=ltr] div.notify {
     padding: .3rem .3rem .3rem 3rem;
 }
-
-[dir=rtl] div.error, [dir=rtl] div.info, [dir=rtl] div.success, [dir=rtl] div.notify {
+*/
+div.alerts div {
+    /*margin-top: 1rem;*/
+    width: 80%;
+}
+[dir] div.alerts div {
+    margin: 1rem auto 0 auto;
+}
+[dir=ltr] div.alerts div {
+    padding: .3rem .3rem .3rem 3rem;
+}
+[dir=rtl] div.alerts div {
     padding: .3rem 3rem .3rem .3rem;
 }
 
+/*
 div.error a,
 div.info a,
 div.success a,
 div.notify a {
+    color: #fff;
+}
+*/
+div.alerts div a {
     color: #fff;
 }
 
