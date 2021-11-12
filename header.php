@@ -65,7 +65,7 @@ if (!defined('DOKU_INC')) die();
                             <?php echo (new \dokuwiki\Menu\MobileMenu())->getDropdown($lang['tools']) ?>
                         </div>
                         <ul class="nostyle inline">
-                            <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', tpl_getConf('glyphs')) ?>
+                            <?php echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', true) ?>
                         </ul>
                     </aside>
                 </div>

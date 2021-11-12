@@ -28,8 +28,8 @@ $meta['footerwidgetstyle']  = array('multichoice','_choices' => array('labeled',
 $meta['neutralize']         = array('multicheckbox','_choices' => array('pagenav','toc','docinfo','side-widgets','subnsaltidx','footer-widgets','footer'),'_other' => 'never');
 $meta['collapsible-toc']    = array('onoff');
 $meta['forcesidepanel']     = array('onoff');
+
 /* functionnalities */
-$meta['glyphs']             = array('onoff');
 $meta['splitnav']           = array('onoff');
 $meta['nsindexexclude']     = array('array');
 $meta['subnsaltidx']        = array('multichoice','_choices' => array('never','home','start','always'));
@@ -38,6 +38,7 @@ $meta['docinfopos']         = array('multichoice','_choices' => array('standalon
 $meta['searches']           = array('multicheckbox','_choices' => array('quicksearch','autocomplete'),'_other' => 'never');
 $meta['licensevisual']      = array('multichoice','_choices' => array('badge','button','none'));
 $meta['uiimagetarget']      = array('multichoice','_choices' => array('image-ns','current-ns','home','image-details','none'));
+
 /*file names*/
 $meta['banner']             = array('string');
 $meta['pattern']            = array('string');

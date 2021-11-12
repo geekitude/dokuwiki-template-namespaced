@@ -9,6 +9,7 @@
  * Default configuration settings
  */
 
+/* global look */
 $conf['layout']             = 'box2wide';
 $conf['flexflip']           = '';
 $conf['stickies']           = '';
@@ -28,7 +29,7 @@ $conf['neutralize']         = '';
 $conf['collapsible-toc']    = 0;
 $conf['forcesidepanel']     = 1;
 
-$conf['glyphs']             = 1;
+/* functionnalities */
 $conf['splitnav']           = 1;
 $conf['nsindexexclude']     = array('sidebar', 'topbar');
 $conf['subnsaltidx']        = 'start';
@@ -38,6 +39,7 @@ $conf['searches']           = 'quicksearch';
 $conf['licensevisual']      = 'badge';
 $conf['uiimagetarget']      = 'image-ns';
 
+/* file names */
 $conf['banner']             = 'banner';
 $conf['pattern']            = 'pattern';
 $conf['cover']              = 'cover';

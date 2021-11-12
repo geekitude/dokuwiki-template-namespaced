@@ -1053,6 +1053,7 @@ function namespaced_dropdown($menu = "admin") {
 function namespaced_glyph($glyph, $return = false) {
     global $namespaced;
 //dbg($glyph);
+
     if (isset($namespaced['glyphs'][$glyph])) {
         $result = inlineSVG($namespaced['glyphs'][$glyph], 4096);
 //dbg("ici?");

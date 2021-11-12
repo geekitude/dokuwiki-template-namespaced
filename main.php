@@ -63,9 +63,9 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
             <h6<?php print $namespaced['a11y']['standalone'] ?>><?php echo $lang['user_tools'] ?></h6>
         </div>
         <nav id="namespaced__site_nav" class="flex navbar pad<?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' sticky' : '' ?>">
+            <!-- NAMESPACE INDEX -->
             <div id="namespaced_ns_menu">
                 <ul class="nostyle">
-                    <!-- NAMESPACE CONTENT -->
                     <?php //namespaced_nsindex(true) ?>
                     <?php
                         // Print pages links
