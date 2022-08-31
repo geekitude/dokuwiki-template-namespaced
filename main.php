@@ -65,7 +65,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
         <nav id="namespaced__site_nav" class="flex navbar pad<?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' sticky' : '' ?>">
             <!-- NAMESPACE INDEX -->
             <div id="namespaced_ns_menu">
-                <ul class="nostyle">
+                <ul class="menu nostyle">
                     <?php //namespaced_nsindex(true) ?>
                     <?php
                         // Print pages links
@@ -90,7 +90,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
             <!-- USER TOOLS -->
             <?php if ($conf['useacl']): ?>
                 <div id="namespaced__usertools">
-                    <ul class="nostyle">
+                    <ul class="menu nostyle">
                         <?php
                             namespaced_usertools();
                         ?>

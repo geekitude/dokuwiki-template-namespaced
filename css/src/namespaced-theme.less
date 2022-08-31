@@ -128,9 +128,14 @@ h5 {
     border-top: .6rem solid @ini_secondary_color;
 }
 
+/*
 .navbar ul li a,
 .navbar ul li span,
 .navbar ul li button {
+    color: @ini_theme_text_color;
+}
+*/
+#namespaced_ns_menu li a {
     color: @ini_theme_text_color;
 }
 
@@ -141,9 +146,19 @@ h5 {
     fill: @ini_theme_text_color;
 }
 
-nav ul li a:hover,
-nav ul li span:hover,
-#namespaced__contools ul li button:hover {
+/*
+nav ul.menu li a.action:hover,
+nav ul.sub-menu li a.action:hover,
+nav ul.menu li span:hover,
+nav ul.sub-menu li span:hover,
+#namespaced__contools ul.menu li button:hover,
+#namespaced__contools ul.sub-menu li button:hover {
+*/
+nav ul.menu li a.nav:hover,
+nav ul.menu li a.action:hover,
+nav ul.sub-menu li a.action:hover,
+#namespaced__contools ul.menu li button:hover,
+#namespaced__contools ul.sub-menu li button:hover {
     /*box-shadow: 0 0 40px 40px @ini_secondary_color inset;*/
     background-color: @ini_secondary_color;
 }

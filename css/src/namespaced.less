@@ -550,9 +550,10 @@ a.skip:active {
     display: block;
 }
 
-.navbar .action .sub-menu {
+.navbar ul.dropdown {
     right: 0;
     top: auto;
+    width: 400px;
     background-color: @ini_background;
 }
 
@@ -566,9 +567,11 @@ a.skip:active {
     top: 44px;
 }
 
+/*
 .navbar ul.sub-menu {
     width: 400px;
 }
+*/
 
 .navbar ul li ul li a {
     border-top: none;
@@ -664,13 +667,21 @@ a.skip:active {
 #namespaced__usertools li.account-edit ul {
 }
 
-#namespaced__usertools li.account-edit span.loggedinas {
-    color: @ini_text;
+#namespaced__usertools li.account-edit li {
     pointer-events: none;
 }
 
-#namespaced__usertools li.account-edit span.loggedinas bdi:first-child {
-    margin: 0 .3rem;
+#namespaced__usertools li span.loggedinas {
+    color: @ini_text;
+    align-content: center;
+}
+
+#namespaced__usertools li span.loggedinas bdi:first-child {
+    margin: 0 .5rem;
+}
+
+#namespaced__usertools li.account-edit span.loggedinas a {
+    pointer-events: auto;
 }
 
 #namespaced__site_nav.navbar ul.sub-menu li a {
@@ -1589,6 +1600,7 @@ a.urlextern, a.mail, a.windows, a.iw_wp {
     background-size: contain;
 }
 
+/*
 a.interwiki:not(.iw_wp), a.mediafile {
     padding: 0 0 0 1.8rem;
     background-position: 0 center;
@@ -1596,6 +1608,11 @@ a.interwiki:not(.iw_wp), a.mediafile {
 
 a.urlextern, a.windows, a.mail, a.interwiki.iw_wp {
     padding-left: 1.2em;
+}
+*/
+a.interwiki, a.mediafile, a.urlextern, a.windows, a.mail {
+    padding: 0 0 0 1.2em;
+    background-position: 0 center;
 }
 
 a.interwiki.iw_doku {

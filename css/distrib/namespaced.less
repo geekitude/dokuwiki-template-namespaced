@@ -643,19 +643,20 @@ a.skip:active {
     display: block;
 }
 
-.navbar .action .sub-menu {
+.navbar ul.dropdown {
     top: auto;
+    width: 400px;
 }
 
-[dir] .navbar .action .sub-menu {
+[dir] .navbar ul.dropdown {
     background-color: @ini_background;
 }
 
-[dir=ltr] .navbar .action .sub-menu {
+[dir=ltr] .navbar ul.dropdown {
     right: 0;
 }
 
-[dir=rtl] .navbar .action .sub-menu {
+[dir=rtl] .navbar ul.dropdown {
     left: 0;
 }
 
@@ -669,9 +670,11 @@ a.skip:active {
     top: 44px;
 }
 
+/*
 .navbar ul.sub-menu {
     width: 400px;
 }
+*/
 
 [dir] .navbar ul li ul li a {
     border-top: none;
@@ -815,13 +818,21 @@ a.skip:active {
     text-align: center;
 }
 
-#namespaced__usertools li.account-edit span.loggedinas {
-    color: @ini_text;
+#namespaced__usertools li.account-edit li {
     pointer-events: none;
 }
 
-[dir] #namespaced__usertools li.account-edit span.loggedinas bdi:first-child {
-    margin: 0 .3rem;
+#namespaced__usertools li span.loggedinas {
+    color: @ini_text;
+    align-content: center;
+}
+
+[dir] #namespaced__usertools li span.loggedinas bdi:first-child {
+    margin: 0 .5rem;
+}
+
+#namespaced__usertools li.account-edit span.loggedinas a {
+    pointer-events: auto;
 }
 
 #namespaced__site_nav.navbar ul.sub-menu li a {
@@ -1926,22 +1937,23 @@ nav.tools ul {
     background-size: contain;
 }
 
-[dir=ltr] a.interwiki:not(.iw_wp), [dir=ltr] a.mediafile {
+/*
+a.interwiki:not(.iw_wp), a.mediafile {
     padding: 0 0 0 1.8rem;
     background-position: 0 center;
 }
 
-[dir=rtl] a.interwiki:not(.iw_wp), [dir=rtl] a.mediafile {
-    padding: 0 1.8rem 0 0;
-    background-position: 100% center;
-}
-
-[dir=ltr] a.urlextern, [dir=ltr] a.windows, [dir=ltr] a.mail, [dir=ltr] a.interwiki.iw_wp {
+a.urlextern, a.windows, a.mail, a.interwiki.iw_wp {
     padding-left: 1.2em;
 }
-
-[dir=rtl] a.urlextern, [dir=rtl] a.windows, [dir=rtl] a.mail, [dir=rtl] a.interwiki.iw_wp {
-    padding-right: 1.2em;
+*/
+[dir=ltr] a.interwiki, [dir=ltr] a.mediafile, [dir=ltr] a.urlextern, [dir=ltr] a.windows, [dir=ltr] a.mail {
+    padding: 0 0 0 1.2em;
+    background-position: 0 center;
+}
+[dir=rtl] a.interwiki, [dir=rtl] a.mediafile, [dir=rtl] a.urlextern, [dir=rtl] a.windows, [dir=rtl] a.mail {
+    padding: 0 1.2em 0 0;
+    background-position: 100% center;
 }
 
 [dir] a.interwiki.iw_doku {

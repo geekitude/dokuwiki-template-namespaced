@@ -292,7 +292,7 @@ function namespaced_init() {
                 $title = namespaced_glyph('nshome', true).$title;
             }
             // Store a link to item
-            $data[$datakey]['link'] = '<a href="'.wl($data[$datakey]['id']).'" class="'.$class.'" title="'.$data[$datakey]['id'].'">'.$title.'</a>';
+            $data[$datakey]['link'] = '<a href="'.wl($data[$datakey]['id']).'" class="nav '.$class.'" title="'.$data[$datakey]['id'].'">'.$title.'</a>';
             // Store item in relevant array
             if ($item['type'] == 'd') {
                 $namespaced['nsindex']['subns'][] = $data[$datakey];
@@ -834,17 +834,17 @@ function namespaced_usertools() {
         $icon = $field["\0*\0svg"];
         if ($field["\0*\0type"] == "login") {
             if ($ACT == "denied") {
-                print '<li class="menu-item action login"><a href="#namespaced__content" rel="nofollow" title="'.$lang['btn_login'].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_login'].'</span></a></li>';
+                print '<li class="menu-item"><a class="action login" href="#namespaced__content" rel="nofollow" title="'.$lang['btn_login'].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_login'].'</span></a></li>';
             } else {
-                print '<li class="menu-item action login"><a href="/doku.php?id='.$ID.'&amp;do=login" rel="nofollow" title="'.$lang['btn_login'].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_login'].'</span></a></li>';
+                print '<li class="menu-item"><a class="action login" href="/doku.php?id='.$ID.'&amp;do=login" rel="nofollow" title="'.$lang['btn_login'].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_login'].'</span></a></li>';
             }
         } elseif (($field["\0*\0type"] == "register") && ($ACT != "register")) {
-            print '<li class="menu-item action register"><a href="/doku.php?id='.$ID.'&amp;do=register" rel="nofollow" title="'.$lang['btn_register'].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_register'].'</span></a></li>';
+            print '<li class="menu-item"><a class="action register" href="/doku.php?id='.$ID.'&amp;do=register" rel="nofollow" title="'.$lang['btn_register'].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_register'].'</span></a></li>';
         } elseif ($field["\0*\0type"] == "profile") {
             if (isset($namespaced['widgets']['footer']['user.html'])) {
-                print '<li class="menu-item action profile"><a href="#namespaced__widget_user" rel="nofollow" title="'.$lang['profile'].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['profile'].'</span></a></li>';
+                print '<li class="menu-item"><a class="action profile" href="#namespaced__widget_user" rel="nofollow" title="'.$lang['profile'].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['profile'].'</span></a></li>';
             } else {
-                print '<li class="menu-item action account-edit"><a href="/doku.php?id='.$ID.'&amp;do=profile" rel="nofollow" title="'.$lang['btn_profile'].'">'.inlineSVG($namespaced['glyphs']["account-edit"]).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_profile'].'</span></a><ul class="sub-menu nostyle"><li class="user"><span class="loggedinas flex justify-center">'.$lang['loggedinas'].' '.userlink().'</span></li></ul></li>';
+                print '<li class="menu-item"><a class="action account-edit" href="/doku.php?id='.$ID.'&amp;do=profile" rel="nofollow" title="'.$lang['btn_profile'].'">'.inlineSVG($namespaced['glyphs']["account-edit"]).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_profile'].'</span></a><ul class="dropdown nostyle"><li class="user"><span class="loggedinas flex justify-center">'.$lang['loggedinas'].' '.userlink().'</span></li></ul></li>';
             }
 //dbg($namespaced['glyphs']['account-edit']);
 
@@ -862,9 +862,9 @@ function namespaced_usertools() {
             //}
 
         } elseif (($field["\0*\0type"] == "admin") && ($_SERVER['REMOTE_USER'] != NULL) && ($INFO['isadmin'])) {
-            print '<li class="menu-item menu-item-has-children action admin">';
-                print '<a href="/doku.php?id='.$ID.'&do=admin" rel="nofollow" title="'.$lang['btn_admin'].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_admin'].'</span></a>';
-                print '<ul class="sub-menu nostyle">';
+            print '<li class="menu-item menu-item-has-children">';
+                print '<a class="action admin" href="/doku.php?id='.$ID.'&do=admin" rel="nofollow" title="'.$lang['btn_admin'].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_admin'].'</span></a>';
+                print '<ul class="dropdown sub-menu nostyle">';
                     //namespaced_admindropdown();
                     namespaced_dropdown();
                 print '</ul>';
@@ -872,16 +872,16 @@ function namespaced_usertools() {
         } elseif ($field["\0*\0type"] == "logout") {
             // Extra cache dropdown
             if (($_SERVER['REMOTE_USER'] != NULL) && ($INFO['ismanager'])) {
-                print '<li class="menu-item menu-item-has-children action cache">';
+                print '<li class="menu-item menu-item-has-childrenaction cache">';
                     print '<span title="'.tpl_getLang('cache').'">'.namespaced_glyph('recycle', true).'<span'.$namespaced['a11y']['standalone'].'>'.tpl_getLang('cache').'</span></span>';
-                    print '<ul class="sub-menu nostyle">';
+                    print '<ul class="dropdown sub-menu nostyle">';
                         namespaced_dropdown("cache");
                     print '</ul>';
                 print '</li><!-- .action.cache -->';
             }
-            print '<li class="menu-item action logout"><a href="/doku.php?id='.$ID.'&amp;do=logout&amp;sectok='.$field["\0*\0params"]['sectok'].'" rel="nofollow" title="'.$lang['btn_logout'].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_logout'].'</span></a></li>';
+            print '<li class="menu-item"><a class="action logout" href="/doku.php?id='.$ID.'&amp;do=logout&amp;sectok='.$field["\0*\0params"]['sectok'].'" rel="nofollow" title="'.$lang['btn_logout'].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$lang['btn_logout'].'</span></a></li>';
         } else {
-            print '<li class="menu-item action debug '.$field["\0*\0type"].'"><a title="'.$field["\0*\0type"].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$field["\0*\0type"].'</span></a></li>';
+            print '<li class="menu-item '.$field["\0*\0type"].'"><a class="action debug" title="'.$field["\0*\0type"].'">'.inlineSVG($icon).'<span'.$namespaced['a11y']['standalone'].'>'.$field["\0*\0type"].'</span></a></li>';
 //dbg($field["\0*\0type"]);
 //dbg($field["\0*\0type"]);
 //dbg($field["\0*\0svg"]);
@@ -1041,9 +1041,9 @@ function namespaced_dropdown($menu = "admin") {
         }
     } elseif ($menu == "cache") {
         //echo '<li class="dropdown-header">'.tpl_getLang('cache').'<hr/></li>';
-        echo '<li><a href="'.wl($ID, array("do" => $ACT, "page" => $_GET['page'], "purge" => "true")).'">'.tpl_getLang('purgepagecache').namespaced_glyph("pagerefresh", true).'</a></li>';
-        echo '<li><a href="'.DOKU_URL.'lib/exe/js.php">'.tpl_getLang('purgejscache').namespaced_glyph("recycle", true).'</a></li>';
-        echo '<li><a href="'.DOKU_URL.'lib/exe/css.php">'.tpl_getLang('purgecsscache').namespaced_glyph("recycle", true).'</a></li>';
+        echo '<li><a class="action cache" href="'.wl($ID, array("do" => $ACT, "page" => $_GET['page'], "purge" => "true")).'">'.tpl_getLang('purgepagecache').namespaced_glyph("pagerefresh", true).'</a></li>';
+        echo '<li><a class="action cache" href="'.DOKU_URL.'lib/exe/js.php">'.tpl_getLang('purgejscache').namespaced_glyph("recycle", true).'</a></li>';
+        echo '<li><a class="action cache" href="'.DOKU_URL.'lib/exe/css.php">'.tpl_getLang('purgecsscache').namespaced_glyph("recycle", true).'</a></li>';
     }
 }/* namespaced_dropdown */
 
