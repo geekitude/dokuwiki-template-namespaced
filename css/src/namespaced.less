@@ -511,12 +511,6 @@ a.skip:active {
     font-size: 90%;
 }
 
-#namespaced__site_nav.navbar ul li,
-#namespaced__site_nav.navbar ul li a,
-#namespaced__site_nav.navbar ul li span {
-    height: 42px;
-}
-
 .navbar > div > ul {
     display: flex;
 }
@@ -634,12 +628,25 @@ a.skip:active {
     display: none;
 }
 
+/*
+#namespaced__site_nav.navbar ul li,
+#namespaced__site_nav.navbar ul li a,
+#namespaced__site_nav.navbar ul li span {
+    height: 42px;
+}
+*/
 #namespaced__site_nav.navbar ul li.no-pages,
 #namespaced__site_nav.navbar ul li a,
 #namespaced__site_nav.navbar ul li span {
     display: flex;
     align-items: center;
     padding: .6rem 1rem;
+    height: 42px;
+}
+
+#namespaced__site_nav.navbar ul li a.interwiki.iw_user {
+    background-size: 2em;
+    padding-left: 1.5em;
 }
 
 /*
@@ -651,8 +658,8 @@ a.skip:active {
 }
 */
 #namespaced__site_nav.navbar ul li.menu-item svg {
-    width: 30px;
-    height: 30px;
+    width: 3rem;
+    height: 3rem;
 }
 
 #namespaced__site_nav.navbar ul li a span {
