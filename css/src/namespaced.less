@@ -1010,12 +1010,25 @@ div.docInfo {
 }
 */
 
+div.docInfo {
+  font-size: 90%;
+}
+
 div.docInfo span {
   cursor: help;
 }
 
 div.docInfo span svg {
     fill: @ini_blue_color;
+    height: 2em;
+}
+
+div.docInfo span a {
+    background-size: 2em;
+    padding-left: 2em;
+    height: 30px;
+    display: flex;
+    align-items: center
 }
 
 div.docInfo span:hover {
