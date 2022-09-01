@@ -26,6 +26,7 @@ $meta['docinfostyle']       = array('multichoice','_choices' => array('theme','s
 $meta['footerstyle']        = array('multichoice','_choices' => array('theme','secondary','dark','oneborder','sitebg'));
 $meta['footerwidgetstyle']  = array('multichoice','_choices' => array('labeled','theme','secondary','dark','fourborders','oneborder','transparent'));
 $meta['neutralize']         = array('multicheckbox','_choices' => array('pagenav','toc','docinfo','side-widgets','subnsaltidx','footer-widgets','footer'),'_other' => 'never');
+$meta['collapsible-toc']    = array('onoff');
 $meta['acordion-toc']       = array('onoff');
 $meta['forcesidepanel']     = array('onoff');
 

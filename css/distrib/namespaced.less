@@ -1125,6 +1125,14 @@ div.pageId span:hover {
 
 /* -- ToC -- */
 
+#dw__toc h3 strong {
+    display: none;
+}
+
+[dir=ltr] #dw__toc h3 strong {
+    padding-right: .5rem;
+}
+
 #dw__toc ul {
     list-style: none;
 }
@@ -1163,6 +1171,10 @@ div.pageId span:hover {
 
 [dir=rtl] #dw__toc ul li a:hover {
     border-right-color: @ini_highlight;
+}
+
+body.collapsible-toc #dw__toc h3 strong {
+    display: initial;
 }
 
 body.acordion-toc #dw__toc ul li ul,

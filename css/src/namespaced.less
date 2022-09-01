@@ -936,6 +936,14 @@ div.pageId span {
 
 /* -- ToC -- */
 
+#dw__toc h3 strong {
+    display: none;
+}
+
+[dir=ltr] #dw__toc h3 strong {
+    padding-right: .5rem;
+}
+
 #dw__toc ul {
     list-style: none;
 }
@@ -959,6 +967,10 @@ div.pageId span {
 
 #dw__toc ul li a:hover {
     border-left-color: @ini_highlight;
+}
+
+body.collapsible-toc #dw__toc h3 strong {
+    display: initial;
 }
 
 body.acordion-toc #dw__toc ul li ul,

@@ -26,6 +26,7 @@ $conf['docinfostyle']       = 'oneborder';
 $conf['footerstyle']        = 'dark';
 $conf['footerwidgetstyle']  = 'transparent';
 $conf['neutralize']         = '';
+$conf['collapsible-toc']    = 1;
 $conf['acordion-toc']       = 0;
 $conf['forcesidepanel']     = 1;
 
