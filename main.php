@@ -49,6 +49,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
         ?>
     </style>
     <?php namespaced_include("meta") ?>
+    <?php //dbg($namespaced['images']) ?>
 </head>
 
 <body id="dokuwiki__top" class="<?php print namespaced_bodyclasses() ?>">

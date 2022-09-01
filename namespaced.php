@@ -695,7 +695,12 @@ function namespaced_widgets($area = null){
             }
             //print $data['target'];
             if ($data['type'] == "media") {
-                print '<img src="'.$data['target']['src'].'" alt="*'.$data['target']['title'].'*" '.$data['target']['size'][3].' class="mediacenter '.ltrim($widget, ":").'" />';
+                //dbg($data);
+                if (isset($data['target']['ns'])) {
+namespaced_ui_image('cover');
+                } else {
+                    print '<img src="'.$data['target']['src'].'" alt="*'.$data['target']['title'].'*" '.$data['target']['size'][3].' class="mediacenter '.ltrim($widget, ":").'" />';
+                }
             } elseif ($data['type'] == "include") {
                 tpl_includeFile($widget);
             } else {
