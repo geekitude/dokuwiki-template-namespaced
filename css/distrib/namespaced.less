@@ -1145,22 +1145,25 @@ div.pageId span:hover {
     margin-right: 0;
 }
 
-[dir] #dw__toc ul li {
-    margin: .3rem 0;
+#dw__toc ul li {
+    /*margin: .3rem 0;*/
 }
 
+/*
+#dw__toc ul li a {
+    border: @ini_border_width solid transparent;
+}
+*/
+#dw__toc ul li a {
+    display: inline-block;
+    width: 100%;
+}
 [dir] #dw__toc ul li a {
     border: @ini_border_width solid transparent;
 }
-
-[dir] #dw__toc ul li a {
-    border: @ini_border_width solid transparent;
-}
-
 [dir=ltr] #dw__toc ul li a {
     padding-left: @ini_border_width;
 }
-
 [dir=rtl] #dw__toc ul li a {
     padding-right: @ini_border_width;
 }
