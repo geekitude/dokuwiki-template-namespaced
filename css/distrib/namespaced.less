@@ -14,6 +14,7 @@
 * MICRO-RESET
 * HTML ITEMS
 * -- Headings
+* LAYOUT
 * FLEXBOX
 * SECTION HIGHLIGHTING
 * SKIP
@@ -45,6 +46,7 @@
 * -- Tags
 * -- Tagalerts
 * -- Translation
+* -- Userhomepage
 * -- Wrap
 * RESPONSIVENESS
 * MORE ACCESSIBILITY
@@ -99,6 +101,10 @@ html {
 
 body {
     font-size: 1.6em;
+}
+
+[dir] body {
+    background-color: @ini_body_background;
 }
 
 * {
@@ -397,6 +403,36 @@ h6 span.label {
 
 [dir] #namespaced__site_nav_labels h6 {
     padding: .4rem 1rem;
+}
+
+/* LAYOUT
+-------------------------------------------------------------- */
+
+[dir] #namespaced__site {
+    background-color: @ini_background;
+}
+
+[dir] body.box-layout {
+    background-image: url(/lib/exe/fetch.php?media=wiki:pattern.png);
+    background-size: auto;
+    background-repeat: repeat;
+    background-attachment: scroll;
+}
+
+[dir=ltr] body.box-layout {
+    background-position: left top;
+}
+
+[dir=rtl] body.box-layout {
+    background-position: right top;
+}
+
+body.box-layout #namespaced__site {
+    max-width: @ini_site_width;
+}
+
+[dir] body.box-layout #namespaced__site {
+    margin: 3rem auto;
 }
 
 /* FLEXBOX
