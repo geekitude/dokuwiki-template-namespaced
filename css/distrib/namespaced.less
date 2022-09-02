@@ -412,29 +412,6 @@ h6 span.label {
     background-color: @ini_background;
 }
 
-[dir] body.box-layout {
-    background-image: url(/lib/exe/fetch.php?media=wiki:pattern.png);
-    background-size: auto;
-    background-repeat: repeat;
-    background-attachment: scroll;
-}
-
-[dir=ltr] body.box-layout {
-    background-position: left top;
-}
-
-[dir=rtl] body.box-layout {
-    background-position: right top;
-}
-
-body.box-layout #namespaced__site {
-    max-width: @ini_site_width;
-}
-
-[dir] body.box-layout #namespaced__site {
-    margin: 3rem auto;
-}
-
 /* FLEXBOX
 -------------------------------------------------------------- */
 
@@ -2714,6 +2691,29 @@ div.wrap_download {
     }
     #screen__mode span::after {
         content: 'extractible TOC';
+    }
+}
+
+@media screen and (min-width: @ini_site_width + 62px) {
+    [dir] body.box-layout {
+        background-image: url(/lib/exe/fetch.php?media=wiki:pattern.png);
+        background-size: auto;
+        background-repeat: repeat;
+        background-attachment: scroll;
+    }
+    [dir=ltr] body.box-layout {
+        background-position: left top;
+    }
+    [dir=rtl] body.box-layout {
+        background-position: right top;
+    }
+
+    body.box-layout #namespaced__site {
+        max-width: @ini_site_width;
+    }
+
+    [dir] body.box-layout #namespaced__site {
+        margin: 3rem auto;
     }
 }
 

@@ -349,19 +349,6 @@ h6 span.label {
     background-color: @ini_background;
 }
 
-body.box-layout {
-    background-image: url(/lib/exe/fetch.php?media=wiki:pattern.png);
-    background-position: left top;
-    background-size: auto;
-    background-repeat: repeat;
-    background-attachment: scroll;
-}
-
-body.box-layout #namespaced__site {
-    margin: 3rem auto;
-    max-width: @ini_site_width;
-}
-
 /* FLEXBOX
 -------------------------------------------------------------- */
 
@@ -2253,6 +2240,21 @@ span.wrap_hi {
     }
     #screen__mode span::after {
         content: 'extractible TOC';
+    }
+}
+
+@media screen and (min-width: @ini_site_width + 62px) {
+    body.box-layout {
+        background-image: url(/lib/exe/fetch.php?media=wiki:pattern.png);
+        background-position: left top;
+        background-size: auto;
+        background-repeat: repeat;
+        background-attachment: scroll;
+    }
+
+    body.box-layout #namespaced__site {
+        margin: 3rem auto;
+        max-width: @ini_site_width;
     }
 }
 
