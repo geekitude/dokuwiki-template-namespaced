@@ -2695,16 +2695,16 @@ div.wrap_download {
 }
 
 @media screen and (min-width: @ini_site_width + 62px) {
-    [dir] body.box-layout {
+    [dir] body.box-layout, [dir] body.mix-layout {
         background-image: url(/lib/exe/fetch.php?media=wiki:pattern.png);
         background-size: auto;
         background-repeat: repeat;
         background-attachment: scroll;
     }
-    [dir=ltr] body.box-layout {
+    [dir=ltr] body.box-layout, [dir=ltr] body.mix-layout {
         background-position: left top;
     }
-    [dir=rtl] body.box-layout {
+    [dir=rtl] body.box-layout, [dir=rtl] body.mix-layout {
         background-position: right top;
     }
 
@@ -2714,6 +2714,14 @@ div.wrap_download {
 
     [dir] body.box-layout #namespaced__site {
         margin: 3rem auto;
+    }
+
+    body.mix-layout #namespaced__page {
+        max-width: @ini_site_width;
+    }
+
+    [dir] body.mix-layout #namespaced__page {
+        margin: 0 auto;
     }
 }
 

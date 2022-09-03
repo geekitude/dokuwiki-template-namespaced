@@ -2244,7 +2244,7 @@ span.wrap_hi {
 }
 
 @media screen and (min-width: @ini_site_width + 62px) {
-    body.box-layout {
+    body.box-layout, body.mix-layout {
         background-image: url(/lib/exe/fetch.php?media=wiki:pattern.png);
         background-position: left top;
         background-size: auto;
@@ -2254,6 +2254,11 @@ span.wrap_hi {
 
     body.box-layout #namespaced__site {
         margin: 3rem auto;
+        max-width: @ini_site_width;
+    }
+
+    body.mix-layout #namespaced__page {
+        margin: 0 auto;
         max-width: @ini_site_width;
     }
 }

@@ -108,183 +108,186 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
             </div><!-- #namespaced__widebanner_wrap -->
         <?php endif ?>
 
-        <nav id="namespaced__page_nav" class="flex justify-between gap20 <?php print tpl_getConf('pagenavstyle') ?><?php print (strpos(tpl_getConf('neutralize'), 'pagenav') !== false) ? ' neu' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'pagenav') !== false) ? ' sticky' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' stickynav' : '' ?>">
-                <div class="flex column align-start">
-                    <div class="pageId h6">
-                        <span><?php echo hsc($ID) ?></span>
-                    </div>
-                    <?php
-                        if ((tpl_getConf('docinfopos') == "pagenav") and (strpos(tpl_getConf('stickies'), 'docinfo') === false)) {
-                            namespaced_docinfo();
-                            print '</div>';
-                            print '<div class="flex column align-end">';
-                            $closed = true;
-                        }
-                    ?>
-                    <!-- TRANSLATIONS -->
-                    <?php
-                        if (!($conf['breadcrumbs'] and $conf['youarehere'])) {
-                            print '</div>';
-                            print '<div class="flex column align-end">';
-                            $closed = true;
-                        }
-                        if ($namespaced['translation']['helper']) {
-                            print '<nav id="namespaced__translations">';
-                                print $namespaced['translation']['helper']->showTranslations();
-                            print '</nav>';
-                        }
-                        if ($closed != true) {
-                            print '</div>';
-                            print '<div class="flex column align-end">';
-                        }
-                    ?>
-                    <!-- BREADCRUMBS -->
-                    <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
-                        <nav class="breadcrumbs flex column end align-stretch">
-                            <?php if($conf['youarehere']): ?>
-                                <div class="youarehere"><?php tpl_youarehere() ?></div>
-                            <?php endif ?>
-                            <?php if($conf['breadcrumbs']): ?>
-                                <div class="trace"><?php tpl_breadcrumbs() ?></div>
-                            <?php endif ?>
-                        </nav>
-                    <?php endif ?>
-                </div>
-        </nav><!-- /#namespaced__page_nav -->
-
-        <?php namespaced_include("main-head") ?>
-
-        <main class="flex nowrap align-stretch">
-
-            <!-- CONTEXT TOOLS -->
-            <aside id="namespaced__contools" class="gutter flex column">
-                <nav class="tools<?php print (strpos(tpl_getConf('uicolorize'), 'contools') !== false) ? " uicolor-contools" : "" ?><?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' stickynav' : '' ?>">
-                    <ul class="nostyle">
-                        <li><h6 class="aside-title<?php print $namespaced['a11y']['extraclass'] ?>"><?php print tpl_getLang('context_tools') ?></h6></li>
-                        <?php namespaced_contools() ?>
-                    </ul>
-                </nav><!-- /.tools -->
-            </aside><!-- /#namespaced__contools -->
-
-            <div id="namespaced__main_subflex" class="flex nowrap align-stretch">
-
-                <?php //if($showSidebar): ?>
-                <?php if(($ACT=='show') && (@count($namespaced['widgets']['side']) > 0)): ?>
-                    <!-- ********** ASIDE ********** -->
-                    <aside id="namespaced__aside">
-                        <div class="aside include<?php print (strpos(tpl_getConf('stickies'), 'sidepanel') !== false) ? ' sticky' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' stickynav' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'pagenav') !== false) ? ' stickypagenav' : '' ?>">
-                            <h6 class="toggle"><?php echo $lang['sidebar'] ?></h6>
-                            <div class="content">
-                                <?php tpl_flush() ?>
-                                <?php tpl_includeFile('sidebarheader.html') ?>
-                                <?php //tpl_include_page($conf['sidebar'], true, true) ?>
-                                <?php namespaced_widgets('side') ?>
-                                <?php tpl_includeFile('sidebarfooter.html') ?>
-                            </div>
+        <div id="namespaced__page">
+            <nav id="namespaced__page_nav" class="flex justify-between gap20 <?php print tpl_getConf('pagenavstyle') ?><?php print (strpos(tpl_getConf('neutralize'), 'pagenav') !== false) ? ' neu' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'pagenav') !== false) ? ' sticky' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' stickynav' : '' ?>">
+                    <div class="flex column align-start">
+                        <div class="pageId h6">
+                            <span><?php echo hsc($ID) ?></span>
                         </div>
-                    </aside><!-- /aside -->
-                    <!-- <hr class="vertical<?php //print $namespaced['a11y']['extraclass'] ?>" /> -->
-                <?php endif ?>
-
-                <!-- ********** CONTENT ********** -->
-                <article id="namespaced__content">
-
-                    <div>
-
-                        <!-- ********** Alerts ********** -->
-                        <div class="alerts">
-                            <?php
-                                html_msgarea();
-                                // Namespaced messages
-                                // if in playground...
-                                if (strpos($ID, 'playground') !== false) {
-                                    // ...and admin, show a link to managing page...
-                                    if ($INFO['isadmin']) {
-                                        msg(tpl_getLang('playground_admin'), 2);
-                                    // ...else, show a few hints on what it's for
-                                    } else {
-                                        msg(tpl_getLang('playground_user'), 0);
-                                    }
-                                // if at settings page
-                                } elseif (($ACT == "admin") && ($_GET['page'] == "config")) {
-                                    msg(tpl_getLang('jump_to_namespaced'), 0);
-                                }
-                                // Display Translation plugin alerts
-                                if ($namespaced['translation']['helper']) {
-                                    print $namespaced['translation']['helper']->checkage();
-                                }
-                            ?>
-                        </div><!-- /.alerts -->
-
-                        <!-- ********** Page ********** -->
-                        <div class="page">
-                            <?php tpl_flush() ?>
-                            <?php tpl_includeFile('pageheader.html') ?>
-                            <!-- <hr<?php //print $namespaced['a11y']['standalone'] ?> /> -->
-                            <!-- wikipage start -->
-                            <?php tpl_content() ?>
-                            <!-- wikipage stop -->
-                            <!-- <hr<?php //print $namespaced['a11y']['standalone'] ?> /> -->
-                            <?php tpl_includeFile('pagefooter.html') ?>
-                        </div><!-- /.page -->
-
-                        <!-- ********** Sub-Namespaces index ********** -->
-                        <?php if((count($namespaced['nsindex']['subns']) > 0) && (((tpl_getConf('subnsaltidx') == "home") && (in_array($namespaced['ishome'], array("default", "untranslated", "translated")))) || ((tpl_getConf('subnsaltidx') == "start") && (in_array($namespaced['ishome'], array("default", "untranslated", "translated", "ns")))) || (tpl_getConf('subnsaltidx') == "always"))): ?>
-                            <nav id="namespaced__subns_index" class="<?php print tpl_getConf("subnsaltidxstyle") ?><?php print (strpos(tpl_getConf('neutralize'), 'subnsaltidx') !== false) ? ' neu' : '' ?>">
-                                <?php print (tpl_getConf("subnsaltidxstyle") == "transparent") ? '<hr'.$namespaced['a11y']['standalone'].' />' : "" ?>
-                                <div class="flex justify-evenly align-center gap20">
-                                    <?php
-                                        foreach ($namespaced['nsindex']['subns'] as $key => $value) {
-                                            if (page_exists($namespaced['nsindex']['subns'][$key]['id'])) {
-                                                $class = "wikilink1";
-                                            } else {
-                                                $class = "wikilink2";
-                                            }
-                                            if ($namespaced['nsindex']['subns'][$key]['image'] != null) {
-                                                if ((tpl_getConf('subnsaltidximage') == "banner") or ((tpl_getConf('subnsaltidximage') == "mix") and (in_array($namespaced['ishome'], array("default", "untranslated", "translated"))))) {
-                                                    $imgclass = "banner";
-                                                } else {
-                                                    $imgclass = "cover";
-                                                }
-
-                                                tpl_link(
-                                                    wl($namespaced['nsindex']['subns'][$key]['id']),
-                                                    '<img src="'.$namespaced['nsindex']['subns'][$key]['image']['src'].'" alt="*'.$namespaced['nsindex']['subns'][$key]['title'].'*" '.$namespaced['nsindex']['subns'][$key]['image']['size'][3].' class="'.$imgclass.'" title="'.tpl_getLang("subns")." ".rtrim($namespaced['nsindex']['subns'][$key]['id'], ":".$conf['start']).'"/><span class="center" title="'.tpl_getLang("subns").'">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
-                                                    'class="is_ns '.$class.'"'
-                                                );
-                                            } else {
-                                                tpl_link(
-                                                    wl($namespaced['nsindex']['subns'][$key]['id']),
-                                                    '<span class="center" title="'.tpl_getLang("subns").'">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
-                                                    'class="is_ns textonly '.$class.'"'
-                                                );
-                                            }
-                                        }
-                                    ?>
-                                </div>
-                            </nav><!-- /#namespaced__subns_index -->
+                        <?php
+                            if ((tpl_getConf('docinfopos') == "pagenav") and (strpos(tpl_getConf('stickies'), 'docinfo') === false)) {
+                                namespaced_docinfo();
+                                print '</div>';
+                                print '<div class="flex column align-end">';
+                                $closed = true;
+                            }
+                        ?>
+                        <!-- TRANSLATIONS -->
+                        <?php
+                            if (!($conf['breadcrumbs'] and $conf['youarehere'])) {
+                                print '</div>';
+                                print '<div class="flex column align-end">';
+                                $closed = true;
+                            }
+                            if ($namespaced['translation']['helper']) {
+                                print '<nav id="namespaced__translations">';
+                                    print $namespaced['translation']['helper']->showTranslations();
+                                print '</nav>';
+                            }
+                            if ($closed != true) {
+                                print '</div>';
+                                print '<div class="flex column align-end">';
+                            }
+                        ?>
+                        <!-- BREADCRUMBS -->
+                        <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
+                            <nav class="breadcrumbs flex column end align-stretch">
+                                <?php if($conf['youarehere']): ?>
+                                    <div class="youarehere"><?php tpl_youarehere() ?></div>
+                                <?php endif ?>
+                                <?php if($conf['breadcrumbs']): ?>
+                                    <div class="trace"><?php tpl_breadcrumbs() ?></div>
+                                <?php endif ?>
+                            </nav>
                         <?php endif ?>
-
-                        <?php tpl_flush() ?>
-
                     </div>
+            </nav><!-- /#namespaced__page_nav -->
 
-                </article><!-- /content -->
+            <?php namespaced_include("main-head") ?>
 
-            </div><!-- /wrapper -->
+            <main class="flex nowrap align-stretch">
 
-            <!-- PAGE TOOLS -->
-            <aside id="namespaced__pagetools" class="gutter flex column">
-                <nav class="tools<?php print (strpos(tpl_getConf('uicolorize'), 'pagetools') !== false) ? " uicolor-pagetools" : "" ?><?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' stickynav' : '' ?>">
-                    <ul class="nostyle">
-                        <li><h6 class="aside-title<?php print $namespaced['a11y']['extraclass'] ?>"><?php print $lang['page_tools'] ?></h6></li>
-                        <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems() ?>
-                        <li class="bottom"><a href="#namespaced__footer" title="<?php print tpl_getLang('go_to_bottom') ?> [b]" rel="nofollow" accesskey="b"><span><?php print tpl_getLang('go_to_bottom') ?></span><?php namespaced_glyph('bottom') ?></svg></a></li>
-                    </ul>
-                </nav><!-- /.tools -->
-            </aside><!-- /#namespaced__pagetools -->
+                <!-- CONTEXT TOOLS -->
+                <aside id="namespaced__contools" class="gutter flex column">
+                    <nav class="tools<?php print (strpos(tpl_getConf('uicolorize'), 'contools') !== false) ? " uicolor-contools" : "" ?><?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' stickynav' : '' ?>">
+                        <ul class="nostyle">
+                            <li><h6 class="aside-title<?php print $namespaced['a11y']['extraclass'] ?>"><?php print tpl_getLang('context_tools') ?></h6></li>
+                            <?php namespaced_contools() ?>
+                        </ul>
+                    </nav><!-- /.tools -->
+                </aside><!-- /#namespaced__contools -->
 
-        </main>
+                <div id="namespaced__main_subflex" class="flex nowrap align-stretch">
+
+                    <?php //if($showSidebar): ?>
+                    <?php if(($ACT=='show') && (@count($namespaced['widgets']['side']) > 0)): ?>
+                        <!-- ********** ASIDE ********** -->
+                        <aside id="namespaced__aside">
+                            <div class="aside include<?php print (strpos(tpl_getConf('stickies'), 'sidepanel') !== false) ? ' sticky' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' stickynav' : '' ?><?php print (strpos(tpl_getConf('stickies'), 'pagenav') !== false) ? ' stickypagenav' : '' ?>">
+                                <h6 class="toggle"><?php echo $lang['sidebar'] ?></h6>
+                                <div class="content">
+                                    <?php tpl_flush() ?>
+                                    <?php tpl_includeFile('sidebarheader.html') ?>
+                                    <?php //tpl_include_page($conf['sidebar'], true, true) ?>
+                                    <?php namespaced_widgets('side') ?>
+                                    <?php tpl_includeFile('sidebarfooter.html') ?>
+                                </div>
+                            </div>
+                        </aside><!-- /aside -->
+                        <!-- <hr class="vertical<?php //print $namespaced['a11y']['extraclass'] ?>" /> -->
+                    <?php endif ?>
+
+                    <!-- ********** CONTENT ********** -->
+                    <article id="namespaced__content">
+
+                        <div>
+
+                            <!-- ********** Alerts ********** -->
+                            <div class="alerts">
+                                <?php
+                                    html_msgarea();
+                                    // Namespaced messages
+                                    // if in playground...
+                                    if (strpos($ID, 'playground') !== false) {
+                                        // ...and admin, show a link to managing page...
+                                        if ($INFO['isadmin']) {
+                                            msg(tpl_getLang('playground_admin'), 2);
+                                        // ...else, show a few hints on what it's for
+                                        } else {
+                                            msg(tpl_getLang('playground_user'), 0);
+                                        }
+                                    // if at settings page
+                                    } elseif (($ACT == "admin") && ($_GET['page'] == "config")) {
+                                        msg(tpl_getLang('jump_to_namespaced'), 0);
+                                    }
+                                    // Display Translation plugin alerts
+                                    if ($namespaced['translation']['helper']) {
+                                        print $namespaced['translation']['helper']->checkage();
+                                    }
+                                ?>
+                            </div><!-- /.alerts -->
+
+                            <!-- ********** Page ********** -->
+                            <div class="page">
+                                <?php tpl_flush() ?>
+                                <?php tpl_includeFile('pageheader.html') ?>
+                                <!-- <hr<?php //print $namespaced['a11y']['standalone'] ?> /> -->
+                                <!-- wikipage start -->
+                                <?php tpl_content() ?>
+                                <!-- wikipage stop -->
+                                <!-- <hr<?php //print $namespaced['a11y']['standalone'] ?> /> -->
+                                <?php tpl_includeFile('pagefooter.html') ?>
+                            </div><!-- /.page -->
+
+                            <!-- ********** Sub-Namespaces index ********** -->
+                            <?php if((count($namespaced['nsindex']['subns']) > 0) && (((tpl_getConf('subnsaltidx') == "home") && (in_array($namespaced['ishome'], array("default", "untranslated", "translated")))) || ((tpl_getConf('subnsaltidx') == "start") && (in_array($namespaced['ishome'], array("default", "untranslated", "translated", "ns")))) || (tpl_getConf('subnsaltidx') == "always"))): ?>
+                                <nav id="namespaced__subns_index" class="<?php print tpl_getConf("subnsaltidxstyle") ?><?php print (strpos(tpl_getConf('neutralize'), 'subnsaltidx') !== false) ? ' neu' : '' ?>">
+                                    <?php print (tpl_getConf("subnsaltidxstyle") == "transparent") ? '<hr'.$namespaced['a11y']['standalone'].' />' : "" ?>
+                                    <div class="flex justify-evenly align-center gap20">
+                                        <?php
+                                            foreach ($namespaced['nsindex']['subns'] as $key => $value) {
+                                                if (page_exists($namespaced['nsindex']['subns'][$key]['id'])) {
+                                                    $class = "wikilink1";
+                                                } else {
+                                                    $class = "wikilink2";
+                                                }
+                                                if ($namespaced['nsindex']['subns'][$key]['image'] != null) {
+                                                    if ((tpl_getConf('subnsaltidximage') == "banner") or ((tpl_getConf('subnsaltidximage') == "mix") and (in_array($namespaced['ishome'], array("default", "untranslated", "translated"))))) {
+                                                        $imgclass = "banner";
+                                                    } else {
+                                                        $imgclass = "cover";
+                                                    }
+
+                                                    tpl_link(
+                                                        wl($namespaced['nsindex']['subns'][$key]['id']),
+                                                        '<img src="'.$namespaced['nsindex']['subns'][$key]['image']['src'].'" alt="*'.$namespaced['nsindex']['subns'][$key]['title'].'*" '.$namespaced['nsindex']['subns'][$key]['image']['size'][3].' class="'.$imgclass.'" title="'.tpl_getLang("subns")." ".rtrim($namespaced['nsindex']['subns'][$key]['id'], ":".$conf['start']).'"/><span class="center" title="'.tpl_getLang("subns").'">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
+                                                        'class="is_ns '.$class.'"'
+                                                    );
+                                                } else {
+                                                    tpl_link(
+                                                        wl($namespaced['nsindex']['subns'][$key]['id']),
+                                                        '<span class="center" title="'.tpl_getLang("subns").'">'.$namespaced['nsindex']['subns'][$key]['title'].'</span>',
+                                                        'class="is_ns textonly '.$class.'"'
+                                                    );
+                                                }
+                                            }
+                                        ?>
+                                    </div>
+                                </nav><!-- /#namespaced__subns_index -->
+                            <?php endif ?>
+
+                            <?php tpl_flush() ?>
+
+                        </div>
+
+                    </article><!-- /content -->
+
+                </div><!-- /wrapper -->
+
+                <!-- PAGE TOOLS -->
+                <aside id="namespaced__pagetools" class="gutter flex column">
+                    <nav class="tools<?php print (strpos(tpl_getConf('uicolorize'), 'pagetools') !== false) ? " uicolor-pagetools" : "" ?><?php print (strpos(tpl_getConf('stickies'), 'navbar') !== false) ? ' stickynav' : '' ?>">
+                        <ul class="nostyle">
+                            <li><h6 class="aside-title<?php print $namespaced['a11y']['extraclass'] ?>"><?php print $lang['page_tools'] ?></h6></li>
+                            <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems() ?>
+                            <li class="bottom"><a href="#namespaced__footer" title="<?php print tpl_getLang('go_to_bottom') ?> [b]" rel="nofollow" accesskey="b"><span><?php print tpl_getLang('go_to_bottom') ?></span><?php namespaced_glyph('bottom') ?></svg></a></li>
+                        </ul>
+                    </nav><!-- /.tools -->
+                </aside><!-- /#namespaced__pagetools -->
+
+            </main>
+
+        </div><!-- /#namespaced__page -->
 
         <?php namespaced_include("main-foot") ?>
 
