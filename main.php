@@ -32,6 +32,17 @@ $namespaced = array();
 namespaced_init();
 $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].'"' : '';
 
+// Store ID from HTTP_REFERER (aka origin URL) if it contains current wiki URL and doesn't contain `admin` or `playground` 
+if ((strpos($_SERVER["HTTP_REFERER"], DOKU_URL) !== false) and (strpos($_SERVER["HTTP_REFERER"], 'admin') === false) and (strpos($_SERVER["HTTP_REFERER"], 'playground') === false)) {
+    // get what's after "id="
+    $tmp = explode("id=", $_SERVER["HTTP_REFERER"]);
+    // get what's before potential "&"
+    $tmp = explode("&", $tmp[1]);
+    // store in PHP session
+    $namespaced["origID"] = $tmp[0];
+}
+//dbg($namespaced["origID"]);
+
 ?><!DOCTYPE html>
 <html lang="<?php echo $conf['lang'] ?>" dir="<?php echo (($_GET['dir'] <> null)) ? $_GET['dir'] : $lang['direction'] ?>" class="no-js">
 <head>

@@ -53,6 +53,7 @@ function namespaced_init() {
     // Search for default or custum default SVG glyphs
     $namespaced['glyphs']['account-edit'] = null;
     $namespaced['glyphs']['acl'] = null;
+    $namespaced['glyphs']['back-to-article'] = null;
     $namespaced['glyphs']['bottom'] = null;
     $namespaced['glyphs']['config'] = null;
     $namespaced['glyphs']['editor'] = null;
@@ -904,69 +905,73 @@ function namespaced_contools() {
     global $namespaced;
 
     // NAV BUTTON(S)
-    // Standalone buttons
-    if (tpl_getConf('splitnav')) {
-        if (!in_array($namespaced['ishome'], array("default", "untranslated", "translated"))) {
-            print '<li class="wikihome">';
-                // display link to the home page
-                tpl_link(
-                    wl(),
-                    namespaced_glyph('home', true).'<span>'.tpl_getLang('wikihome').'</span>',
-                    'accesskey="h" title="'.tpl_getLang('wikihome').' [H]" rel="nofollow"'
-                );
-            print '</li>';
+    if ($ACT == "show") {
+        // Standalone buttons
+        if (tpl_getConf('splitnav')) {
+            if (!in_array($namespaced['ishome'], array("default", "untranslated", "translated"))) {
+                print '<li class="wikihome">';
+                    // display link to the home page
+                    tpl_link(
+                        wl(),
+                        namespaced_glyph('home', true).'<span>'.tpl_getLang('wikihome').'</span>',
+                        'accesskey="h" title="'.tpl_getLang('wikihome').' [H]" rel="nofollow"'
+                    );
+                print '</li>';
+            }
+            //if ((strpos(tpl_getConf('navbuttons'), 'parentns') !== false) and (($namespaced['ishome'] == "nshome") and (getns(getns($ID)) != null))) {
+            if (getns(getns($ID)) != null) {
+                print '<li class="parentns">';
+                    // display link to parent namespace home page
+                    tpl_link(
+                        wl(getns(getns($ID)).':'.$conf['start']),
+                        namespaced_glyph('parentns', true).'<span>'.tpl_getLang('parentns').'</span>',
+                        'title="'.tpl_getLang('parentns').'" rel="nofollow"'
+                    );
+                print '</li>';
+            }
+            if ($namespaced['ishome'] == false) {
+                print '<li class="nshome">';
+                    // display link to namespace home page
+                    tpl_link(
+                        wl(getns($ID).':'.$conf['start']),
+                        namespaced_glyph('nshome', true).'<span>'.tpl_getLang('nshome').'</span>',
+                        'title="'.tpl_getLang('nshome').'" rel="nofollow"'
+                    );
+                print '</li>';
+            }
+        // ... or one button to rule them all...
+        } else {
+            if ($namespaced['ishome'] == false) {
+                print '<li class="nshome">';
+                    // display link to namespace home page
+                    tpl_link(
+                        wl(getns($ID).':'.$conf['start']),
+                        namespaced_glyph('nshome', true).'<span>'.tpl_getLang('nshome').'</span>',
+                        'title="'.tpl_getLang('nshome').'" rel="nofollow"'
+                    );
+                print '</li>';
+            } elseif (getns(getns($ID)) != null) {
+                print '<li class="parentns">';
+                    // display link to parent namespace home page
+                    tpl_link(
+                        wl(getns(getns($ID)).':'.$conf['start']),
+                        namespaced_glyph('parentns', true).'<span>'.tpl_getLang('parentns').'</span>',
+                        'title="'.tpl_getLang('parentns').'" rel="nofollow"'
+                    );
+                print '</li>';
+            } elseif (!in_array($namespaced['ishome'], array("default", "untranslated", "translated"))) {
+                print '<li class="wikihome">';
+                    // display link to the home page
+                    tpl_link(
+                        wl(),
+                        namespaced_glyph('home', true).'<span>'.tpl_getLang('wikihome').'</span>',
+                        'accesskey="h" title="'.tpl_getLang('wikihome').' [H]" rel="nofollow"'
+                    );
+                print '</li>';
+            }
         }
-        //if ((strpos(tpl_getConf('navbuttons'), 'parentns') !== false) and (($namespaced['ishome'] == "nshome") and (getns(getns($ID)) != null))) {
-        if (getns(getns($ID)) != null) {
-            print '<li class="parentns">';
-                // display link to parent namespace home page
-                tpl_link(
-                    wl(getns(getns($ID)).':'.$conf['start']),
-                    namespaced_glyph('parentns', true).'<span>'.tpl_getLang('parentns').'</span>',
-                    'title="'.tpl_getLang('parentns').'" rel="nofollow"'
-                );
-            print '</li>';
-        }
-        if ($namespaced['ishome'] == false) {
-            print '<li class="nshome">';
-                // display link to namespace home page
-                tpl_link(
-                    wl(getns($ID).':'.$conf['start']),
-                    namespaced_glyph('nshome', true).'<span>'.tpl_getLang('nshome').'</span>',
-                    'title="'.tpl_getLang('nshome').'" rel="nofollow"'
-                );
-            print '</li>';
-        }
-    // ... or one button to rule them all...
-    } else {
-        if ($namespaced['ishome'] == false) {
-            print '<li class="nshome">';
-                // display link to namespace home page
-                tpl_link(
-                    wl(getns($ID).':'.$conf['start']),
-                    namespaced_glyph('nshome', true).'<span>'.tpl_getLang('nshome').'</span>',
-                    'title="'.tpl_getLang('nshome').'" rel="nofollow"'
-                );
-            print '</li>';
-        } elseif (getns(getns($ID)) != null) {
-            print '<li class="parentns">';
-                // display link to parent namespace home page
-                tpl_link(
-                    wl(getns(getns($ID)).':'.$conf['start']),
-                    namespaced_glyph('parentns', true).'<span>'.tpl_getLang('parentns').'</span>',
-                    'title="'.tpl_getLang('parentns').'" rel="nofollow"'
-                );
-            print '</li>';
-        } elseif (!in_array($namespaced['ishome'], array("default", "untranslated", "translated"))) {
-            print '<li class="wikihome">';
-                // display link to the home page
-                tpl_link(
-                    wl(),
-                    namespaced_glyph('home', true).'<span>'.tpl_getLang('wikihome').'</span>',
-                    'accesskey="h" title="'.tpl_getLang('wikihome').' [H]" rel="nofollow"'
-                );
-            print '</li>';
-        }
+    } elseif ($namespaced["origID"] != null) {
+        print '<li class="back-to-article"><a href="/doku.php?id='.$namespaced["origID"].'" title="'.tpl_getLang('back-to-article').'" rel="nofollow">'.namespaced_glyph('back-to-article', true).'<span>'.tpl_getLang('back-to-article').'</span></a></li>';
     }
     // Save settings
     if (($INFO['isadmin'] || $INFO['ismanager']) && ($ACT == "admin") && ($_GET['page'] == "config")) {
