@@ -10,7 +10,7 @@
  */
 
 /* global look */
-$meta['layout']             = array('multichoice','_choices' => array('box','wide','box2wide','mix'));
+$meta['layout']             = array('multichoice','_choices' => array('box','wide','mix'));
 $meta['flexflip']           = array('multicheckbox','_choices' => array('banner','pagenav','sidepanel','pagetools','socket'),'_other' => 'never');
 $meta['stickies']           = array('multicheckbox','_choices' => array('navbar','pagenav','sidepanel','docinfo'),'_other' => 'never');
 $meta['datelocale']         = array('string');

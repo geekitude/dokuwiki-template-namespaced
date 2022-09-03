@@ -10,7 +10,7 @@
  */
 
 /* global look */
-$conf['layout']             = 'box2wide';
+$conf['layout']             = 'box';
 $conf['flexflip']           = '';
 $conf['stickies']           = '';
 $conf['datelocale']         = 'fra';
