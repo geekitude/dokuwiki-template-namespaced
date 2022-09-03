@@ -970,8 +970,10 @@ function namespaced_contools() {
                 print '</li>';
             }
         }
-    } elseif ($namespaced["origID"] != null) {
-        print '<li class="back-to-article"><a href="/doku.php?id='.$namespaced["origID"].'" title="'.tpl_getLang('back-to-article').'" rel="nofollow">'.namespaced_glyph('back-to-article', true).'<span>'.tpl_getLang('back-to-article').'</span></a></li>';
+//    } elseif ($namespaced["origID"] != null) {
+    } elseif ($_SESSION["origID"] != null) {
+//        print '<li class="back-to-article"><a href="/doku.php?id='.$namespaced["origID"].'" title="'.tpl_getLang('back-to-article').'" rel="nofollow">'.namespaced_glyph('back-to-article', true).'<span>'.tpl_getLang('back-to-article').'</span></a></li>';
+        print '<li class="back-to-article"><a href="/doku.php?id='.$_SESSION["origID"].'" title="'.tpl_getLang('back-to-article').'" rel="nofollow">'.namespaced_glyph('back-to-article', true).'<span>'.tpl_getLang('back-to-article').'</span></a></li>';
     }
     // Save settings
     if (($INFO['isadmin'] || $INFO['ismanager']) && ($ACT == "admin") && ($_GET['page'] == "config")) {
