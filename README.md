@@ -75,7 +75,7 @@ See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#setting
 * [x] Sub namespaces list inside main navigation bar or below content, depending on context and settings
 * [ ] Social networks links (see [Social links](https://github.com/geekitude/dokuwiki-template-colormag#social-links) below)
 * [ ] Supports a cheatsheet that will be shown as a sidebar in edit and preview modes
-* [x] Added a "Go to bottom" pagetool to easily reach footer widgets or save settings button (Javascript is needed to switch between this pagetool and "Back to top")
+* [x] Added a "Go to bottom" pagetool to easily reach footer widgets or save settings button (jQuery is needed to switch between this pagetool and "Back to top")
 * [x] Added contextual tools "facing" page tools (navigation, playground, syntax page, most usefull forms' buttons)
 * [x] `docInfo` can be combined in page header or shown as a standalone block below page
 * [x] Many settings to select color scheme used for page header, toc, side pane and footer
