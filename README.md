@@ -63,7 +63,7 @@ See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#setting
 * [ ] Dark color scheme guidelines
 * [ ] Topbar with date, newsticker (based on current namespace and sub content) and links
 * [ ] Easy to customize glyphs(*) (from [Material Design Icons](https://materialdesignicons.com/) like other DW's SVG glyphs or [IcoMoon](https://icomoon.io/) for social links)
-* [ ] Sidebar and ToC can be moved out of page content on wide screen (only works in boxed layout)
+* [ ] Sidebar and ToC can be moved out of page content on wide screen (only works in box layout)
 * [ ] Extracted ToC can be given [scrollspy](https://codepen.io/latifur/pen/qLKXpj) superpowers
 * [x] Collapsible ToC (only showing first level untill hover)
 * [ ] Retractable sidebar
@@ -177,3 +177,4 @@ Here's the list of features that will not work on browsers without jQuery abilit
 * Scrollspy ToC
 * Internal links will scroll a bit too far if Page header is set to stick on top of page
 * Animated scrolling
+* Dynamic tables on touch screen
