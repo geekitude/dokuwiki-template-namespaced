@@ -56,7 +56,7 @@ See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#setting
 * [x] [Widgets](https://github.com/geekitude/dokuwiki-template-namespaced#widgets) areas to customize Namespaced elements (any side widget will force side panel even if there's no sidebar page available)
 * [x] Accessibility friendly pure CSS smooth scrolling (speed depends on visitor's browser settings and can even be disable if browser supports that feature)
 * [ ] Namespace dependent CSS for [x] colors and [ ] fonts (an automatic theme color is possible while quite experimental)
-* [ ] Namespace dependent UI images ([ ] background pattern, [x] banner, [x] widebanner and [x] cover)
+* [x] Namespace dependent UI images ([x] cover, [x] banner, [x] widebanner and [x] background pattern)
 * [ ] Google Fonts : each of main text, headings, condensed text (mostly nav bar) and monospaced text (```code``` syntax) can use a different Google font (be warned that main text font should be kept very readable)
 * [ ] Wide banner slider with latest changes at wiki home?
 * [ ] Tested with most common plugins ([Blockquote](https://www.dokuwiki.org/plugin:blockquote), [Captcha](https://www.dokuwiki.org/plugin:captcha), [Discussion](https://www.dokuwiki.org/plugin:discussion), [Move](https://www.dokuwiki.org/plugin:move), [SearchIndex](https://www.dokuwiki.org/plugin:searchindex), [SiteMapNavi](https://www.dokuwiki.org/plugin:sitemapnavi), [Styling](https://www.dokuwiki.org/plugin:styling), [Tag](https://www.dokuwiki.org/plugin:tag), [TagAlerts](https://www.dokuwiki.org/plugin:tagalerts), [Translation](https://www.dokuwiki.org/plugin:translation), [Wrap](https://www.dokuwiki.org/plugin:wrap))
@@ -112,6 +112,14 @@ For example, to customize theme for fr:dokuwiki namespace, copy the file to `con
 
 If you keep LESS formulas based on theme color with `mix` and `darken`, changing theme color value should be a good start and enough in most cases (see https://www.hongkiat.com/blog/less-color-functions/ and https://codepen.io/ryanmargheriti/pen/DpBdXe for more LESS superpowers.
 Note that for wiki consistency, values for `guaranteed dokuwiki color placeholders` and `wiki links` should only be changed if they conflict with theme color.
+
+### Namespace dependent UI images
+
+A few Namespaced UI images can be set for the whole wiki (if placed in `wiki` namespace) or just for the namespace they're placed in (and propagated to sub namespaces). Here are those UI images that can all be either `jpg`, `gif` or `png` files (sizes given are not mandatory but using larger images can give unpredictible results) :
+* cover (230*300px): used in cover sidebar widget or sub-namespaces index
+* banner (600*90px): shown abov site tools or sub-namespaces index
+* widebanner (1200*250px, in facts any width is fine but not bigger height): shown just below site main navigation bar
+* pattern (no limit but the smaller the better to save bandwidth): website background only loaded and shown with `box` layout
 
 ### Widgets
 

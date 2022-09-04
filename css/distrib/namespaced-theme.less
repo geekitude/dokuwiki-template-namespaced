@@ -649,3 +649,12 @@ span.wrap_box {
 span.wrap_em {
     color: @ini_red_color;
 }
+
+/* RESPONSIVENESS
+-------------------------------------------------------------- */
+
+@media screen and (min-width: @ini_site_width + 62px) {
+    [dir] body.box-layout, [dir] body.mix-layout {
+        background-image: url(/lib/exe/fetch.php?media=wiki:pattern.png);
+    }
+}

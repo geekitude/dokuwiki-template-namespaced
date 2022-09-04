@@ -348,6 +348,10 @@ function namespaced_init() {
     $css = io_readFile(tpl_incdir()."/css/namespaced-theme.min.less");
 //dbg(tpl_incdir()."/css/namespaced.less");
 //dbg($css);
+    // Use pattern file from current ns or one of it's parents if available
+    if ((isset($namespaced['images']['pattern']['src'])) and ($namespaced['images']['pattern']['src'] != "/lib/exe/fetch.php?media=wiki:pattern.png")) {
+        $css = str_replace("/lib/exe/fetch.php?media=wiki:pattern.png", $namespaced['images']['pattern']['src'], $css);
+    }
     // Replace CSS' placeholders by their respective value (or LESS formula)
     $css = namespaced_css_applystyle($css, $styleini['replacements']);
 //dbg($css);

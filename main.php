@@ -29,7 +29,6 @@ if ((strpos($_SERVER["HTTP_REFERER"], DOKU_URL) !== false) and (strpos($_SERVER[
 //dbg("2:".$_SESSION["origID"]);
 }
 
-
 global $namespaced, $external;
 // Reset $namespaced to make sure we don't inherit any value from previous page
 $namespaced = array();
@@ -46,6 +45,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
 //    $namespaced["origID"] = $tmp[0];
 //}
 //dbg($namespaced["origID"]);
+//dbg($namespaced["images"]);
 
 ?><!DOCTYPE html>
 <html lang="<?php echo $conf['lang'] ?>" dir="<?php echo (($_GET['dir'] <> null)) ? $_GET['dir'] : $lang['direction'] ?>" class="no-js">
