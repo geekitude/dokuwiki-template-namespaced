@@ -55,7 +55,7 @@ See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#setting
 
 * [x] [Widgets](https://github.com/geekitude/dokuwiki-template-namespaced#widgets) areas to customize Namespaced elements (any side widget will force side panel even if there's no sidebar page available)
 * [x] Accessibility friendly pure CSS smooth scrolling (speed depends on visitor's browser settings and can even be disable if browser supports that feature)
-* [ ] Namespace dependent CSS for colors and fonts (an automatic theme color is possible while quite experimental)
+* [ ] Namespace dependent CSS for [x] colors and [ ] fonts (an automatic theme color is possible while quite experimental)
 * [ ] Namespace dependent UI images ([ ] background pattern, [x] banner, [x] widebanner and [x] cover)
 * [ ] Google Fonts : each of main text, headings, condensed text (mostly nav bar) and monospaced text (```code``` syntax) can use a different Google font (be warned that main text font should be kept very readable)
 * [ ] Wide banner slider with latest changes at wiki home?
@@ -104,6 +104,14 @@ See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#setting
 * **glyphs** (*enabled*) : use glyph or text only actions (sitetools, usertools and some breadcrumbs)
 
 ## About
+
+### Namespace dependent CSS
+
+To customize colors within a given namespace (and sub-namespaces), simply copy tpl/namespaced/theme.ini to conf/tpl/namespaced/<wiki-ns-path> folder.
+For example, to customize theme for fr:dokuwiki namespace, copy the file to `conf/tpl/namespaced/fr/dokuwiki/theme.ini`.
+
+If you keep LESS formulas based on theme color with `mix` and `darken`, changing theme color value should be a good start and enough in most cases (see https://www.hongkiat.com/blog/less-color-functions/ and https://codepen.io/ryanmargheriti/pen/DpBdXe for more LESS superpowers.
+Note that for wiki consistency, values for `guaranteed dokuwiki color placeholders` and `wiki links` should only be changed if they conflict with theme color.
 
 ### Widgets
 
