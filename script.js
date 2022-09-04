@@ -90,6 +90,12 @@ function tpl_dokuwiki_mobile(){
         if($toc.length) {
             $toc[0].setState(-1);
         }
+        // dynamic table magic (https://css-tricks.com/simple-css-row-column-highlighting/)
+        jQuery("td, th").attr("tabindex", "1")
+        // When they are tapped, focus them
+        .on("touchstart", function() {
+            jQuery(this).focus();
+        });
     }
 }
 

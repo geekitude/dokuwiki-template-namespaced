@@ -2228,30 +2228,30 @@ pre.file {
 }
 
 body.dynamic-tables #namespaced__site:not(.mode_admin) table {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 [dir] body.dynamic-tables #namespaced__site:not(.mode_admin) tr:hover {
-  background-color: @ini_highlight;
+    background-color: @ini_highlight;
 }
 
 body.dynamic-tables #namespaced__site:not(.mode_admin) td,
 body.dynamic-tables #namespaced__site:not(.mode_admin) th {
-  position: relative;
+    position: relative;
 }
 
 body.dynamic-tables #namespaced__site:not(.mode_admin) td:hover::after,
 body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
-  content: "";
-  position: absolute;
-  top: -5000px;
-  height: 10000px;
-  width: 100%;
-  z-index: -1;
+    content: "";
+    position: absolute;
+    top: -5000px;
+    height: 10000px;
+    width: 100%;
+    z-index: -1;
 }
 
 [dir] body.dynamic-tables #namespaced__site:not(.mode_admin) td:hover::after, [dir] body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
-  background-color: @ini_highlight;
+    background-color: @ini_highlight;
 }
 
 [dir=ltr] body.dynamic-tables #namespaced__site:not(.mode_admin) td:hover::after, [dir=ltr] body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
@@ -2259,7 +2259,7 @@ body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
 }
 
 [dir=rtl] body.dynamic-tables #namespaced__site:not(.mode_admin) td:hover::after, [dir=rtl] body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
-  right: 0;
+    right: 0;
 }
 
 label.block {
@@ -2804,6 +2804,41 @@ div.wrap_download {
     #namespaced__banner_wrap img {
         max-width: 100% !important;
         height: auto;
+    }
+    body.dynamic-tables #namespaced__site:not(.mode_admin) td:focus::after,
+    body.dynamic-tables #namespaced__site:not(.mode_admin) th:focus::after {
+        content: "";
+        position: absolute;
+        top: -5000px;
+        height: 10000px;
+        width: 100%;
+        z-index: -1;
+    }
+    [dir] body.dynamic-tables #namespaced__site:not(.mode_admin) td:focus::after, [dir] body.dynamic-tables #namespaced__site:not(.mode_admin) th:focus::after {
+        background-color: @ini_highlight;
+    }
+    [dir=ltr] body.dynamic-tables #namespaced__site:not(.mode_admin) td:focus::after, [dir=ltr] body.dynamic-tables #namespaced__site:not(.mode_admin) th:focus::after {
+        left: 0;
+    }
+    [dir=rtl] body.dynamic-tables #namespaced__site:not(.mode_admin) td:focus::after, [dir=rtl] body.dynamic-tables #namespaced__site:not(.mode_admin) th:focus::after {
+        right: 0;
+    }
+    body.dynamic-tables #namespaced__site:not(.mode_admin) td:focus::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 10000px;
+        z-index: -1;
+    }
+    [dir] body.dynamic-tables #namespaced__site:not(.mode_admin) td:focus::before {  
+        background-color: @ini_highlight;
+    }
+    [dir=ltr] body.dynamic-tables #namespaced__site:not(.mode_admin) td:focus::before {
+        left: -5000px;
+    }
+    [dir=rtl] body.dynamic-tables #namespaced__site:not(.mode_admin) td:focus::before {  
+        right: -5000px;
     }
 }
 

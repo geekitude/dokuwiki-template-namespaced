@@ -1841,28 +1841,28 @@ td {
 }
 
 body.dynamic-tables #namespaced__site:not(.mode_admin) table {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 body.dynamic-tables #namespaced__site:not(.mode_admin) tr:hover {
-  background-color: @ini_highlight;
+    background-color: @ini_highlight;
 }
 
 body.dynamic-tables #namespaced__site:not(.mode_admin) td,
 body.dynamic-tables #namespaced__site:not(.mode_admin) th {
-  position: relative;
+    position: relative;
 }
 
 body.dynamic-tables #namespaced__site:not(.mode_admin) td:hover::after,
 body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
-  content: "";
-  position: absolute;
-  background-color: @ini_highlight;
-  left: 0;
-  top: -5000px;
-  height: 10000px;
-  width: 100%;
-  z-index: -1;
+    content: "";
+    background-color: @ini_highlight;
+    position: absolute;
+    left: 0;
+    top: -5000px;
+    height: 10000px;
+    width: 100%;
+    z-index: -1;
 }
 
 label.block {
@@ -2343,6 +2343,27 @@ span.wrap_hi {
     #namespaced__banner_wrap img {
         max-width: 100% !important;
         height: auto;
+    }
+    body.dynamic-tables #namespaced__site:not(.mode_admin) td:focus::after,
+    body.dynamic-tables #namespaced__site:not(.mode_admin) th:focus::after {
+        content: "";
+        background-color: @ini_highlight;
+        position: absolute;
+        left: 0;
+        top: -5000px;
+        height: 10000px;
+        width: 100%;
+        z-index: -1;
+    }
+    body.dynamic-tables #namespaced__site:not(.mode_admin) td:focus::before {
+        content: "";  
+        background-color: @ini_highlight;
+        position: absolute;  
+        left: -5000px;
+        top: 0;
+        height: 100%;
+        width: 10000px;
+        z-index: -1;
     }
 }
 
