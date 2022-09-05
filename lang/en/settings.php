@@ -23,5 +23,6 @@ $lang['acordion-toc']       = 'Auto-fold ToC sub-elements untill hovering. [defa
 $lang['forcesidepanel']     = 'Force side panel if there\'s at least one side widget even if there\'s no `sidebar` page available. [default: <code>enabled</code>]';
 
 /* functionnalities */
+$lang['uiimagetarget']      = 'Choose if UI images should be simple images or links to given target (if target points to current ID, link will default to image details).';
 
 /* file names */

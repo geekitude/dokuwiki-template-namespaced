@@ -702,7 +702,7 @@ function namespaced_widgets($area = null){
             if ($data['type'] == "media") {
                 //dbg($data);
                 if (isset($data['target']['ns'])) {
-namespaced_ui_image('cover');
+                    namespaced_ui_image('cover');
                 } else {
                     print '<img src="'.$data['target']['src'].'" alt="*'.$data['target']['title'].'*" '.$data['target']['size'][3].' class="mediacenter '.ltrim($widget, ":").'" />';
                 }
@@ -809,9 +809,14 @@ function namespaced_ui_image($type) {
             $title = getNS($ID).":".$conf['start'];
         } elseif (tpl_getConf('uiimagetarget') == 'image-details') {
             $target = "lib/exe/detail.php?id=".$ID."&".explode("php?", $namespaced['images'][$type]['src'])[1];
-            $title = explode("php?", $namespaced['images']['banner']['src'])[1];
+            $title = explode("media=", $namespaced['images']['banner']['src'])[1];
         } else {
             $target = null;
+        }
+        // If target points to current ID, replace it with image details link
+        if ($target == "/doku.php?id=".$ID) {
+            $target = "lib/exe/detail.php?id=".$ID."&".explode("php?", $namespaced['images'][$type]['src'])[1];
+            $title = explode("media=", $namespaced['images']['banner']['src'])[1];
         }
         if ($title == null) { $title = $target; }
         if (($namespaced['images'][$type]['ns'] != null) and ($target != null)) {
