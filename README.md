@@ -45,7 +45,7 @@ It is based on Dokuwiki's default template.
 * Debug background pattern comes from [TartanMaker](http://www.tartanmaker.com/)
 * SVG glyphs come from [Material Design Icons](https://materialdesignicons.com)
 * [Dummy avatar](https://imgbin.com/png/r454K96z) is free for non commercial use
-* Extracting color from image comes from a comment on [this page](https://stackoverflow.com/questions/10290259/detect-main-colors-in-an-image-with-php)
+* Extracting color from image comes from a comment on [this page](https://stackoverflow.com/questions/3468500/detect-overall-average-color-of-the-picture)
 * Font used for sample UI images (banner, widebanner and sidebar.png) is: [Reckoner by Alex Dale](https://www.behance.net/alexiandale).
 * Special thanks to Giuseppe Di Terlizzi, author of [Bootstrap3](https://www.dokuwiki.org/template:bootstrap3) DokuWiki template who nicely acepted that I copy some of his code to build admin dropdown menu.
 

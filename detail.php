@@ -99,11 +99,18 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
 <?php
 dbg($IMG);
 dbg(DOKU_CONF.'../'.$conf['savedir'].'/media/'.str_replace(":", "/", $IMG));
-$image=imagecreatefromjpeg(DOKU_CONF.'../'.$conf['savedir'].'/media/'.str_replace(":", "/", $IMG));
-$thumb=imagecreatetruecolor(1,1);
-imagecopyresampled($thumb,$image,0,0,0,0,1,1,imagesx($image),imagesy($image));
-$mainColor=strtoupper(dechex(imagecolorat($thumb,0,0)));
-echo "Main color: ".$mainColor;
+print "<div>";
+echo "Palette: ";
+// sample usage: 
+$palette = namespaced_palette(DOKU_CONF.'../'.$conf['savedir'].'/media/'.str_replace(":", "/", $IMG), 5, 4); 
+echo "<table>\n"; 
+foreach($palette as $color) 
+{ 
+   echo "<tr><td style='background-color:#$color;width:2em;'>&nbsp;</td><td>#$color</td></tr>\n"; 
+} 
+echo "</table>\n";
+print "</div>";
+
 ?>
                                 </div>
                                 <?php //Comment in for Debug// dbg(tpl_img_getTag('Simple.Raw'));?>
