@@ -25,7 +25,6 @@ $lang['__theme_color__']        = 'Theme color of the web app';
 
 $lang['wikihome']               = 'Wiki Home';
 $lang['untranslated_wikihome']  = 'Untranslated Wiki Home';
-$lang['back-to-article']        = 'Back to article';
 $lang['nshome']                 = 'Namespace Home';
 $lang['parentns']               = 'Parent Namespace';
 $lang['ns_content']             = 'Namespace Content';

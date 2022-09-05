@@ -53,7 +53,6 @@ function namespaced_init() {
     // Search for default or custum default SVG glyphs
     $namespaced['glyphs']['account-edit'] = null;
     $namespaced['glyphs']['acl'] = null;
-    $namespaced['glyphs']['back-to-article'] = null;
     $namespaced['glyphs']['bottom'] = null;
     $namespaced['glyphs']['config'] = null;
     $namespaced['glyphs']['editor'] = null;
@@ -980,9 +979,6 @@ function namespaced_contools() {
             }
         }
 //    } elseif ($namespaced["origID"] != null) {
-    } elseif ($_SESSION["origID"] != null) {
-//        print '<li class="back-to-article"><a href="/doku.php?id='.$namespaced["origID"].'" title="'.tpl_getLang('back-to-article').'" rel="nofollow">'.namespaced_glyph('back-to-article', true).'<span>'.tpl_getLang('back-to-article').'</span></a></li>';
-        print '<li class="back-to-article"><a href="/doku.php?id='.$_SESSION["origID"].'" title="'.tpl_getLang('back-to-article').'" rel="nofollow">'.namespaced_glyph('back-to-article', true).'<span>'.tpl_getLang('back-to-article').'</span></a></li>';
     }
     // Save settings
     if (($INFO['isadmin'] || $INFO['ismanager']) && ($ACT == "admin") && ($_GET['page'] == "config")) {
