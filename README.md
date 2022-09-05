@@ -43,7 +43,7 @@ It is based on Dokuwiki's default template.
 ### Extra
 
 * Debug background pattern comes from [TartanMaker](http://www.tartanmaker.com/)
-* SVG icons come from [Material Design Icons](https://materialdesignicons.com)
+* SVG glyphs come from [Material Design Icons](https://materialdesignicons.com)
 * [Dummy avatar](https://imgbin.com/png/r454K96z) is free for non commercial use
 * Extracting color from image comes from a comment on [this page](https://stackoverflow.com/questions/10290259/detect-main-colors-in-an-image-with-php)
 * Font used for sample UI images (banner, widebanner and sidebar.png) is: [Reckoner by Alex Dale](https://www.behance.net/alexiandale).

@@ -10,6 +10,29 @@
 // must be run from within DokuWiki
 if (!defined('DOKU_INC')) die();
 header('X-UA-Compatible: IE=edge,chrome=1');
+@require_once(dirname(__FILE__).'/namespaced.php'); /* include hook for template functions */
+
+session_start();
+//dbg("1:".$_SESSION["origID"]);
+// Store ID from HTTP_REFERER (aka origin URL) into PHP Session if it contains current wiki URL and doesn't contain `admin` or `playground` 
+if ((strpos($_SERVER["HTTP_REFERER"], DOKU_URL) !== false) and (strpos($_SERVER["HTTP_REFERER"], 'admin') === false) and (strpos($_SERVER["HTTP_REFERER"], 'playground') === false)) {
+    // get what's after "id="
+    $tmp = explode("id=", $_SERVER["HTTP_REFERER"]);
+    // get what's before potential "&"
+    $tmp = explode("&", $tmp[1]);
+    // store in PHP session
+//dbg("tmp:".$tmp[0]);
+    if ($tmp[0] != null) {
+        $_SESSION["origID"] = $tmp[0];
+    }
+//dbg("2:".$_SESSION["origID"]);
+}
+
+global $namespaced, $external;
+// Reset $namespaced to make sure we don't inherit any value from previous page
+$namespaced = array();
+namespaced_init();
+$external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].'"' : '';
 
 ?><!DOCTYPE html>
 <html lang="<?php echo $conf['lang']?>" dir="<?php echo $lang['direction'] ?>" class="no-js">
@@ -72,6 +95,16 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                                         ?>
                                     </dl>
                                     <p><?php echo $lang['media_acl_warning']; ?></p>
+
+<?php
+dbg($IMG);
+dbg(DOKU_CONF.'../'.$conf['savedir'].'/media/'.str_replace(":", "/", $IMG));
+$image=imagecreatefromjpeg(DOKU_CONF.'../'.$conf['savedir'].'/media/'.str_replace(":", "/", $IMG));
+$thumb=imagecreatetruecolor(1,1);
+imagecopyresampled($thumb,$image,0,0,0,0,1,1,imagesx($image),imagesy($image));
+$mainColor=strtoupper(dechex(imagecolorat($thumb,0,0)));
+echo "Main color: ".$mainColor;
+?>
                                 </div>
                                 <?php //Comment in for Debug// dbg(tpl_img_getTag('Simple.Raw'));?>
                             <?php endif; ?>
