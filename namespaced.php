@@ -350,7 +350,7 @@ function namespaced_init() {
 //dbg($css);
     // Use pattern file from current ns or one of it's parents if available
     if ((isset($namespaced['images']['pattern']['src'])) and ($namespaced['images']['pattern']['src'] != "/lib/exe/fetch.php?media=wiki:pattern.png")) {
-        $css = str_replace("/lib/exe/fetch.php?media=wiki:pattern.png", $namespaced['images']['pattern']['src'], $css);
+        $css = str_replace("background-image:initial", "background-image:url(".$namespaced['images']['pattern']['src'].")", $css);
     }
     // Replace CSS' placeholders by their respective value (or LESS formula)
     $css = namespaced_css_applystyle($css, $styleini['replacements']);
