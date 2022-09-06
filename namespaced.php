@@ -85,8 +85,9 @@ function namespaced_init() {
     foreach ($namespaced['glyphs'] as $key => $value) {
         if (is_file(DOKU_CONF."tpl/namespaced/".$key.".svg")) {
             $namespaced['glyphs'][$key] = DOKU_CONF."tpl/namespaced/".$key.".svg";
-        } elseif (is_file(".".tpl_basedir()."images/glyphs/".$key.".svg")) {
-            $namespaced['glyphs'][$key] = ".".tpl_basedir()."images/glyphs/".$key.".svg";
+        //} elseif (is_file(".".tpl_basedir()."images/glyphs/".$key.".svg")) {
+        } elseif (is_file(DOKU_INC."lib/tpl/namespaced/images/glyphs/".$key.".svg")) {
+            $namespaced['glyphs'][$key] = DOKU_INC."lib/tpl/namespaced/images/glyphs/".$key.".svg";
         } else {
             $namespaced['glyphs'][$key] = DOKU_INC.'lib/images/menu/00-default_checkbox-blank-circle-outline.svg';
         }
