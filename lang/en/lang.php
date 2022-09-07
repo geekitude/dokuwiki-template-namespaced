@@ -42,6 +42,7 @@ $lang['purgepagecache']         = 'Reload current page to cache';
 $lang['purgejscache']           = 'Purge JavaScript cache';
 $lang['purgecsscache']          = 'Purge CSS cache';
 $lang['subns']                  = 'Sub-namespace';
+$lang['palette']                = 'Palette';
 $lang['lasteditor']             = 'Last editor';
 $lang['pagepath']               = 'File path';
 $lang['license']                = 'License';

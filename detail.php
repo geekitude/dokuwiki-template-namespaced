@@ -188,68 +188,48 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                                 <?php tpl_flush() ?>
                                 <?php tpl_includeFile('pageheader.html') ?>
                                 <!-- <hr<?php //print $namespaced['a11y']['standalone'] ?> /> -->
-
-
-
-
-
-
-                            <!-- detail start -->
-                            <?php
-                            if($ERROR):
-                                echo '<h1>'.$ERROR.'</h1>';
-                            else: ?>
-                                <?php if($REV) echo p_locale_xhtml('showrev');?>
-
-                                <?php tpl_img(900,700); /* parameters: maximum width, maximum height (and more) */ ?>
-
-                                <div class="img_detail">
-                                    <?php tpl_img_meta(); ?>
-                                    <dl>
-                                        <?php
-                                            echo '<dt>'.$lang['reference'].':</dt>';
-                                            $media_usage = ft_mediause($IMG,true);
-                                            if(count($media_usage) > 0){
-                                                foreach($media_usage as $path){
-                                                    echo '<dd>'.html_wikilink($path).'</dd>';
-                                                }
-                                            }else{
-                                                echo '<dd>'.$lang['nothingfound'].'</dd>';
-                                            }
-                                        ?>
-                                    </dl>
-                                    <p><?php echo $lang['media_acl_warning']; ?></p>
-
-<?php
-print "<div>";
-echo "Palette: ";
-// sample usage: 
-$palette = namespaced_palette(DOKU_CONF.'../'.$conf['savedir'].'/media/'.str_replace(":", "/", $IMG), 5, 4); 
-echo "<table>\n"; 
-foreach($palette as $color) 
-{ 
-   echo "<tr><td style='background-color:#$color;width:2em;'>&nbsp;</td><td>#$color</td></tr>\n"; 
-} 
-echo "</table>\n";
-print "</div>";
-
-?>
-                                </div>
-                                <?php //Comment in for Debug// dbg(tpl_img_getTag('Simple.Raw'));?>
-                            <?php endif; ?>
-                        <!-- detail stop -->
-
-
-
-
-
-
-
-
-
-
-
-
+                                <!-- detail start -->
+                                <?php
+                                    if($ERROR):
+                                        echo "<h1>".$ERROR."</h1>";
+                                    else: ?>
+                                        <?php if($REV) echo p_locale_xhtml('showrev');?>
+                                        <?php tpl_img(900,700); /* parameters: maximum width, maximum height (and more) */ ?>
+                                        <div class="img_detail">
+                                            <?php tpl_img_meta(); ?>
+                                            <dl>
+                                                <?php
+                                                    echo "<dt>".$lang['reference'].":</dt>";
+                                                    echo "<dd class='grid'>";
+                                                        $media_usage = ft_mediause($IMG,true);
+                                                        if(count($media_usage) > 0){
+                                                            foreach($media_usage as $path){
+                                                                echo html_wikilink($path);
+                                                            }
+                                                        }else{
+                                                            echo $lang['nothingfound'];
+                                                        }
+                                                    echo "</dd>";
+                                                ?>
+                                            </dl>
+                                            <dl>
+                                                <?php
+                                                    echo "<dt>".tpl_getLang('palette')." :</dt>";
+                                                    $palette = namespaced_palette(DOKU_CONF."../".$conf['savedir']."/media/".str_replace(':', '/', $IMG), tpl_getConf('palettecolors'));
+                                                    echo "<dd class='table'>\n";
+                                                        echo "<div class='flex justify-evenly gap10'>\n";
+                                                            foreach ($palette as $color) {
+                                                                echo "<table class='palette'><tr><th style='background-color:#$color;'>&nbsp;</th><td>#$color</td></tr></table>";
+                                                            }
+                                                        echo "</div>\n";
+                                                    echo "</dd>\n";
+                                                ?>
+                                            </dl>
+                                            <p><?php echo $lang['media_acl_warning']; ?></p>
+                                        </div>
+                                        <?php //Comment in for Debug// dbg(tpl_img_getTag('Simple.Raw'));?>
+                                    <?php endif; ?>
+                                <!-- detail stop -->
 
                                 <!-- <hr<?php //print $namespaced['a11y']['standalone'] ?> /> -->
                                 <?php tpl_includeFile('pagefooter.html') ?>

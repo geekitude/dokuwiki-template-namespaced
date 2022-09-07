@@ -39,6 +39,7 @@ $meta['docinfopos']         = array('multichoice','_choices' => array('standalon
 $meta['searches']           = array('multicheckbox','_choices' => array('quicksearch','autocomplete'),'_other' => 'never');
 $meta['licensevisual']      = array('multichoice','_choices' => array('badge','button','none'));
 $meta['uiimagetarget']      = array('multichoice','_choices' => array('image-ns','current-ns','home','image-details','none'));
+$meta['palettecolors']      = array('numeric');
 
 /*file names*/
 $meta['banner']             = array('string');

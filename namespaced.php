@@ -820,12 +820,13 @@ function namespaced_ui_image($type) {
         }
         if ($title == null) { $title = $target; }
         if (($namespaced['images'][$type]['ns'] != null) and ($target != null)) {
-            if ($type != 'widebanner') {
-                $style = ' style="max-width:'.$namespaced['images'][$type]['size'][0].'px"';
-            }
+            //if ($type != 'widebanner') {
+            //    $style = ' style="max-width:'.$namespaced['images'][$type]['size'][0].'px"';
+            //}
             tpl_link(
                 $target,
-                '<img src="'.$namespaced['images'][$type]['src'].'" title="'.$title.'" class="'.$type.'" alt="*'.$type.'*" '.$namespaced['images'][$type]['size'][3].$style.'/>'
+                //'<img src="'.$namespaced['images'][$type]['src'].'" title="'.$title.'" class="'.$type.'" alt="*'.$type.'*" '.$namespaced['images'][$type]['size'][3].$style.'/>'
+                '<img src="'.$namespaced['images'][$type]['src'].'" title="'.$title.'" class="'.$type.'" alt="*'.$type.'*" '.$namespaced['images'][$type]['size'][3].'/>'
             );
         } else {
             print '<img src="'.$namespaced['images'][$type]['src'].'" class="'.$type.'" alt="*'.$title.'*" '.$namespaced['images'][$type]['size'][3].' class="mediacenter" />';
@@ -1206,47 +1207,38 @@ function namespaced_include($file, $widget = false) {
  * @param integer $granularity ?
  * @return array
  */
-function namespaced_palette($imageFile, $numColors, $granularity = 5) 
-{ 
-   $granularity = max(1, abs((int)$granularity)); 
-   $colors = array(); 
-   $size = @getimagesize($imageFile); 
-   if($size === false) 
-   { 
-      user_error("Unable to get image size data"); 
-      return false; 
-   } 
-   //$img = @imagecreatefromjpeg($imageFile);
-   $img = @imagecreatefromstring(file_get_contents($imageFile));
-   // Andres mentioned in the comments the above line only loads jpegs, 
-   // and suggests that to load any file type you can use this:
-   // $img = @imagecreatefromstring(file_get_contents($imageFile)); 
+function namespaced_palette($imageFile, $numColors, $granularity = 5) {
+    $granularity = max(1, abs((int)$granularity));
+    $colors = array();
+    $size = @getimagesize($imageFile);
+    if ($size === false) {
+        user_error("Unable to get image size data");
+        return false;
+    } 
+    //$img = @imagecreatefromjpeg($imageFile);
+    // Andres mentioned in the comments the above line only loads jpegs,
+    // and suggests that to load any file type you can use this:
+    $img = @imagecreatefromstring(file_get_contents($imageFile));
 
-   if(!$img) 
-   { 
-      user_error("Unable to open image file"); 
-      return false; 
-   } 
-   for($x = 0; $x < $size[0]; $x += $granularity) 
-   { 
-      for($y = 0; $y < $size[1]; $y += $granularity) 
-      { 
-         $thisColor = imagecolorat($img, $x, $y); 
-         $rgb = imagecolorsforindex($img, $thisColor); 
-         $red = round(round(($rgb['red'] / 0x33)) * 0x33); 
-         $green = round(round(($rgb['green'] / 0x33)) * 0x33); 
-         $blue = round(round(($rgb['blue'] / 0x33)) * 0x33); 
-         $thisRGB = sprintf('%02X%02X%02X', $red, $green, $blue); 
-         if(array_key_exists($thisRGB, $colors)) 
-         { 
-            $colors[$thisRGB]++; 
-         } 
-         else 
-         { 
-            $colors[$thisRGB] = 1; 
-         } 
-      } 
-   } 
-   arsort($colors); 
-   return array_slice(array_keys($colors), 0, $numColors); 
-} 
+    if (!$img) {
+        user_error("Unable to open image file");
+        return false;
+    }
+    for ($x = 0; $x < $size[0]; $x += $granularity) {
+        for ($y = 0; $y < $size[1]; $y += $granularity) {
+            $thisColor = imagecolorat($img, $x, $y);
+            $rgb = imagecolorsforindex($img, $thisColor);
+            $red = round(round(($rgb['red'] / 0x33)) * 0x33);
+            $green = round(round(($rgb['green'] / 0x33)) * 0x33);
+            $blue = round(round(($rgb['blue'] / 0x33)) * 0x33);
+            $thisRGB = sprintf('%02X%02X%02X', $red, $green, $blue);
+            if (array_key_exists($thisRGB, $colors)) {
+                $colors[$thisRGB]++;
+            } else {
+                $colors[$thisRGB] = 1;
+            }
+        }
+    }
+    arsort($colors);
+    return array_slice(array_keys($colors), 0, $numColors);
+}

@@ -39,6 +39,7 @@ $conf['docinfopos']         = 'pagenav';
 $conf['searches']           = 'quicksearch';
 $conf['licensevisual']      = 'badge';
 $conf['uiimagetarget']      = 'image-ns';
+$conf['palettecolors']      = 5;
 
 /* file names */
 $conf['banner']             = 'banner';

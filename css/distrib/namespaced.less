@@ -37,6 +37,7 @@
 * -- Admin page
 * -- Edit
 * -- Extensions
+* -- Media details
 * -- Settings
 * -- Users
 * PLUGINS
@@ -129,6 +130,14 @@ a:hover img {
 
 hr {
     width: 80%;
+}
+
+[dir] dl {
+    margin-bottom: 1rem;
+}
+
+dt {
+    font-weight: bold;
 }
 
 /*
@@ -1936,6 +1945,14 @@ nav.tools ul {
     margin-top: 1rem;
 }
 
+.grid {
+    display: grid;
+}
+
+.table {
+    display: table;
+}
+
 /* these values may need some adjustment */
 #namespaced__site_nav.sticky {
     top: -.01rem;
@@ -2231,13 +2248,13 @@ body.dynamic-tables #namespaced__site:not(.mode_admin) table {
     background-color: @ini_highlight;
 }
 
-body.dynamic-tables #namespaced__site:not(.mode_admin) td,
-body.dynamic-tables #namespaced__site:not(.mode_admin) th {
+body.dynamic-tables #namespaced__site:not(.mode_admin) table:not(.palette) td,
+body.dynamic-tables #namespaced__site:not(.mode_admin) table:not(.palette) th {
     position: relative;
 }
 
-body.dynamic-tables #namespaced__site:not(.mode_admin) td:hover::after,
-body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
+body.dynamic-tables #namespaced__site:not(.mode_admin) table:not(.palette) td:hover::after,
+body.dynamic-tables #namespaced__site:not(.mode_admin) table:not(.palette) th:hover::after {
     content: "";
     position: absolute;
     top: -5000px;
@@ -2246,15 +2263,15 @@ body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
     z-index: -1;
 }
 
-[dir] body.dynamic-tables #namespaced__site:not(.mode_admin) td:hover::after, [dir] body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
+[dir] body.dynamic-tables #namespaced__site:not(.mode_admin) table:not(.palette) td:hover::after, [dir] body.dynamic-tables #namespaced__site:not(.mode_admin) table:not(.palette) th:hover::after {
     background-color: @ini_highlight;
 }
 
-[dir=ltr] body.dynamic-tables #namespaced__site:not(.mode_admin) td:hover::after, [dir=ltr] body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
+[dir=ltr] body.dynamic-tables #namespaced__site:not(.mode_admin) table:not(.palette) td:hover::after, [dir=ltr] body.dynamic-tables #namespaced__site:not(.mode_admin) table:not(.palette) th:hover::after {
     left: 0;
 }
 
-[dir=rtl] body.dynamic-tables #namespaced__site:not(.mode_admin) td:hover::after, [dir=rtl] body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
+[dir=rtl] body.dynamic-tables #namespaced__site:not(.mode_admin) table:not(.palette) td:hover::after, [dir=rtl] body.dynamic-tables #namespaced__site:not(.mode_admin) table:not(.palette) th:hover::after {
     right: 0;
 }
 
@@ -2361,6 +2378,44 @@ label.block {
 
 [dir=rtl] .dokuwiki #extension__list .actions button:last-child {
     margin-left: 0;
+}
+
+/* -- Media details */
+
+[dir] div.img_detail {
+    margin-top : 1rem;
+}
+
+[dir=ltr] div.img_detail dl dt {
+    float: left;
+    text-align: right;
+    clear: left;
+}
+
+[dir=rtl] div.img_detail dl dt {
+  float: right;
+  text-align: left;
+  clear: right;
+}
+
+div.img_detail dt {
+  width: 9em;
+}
+
+[dir=ltr] div.img_detail dt {
+    margin-right: .5rem;
+}
+
+[dir=rtl] div.img_detail dt {
+  margin-left: .5rem;
+}
+
+[dir] div.img_detail dd.table div {
+    margin-top: -3px;
+}
+
+div.img_detail table.palette th {
+    width: 2rem;
 }
 
 /* -- Settings -- */

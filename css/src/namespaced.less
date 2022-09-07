@@ -37,6 +37,7 @@
 * -- Admin page
 * -- Edit
 * -- Extensions
+* -- Media details
 * -- Settings
 * -- Users
 * PLUGINS
@@ -127,6 +128,14 @@ a:hover img {
 
 hr {
     width: 80%;
+}
+
+dl {
+    margin-bottom: 1rem;
+}
+
+dt {
+    font-weight: bold;
 }
 
 /*
@@ -1586,6 +1595,14 @@ nav.tools ul {
     margin-top: 1rem;
 }
 
+.grid {
+    display: grid;
+}
+
+.table {
+    display: table;
+}
+
 /* these values may need some adjustment */
 #namespaced__site_nav.sticky {
     top: -.01rem;
@@ -1847,13 +1864,13 @@ body.dynamic-tables #namespaced__site:not(.mode_admin) tr:hover {
     background-color: @ini_highlight;
 }
 
-body.dynamic-tables #namespaced__site:not(.mode_admin) td,
-body.dynamic-tables #namespaced__site:not(.mode_admin) th {
+body.dynamic-tables #namespaced__site:not(.mode_admin) table:not(.palette) td,
+body.dynamic-tables #namespaced__site:not(.mode_admin) table:not(.palette) th {
     position: relative;
 }
 
-body.dynamic-tables #namespaced__site:not(.mode_admin) td:hover::after,
-body.dynamic-tables #namespaced__site:not(.mode_admin) th:hover::after {
+body.dynamic-tables #namespaced__site:not(.mode_admin) table:not(.palette) td:hover::after,
+body.dynamic-tables #namespaced__site:not(.mode_admin) table:not(.palette) th:hover::after {
     content: "";
     background-color: @ini_highlight;
     position: absolute;
@@ -1948,6 +1965,31 @@ label.block {
 
 .dokuwiki #extension__list .actions button:last-child {
     margin-right: 0;
+}
+
+/* -- Media details */
+
+div.img_detail {
+    margin-top : 1rem;
+}
+
+div.img_detail dl dt {
+  float: left;
+  text-align: right;
+  clear: left;
+}
+
+div.img_detail dt {
+  width: 9em;
+  margin-right: .5rem;
+}
+
+div.img_detail dd.table div {
+    margin-top: -3px;
+}
+
+div.img_detail table.palette th {
+    width: 2rem;
 }
 
 /* -- Settings -- */
