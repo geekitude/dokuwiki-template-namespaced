@@ -80,20 +80,18 @@ See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#setting
 * [x] Added contextual tools "facing" page tools (navigation, playground, syntax page, most usefull forms' buttons)
 * [x] `docInfo` can be combined in page header or shown as a standalone block below page
 * [x] Many settings to select color scheme used for page header, toc, side pane and footer
-* [ ] Expanded debug mode to force some UI elements regardless of settings: add `&debug=1` to URL to show all debug elements at once or `&debug=keyword` to show a specific element from following list of keywords (usefull to play around with template settings)
+* [ ] Expanded debug mode to force some UI elements regardless of settings: add `&debug=1` to URL to show all debug elements at once or `&debug=keyword` to show a specific element from following list of keywords
   * [x] *a11y* (visual accessibility helpers)
   * [x] *alerts*
   * [x] *banner*
   * [x] *cover*
   * [x] *images* (all UI images)
-  * [ ] *includes* (HTML include hooks)
+  * [x] *includes* (HTML include hooks)
   * [x] *mediaq* (add background color and text to mark CSS media queries)
-  * [ ] *pattern*
+  * [x] *pattern*
   * [ ] *replace* (HTML replace hooks)
   * [ ] *social* (load a dummy social networks list)
-  * [ ] *timers* (show alerts reporting time taken by a few functions, currently autotheme and colored breadcrumbs)
   * [x] *widebanner*
-  * [ ] *widgets* (show dummy widgets set by `debug/footer.widgets.local.conf` and `debug/side.widgets.local.conf` file)
 * [x] Force "Right to Left" or "Left to Right" mode by adding `&dir=rtl` or `&dir=ltr` to URL to show one ore the other (mostly no use outside of development)
 
 (*) to replace a glyph by another, simply put desired SVG file (4kb max) in `conf/glyphs` folder (you will most likely need to create it) and name it after the target social network or after one of the following elements : account-edit.svg, acl.svg, botton.svg, config.svg, editor.svg, extedit.svg, extentions.svg, github.svg, home.svg, info.svg, lastmod.svg, locked.svg, nshome.svg, pagepath.svg, pagerefresh.svg, parentns.svg, playground.svg, popularity.svg, preview.svg, recycle.svg, reset.svg, revert.svg, save.svg, search.svg, searchindex.svg, searchstats.svg, styling.svg, syntax.svg, translation.svg, upgrade.svg, usermanager.svg (collapse, ellipsis, expand, menu-down and menu-right are too specific and cannot be customized). Site, user and page tools glyphs can't be customized as they come from DokuWiki core code.
