@@ -54,11 +54,11 @@ It is based on Dokuwiki's default template.
 See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#settings) and [About](https://github.com/geekitude/dokuwiki-template-namespaced#about) sections below for details about these features.
 
 * [x] [Widgets](https://github.com/geekitude/dokuwiki-template-namespaced#widgets) areas to customize Namespaced elements (any side widget will force side panel even if there's no sidebar page available)
-* [x] Accessibility friendly pure CSS smooth scrolling (speed depends on visitor's browser settings and can even be disable if browser supports that feature)
-* [ ] Namespace dependent CSS for [x] colors and [ ] fonts (an automatic theme color is possible while quite experimental)
-* [x] Most used colors on media details page (usefull to choose colors for namespace CSS).
-* [x] Namespace dependent UI images ([x] cover, [x] banner, [x] widebanner and [x] background pattern)
+* [x] Accessibility-friendly pure CSS smooth scrolling (speed depends on visitor's browser settings and can even be disable if browser supports that feature)
 * [ ] Google Fonts : each of main text, headings, condensed text (mostly nav bar) and monospaced text (```code``` syntax) can use a different Google font (be warned that main text font should be kept very readable)
+* [x] Namespace dependent UI images ([x] cover, [x] banner, [x] widebanner and [x] background pattern)
+* [ ] Namespace dependent CSS for [x] colors and [ ] fonts
+* [x] Most used colors on media details page (usefull to choose colors for namespace CSS)
 * [ ] Wide banner slider with latest changes at wiki home?
 * [ ] Tested with most common plugins ([Blockquote](https://www.dokuwiki.org/plugin:blockquote), [Captcha](https://www.dokuwiki.org/plugin:captcha), [Discussion](https://www.dokuwiki.org/plugin:discussion), [Move](https://www.dokuwiki.org/plugin:move), [SearchIndex](https://www.dokuwiki.org/plugin:searchindex), [SiteMapNavi](https://www.dokuwiki.org/plugin:sitemapnavi), [Styling](https://www.dokuwiki.org/plugin:styling), [Tag](https://www.dokuwiki.org/plugin:tag), [TagAlerts](https://www.dokuwiki.org/plugin:tagalerts), [Translation](https://www.dokuwiki.org/plugin:translation), [Wrap](https://www.dokuwiki.org/plugin:wrap))
 * [ ] Dark color scheme guidelines
@@ -96,7 +96,7 @@ See [Settings](https://github.com/geekitude/dokuwiki-template-namespaced#setting
   * [ ] *widgets* (show dummy widgets set by `debug/footer.widgets.local.conf` and `debug/side.widgets.local.conf` file)
 * [x] Force "Right to Left" or "Left to Right" mode by adding `&dir=rtl` or `&dir=ltr` to URL to show one ore the other (mostly no use outside of development)
 
-(*) to replace a glyph by another, simply put desired SVG file (4kb max) in `conf/glyphs` folder (you will most likely need to create it) and name it after the target social network or after one of the following elements : acl.svg, config.svg, date.svg, discussion.svg, editor.svg, extentions.svg, externaleditor.svg, from-playground.svg, help.svg, hide.svg, home.svg, lastmod.svg, locked.svg, map.svg, namespace-start.svg, news.svg, pagepath.svg, parent-namespace.svg, playground.svg, popularity.svg, previous.svg, private-ns.svg, profile.svg, public-page.svg, recycle.svg, refresh.svg, revert.svg, save.svg, search.svg, show.svg, social.svg, styling.svg, translated.svg, translation.svg, upgrade.svg, usertools.svg, usermanager.svg (collapse, ellipsis, expand, menu-down and menu-right are too specific and cannot be customized). Site, user and page tools glyphs can't be customized as they come from DokuWiki core code.
+(*) to replace a glyph by another, simply put desired SVG file (4kb max) in `conf/glyphs` folder (you will most likely need to create it) and name it after the target social network or after one of the following elements : account-edit.svg, acl.svg, botton.svg, config.svg, editor.svg, extedit.svg, extentions.svg, github.svg, home.svg, info.svg, lastmod.svg, locked.svg, nshome.svg, pagepath.svg, pagerefresh.svg, parentns.svg, playground.svg, popularity.svg, preview.svg, recycle.svg, reset.svg, revert.svg, save.svg, search.svg, searchindex.svg, searchstats.svg, styling.svg, syntax.svg, translation.svg, upgrade.svg, usermanager.svg (collapse, ellipsis, expand, menu-down and menu-right are too specific and cannot be customized). Site, user and page tools glyphs can't be customized as they come from DokuWiki core code.
 
 :warning: POSSIBLE SVG NAMES LIST ABOVE NEEDS TO BE UPDATED :warning:
 

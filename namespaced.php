@@ -56,8 +56,8 @@ function namespaced_init() {
     $namespaced['glyphs']['bottom'] = null;
     $namespaced['glyphs']['config'] = null;
     $namespaced['glyphs']['editor'] = null;
-    $namespaced['glyphs']['extension'] = null;
     $namespaced['glyphs']['extedit'] = null;
+    $namespaced['glyphs']['extension'] = null;
     $namespaced['glyphs']['github'] = null;
     $namespaced['glyphs']['home'] = null;
     $namespaced['glyphs']['info'] = null;
