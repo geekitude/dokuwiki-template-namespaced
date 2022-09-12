@@ -133,3 +133,14 @@ jQuery('a[href*="#"]').click(function() {
 //jQuery(document).ready(function() {
 //    jQuery('#namespaced__updown .up').fadeIn(0);
 //});
+
+// MEDIA MANAGER FILE SELECTION WATCHER
+jQuery('#mediamanager__page div.filelist').on('DOMSubtreeModified', function(){
+    console.log('changed');
+        jQuery('#mediamanager__page div.filelist a.image').click(function() {
+            //console.log("scroll!");
+            jQuery("#mediamanager__page div.file").show();
+            jQuery("#mediamanager__page div.file").get(0).scrollIntoView();
+        }
+    );
+});

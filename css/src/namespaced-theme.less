@@ -22,6 +22,7 @@
 * GENERIC CLASSES
 * DOKUWIKI GLOBAL
 * DOKUWIKI MODES
+* -- Media manager
 * -- Settings
 * PLUGINS
 * -- Blockquote
@@ -504,6 +505,22 @@ body.striped-tables tr:nth-child(even) {
 
 div.img_detail table {
     border: 1px solid @ini_border;
+}
+
+/* -- Media manager -- */
+
+#mediamanager__page > div {
+    border: 1px solid @ini_border;
+}
+/*
+#mediamanager__page div.namespaces,
+#mediamanager__page div.filelist {
+    border: 1px solid @ini_border;
+}
+*/
+
+#mediamanager__page div.filelist ul.thumbs li {
+    background-color: @ini_background_neu;
 }
 
 /* -- Settings -- */

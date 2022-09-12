@@ -38,6 +38,7 @@
 * -- Edit
 * -- Extensions
 * -- Media details
+* -- Media manager
 * -- Settings
 * -- Users
 * PLUGINS
@@ -1853,6 +1854,9 @@ ul.tabs li.active:hover a {
 
 [dir] ul.tabs li a {
     border: none;
+}
+
+[dir] ul.tabs li a, [dir] ul.tabs li strong {
     margin: 1rem 1.5rem;
 }
 
@@ -2416,6 +2420,142 @@ div.img_detail dt {
 
 div.img_detail table.palette th {
     width: 2rem;
+}
+
+/* -- Media manager */
+
+#mediamanager__page {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: stretch;
+    align-content: flex-start;
+}
+
+#mediamanager__page button {
+    position: absolute;
+}
+
+#mediamanager__page h1 {
+    flex-basis: 100%;
+}
+
+[dir] #mediamanager__page div {
+    padding: 1rem;
+}
+
+/*#mediamanager__page div h2,
+#mediamanager__page div h3,
+*/
+#mediamanager__page div strong,
+#mediamanager__page div a {
+    font-size: 1.6rem;
+}
+
+#mediamanager__page div.namespaces {
+    flex-basis: 29.5%;
+    flex-grow: 0;
+}
+
+#mediamanager__page div.namespaces ul {
+    list-style: none;
+}
+
+[dir=ltr] #mediamanager__page div.namespaces ul {
+    margin-left: 1rem;
+}
+
+[dir=rtl] #mediamanager__page div.namespaces ul {
+    margin-right: 1rem;
+}
+
+[dir=ltr] #mediamanager__page div.namespaces #media__tree > ul {
+    margin-left: 0 !important;
+}
+
+[dir=rtl] #mediamanager__page div.namespaces #media__tree > ul {
+    margin-right: 0 !important;
+}
+
+#mediamanager__page div.namespaces ul li div.li {
+    display: inline;
+    position: absolute;
+}
+
+[dir] #mediamanager__page div.namespaces ul li div.li {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#mediamanager__page div.filelist {
+    flex-basis: 69.5%;
+    flex-grow: 0;
+}
+
+[dir] #mediamanager__page div.filelist div {
+    padding: .5rem 0;
+}
+
+[dir=ltr] #mediamanager__page div.filelist div h3 {
+    padding-left: 0;
+}
+
+[dir=rtl] #mediamanager__page div.filelist div h3 {
+    padding-right: 0;
+}
+
+[dir=ltr] #mediamanager__page div.filelist ul {
+    margin-left: 0;
+}
+
+[dir=rtl] #mediamanager__page div.filelist ul {
+    margin-right: 0;
+}
+
+#mediamanager__page div.filelist ul.thumbs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style: none;
+    gap: 2rem;
+}
+
+[dir] #mediamanager__page div.filelist ul.thumbs li {
+    padding: .5rem .2rem 0 .2rem;
+}
+
+#mediamanager__page div.filelist ul.thumbs li a {
+    display: inline-block;
+    width: 100%;
+}
+
+#mediamanager__page div.filelist ul.thumbs li a img {
+    display: block;
+}
+
+[dir] #mediamanager__page div.filelist ul.thumbs li a img {
+    margin: 0 auto;
+}
+
+/*
+html.js #mediamanager__page div.file {
+    display: none;
+}
+*/
+
+#mediamanager__page div.file {
+    flex-basis: 100%;
+}
+
+#mediamanager__page div.file h2 {
+    content: 'prefix';
+}
+
+#mediamanager__page div h3 strong {
+    font-size: inherit;
 }
 
 /* -- Settings -- */
