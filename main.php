@@ -222,6 +222,7 @@ $external = ($conf['target']['extern']) ? ' target="'.$conf['target']['extern'].
                             <?php if((count($namespaced['nsindex']['subns']) > 0) && (((tpl_getConf('subnsaltidx') == "home") && (in_array($namespaced['ishome'], array("default", "untranslated", "translated")))) || ((tpl_getConf('subnsaltidx') == "start") && (in_array($namespaced['ishome'], array("default", "untranslated", "translated", "ns")))) || (tpl_getConf('subnsaltidx') == "always"))): ?>
                                 <nav id="namespaced__subns_index" class="<?php print tpl_getConf("subnsaltidxstyle") ?><?php print (strpos(tpl_getConf('neutralize'), 'subnsaltidx') !== false) ? ' neu' : '' ?>">
                                     <?php print (tpl_getConf("subnsaltidxstyle") == "transparent") ? '<hr'.$namespaced['a11y']['standalone'].' />' : "" ?>
+                                    <h6<?php print $namespaced['a11y']['standalone'] ?>><?php echo tpl_getLang('ns_subns') ?></h6>
                                     <div class="flex justify-evenly align-center gap20">
                                         <?php
                                             foreach ($namespaced['nsindex']['subns'] as $key => $value) {
