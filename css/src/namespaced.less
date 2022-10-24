@@ -1102,6 +1102,7 @@ div.docInfo span:hover svg {
     width: (@ico-width + @ico-margin);
     /* Inner margin is replaced by page left and right padding used for section highlight*/
     height: auto;
+    z-index: 4;
 }
 
 #namespaced__contools ul,
@@ -1122,6 +1123,11 @@ div.docInfo span:hover svg {
 #namespaced__contools ul li,
 #namespaced__pagetools ul li {
     min-width: max-content;
+}
+
+#namespaced__contools ul li h6,
+#namespaced__pagetools ul li h6 {
+    height: 20px;
 }
 
 #namespaced__contools ul li a,
